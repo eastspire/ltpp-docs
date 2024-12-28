@@ -1,0 +1,18 @@
+image: ccr.ccs.tencentyun.com/linux_environment/debian:1.0.0
+
+variables:
+  LTPP: "LTPP"
+
+pages:
+  stage: deploy
+  environment: production
+  publish: docs
+  script:
+    - echo "The site will be deployed to $CI_PAGES_URL"     
+    - pnpm i
+    - pnpm run build
+  artifacts:
+    paths:
+      - docs
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

@@ -1,0 +1,15 @@
+// you can change colors here
+:root {
+  --content-width: max(61vw, 740px);
+  --home-page-width: max(78vw, 740px);
+}
+$theme-color: #096dd9;
+$sidebar-width: 16rem;
+$content-width: var(--content-width);
+$home-page-width: var(78vw);
+$navbar-height: 3.26rem;
+
+$font-family: 'Microsoft Yahei', 'SimSun',
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", STHeiti, "Microsoft YaHei", SimSun, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' !default;
+$font-family-heading: $font-family !default;
+$font-family-mono: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace' !default;

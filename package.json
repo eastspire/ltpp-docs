@@ -1,0 +1,28 @@
+{
+  "name": "ltpp-docs",
+  "version": "1.0.0",
+  "description": "ltpp-docs",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node plugin/creat-sidebar.js && vuepress-vite build src",
+    "clean-dev": "node plugin/creat-sidebar.js && vuepress-vite dev src --clean-cache",
+    "dev": "node plugin/creat-sidebar.js && vuepress-vite dev src",
+    "update-package": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
+    "vue": "^3.4.23",
+    "vuepress": "2.0.0-rc.9",
+    "vuepress-theme-hope": "2.0.0-rc.38"
+  },
+  "dependencies": {
+    "@vue/repl": "^4.1.2",
+    "@vuepress/plugin-search": "2.0.0-rc.26",
+    "artplayer": "^5.1.1",
+    "dashjs": "^4.7.4",
+    "hls.js": "^1.5.8",
+    "mpegts.js": "^1.7.3",
+    "vidstack": "^1.11.21"
+  }
+}
