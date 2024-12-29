@@ -39,6 +39,35 @@ cargo add hyperlane
 
 ```rust
 use hyperlane::*;
+fn println(data: &str) {
+    OutputListBuilder::new()
+        .add(
+            OutputBuilder::new()
+                .text(&get_current_date())
+                .blod(true)
+                .bg_color(ColorType::Use(Color::Yellow))
+                .color(ColorType::Rgb(255, 255, 255))
+                .build(),
+        )
+        .add(
+            OutputBuilder::new()
+                .text(COLON_SPACE_SYMBOL)
+                .blod(true)
+                .bg_color(ColorType::Use(Color::Magenta))
+                .color(ColorType::Rgb(255, 255, 255))
+                .build(),
+        )
+        .add(
+            OutputBuilder::new()
+                .text(data)
+                .blod(true)
+                .bg_color(ColorType::Use(Color::Green))
+                .color(ColorType::Rgb(255, 255, 255))
+                .endl(true)
+                .build(),
+        )
+        .run();
+}
 let mut server: Server = Server::new();
 server.host("0.0.0.0");
 server.port(80);
@@ -51,7 +80,7 @@ server.middleware(|controller_data| {
         .get_log()
         .log_debug(format!("Request => {:?}", request), |log_data| {
             let write_data: String = format!("{}\n", log_data);
-            println!("{}", write_data);
+            println(&write_data);
             write_data.clone()
         });
 });
@@ -60,7 +89,7 @@ server.router("/", |controller_data| {
         .get_log()
         .log_info("visit path /", |log_data| {
             let write_data: String = format!("{}\n", log_data);
-            println!("{}", write_data);
+            println(&write_data);
             write_data.clone()
         });
     let mut response: Response = controller_data.get_response().clone().unwrap();
@@ -75,7 +104,7 @@ server.router("/", |controller_data| {
         .get_log()
         .log_info(format!("Response => {:?}", res), |log_data| {
             let write_data: String = format!("{}\n", log_data);
-            println!("{}", write_data);
+            println(&write_data);
             write_data.clone()
         });
 });
@@ -84,7 +113,7 @@ server.router("/hello", |controller_data| {
         .get_log()
         .log_info("visit path /", |log_data| {
             let write_data: String = format!("{}\n", log_data);
-            println!("{}", write_data);
+            println(&write_data);
             write_data.clone()
         });
     let mut response: Response = controller_data.get_response().clone().unwrap();
@@ -99,9 +128,12 @@ server.router("/hello", |controller_data| {
         .get_log()
         .log_info(format!("Response => {:?}", res), |log_data| {
             let write_data: String = format!("{}\n", log_data);
-            println!("{}", write_data);
+            println(&write_data);
             write_data.clone()
         });
+});
+server.router("/panic", |_controller_data| {
+    panic!("panic");
 });
 server.listen();
 ```
