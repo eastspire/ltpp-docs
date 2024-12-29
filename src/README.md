@@ -161,4 +161,9 @@ features:
     details: hyperlane日志库
     icon: blog
     link: /hyperlane-log/
+
+  - title: hyperlane-time
+    details: hyperlane时间库
+    icon: blog
+    link: /hyperlane-time/
 ---
