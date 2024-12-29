@@ -23,6 +23,7 @@ dir:
 [![](https://github.com/ltpp-universe/http-type/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-type/actions?query=workflow:Rust)
 
 [官方文档](https://docs.ltpp.vip/HTTP-TYPE/)
+
 [API 文档](https://docs.rs/http-type/latest/http_type/)
 
 > 一个提供 HTTP 基本类型的库，包括请求体、响应头和其他核心 HTTP 抽象。
