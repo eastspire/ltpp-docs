@@ -43,7 +43,7 @@ fn println(data: &str) {
     OutputListBuilder::new()
         .add(
             OutputBuilder::new()
-                .text(&get_current_date())
+                .text(&current_time())
                 .blod(true)
                 .bg_color(ColorType::Use(Color::Yellow))
                 .color(ColorType::Rgb(255, 255, 255))
