@@ -11,6 +11,8 @@ export default sidebar({
     "http-response":'structure',
     "http-type":'structure',
     "hyperlane":'structure',
+    "hyperlane-log":'structure',
+    "hyperlane-time":'structure',
     "lombok-macros":'structure',
     "ltpp":'structure',
     "ltpp-code-run":'structure',
