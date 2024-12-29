@@ -153,7 +153,7 @@ features:
     link: /hyperlane/
 
   - title: lombok-macros
-    details: 属性宏生成get和set成员函数
+    details: lombok属性宏
     icon: blog
     link: /lombok-macros/
 

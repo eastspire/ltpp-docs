@@ -1,5 +1,5 @@
 ---
-title: 属性宏lombok-macros
+title: lombok属性宏
 index: true
 icon: book
 category:

@@ -1,5 +1,5 @@
 ---
-title: hyperlane-log
+title: hyperlane日志库
 index: true
 icon: book
 category:
