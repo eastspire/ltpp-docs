@@ -40,7 +40,7 @@ dir:
 ## 安装
 
 ```shell
-cargo add ltpp-output
+cargo add color-output
 ```
 
 ## 代码示例
