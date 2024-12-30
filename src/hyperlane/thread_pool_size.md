@@ -6,8 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 4
 ---
 
 ## 设置线程池大小

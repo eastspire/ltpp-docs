@@ -6,12 +6,10 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 9
 ---
 
 > [!tip]
-> hyperlane 日志使用 `hyperlane-log` 库
+> hyperlane 日志使用了 `hyperlane-log` 库
 > 使用参考 [官方文档](../hyperlane-log/README.md)
 
 ## 设置日志存储目录

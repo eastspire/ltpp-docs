@@ -6,8 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 1
 ---
 
 ## 创建 `Server`

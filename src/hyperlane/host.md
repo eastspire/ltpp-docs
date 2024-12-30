@@ -6,8 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 2
 ---
 
 ## 设置 `host`

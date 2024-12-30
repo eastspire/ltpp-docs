@@ -6,8 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 3
 ---
 
 ## 设置 `port`
