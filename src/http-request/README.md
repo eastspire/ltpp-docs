@@ -162,6 +162,10 @@ _request_builder
     .unwrap_or_else(|e| println!("Error => {}", e));
 ```
 
+## 帮助
+
+确保系统上已安装 CMake。
+
 ## 许可证
 
 该项目采用 MIT 许可证。有关详情，请查看 [license](license) 文件。
