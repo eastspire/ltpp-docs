@@ -67,31 +67,31 @@ let mut request: Request = controller_data.get_request().clone().unwrap();
 ### 修改 `method`
 
 ```rust
-request.set_method(Cow::Borrowed(GET));
+request.set_method(GET.to_owned());
 ```
 
 ### 修改 `host`
 
 ```rust
-request.set_host(Cow::Borrowed("localhost"));
+request.set_host("localhost".to_owned());
 ```
 
 ### 修改 `path`
 
 ```rust
-request.set_path(Cow::Borrowed("server"));
+request.set_path("server".to_owned());
 ```
 
 ### 修改 `query`
 
 ```rust
-request.set_query(Cow::Borrowed("server"));
+request.set_query("server".to_owned());
 ```
 
 ### 修改 `hash`
 
 ```rust
-request.set_hash(Cow::Borrowed("server"));
+request.set_hash("server".to_owned());
 ```
 
 ### 修改 `headers`

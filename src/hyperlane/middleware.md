@@ -45,7 +45,7 @@ pub type ControllerDataResponseOpt = Option<ControllerDataResponse>;
 
 #[derive(Debug, Clone, Lombok)]
 pub struct Log {
-    pub(super) path: &'static str,
+    pub(super) path: String,
     pub(super) file_size: usize,
 }
 
