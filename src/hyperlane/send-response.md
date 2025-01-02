@@ -12,7 +12,7 @@ category:
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut response: Response = controller_data.get_response().clone().unwrap();
+let mut response: Response = controller_data.get_response().clone();
 response.set_body(vec![]);
 ```
 
@@ -20,7 +20,7 @@ response.set_body(vec![]);
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut response: Response = controller_data.get_response().clone().unwrap();
+let mut response: Response = controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
 
@@ -28,7 +28,7 @@ response.set_header("server", "hyperlane");
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut response: Response = controller_data.get_response().clone().unwrap();
+let mut response: Response = controller_data.get_response().clone();
 response.set_status_code(200);
 ```
 
@@ -36,7 +36,7 @@ response.set_status_code(200);
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut response: Response = controller_data.get_response().clone().unwrap();-
+let mut response: Response = controller_data.get_response().clone();
 let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
 let res: ResponseResult = response.send(&stream);
 ```
@@ -46,7 +46,7 @@ let res: ResponseResult = response.send(&stream);
 ```rust
 // 省略 server 创建
 server.router("/", |controller_data| {
-    let mut response: Response = controller_data.get_response().clone().unwrap();
+    let mut response: Response = controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
     let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = response

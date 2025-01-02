@@ -12,7 +12,7 @@ category:
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let request: Request = controller_data.get_request().clone().unwrap();
+let request: Request = controller_data.get_request().clone();
 ```
 
 ### 获取 `method`
@@ -61,7 +61,7 @@ let body = request.get_body();
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut request: Request = controller_data.get_request().clone().unwrap();
+let mut request: Request = controller_data.get_request().clone();
 ```
 
 ### 修改 `method`
