@@ -14,7 +14,6 @@ category:
 ```rust
 pub type ControllerDataStream = Arc<TcpStream>;
 pub type ControllerDataStreamOpt = Option<ControllerDataStream>;
-pub type Request = Vec<u8>;
 
 #[derive(Clone, Debug, Lombok)]
 pub struct ControllerData {
