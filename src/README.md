@@ -166,6 +166,16 @@ features:
     details: hyperlane时间库
     icon: blog
     link: /hyperlane-time/
+
+  - title: tcplane
+    details: tcp后端框架（tcplane）
+    icon: blog
+    link: /tcplane/
+
+  - title: tcp-request
+    details: tcp请求库
+    icon: blog
+    link: /tcp-request/
 ---
 
 ## 赞赏
