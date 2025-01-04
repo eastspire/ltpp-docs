@@ -12,12 +12,9 @@ category:
 > ControllerData 作为中间件和路由处理函数的参数类型，具体类型定义如下
 
 ```rust
-pub type ControllerDataStream = Arc<TcpStream>;
-pub type ControllerDataStreamOpt = Option<ControllerDataStream>;
-
 #[derive(Clone, Debug, Lombok)]
 pub struct ControllerData {
-    pub(super) stream: ControllerDataStreamOpt,
+    pub(super) stream: OptionArcTcpStream,
     pub(super) request: Request,
     pub(super) response: Response,
     pub(super) log: Log,
