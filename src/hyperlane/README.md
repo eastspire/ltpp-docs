@@ -44,18 +44,11 @@ use hyperlane::*;
 fn println(data: &str) {
     let binding: String = current_time();
     let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-    let mut space_output_builder: OutputBuilder<'_> = OutputBuilder::new();
     let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
     let time_output: Output<'_> = time_output_builder
         .text(&binding)
         .blod(true)
         .bg_color(ColorType::Use(Color::Yellow))
-        .color(ColorType::Rgb(255, 255, 255))
-        .build();
-    let space_output: Output<'_> = space_output_builder
-        .text(COLON_SPACE_SYMBOL)
-        .blod(true)
-        .bg_color(ColorType::Use(Color::Magenta))
         .color(ColorType::Rgb(255, 255, 255))
         .build();
     let text_output: Output<'_> = text_output_builder
@@ -67,7 +60,6 @@ fn println(data: &str) {
         .build();
     OutputListBuilder::new()
         .add(time_output)
-        .add(space_output)
         .add(text_output)
         .run();
 }
@@ -117,7 +109,7 @@ fn run_server() {
 
     server.middleware(|controller_data| {
         let request: Request = controller_data.get_request().clone();
-        let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
+        let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
         let host: String = stream
             .peer_addr()
             .and_then(|host| Ok(host.to_string()))
@@ -137,7 +129,7 @@ fn run_server() {
             .log_info("visit path /", common_log);
         let mut response: Response = controller_data.get_response().clone();
         let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
-        let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
+        let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
         let res: ResponseResult = response
             .set_body(body)
             .set_status_code(404)
@@ -155,7 +147,7 @@ fn run_server() {
             .log_info("visit path /request", common_log);
         let mut response: Response = controller_data.get_response().clone();
         let body: Vec<u8> = send_request();
-        let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
+        let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
         let res: ResponseResult = response
             .set_body(body)
             .set_status_code(200)
@@ -174,7 +166,7 @@ fn run_server() {
             .log_info("visit path /hello", common_log);
         let mut response: Response = controller_data.get_response().clone();
         let body: Vec<u8> = "hello world!".as_bytes().to_vec();
-        let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
+        let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
         let res: ResponseResult = response
             .set_body(body)
             .set_status_code(200)
