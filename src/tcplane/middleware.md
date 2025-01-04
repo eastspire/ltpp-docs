@@ -8,11 +8,16 @@ category:
   - rust
 ---
 
+> [!tip]
+> controller_data 接口参考 [controller-data 文档](./controller-data.md)
+
 ## 设置中间件
 
 ```rust
 // 省略 server 创建
-server.middleware(|controller_data| {});
+server.middleware(|controller_data| {
+    // code
+});
 ```
 
 ## 设置多个中间件
