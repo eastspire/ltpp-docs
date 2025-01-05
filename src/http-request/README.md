@@ -69,7 +69,7 @@ let mut _request_builder = RequestBuilder::new()
     .http1_1_only()
     .buffer(4096)
     .decode()
-    .builder();
+    .build();
 _request_builder
     .send()
     .and_then(|response| {
@@ -99,7 +99,7 @@ let mut _request_builder = RequestBuilder::new()
     .max_redirect_times(8)
     .http1_1_only()
     .buffer(4096)
-    .builder();
+    .build();
 _request_builder
     .send()
     .and_then(|response| {
@@ -126,7 +126,7 @@ let mut _request_builder = RequestBuilder::new()
     .http1_1_only()
     .buffer(4096)
     .decode()
-    .builder();
+    .build();
 _request_builder
     .send()
     .and_then(|response| {
@@ -152,7 +152,7 @@ let mut _request_builder = RequestBuilder::new()
     .max_redirect_times(8)
     .http1_1_only()
     .buffer(4096)
-    .builder();
+    .build();
 _request_builder
     .send()
     .and_then(|response| {
