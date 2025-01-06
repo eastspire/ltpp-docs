@@ -19,6 +19,18 @@ category:
 - `file_path`: 文件存储路径
 - `content`: 存储的二进制内容
 
+### 返回值
+
+- `Result<(), std::io::Error>`
+
+### 函数签名
+
 ```rust
-fn write_to_file(file_path: &str, content: &[u8])
+fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), std::io::Error>
+```
+
+### 使用
+
+```rust
+let _ = write_to_file(文件路径, 二进制数据);
 ```
