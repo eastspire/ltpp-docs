@@ -8,6 +8,10 @@ category:
   - rust
 ---
 
+> [!tip]
+> 通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有东西
+> 当用户调用 `send` 方法时才会构建出完整 `http` 响应
+
 ## 设置响应体
 
 ```rust

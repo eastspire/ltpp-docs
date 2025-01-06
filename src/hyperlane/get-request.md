@@ -61,7 +61,7 @@ let body = request.get_body();
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut request: Request = controller_data.get_request().clone();
+let request: &mut Request = controller_data.get_mut_request();
 ```
 
 ### 修改 `method`
