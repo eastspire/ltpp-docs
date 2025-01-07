@@ -208,6 +208,13 @@ fn main() {
 }
 ```
 
+### 示例：使用 `join_paths!`
+
+```rust
+let combined_path: String = join_paths!("/home/", "/user/", "/documents", "file.txt");
+let another_path: String = join_paths!("C:/", "/Program Files", "App");
+```
+
 ## 可用的宏
 
 - `arc!`：创建一个 `Arc<T>`。
@@ -227,6 +234,7 @@ fn main() {
 - `cell!`：创建一个 `Cell<T>`。
 - `ref_cell!`：创建一个 `RefCell<T>`。
 - `vector_deque!`: Creates a `VecDeque<T>`。
+- `join_paths!`: 将多个路径组合成一个有效的路径，并处理重叠的斜杠。
 
 ## 许可证
 
