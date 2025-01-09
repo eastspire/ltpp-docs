@@ -36,13 +36,30 @@ dir:
 cargo add recoverable-spawn
 ```
 
-## 使用
+### recoverable_spawn
 
 ```rust
 use recoverable_spawn::*;
-let handle: JoinHandle<()> = recoverable_spawn(|| {
-    panic!("test");
+let msg: &str = "test";
+let handle: JoinHandle<()> = recoverable_spawn(move || {
+    panic!("{}", msg);
 });
+let _ = handle.join();
+```
+
+### recoverable_spawn_with_error_handle
+
+```rust
+use recoverable_spawn::*;
+let msg: &str = "test";
+let handle: JoinHandle<()> = recoverable_spawn_with_error_handle(
+    move || {
+        panic!("{}", msg);
+    },
+    |err| {
+        println!("handle error => {}", err);
+    },
+);
 let _ = handle.join();
 ```
 
