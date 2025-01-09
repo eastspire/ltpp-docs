@@ -176,6 +176,16 @@ features:
     details: tcp请求库
     icon: blog
     link: /tcp-request/
+
+  - title: file-operation
+    details: 文件操作库
+    icon: blog
+    link: /file-operation/
+
+  - title: recoverable-spawn
+    details: 可恢复线程
+    icon: blog
+    link: /recoverable-spawn/
 ---
 
 ## 赞赏
