@@ -52,6 +52,10 @@ let _ = handle.join();
 ```rust
 use recoverable_spawn::*;
 let msg: &str = "test";
+let handle: JoinHandle<()> = recoverable_spawn(move || {
+    panic!("{}", msg);
+});
+let _ = handle.join();
 let handle: JoinHandle<()> = recoverable_spawn_with_error_handle(
     move || {
         panic!("{}", msg);
