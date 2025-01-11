@@ -5,6 +5,7 @@ export default sidebar({
     "china-identification-card":'structure',
     "color-output":'structure',
     "compare-version":'structure',
+    "file-operation":'structure',
     "http-compress":'structure',
     "http-constant":'structure',
     "http-request":'structure',
@@ -30,5 +31,9 @@ export default sidebar({
     "ltpp-ssh":'structure',
     "ltpp-web-ide":'structure',
     "markdown-images":'structure',
+    "recoverable-spawn":'structure',
+    "recoverable-thread-pool":'structure',
     "std-macro-extensions":'structure',
+    "tcp-request":'structure',
+    "tcplane":'structure',
 });
