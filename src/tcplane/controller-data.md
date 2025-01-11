@@ -100,3 +100,5 @@ let log: &mut Log = controller_data.get_mut_log();
 ```rust
 controller_data.set_log(Log::default());
 ```
+
+<Bottom />

@@ -234,3 +234,5 @@ ColorType::Color256(0xffffff)
 ```rust
 ColorType::Rgb(255,255,255)
 ```
+
+<Bottom />

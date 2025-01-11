@@ -35,3 +35,5 @@ where
 ```rust
 let data: Result<String, Box<dyn std::error::Error>> = read_from_file::<String>("./test.txt");
 ```
+
+<Bottom />

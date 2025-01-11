@@ -91,3 +91,5 @@ repositories {
 > - 3、关闭 cmd 命令窗口，重新打开 cmd 窗口
 > - 4、先将原 cache 文件备份到任意文件夹下。去到 flutter\bin 目录，删除 cache 文件夹
 > - 5、在 cmd 命令窗口重新运行 flutter doctor,问题解决。
+
+<Bottom />

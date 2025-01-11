@@ -1,7 +1,6 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
-  "/": 'structure',
   "/bin-encrypt-decrypt": 'structure',
   "/china-identification-card": 'structure',
   "/color-output": 'structure',

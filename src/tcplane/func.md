@@ -30,3 +30,5 @@ server.func(|controller_data| {
     let _ = response.set_data("hello".into()).send(&stream);
 });
 ```
+
+<Bottom />

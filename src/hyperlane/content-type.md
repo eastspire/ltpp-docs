@@ -17,3 +17,5 @@ category:
 let extension_name: String = FileExtension::get_extension_name(path);
 let content_type: &str = FileExtension::parse(&extension_name).get_content_type();
 ```
+
+<Bottom />

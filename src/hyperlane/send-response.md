@@ -60,3 +60,5 @@ server.router("/", |controller_data| {
         .send(&stream);
 });
 ```
+
+<Bottom />

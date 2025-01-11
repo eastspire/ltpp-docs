@@ -46,3 +46,5 @@ Effective Date: Permanent
    If any provision of this agreement is deemed invalid or unenforceable, the remaining provisions shall remain in full force and effect.
 
 This agreement constitutes the entire agreement between the User and the Licensor regarding the software and supersedes all prior communications and agreements.
+
+<Bottom />

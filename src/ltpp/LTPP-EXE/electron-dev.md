@@ -84,3 +84,5 @@ webPreferences Object - 设置界面特性. 下面查看更多.
 --projectDir, --project 项目目录的路径。 默认为当前工作目录。
 --config, -c             配置文件路径，默认为`electron-builder.yml`（或`js`，或`js5`)
 ```
+
+<Bottom />

@@ -10,7 +10,7 @@ const js_export_head_str = 'export default sidebar({';
 const js_export_end_str = '});';
 const sidebar_mode = 'structure';
 const sidebar_file_path = path.join(current_dir, 'src/.vuepress/sidebar.js');
-const directories = [''];
+const directories = [];
 
 (() => {
   const src_dir = path.join(current_dir, find_dir_name);

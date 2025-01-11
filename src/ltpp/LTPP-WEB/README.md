@@ -18,3 +18,5 @@ dir:
 
 > [!tip]
 > WEB 基于 Vue2.js + VueX + EventBus + WebWorker + Echarts + ElementUI + Animate.css 完成开发
+
+<Bottom />

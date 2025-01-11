@@ -34,3 +34,5 @@ fn write_to_file(file_path: &str, content: &[u8]) -> Result<(), std::io::Error>
 ```rust
 let _ = write_to_file(文件路径, 二进制数据);
 ```
+
+<Bottom />

@@ -26,3 +26,5 @@ server.router("/", |_controller_data| {
 ```rust
 2025-01-04 11:26:29: test panic
 ```
+
+<Bottom />
