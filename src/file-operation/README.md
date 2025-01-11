@@ -19,9 +19,9 @@ dir:
 
 ## 文件操作
 
-[![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)  
-[![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)  
-[![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)  
+[![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)<br>
+[![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)<br>
+[![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/file-operation/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/file-operation/actions?query=workflow:Rust)
 
 [官方文档](https://docs.ltpp.vip/file-operation/)

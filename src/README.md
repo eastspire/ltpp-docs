@@ -186,6 +186,11 @@ features:
     details: 可恢复线程
     icon: blog
     link: /recoverable-spawn/
+
+  - title: recoverable-thread-pool
+    details: 可恢复线程池
+    icon: blog
+    link: /recoverable-thread-pool/
 ---
 
 ## 赞赏
