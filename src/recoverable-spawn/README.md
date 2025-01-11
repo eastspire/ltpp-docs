@@ -47,21 +47,37 @@ let handle: JoinHandle<()> = recoverable_spawn(move || {
 let _ = handle.join();
 ```
 
-### recoverable_spawn_with_error_handle
+### recoverable_spawn_catch
 
 ```rust
 use recoverable_spawn::*;
 let msg: &str = "test";
-let handle: JoinHandle<()> = recoverable_spawn(move || {
-    panic!("{}", msg);
-});
-let _ = handle.join();
-let handle: JoinHandle<()> = recoverable_spawn_with_error_handle(
+let handle: JoinHandle<()> = recoverable_spawn_catch(
     move || {
         panic!("{}", msg);
     },
     |err| {
         println!("handle error => {}", err);
+    },
+);
+let _ = handle.join();
+```
+
+### recoverable_spawn_catch_finally
+
+```rust
+use recoverable_spawn::*;
+let msg: &str = "test";
+let handle: JoinHandle<()> = recoverable_spawn_catch_finally(
+    move || {
+        panic!("{}", msg);
+    },
+    |err| {
+        println!("handle error => {}", err);
+        panic!("{}", err);
+    },
+    || {
+        println!("finally");
     },
 );
 let _ = handle.join();
