@@ -30,7 +30,6 @@ export default sidebar({
   "/ltpp-sqs-douyin-collection-download": 'structure',
   "/ltpp-ssh": 'structure',
   "/ltpp-web-ide": 'structure',
-  "/markdown-images": 'structure',
   "/recoverable-spawn": 'structure',
   "/recoverable-thread-pool": 'structure',
   "/std-macro-extensions": 'structure',
