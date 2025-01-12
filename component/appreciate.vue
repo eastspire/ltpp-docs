@@ -13,7 +13,7 @@
               <img
                 src="/img/wechat-pay.png"
                 alt=""
-                width="240"
+                width="200"
                 tabindex="0"
                 loading="lazy"
                 photo-swipe=""
@@ -28,7 +28,7 @@
               <img
                 src="/img/alipay-pay.jpg"
                 alt=""
-                width="240"
+                width="200"
                 tabindex="0"
                 loading="lazy"
                 photo-swipe=""
