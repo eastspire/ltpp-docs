@@ -1,11 +1,12 @@
 ---
-title: host
+title: 绑定host
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
+order: 2
 ---
 
 ## 设置 `host`

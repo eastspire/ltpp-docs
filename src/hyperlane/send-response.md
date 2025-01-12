@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+order: 10
 ---
 
 > [!tip]

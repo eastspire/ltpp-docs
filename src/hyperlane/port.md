@@ -1,11 +1,12 @@
 ---
-title: 设置端口
+title: 绑定端口
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
+order: 3
 ---
 
 ## 设置 `port`
