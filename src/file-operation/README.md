@@ -40,28 +40,205 @@ cargo add file-operation
 
 ## 使用
 
+### 写入文件
+
+**代码：**
+
 ```rust
-use file_operation::*;
-static FILE_DIR: &str = "./log";
-static NEW_FILE_DIR: &str = "./new_log";
-static NEW_TEST_DIR: &str = "./test_log";
-static FILE_PATH: &str = "./log/test.txt";
 let _ = write_to_file(FILE_PATH, "test".as_bytes());
-let res: Vec<u8> = read_from_file(FILE_PATH).unwrap_or_default();
-let size: Option<u64> = get_file_size(FILE_PATH);
-println!("read_from_file => {:?}", String::from_utf8_lossy(&res));
-println!("get_file_size => {:?}", size);
-let res: Result<(), std::io::Error> = copy_dir_files(FILE_DIR, NEW_FILE_DIR);
-println!("copy_dir_files => {:?}", res);
-let res: Result<(), std::io::Error> = delete_file(FILE_PATH);
-println!("delete_file => {:?}", res);
-let res: Result<(), std::io::Error> = move_dir(FILE_DIR, NEW_TEST_DIR);
-println!("move_dir => {:?}", res);
-let res: Result<(), std::io::Error> = delete_dir(NEW_TEST_DIR);
-println!("delete_dir => {:?}", res);
-let res: Result<(), std::io::Error> = delete_dir(NEW_FILE_DIR);
-println!("delete_dir => {:?}", res);
 ```
+
+**描述：**
+将给定的数据（`"test".as_bytes()`）写入指定路径的文件中。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 读取文件
+
+**代码：**
+
+```rust
+let res: Vec<u8> = read_from_file(FILE_PATH).unwrap_or_default();
+```
+
+**描述：**
+读取指定路径文件的内容。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Vec<u8>`，包含文件内容，如果读取失败则返回一个空的向量。
+
+### 获取文件大小
+
+**代码：**
+
+```rust
+let size: Option<u64> = get_file_size(FILE_PATH);
+```
+
+**描述：**
+获取指定路径文件的大小。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Option<u64>`，表示文件大小（字节数），如果文件不存在则返回 `None`。
+
+### 复制目录文件
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = copy_dir_files(FILE_DIR, NEW_FILE_DIR);
+```
+
+**描述：**
+将所有文件从 `FILE_DIR` 复制到 `NEW_FILE_DIR`。
+
+- `FILE_DIR` - 源目录路径。
+- `NEW_FILE_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 删除文件
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = delete_file(FILE_PATH);
+```
+
+**描述：**
+删除指定路径的文件。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 移动目录
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = move_dir(FILE_DIR, NEW_TEST_DIR);
+```
+
+**描述：**
+将 `FILE_DIR` 目录移动到 `NEW_TEST_DIR`。
+
+- `FILE_DIR` - 源目录路径。
+- `NEW_TEST_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 删除目录
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = delete_dir(NEW_TEST_DIR);
+```
+
+**描述：**
+删除指定路径的目录。
+
+- `NEW_TEST_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 异步写入文件
+
+**代码：**
+
+```rust
+let _ = async_write_to_file(FILE_PATH, "test".as_bytes()).await;
+```
+
+**描述：**
+异步地将给定的数据（`"test".as_bytes()`）写入指定路径的文件中。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 异步读取文件
+
+**代码：**
+
+```rust
+let res: Vec<u8> = async_read_from_file(FILE_PATH).await.unwrap_or_default();
+```
+
+**描述：**
+异步地读取指定路径文件的内容。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Vec<u8>`，包含文件内容，如果读取失败则返回一个空的向量。
+
+### 异步获取文件大小
+
+**代码：**
+
+```rust
+let size: Option<u64> = async_get_file_size(FILE_PATH).await;
+```
+
+**描述：**
+异步地获取指定路径文件的大小。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Option<u64>`，表示文件大小（字节数），如果文件不存在则返回 `None`。
+
+### 异步复制目录文件
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = async_copy_dir_files(FILE_DIR, NEW_FILE_DIR).await;
+```
+
+**描述：**
+异步地将所有文件从 `FILE_DIR` 复制到 `NEW_FILE_DIR`。
+
+- `FILE_DIR` - 源目录路径。
+- `NEW_FILE_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 异步删除文件
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = async_delete_file(FILE_PATH).await;
+```
+
+**描述：**
+异步地删除指定路径的文件。
+
+- `FILE_PATH` - 目标文件路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 异步移动目录
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = async_move_dir(FILE_DIR, NEW_TEST_DIR).await;
+```
+
+**描述：**
+异步地将 `FILE_DIR` 目录移动到 `NEW_TEST_DIR`。
+
+- `FILE_DIR` - 源目录路径。
+- `NEW_TEST_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
+
+### 异步删除目录
+
+**代码：**
+
+```rust
+let res: Result<(), std::io::Error> = async_delete_dir(NEW_TEST_DIR).await;
+```
+
+**描述：**
+异步地删除指定路径的目录。
+
+- `NEW_TEST_DIR` - 目标目录路径。
+- 返回值 - 一个 `Result`，表示操作成功或失败。
 
 ## 许可
 
