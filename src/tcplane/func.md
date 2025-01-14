@@ -15,7 +15,7 @@ category:
 
 ```rust
 // 省略 server 创建
-server.func(|controller_data| {
+server.func(|arc_lock_controller_data| {
     // code
 });
 ```
@@ -24,7 +24,8 @@ server.func(|controller_data| {
 
 ```rust
 // 省略 server 创建
-server.func(|controller_data| {
+server.func(|arc_lock_controller_data| {
+    let mut controller_data = arc_lock_controller_data.write().unwrap();
     let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
     let response: &mut Response = controller_data.get_mut_response();
     let _ = response.set_data("hello".into()).send(&stream);

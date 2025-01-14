@@ -11,6 +11,7 @@ category:
 ## 获取 `stream`
 
 ```rust
+let controller_data = arc_lock_controller_data.write().unwrap();
 let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
 ```
 

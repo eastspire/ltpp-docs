@@ -15,7 +15,7 @@ category:
 
 ```rust
 // 省略 server 创建
-server.middleware(|controller_data| {
+server.middleware(|arc_lock_controller_data| {
     // code
 });
 ```
@@ -24,16 +24,16 @@ server.middleware(|controller_data| {
 
 ```rust
 // 省略 server 创建
-server.middleware(|controller_data| {
+server.middleware(|arc_lock_controller_data| {
     // 1
 });
-server.middleware(|controller_data| {
+server.middleware(|arc_lock_controller_data| {
     // 2
 });
-server.middleware(|controller_data| {
+server.middleware(|arc_lock_controller_data| {
     // 3
 });
-server.middleware(|controller_data| {
+server.middleware(|arc_lock_controller_data| {
     // 4
 });
 ```
