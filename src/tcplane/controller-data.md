@@ -6,6 +6,7 @@ category:
   - tcplane
   - web
   - rust
+order: 7
 ---
 
 > [!tip]
@@ -23,25 +24,24 @@ pub struct ControllerData {
 
 ## 请求
 
-```rust
-let mut controller_data = arc_lock_controller_data.write().unwrap();
-```
-
 ### 获取请求信息
 
 ```rust
+let controller_data = arc_lock_controller_data.write().unwrap();
 let request: Request = controller_data.get_request().clone();
 ```
 
 ### 获取可变请求信息
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
 ### 设置请求信息
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 controller_data.set_request(Request::default());
 ```
 
@@ -50,18 +50,21 @@ controller_data.set_request(Request::default());
 ### 获取 `stream`
 
 ```rust
+let controller_data = arc_lock_controller_data.write().unwrap();
 let stream: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 ```
 
 ### 获取可变 `stream`
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 controller_data.get_mut_stream().and_then(|mut stream| {});
 ```
 
 ### 设置 `stream`
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 controller_data.set_stream(None);
 ```
 
@@ -70,18 +73,21 @@ controller_data.set_stream(None);
 ### 获取响应
 
 ```rust
+let controller_data = arc_lock_controller_data.write().unwrap();
 let response: Response = controller_data.get_response().clone();
 ```
 
 ### 获取可变响应
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
 ### 设置响应
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 controller_data.set_response(Response::default());
 ```
 
@@ -90,18 +96,21 @@ controller_data.set_response(Response::default());
 ### 获取日志
 
 ```rust
+let controller_data = arc_lock_controller_data.write().unwrap();
 let log: &Log = controller_data.get_log();
 ```
 
 ### 获取可变日志
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 let log: &mut Log = controller_data.get_mut_log();
 ```
 
 ### 设置日志
 
 ```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
 controller_data.set_log(Log::default());
 ```
 

@@ -3,20 +3,20 @@ title: 异步运行时
 index: true
 icon: book
 category:
-  - hyperlane
+  - tcplane
   - web
   - rust
 order: 21
 ---
 
 > [!tip]
-> hyperlane 框架在 `v3.0.0` 之前不对异步做任何处理，如果需要异步操作，可以引入第三方库
-> hyperlane 框架在 `v3.0.0` 之后内置异步机制，具体逻辑如下：
+> tcplane 框架在 `v1.42.0` 之前不对异步做任何处理，如果需要异步操作，可以引入第三方库
+> tcplane 框架在 `v1.42.0` 之后内置异步机制，具体逻辑如下：
 >
 > - 先处理所有的同步中间件
 > - 再处理所有的异步中间件，异步中间件执行能保证和代码注册顺序一致
-> - 再执行同步路由，如果同步路由存在则不会执行同名的异步路由
-> - 最后执行异步路由
+> - 再执行同步响应处理，如果同步路由存在则不会执行同名的异步路由
+> - 最后执行异步响应处理
 
 ## 框架本身异步使用
 
@@ -41,7 +41,7 @@ tokio = { version = "1.43.0", features = ["full"] }
 ### 示例代码
 
 ```rust
-use hyperlane::*;
+use tcplane::*;
 use runtime::Runtime;
 use tokio::*;
 

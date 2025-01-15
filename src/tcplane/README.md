@@ -114,7 +114,7 @@ fn run_server() {
         let res: ResponseResult = controller_data
             .get_response()
             .clone()
-            .data("hello world")
+            .set_data("hello world".into())
             .send(&stream);
         controller_data.get_log().log_debug(
             format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),
@@ -210,7 +210,7 @@ async fn run_server() {
         let res: ResponseResult = controller_data
             .get_response()
             .clone()
-            .data("hello world")
+            .set_data("hello world".into())
             .send(&stream);
         controller_data.get_log().log_debug(
             format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),

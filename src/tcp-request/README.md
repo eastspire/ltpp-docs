@@ -47,7 +47,7 @@ use tcp_request::*;
 let mut request_builder = RequestBuilder::new()
     .host("127.0.0.1")
     .port(80)
-    .data("tcp send")
+    .set_data("tcp send".into())
     .build();
 request_builder
     .send()
@@ -65,7 +65,7 @@ use tcp_request::*;
 let mut request_builder = RequestBuilder::new()
     .host("127.0.0.1")
     .port(80)
-    .data("tcp send".as_bytes())
+    .set_data("tcp send".into())
     .build();
 request_builder
     .send()
