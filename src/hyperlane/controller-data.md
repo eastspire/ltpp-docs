@@ -24,6 +24,10 @@ pub struct ControllerData {
 
 ## 请求
 
+```rust
+let mut controller_data = arc_lock_controller_data.write().unwrap();
+```
+
 ### 获取请求信息
 
 ```rust
