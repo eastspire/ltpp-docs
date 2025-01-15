@@ -128,6 +128,8 @@ fn run_server() {
 ### 异步
 
 ```rust
+use tcplane::*;
+
 fn println(data: &str) {
     let binding: String = current_time();
     let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();

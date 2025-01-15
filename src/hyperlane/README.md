@@ -38,7 +38,7 @@ cargo add hyperlane
 
 ## 使用示例
 
-### Sync
+### 同步
 
 ```rust
 use hyperlane::*;
@@ -197,9 +197,11 @@ fn main() {
 }
 ```
 
-### Async
+### 异步
 
 ```rust
+use hyperlane::*;
+
 fn println(data: &str) {
     let binding: String = current_time();
     let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();

@@ -198,3 +198,18 @@ h6 {
     font-size: 1.2rem !important;
   }
 }
+
+code,
+code * {
+  -webkit-touch-callout: unset !important;
+  /* iOS Safari */
+  -webkit-user-select: unset !important;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: unset !important;
+  /* Konqueror */
+  -moz-user-select: unset !important;
+  /* Firefox */
+  -ms-user-select: unset !important;
+  /* Internet Explorer/Edge */
+  user-select: text !important;
+}

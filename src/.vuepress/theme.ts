@@ -33,7 +33,7 @@ export default hopeTheme({
   editLink: false,
 
   copyright:
-    '<a target="_blank" class="ltpp-link animate" href="http://wpa.qq.com/msgrd?v=3&uin=1491579574&site=qq&menu=yes"> © 2021 - present LTPP版权所有</a>',
+    '<a target="_blank" class="ltpp-link animate" href="mailto:root@ltpp.vip">© 2021 - present ltpp-universe 版权所有</a>',
 
   // 多语言配置
   metaLocales: {
@@ -41,7 +41,7 @@ export default hopeTheme({
   },
 
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
-  hotReload: true,
+  hotReload: false,
 
   darkmode: 'toggle',
 
