@@ -191,6 +191,11 @@ features:
     details: 可恢复线程池
     icon: blog
     link: /recoverable-thread-pool/
+
+  - title: clonelicious
+    details: clonelicious
+    icon: blog
+    link: /clonelicious/
 ---
 
 <Bottom />

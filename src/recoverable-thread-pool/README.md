@@ -16,7 +16,6 @@ dir:
 
 <Share colorful />
 <Catalog />
-## recoverable-thread-pool
 
 [![](https://img.shields.io/crates/v/recoverable-thread-pool.svg)](https://crates.io/crates/recoverable-thread-pool)<br>
 [![](https://docs.rs/recoverable-thread-pool/badge.svg)](https://docs.rs/recoverable-thread-pool)<br>
