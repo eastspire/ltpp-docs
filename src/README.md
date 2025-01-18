@@ -193,9 +193,14 @@ features:
     link: /recoverable-thread-pool/
 
   - title: clonelicious
-    details: clonelicious
+    details: 克隆宏
     icon: blog
     link: /clonelicious/
+
+  - title: async-move
+    details: 异步闭包移动宏
+    icon: blog
+    link: /async-move/
 ---
 
 <Bottom />

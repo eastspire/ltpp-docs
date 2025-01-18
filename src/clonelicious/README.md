@@ -24,7 +24,7 @@ dir:
 
 [官方文档](https://docs.ltpp.vip/clonelicious/)
 
-[API 文档](https://docs.rs/clonelicious/latest/recoverable_thread_pool/)
+[API 文档](https://docs.rs/clonelicious/latest/clonelicious/)
 
 > clonelicious 是一个 Rust 宏库，简化了克隆和闭包执行。`clone!` 宏自动克隆变量并立即执行闭包，使用克隆的值，这简化了 Rust 编程中的常见模式。
 
