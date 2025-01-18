@@ -1,39 +1,39 @@
 ---
-title: async-move
+title: async-func
 index: true
 icon: book
 category:
-  - async-move
+  - async-func
   - spawn
   - rust
 dir:
   order: 36
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/async-move)
+[GITHUB 地址](https://github.com/ltpp-universe/async-func)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/async-move)
+[LTPP-GIT 地址](https://git.ltpp.vip/root/async-func)
 
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/async-move.svg)](https://crates.io/crates/async-move)<br>
-[![](https://docs.rs/async-move/badge.svg)](https://docs.rs/async-move)<br>
-[![](https://img.shields.io/crates/l/async-move.svg)](./LICENSE)<br>
-[![](https://github.com/ltpp-universe/async-move/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/async-move/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/v/async-func.svg)](https://crates.io/crates/async-func)<br>
+[![](https://docs.rs/async-func/badge.svg)](https://docs.rs/async-func)<br>
+[![](https://img.shields.io/crates/l/async-func.svg)](./LICENSE)<br>
+[![](https://github.com/ltpp-universe/async-func/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/async-func/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/async-move/)
+[官方文档](https://docs.ltpp.vip/async-func/)
 
-[API 文档](https://docs.rs/async-move/latest/async_move/)
+[API 文档](https://docs.rs/async-func/latest/async_move/)
 
 > 一个 Rust 库，提供宏来简化异步闭包的创建，并捕获外部状态。用于轻松清晰地构建异步代码。
 
 ## 安装
 
-要安装 `async-move`，请运行以下命令：
+要安装 `async-func`，请运行以下命令：
 
 ```sh
-cargo add async-move
+cargo add async-func
 ```
 
 ## 使用

@@ -197,10 +197,10 @@ features:
     icon: blog
     link: /clonelicious/
 
-  - title: async-move
+  - title: async-func
     details: 异步闭包移动宏
     icon: blog
-    link: /async-move/
+    link: /async-func/
 ---
 
 <Bottom />
