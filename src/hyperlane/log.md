@@ -10,7 +10,7 @@ order: 12
 ---
 
 > [!tip]
-> hyperlane 日志使用了 `hyperlane-log` 库
+> hyperlane 日志使用了 `hyperlane-log` 库，框架已默认导入，无需额外安装和导入
 > 使用参考 [官方文档](../hyperlane-log/README.md)
 
 ## 设置日志存储目录
