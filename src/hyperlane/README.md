@@ -133,9 +133,7 @@ async fn test_async_middleware(arc_lock_controller_data: ArcRwLockControllerData
 
 fn sync_root_router(arc_lock_controller_data: ArcRwLockControllerData) {
     let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
-    controller_data
-        .get_log()
-        .info("visit path /", common_log);
+    controller_data.get_log().info("visit path /", common_log);
     let mut response: Response = controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
@@ -195,9 +193,7 @@ fn sync_panic_route(_controller_data: ArcRwLock<ControllerData>) {
 
 async fn async_test_async_router(arc_lock_controller_data: ArcRwLockControllerData) {
     let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
-    controller_data
-        .get_log()
-        .info("visit path /", common_log);
+    controller_data.get_log().info("visit path /", common_log);
     let mut response: Response = controller_data.get_response().clone();
     let body: Vec<u8> = "Async".as_bytes().to_vec();
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
@@ -227,6 +223,16 @@ async fn run_server() {
     server.router("/panic", sync_panic_route);
     server
         .async_router("/test/async", async_test_async_router)
+        .await;
+    let test_string: String = String::from("test");
+    server
+        .async_router(
+            "/test/async_func",
+            async_func!(test_string, |data| {
+                println(&test_string);
+                println(&format!("{:?}", data));
+            }),
+        )
         .await;
     server.listen();
 }
