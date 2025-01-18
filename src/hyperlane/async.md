@@ -90,4 +90,18 @@ async fn main() {
 }
 ```
 
+## 异步闭包捕获外部变量
+
+```rust
+let a: HashSet<String> = hash_set!("test".to_owned());
+server
+    .async_router("/test/async", move |_| {
+        let value = a.clone();
+        async move {
+            println!("{:?}", value);
+        }
+    })
+    .await;
+```
+
 <Bottom />
