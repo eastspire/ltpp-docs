@@ -92,16 +92,29 @@ async fn main() {
 
 ## 异步闭包捕获外部变量
 
+### 使用 async move
+
 ```rust
-let a: HashSet<String> = hash_set!("test".to_owned());
+let test_string: String = "test".to_owned();
 server
     .async_router("/test/async", move |_| {
-        let value = a.clone();
+        let tmp_test_string = test_string.clone();
         async move {
-            println!("{:?}", value);
+            println!("{:?}", tmp_test_string);
         }
     })
     .await;
+```
+
+### 使用 async_func!
+
+```rust
+let test_string: String = "test".to_owned();
+let func = async_func!(test_string, |data| {
+    println!("async_move => {:?}", test_string);
+    println!("{:?}", data);
+});
+server.async_router("/test/async", func).await;
 ```
 
 <Bottom />
