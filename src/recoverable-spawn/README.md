@@ -101,12 +101,12 @@ let handle: JoinHandle<()> = async_recoverable_spawn_catch(
 let _ = handle.join();
 ```
 
-### test_async_recoverable_spawn_catch_finally
+### async_recoverable_spawn_catch_finally
 
 ```rust
 use recoverable_spawn::*;
 let msg: &str = "test";
-let handle: JoinHandle<()> = test_async_recoverable_spawn_catch_finally(
+let handle: JoinHandle<()> = async_recoverable_spawn_catch_finally(
     move || async move {
         panic!("{}", msg);
     },
