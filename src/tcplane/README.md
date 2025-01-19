@@ -143,6 +143,7 @@ async fn run_server() {
     server.log_dir("./logs");
     server.log_size(1_024_000);
     server.buffer(1_024_000);
+    server.log_interval_millis(1000);
     server.middleware(sync_middleware);
     server.async_middleware(async_middleware).await;
     server.func(sync_func);
