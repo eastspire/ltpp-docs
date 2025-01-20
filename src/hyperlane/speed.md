@@ -9,7 +9,7 @@ category:
 order: 22
 ---
 
-## 测试结果
+## 响应速度测试结果
 
 > 服务端（本地） 8 线程，客户端（本地）请求 1w 次
 
@@ -108,4 +108,339 @@ fn main() {
     http_request();
     hyper();
 }
+```
+
+## QPS 测试结果
+
+> 1000 并发，一共 100w 请求。QPS 结果如下：
+>
+> - 1.Tokio TCP：49932.79
+> - 2.Rocket 框架：43373.54
+> - 3.标准库 TCP：40615.65
+> - 4.Apache：18042.94
+
+### 标准库 TCP
+
+**开启 keep-alive 测试结果**
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            9000
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   24.621 seconds
+Complete requests:      1000000
+Failed requests:        309
+   (Connect: 0, Receive: 103, Length: 103, Exceptions: 103)
+Total transferred:      87990936 bytes
+HTML transferred:       4999485 bytes
+Requests per second:    40615.65 [#/sec] (mean)
+Time per request:       24.621 [ms] (mean)
+Time per request:       0.025 [ms] (mean, across all concurrent requests)
+Transfer rate:          3490.05 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   20 225.1      0   15675
+Processing:     0    2   1.2      2      20
+Waiting:        0    2   1.2      2      20
+Total:          0   22 225.6      2   15677
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      3
+  75%      3
+  80%      3
+  90%      5
+  95%      7
+  98%      9
+  99%   1038
+ 100%  15677 (longest request)
+```
+
+```rust
+use std::io::{self, Read, Write};
+use std::net::{TcpListener, TcpStream};
+
+static RESPONSE: &[u8] = &[
+    72, 84, 84, 80, 47, 49, 46, 49, 32, 50, 48, 48, 32, 79, 75, 13, 10, 67, 111, 110, 116, 101,
+    110, 116, 45, 84, 121, 112, 101, 58, 32, 116, 101, 120, 116, 47, 112, 108, 97, 105, 110, 13,
+    10, 67, 111, 110, 116, 101, 110, 116, 45, 76, 101, 110, 103, 116, 104, 58, 32, 53, 13, 10, 67,
+    111, 110, 110, 101, 99, 116, 105, 111, 110, 58, 32, 99, 108, 111, 115, 101, 13, 10, 13, 10,
+    104, 101, 108, 108, 111,
+];
+
+fn handle_client(mut stream: TcpStream) {
+    let mut buffer: [u8; 512] = [0; 512];
+    let mut request: Vec<u8> = Vec::new();
+    loop {
+        let n = match stream.read(&mut buffer) {
+            Ok(0) => {
+                break;
+            }
+            Ok(n) => n,
+            Err(e) => {
+                eprintln!("Error reading from stream: {}", e);
+                break;
+            }
+        };
+        request.extend_from_slice(&buffer[..n]);
+        if let Some(pos) = find_http_end(&request) {
+            if let Err(e) = stream.write_all(RESPONSE) {
+                eprintln!("Error writing response to stream: {}", e);
+                break;
+            }
+            request.drain(..pos + 4);
+        }
+        if request.is_empty() {
+            break;
+        }
+    }
+}
+
+fn find_http_end(request: &[u8]) -> Option<usize> {
+    for i in 0..request.len() - 3 {
+        if &request[i..i + 4] == b"\r\n\r\n" {
+            return Some(i);
+        }
+    }
+    None
+}
+
+fn main() -> io::Result<()> {
+    let listener: TcpListener = TcpListener::bind("0.0.0.0:9000")?;
+    println!("Server is listening on port 9000");
+    for stream in listener.incoming() {
+        match stream {
+            Ok(stream) => {
+                handle_client(stream);
+            }
+            Err(e) => {
+                eprintln!("Failed to accept connection: {}", e);
+            }
+        }
+    }
+    Ok(())
+}
+```
+
+### Tokio TCP
+
+**开启 keep-alive 测试结果**
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            10000
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   20.027 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      88000000 bytes
+HTML transferred:       5000000 bytes
+Requests per second:    49932.79 [#/sec] (mean)
+Time per request:       20.027 [ms] (mean)
+Time per request:       0.020 [ms] (mean, across all concurrent requests)
+Transfer rate:          4291.10 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   16 176.9      1    7203
+Processing:     0    3   3.6      2      46
+Waiting:        0    3   3.5      2      46
+Total:          0   19 177.2      3    7218
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      4
+  80%      4
+  90%      5
+  95%     12
+  98%     24
+  99%   1026
+ 100%   7218 (longest request)
+```
+
+```rust
+use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
+use tokio::net::{TcpListener, TcpStream};
+
+static RESPONSE: &[u8] = &[
+    72, 84, 84, 80, 47, 49, 46, 49, 32, 50, 48, 48, 32, 79, 75, 13, 10, 67, 111, 110, 116, 101,
+    110, 116, 45, 84, 121, 112, 101, 58, 32, 116, 101, 120, 116, 47, 112, 108, 97, 105, 110, 13,
+    10, 67, 111, 110, 116, 101, 110, 116, 45, 76, 101, 110, 103, 116, 104, 58, 32, 53, 13, 10, 67,
+    111, 110, 110, 101, 99, 116, 105, 111, 110, 58, 32, 99, 108, 111, 115, 101, 13, 10, 13, 10,
+    104, 101, 108, 108, 111,
+];
+
+async fn handle_client(mut stream: TcpStream) {
+    let mut buffer: [u8; 512] = [0; 512];
+    let mut request: Vec<u8> = Vec::new();
+    loop {
+        let n: usize = match stream.read(&mut buffer).await {
+            Ok(0) => {
+                break;
+            }
+            Ok(n) => n,
+            Err(e) => {
+                eprintln!("Error reading from stream: {}", e);
+                break;
+            }
+        };
+        request.extend_from_slice(&buffer[..n]);
+        if let Some(pos) = find_http_end(&request) {
+            if let Err(e) = stream.write_all(RESPONSE).await {
+                eprintln!("Error writing response to stream: {}", e);
+                break;
+            }
+            request.drain(..pos + 4);
+        }
+        if request.is_empty() {
+            break;
+        }
+    }
+}
+
+fn find_http_end(request: &[u8]) -> Option<usize> {
+    for i in 0..request.len() - 3 {
+        if &request[i..i + 4] == b"\r\n\r\n" {
+            return Some(i);
+        }
+    }
+    None
+}
+
+#[tokio::main]
+async fn main() -> io::Result<()> {
+    let listener: TcpListener = TcpListener::bind("0.0.0.0:10000").await?;
+    println!("Server is listening on port 10000");
+    loop {
+        match listener.accept().await {
+            Ok((stream, _)) => {
+                tokio::spawn(async move {
+                    handle_client(stream).await;
+                });
+            }
+            Err(e) => {
+                eprintln!("Failed to accept connection: {}", e);
+            }
+        }
+    }
+}
+```
+
+### Rocket 框架
+
+**开启 keep-alive 测试结果**
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            8000
+
+Document Path:          /
+Document Length:        13 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   23.056 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      247000000 bytes
+HTML transferred:       13000000 bytes
+Requests per second:    43373.54 [#/sec] (mean)
+Time per request:       23.056 [ms] (mean)
+Time per request:       0.023 [ms] (mean, across all concurrent requests)
+Transfer rate:          10462.17 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   19 238.3      1   15595
+Processing:     0    3   3.9      3      58
+Waiting:        0    3   3.9      3      58
+Total:          0   23 238.6      3   15601
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      4
+  75%      4
+  80%      4
+  90%      6
+  95%     14
+  98%     26
+  99%   1036
+ 100%  15601 (longest request)
+```
+
+```rust
+#[macro_use]
+extern crate rocket;
+
+static RESPONSE: [u8; 13] = [72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33];
+
+#[get("/")]
+async fn index() -> &'static [u8] {
+    &RESPONSE
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/", routes![index])
+        .configure(rocket::Config {
+            log_level: rocket::config::LogLevel::Off,
+            workers: 1,
+            max_blocking: 1,
+            keep_alive: 0,
+            ..Default::default()
+        })
+}
+```
+
+### Apache
+
+**开启 keep-alive 测试结果**
+
+```sh
+Server Software:        Apache/2.4.41
+Server Hostname:        127.0.0.1
+Server Port:            80
+
+Document Path:          /
+Document Length:        10918 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   55.423 seconds
+Complete requests:      1000000
+Failed requests:        8
+   (Connect: 0, Receive: 0, Length: 8, Exceptions: 0)
+Total transferred:      11191910464 bytes
+HTML transferred:       10917912656 bytes
+Requests per second:    18042.94 [#/sec] (mean)
+Time per request:       55.423 [ms] (mean)
+Time per request:       0.055 [ms] (mean, across all concurrent requests)
+Transfer rate:          197202.16 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    5  57.2      2    3171
+Processing:     6   24 421.0     17   55411
+Waiting:        0   23 394.1     16   55411
+Total:          9   30 425.0     19   55417
+
+Percentage of the requests served within a certain time (ms)
+  50%     19
+  66%     21
+  75%     21
+  80%     22
+  90%     24
+  95%     25
+  98%     28
+  99%     32
+ 100%  55417 (longest request)
 ```
