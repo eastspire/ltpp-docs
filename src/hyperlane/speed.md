@@ -115,9 +115,82 @@ fn main() {
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
 > - 1.Tokio TCP：49932.79
+> - 2.Hyperlane 框架：45569.14
 > - 2.Rocket 框架：43373.54
 > - 3.标准库 TCP：40615.65
 > - 4.Apache：18042.94
+
+### hyperlane 框架
+
+**未开启 keep-alive 测试结果**
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            60000
+
+Document Path:          /
+Document Length:        25 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   21.945 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      144000000 bytes
+HTML transferred:       25000000 bytes
+Requests per second:    45569.14 [#/sec] (mean)
+Time per request:       21.945 [ms] (mean)
+Time per request:       0.022 [ms] (mean, across all concurrent requests)
+Transfer rate:          6408.16 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   18 204.0      1   15422
+Processing:     0    3   4.5      2     140
+Waiting:        0    2   4.4      1     139
+Total:          0   20 204.3      2   15423
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      3
+  75%      4
+  80%      4
+  90%      6
+  95%     13
+  98%     25
+  99%   1022
+ 100%  15423 (longest request)
+```
+
+```rust
+use hyperlane::*;
+
+fn test_sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
+    let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
+    let mut response: Response = controller_data.get_response().clone();
+    let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
+    response
+        .set_body("hello".into())
+        .set_status_code(200)
+        .set_header(CONTENT_TYPE, APPLICATION_JSON)
+        .set_header(CONTENT_ENCODING, CONTENT_ENCODING_GZIP)
+        .send(&stream)
+        .unwrap();
+}
+
+async fn run_server() {
+    let mut server: Server = Server::new();
+    server.host("0.0.0.0");
+    server.port(60000);
+    server.log_dir("./logs");
+    server.middleware(test_sync_middleware);
+    server.listen();
+}
+
+#[tokio::main]
+async fn main() {
+    run_server().await;
+}
+```
 
 ### 标准库 TCP
 

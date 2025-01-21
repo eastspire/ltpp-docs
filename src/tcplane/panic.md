@@ -3,7 +3,7 @@ title: panic
 index: true
 icon: book
 category:
-  - hyperlane
+  - tcplane
   - web
   - rust
 ---

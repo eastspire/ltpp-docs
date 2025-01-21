@@ -11,9 +11,12 @@ order: 4
 
 ## 设置线程池大小
 
+> [!tip]
+> tcplane 使用 tokio 的线程池，所以可以参考 tokio 进行配置
+
 ```rust
-// 省略 server 创建
-server.thread_pool_size(10);
+#[tokio::main(worker_threads = 4)]
+async fn main() {}
 ```
 
 <Bottom />
