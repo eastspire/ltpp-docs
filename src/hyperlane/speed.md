@@ -116,9 +116,12 @@ fn main() {
 >
 > - 1.Tokio TCP：49932.79
 > - 2.Hyperlane 框架：45569.14
-> - 2.Rocket 框架：43373.54
-> - 3.标准库 TCP：40615.65
-> - 4.Apache：18042.94
+> - 3.Rocket 框架：43373.54
+> - 4.Rust 标准库：40615.65
+> - 5.Go 标准库：23476.99
+> - 6.Gin 框架：22663.06
+> - 7.Node 标准库：19746.54
+> - 8.Apache：18042.94
 
 ### hyperlane 框架
 
@@ -192,7 +195,7 @@ async fn main() {
 }
 ```
 
-### 标准库 TCP
+### Rust 标准库
 
 **开启 keep-alive 测试结果**
 
@@ -300,7 +303,7 @@ fn main() -> io::Result<()> {
 }
 ```
 
-### Tokio TCP
+### Tokio 框架
 
 **开启 keep-alive 测试结果**
 
@@ -611,40 +614,6 @@ Percentage of the requests served within a certain time (ms)
   95%     11
   98%   1039
   99%   1048
- 100%  15846 (longest request)Server Hostname:        127.0.0.1
-Server Port:            8080
-
-Document Path:          /
-Document Length:        13 bytes
-
-Concurrency Level:      1000
-Time taken for tests:   42.595 seconds
-Complete requests:      1000000
-Failed requests:        3
-   (Connect: 0, Receive: 1, Length: 1, Exceptions: 1)
-Total transferred:      130000000 bytes
-HTML transferred:       13000000 bytes
-Requests per second:    23476.99 [#/sec] (mean)
-Time per request:       42.595 [ms] (mean)
-Time per request:       0.043 [ms] (mean, across all concurrent requests)
-Transfer rate:          2980.48 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        0   34 312.9      0   15839
-Processing:     0    7   2.9      7      48
-Waiting:        0    7   2.9      7      48
-Total:          0   41 313.4      7   15846
-
-Percentage of the requests served within a certain time (ms)
-  50%      7
-  66%      7
-  75%      7
-  80%      8
-  90%      8
-  95%     11
-  98%   1039
-  99%   1048
  100%  15846 (longest request)
 ```
 
@@ -667,4 +636,58 @@ func main() {
 		fmt.Println("Error starting server:", err)
 	}
 }
+```
+
+## Node 标准库
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            8000
+
+Document Path:          /
+Document Length:        13 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   50.642 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      114000000 bytes
+HTML transferred:       13000000 bytes
+Requests per second:    19746.54 [#/sec] (mean)
+Time per request:       50.642 [ms] (mean)
+Time per request:       0.051 [ms] (mean, across all concurrent requests)
+Transfer rate:          2198.35 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   38 400.5      0   32236
+Processing:     2   11   1.7     11      45
+Waiting:        1   10   1.7     10      44
+Total:          3   49 401.0     11   32249
+
+Percentage of the requests served within a certain time (ms)
+  50%     11
+  66%     11
+  75%     11
+  80%     11
+  90%     12
+  95%     13
+  98%   1043
+  99%   1052
+ 100%  32249 (longest request)
+```
+
+```js
+const http = require('http');
+
+const requestHandler = (_req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello, World!');
+};
+const server = http.createServer(requestHandler);
+server.keepAliveTimeout = 60000;
+server.headersTimeout = 65000;
+server.listen(8000, '0.0.0.0', () => {
+  console.log('Server is running on http://localhost:8000');
+});
 ```
