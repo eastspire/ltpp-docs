@@ -480,7 +480,6 @@ fn rocket() -> _ {
 **开启 keep-alive 测试结果**
 
 ```sh
-Server Software:        Apache/2.4.41
 Server Hostname:        127.0.0.1
 Server Port:            80
 
@@ -516,4 +515,61 @@ Percentage of the requests served within a certain time (ms)
   98%     28
   99%     32
  100%  55417 (longest request)
+```
+
+### Gin 框架
+
+**开启 keep-alive 测试结果**
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            8080
+
+Document Path:          /
+Document Length:        5 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   44.125 seconds
+Complete requests:      1000000
+Failed requests:        0
+Total transferred:      121000000 bytes
+HTML transferred:       5000000 bytes
+Requests per second:    22663.06 [#/sec] (mean)
+Time per request:       44.125 [ms] (mean)
+Time per request:       0.044 [ms] (mean, across all concurrent requests)
+Transfer rate:          2677.96 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   36 404.6      0   32244
+Processing:     0    7   3.1      7      48
+Waiting:        0    7   3.1      7      48
+Total:          0   43 404.9      7   32254
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      7
+  75%      8
+  80%      8
+  90%      8
+  95%     12
+  98%     45
+  99%   1047
+ 100%  32254 (longest request)
+```
+
+```go
+package main
+
+import "github.com/gin-gonic/gin"
+
+func main() {
+    gin.SetMode(gin.ReleaseMode)
+    r := gin.New()
+    gin.DisableConsoleColor()
+    r.GET("/", func(c *gin.Context) {
+        c.String(200, "Hello")
+    })
+    r.Run(":8080")
+}
 ```
