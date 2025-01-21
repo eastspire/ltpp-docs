@@ -573,3 +573,98 @@ func main() {
     r.Run(":8080")
 }
 ```
+
+## Go 标准库
+
+```sh
+Server Hostname:        127.0.0.1
+Server Port:            8080
+
+Document Path:          /
+Document Length:        13 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   42.595 seconds
+Complete requests:      1000000
+Failed requests:        3
+   (Connect: 0, Receive: 1, Length: 1, Exceptions: 1)
+Total transferred:      130000000 bytes
+HTML transferred:       13000000 bytes
+Requests per second:    23476.99 [#/sec] (mean)
+Time per request:       42.595 [ms] (mean)
+Time per request:       0.043 [ms] (mean, across all concurrent requests)
+Transfer rate:          2980.48 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   34 312.9      0   15839
+Processing:     0    7   2.9      7      48
+Waiting:        0    7   2.9      7      48
+Total:          0   41 313.4      7   15846
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      7
+  75%      7
+  80%      8
+  90%      8
+  95%     11
+  98%   1039
+  99%   1048
+ 100%  15846 (longest request)Server Hostname:        127.0.0.1
+Server Port:            8080
+
+Document Path:          /
+Document Length:        13 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   42.595 seconds
+Complete requests:      1000000
+Failed requests:        3
+   (Connect: 0, Receive: 1, Length: 1, Exceptions: 1)
+Total transferred:      130000000 bytes
+HTML transferred:       13000000 bytes
+Requests per second:    23476.99 [#/sec] (mean)
+Time per request:       42.595 [ms] (mean)
+Time per request:       0.043 [ms] (mean, across all concurrent requests)
+Transfer rate:          2980.48 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   34 312.9      0   15839
+Processing:     0    7   2.9      7      48
+Waiting:        0    7   2.9      7      48
+Total:          0   41 313.4      7   15846
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      7
+  75%      7
+  80%      8
+  90%      8
+  95%     11
+  98%   1039
+  99%   1048
+ 100%  15846 (longest request)
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, World!")
+}
+
+func main() {
+	http.HandleFunc("/", helloHandler)
+	fmt.Println("Starting server at :8080...")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		fmt.Println("Error starting server:", err)
+	}
+}
+```
