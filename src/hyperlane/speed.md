@@ -115,7 +115,7 @@ fn main() {
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
 > - 1.Tokio：49932.79
-> - 2.Hyperlane 框架：45569.14
+> - 2.Hyperlane 框架：45569.14（关闭 keep-alive）
 > - 3.Rocket 框架：43373.54
 > - 4.Rust 标准库：40615.65
 > - 5.Go 标准库：23476.99
@@ -417,6 +417,7 @@ async fn main() -> io::Result<()> {
 **开启 keep-alive 测试结果**
 
 ```sh
+Server Software:        Rocket
 Server Hostname:        127.0.0.1
 Server Port:            8000
 
@@ -424,33 +425,33 @@ Document Path:          /
 Document Length:        13 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   23.056 seconds
+Time taken for tests:   29.557 seconds
 Complete requests:      1000000
 Failed requests:        0
 Total transferred:      247000000 bytes
 HTML transferred:       13000000 bytes
-Requests per second:    43373.54 [#/sec] (mean)
-Time per request:       23.056 [ms] (mean)
-Time per request:       0.023 [ms] (mean, across all concurrent requests)
-Transfer rate:          10462.17 [Kbytes/sec] received
+Requests per second:    33833.25 [#/sec] (mean)
+Time per request:       29.557 [ms] (mean)
+Time per request:       0.030 [ms] (mean, across all concurrent requests)
+Transfer rate:          8160.95 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   19 238.3      1   15595
-Processing:     0    3   3.9      3      58
-Waiting:        0    3   3.9      3      58
-Total:          0   23 238.6      3   15601
+Connect:        0   22 277.3      0   15672
+Processing:     0    5   4.6      4      57
+Waiting:        0    5   4.6      4      57
+Total:          0   27 277.7      4   15682
 
 Percentage of the requests served within a certain time (ms)
-  50%      3
+  50%      4
   66%      4
-  75%      4
-  80%      4
-  90%      6
-  95%     14
-  98%     26
-  99%   1036
- 100%  15601 (longest request)
+  75%      5
+  80%      6
+  90%     10
+  95%     17
+  98%     27
+  99%   1037
+ 100%  15682 (longest request)
 ```
 
 ```rust
@@ -470,9 +471,8 @@ fn rocket() -> _ {
         .mount("/", routes![index])
         .configure(rocket::Config {
             log_level: rocket::config::LogLevel::Off,
-            workers: 1,
-            max_blocking: 1,
-            keep_alive: 0,
+            port: 8000,
+            keep_alive: 10000,
             ..Default::default()
         })
 }
