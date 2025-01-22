@@ -1,8 +1,10 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
+  "/async-func": 'structure',
   "/bin-encrypt-decrypt": 'structure',
   "/china-identification-card": 'structure',
+  "/clonelicious": 'structure',
   "/color-output": 'structure',
   "/compare-version": 'structure',
   "/file-operation": 'structure',
