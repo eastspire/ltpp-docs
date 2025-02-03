@@ -8,6 +8,6 @@ export default {
 </script>
 <template>
   <div>
-    <Appreciate></Appreciate>
+    <!-- <Appreciate></Appreciate> -->
   </div>
 </template>

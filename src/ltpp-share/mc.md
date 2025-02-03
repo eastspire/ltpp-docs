@@ -13,7 +13,7 @@ category:
 
 > [!tip]
 >
-> - 服务器地址：ltpp.vip:60114
+> - 服务器地址：free-mc-server.ltpp.vip
 > - MC 版本：1.19.4
 
 <Bottom />

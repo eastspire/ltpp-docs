@@ -13,13 +13,13 @@ category:
 
 > [!tip]
 >
-> - [数据库管理面板](http://linux.ltpp.vip:60003/phpmyadmin)
+> - [数据库管理面板](http://free-mysql-phpmyadmin.ltpp.vip/phpmyadmin)
 
-#### 地址
+#### 地址（地址已于 2025/2/1 关闭）
 
 > linux.ltpp.vip
 
-#### 端口
+#### 端口（端口已于 2025/2/1 关闭）
 
 > 60002
 
