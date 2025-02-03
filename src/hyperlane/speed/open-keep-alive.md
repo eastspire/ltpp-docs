@@ -17,7 +17,7 @@ order: 3
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
 > - 1.Tokio：49932.79
-> - 2.Hyperlane 框架：45569.14（关闭 keep-alive）
+> - 2.Hyperlane 框架：47294.55（关闭 keep-alive）
 > - 3.Rocket 框架：43373.54
 > - 4.Rust 标准库：40615.65
 > - 5.Go 标准库：23476.99
@@ -37,33 +37,33 @@ Document Path:          /
 Document Length:        25 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   21.945 seconds
+Time taken for tests:   21.144 seconds
 Complete requests:      1000000
 Failed requests:        0
 Total transferred:      144000000 bytes
 HTML transferred:       25000000 bytes
-Requests per second:    45569.14 [#/sec] (mean)
-Time per request:       21.945 [ms] (mean)
-Time per request:       0.022 [ms] (mean, across all concurrent requests)
-Transfer rate:          6408.16 [Kbytes/sec] received
+Requests per second:    47294.55 [#/sec] (mean)
+Time per request:       21.144 [ms] (mean)
+Time per request:       0.021 [ms] (mean, across all concurrent requests)
+Transfer rate:          6650.80 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   18 204.0      1   15422
-Processing:     0    3   4.5      2     140
-Waiting:        0    2   4.4      1     139
-Total:          0   20 204.3      2   15423
+Connect:        0   18 171.1      1   15778
+Processing:     0    2   3.3      1      40
+Waiting:        0    2   3.2      1      37
+Total:          0   20 171.4      2   15780
 
 Percentage of the requests served within a certain time (ms)
   50%      2
   66%      3
-  75%      4
+  75%      3
   80%      4
-  90%      6
-  95%     13
-  98%     25
-  99%   1022
- 100%  15423 (longest request)
+  90%      5
+  95%     11
+  98%     23
+  99%   1032
+ 100%  15780 (longest request)
 ```
 
 ```rust
@@ -82,7 +82,7 @@ fn test_sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
         .unwrap();
 }
 
-async fn run_server() {
+fn run_server() {
     let mut server: Server = Server::new();
     server.host("0.0.0.0");
     server.port(60000);
@@ -93,7 +93,7 @@ async fn run_server() {
 
 #[tokio::main]
 async fn main() {
-    run_server().await;
+    run_server();
 }
 ```
 
