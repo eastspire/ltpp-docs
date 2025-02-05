@@ -17,7 +17,7 @@ dir:
 <Share colorful />
 <Catalog />
 
-> 基于 Rust hyperlane 框架开发的图床服务端
+> 基于 Rust hyperlane 框架开发的图床服务端，支持多种文件类型上传
 
 ## 使用现有地址（服务器不在大陆且经过多个服务器中转，接口会比较慢）
 
@@ -63,7 +63,7 @@ cargo run
 {
   "code": 1,
   "msg": "ok",
-  "data": "https://file.ltpp.vip/aaaVaabOaabVaabTaabLaaaVaabMaabPaabSaabLaaaVaaaYaaaWaaaYaaa1aaaVaaaWaaaYaaaVaaaWaaa1aaaVaaa5aabMaabKaaaYaabIaabIaabIaaa3aaaYaaaWaaaWaaaYaaa2aabLaabJaaaXaaa4aabHaaa5aaa5aabLaabHaaa3aabJaaa4aabMaabIaaa4aaaZaaa3aaaWaaa4aabKaabKaabLaabIaabHaaa4aaaXaaaZaabKaaaZaaa2aaaWaaa0aaaWaabLaaa3aaaZaabMaaa5aabHaabKaaaYaaa4aaaWaaaZaabJaaa5aaaXaaa0aabJaaa0aaaX.png"
+  "data": "https://file.ltpp.vip/aaaVaabOaabVaabTaabLaaaVaabWaabPaabJaab0aab1aabYaabLaabFaabIaabLaabKaaaVaabMaabPaabSaabLaaaVaaaYaaaWaaaYaaa1aaaVaaaWaaaYaaaVaaaWaaa1aaaVaabJaaa0aaaWaaa2aabIaaaXaaa0aabLaaa1aaa5aabKaabIaaa0aabLaabJaaa2aabJaaa1aabHaaa1aabHaaa0aaa4aaa5aabKaaaWaaaWaaaXaabKaabMaabJaabLaabHaabHaaa3aaa4aaa2aaa0aabHaabMaaa5aaaWaaaZaabHaabMaabHaabLaaa0aaa1aabLaabHaaa3aabHaabIaaa0aaa5aaaWaaaXaaa5aabIaaaWaaa3aaa3aabH.png"
 }
 ```
 
