@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/http-type)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/http-type)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/http-type)
 
 <Share colorful />
 <Catalog />

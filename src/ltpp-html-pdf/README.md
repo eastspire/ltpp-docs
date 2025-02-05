@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/HTML-PDF)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/html-pdf)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/html-pdf)
 
 <Share colorful />
 <Catalog />

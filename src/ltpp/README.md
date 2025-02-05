@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/LTPP-APP-Flutter)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/LTPP-APP-Flutter)
 
 <Share colorful />
 <Catalog />

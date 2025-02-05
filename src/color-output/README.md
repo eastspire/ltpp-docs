@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/color-output)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/color-output)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/color-output)
 
 <Share colorful />
 <Catalog />

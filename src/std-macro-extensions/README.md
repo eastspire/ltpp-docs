@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/std-macro-extensions)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/std-macro-extensions)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/std-macro-extensions)
 
 <Share colorful />
 <Catalog />

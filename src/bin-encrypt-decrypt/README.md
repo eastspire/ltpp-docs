@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/bin-encrypt-decrypt)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/bin-encrypt-decrypt)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/bin-encrypt-decrypt)
 
 <Share colorful />
 <Catalog />

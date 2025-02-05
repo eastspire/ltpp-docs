@@ -37,6 +37,11 @@ features:
     icon: blog
     link: /ltpp-share/
 
+  - title: picture-bed
+    details: 图床
+    icon: blog
+    link: /picture-bed/
+
   - title: ltpp-gitlab
     details: ltpp-git仓库
     icon: blog

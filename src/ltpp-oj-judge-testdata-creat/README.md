@@ -11,7 +11,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/OjJudgeTestdataCreat)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/OjJudgeTestdataCreat)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/OjJudgeTestdataCreat)
 
 <Share colorful />
 <Catalog />

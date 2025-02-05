@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/LeetcodeAndAcwingRank)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/leetcodeandacwingrank)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/leetcodeandacwingrank)
 
 <Share colorful />
 <Catalog />

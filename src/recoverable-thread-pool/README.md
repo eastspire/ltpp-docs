@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/recoverable-thread-pool)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/recoverable-thread-pool)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/recoverable-thread-pool)
 
 <Share colorful />
 <Catalog />

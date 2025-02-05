@@ -14,7 +14,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/sqs-douyin-collection-download)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/sqs-douyin-collection-download)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/sqs-douyin-collection-download)
 
 <Share colorful />
 <Catalog />

@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
 
-[GITHUB 地址](https://git.ltpp.vip/root/RUST-WEB-SERVE)
+[GITHUB 地址](https://jihulab.com/ltpp-universe/RUST-WEB-SERVE)
 
 <Share colorful />
 <Catalog />

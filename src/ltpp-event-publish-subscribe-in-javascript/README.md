@@ -10,7 +10,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/ltpp-event-publish-subscribe-in-javascript)
 
-[LTPP-GIT 地址](https://git.ltpp.vip/root/ltpp-event-publish-subscribe-in-javascript)
+[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/ltpp-event-publish-subscribe-in-javascript)
 
 <Share colorful />
 <Catalog />
