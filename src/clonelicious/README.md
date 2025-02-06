@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/clonelicious)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/clonelicious)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/clonelicious)
 
 <Share colorful />
 <Catalog />

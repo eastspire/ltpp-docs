@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/china_identification_card)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/china_identification_card)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/china_identification_card)
 
 <Share colorful />
 <Catalog />

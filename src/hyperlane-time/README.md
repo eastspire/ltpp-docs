@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/hyperlane-time)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/hyperlane-time)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/hyperlane-time)
 
 <Share colorful />
 <Catalog />

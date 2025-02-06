@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/async-func)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/async-func)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/async-func)
 
 <Share colorful />
 <Catalog />

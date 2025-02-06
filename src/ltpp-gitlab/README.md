@@ -16,7 +16,7 @@ dir:
 
 ## 功能
 
-LTPP-GIT 仓库基于 GITLAB 部署支持以下功能
+GITLAB 仓库基于 GITLAB 部署支持以下功能
 
 - 代码仓库
 - CI/CD

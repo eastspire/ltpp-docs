@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/picture-bed)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/picture-bed)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/picture-bed)
 
 <Share colorful />
 <Catalog />

@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/http-constant)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/http-constant)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/http-constant)
 
 <Share colorful />
 <Catalog />

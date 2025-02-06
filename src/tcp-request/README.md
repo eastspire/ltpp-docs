@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/tcp-request)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/tcp-request)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/tcp-request)
 
 <Share colorful />
 <Catalog />

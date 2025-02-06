@@ -12,7 +12,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/http-compress)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/http-compress)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/http-compress)
 
 <Share colorful />
 <Catalog />

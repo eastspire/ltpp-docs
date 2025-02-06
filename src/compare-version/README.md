@@ -13,7 +13,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/compare_version)
 
-[LTPP-GIT 地址](https://jihulab.com/ltpp-universe/compare_version)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/compare_version)
 
 <Share colorful />
 <Catalog />
