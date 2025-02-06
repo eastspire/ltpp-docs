@@ -1,18 +1,18 @@
 ---
-title: picture-bed
+title: cloud-storage
 index: true
 icon: book
 category:
-  - picture-bed
+  - cloud-storage
   - picture
   - bed
 dir:
   order: 37
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/picture-bed)
+[GITHUB 地址](https://github.com/ltpp-universe/cloud-storage)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/picture-bed)
+[GITLAB 地址](https://jihulab.com/ltpp-universe/cloud-storage)
 
 <Share colorful />
 <Catalog />
@@ -28,7 +28,7 @@ dir:
 ### 克隆
 
 ```sh
-git clone git@github.com:ltpp-universe/picture-bed.git
+git clone git@github.com:ltpp-universe/cloud-storage.git
 ```
 
 ### 运行

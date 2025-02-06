@@ -37,10 +37,10 @@ features:
     icon: blog
     link: /ltpp-share/
 
-  - title: picture-bed
-    details: 图床
+  - title: cloud-storage
+    details: 云端存储
     icon: blog
-    link: /picture-bed/
+    link: /cloud-storage/
 
   - title: ltpp-gitlab
     details: ltpp-git仓库
