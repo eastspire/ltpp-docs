@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/file-operation)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/file-operation)
-
 <Share colorful />
 <Catalog />
 

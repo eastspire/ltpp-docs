@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/lombok-macros)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/lombok-macros)
-
 <Share colorful />
 <Catalog />
 

@@ -11,8 +11,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/OjJudgeTestdataCreat)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/OjJudgeTestdataCreat)
-
 <Share colorful />
 <Catalog />
 

@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/http-response)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/http-response)
-
 <Share colorful />
 <Catalog />
 

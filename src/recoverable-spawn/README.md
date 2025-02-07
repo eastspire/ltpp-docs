@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/recoverable-spawn)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/recoverable-spawn)
-
 <Share colorful />
 <Catalog />
 

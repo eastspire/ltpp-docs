@@ -13,8 +13,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/rust-get-proxy-request)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/rust-get-proxy-request)
-
 <Share colorful />
 <Catalog />
 

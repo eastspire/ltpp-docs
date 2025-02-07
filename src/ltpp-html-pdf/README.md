@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/HTML-PDF)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/html-pdf)
-
 <Share colorful />
 <Catalog />
 

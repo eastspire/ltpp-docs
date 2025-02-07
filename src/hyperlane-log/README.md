@@ -12,8 +12,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/hyperlane-log)
 
-[GITLAB 地址](https://jihulab.com/ltpp-universe/hyperlane-log)
-
 <Share colorful />
 <Catalog />
 
