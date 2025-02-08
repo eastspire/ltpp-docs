@@ -12,7 +12,7 @@ order: 9
 ## 获取 `stream`
 
 ```rust
-let stream: ControllerDataStream = controller_data.get_stream().clone().unwrap();
+let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
 ```
 
 ## 获取客户端地址
