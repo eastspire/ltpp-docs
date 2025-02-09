@@ -34,6 +34,14 @@ dir:
 cargo add hyperlane
 ```
 
+## 快速开始
+
+[hyperlane-quick-start](https://github.com/ltpp-universe/hyperlane-quick-start)
+
+```sh
+git clone https://github.com/ltpp-universe/hyperlane-quick-start.git
+```
+
 ## 使用示例
 
 ```rust
