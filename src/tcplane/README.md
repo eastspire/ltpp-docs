@@ -10,17 +10,21 @@ dir:
   order: 30
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/tcplane)
-
 <Share colorful />
 <Catalog />
 
+[GITHUB 地址](https://github.com/ltpp-universe/tcplane)
+
 ## tcplane
 
-[![](https://img.shields.io/crates/v/tcplane.svg)](https://crates.io/crates/tcplane)<br>
-[![](https://docs.rs/tcplane/badge.svg)](https://docs.rs/tcplane)<br>
-[![](https://img.shields.io/crates/l/tcplane.svg)](./LICENSE)<br>
+<center>
+
+[![](https://img.shields.io/crates/v/tcplane.svg)](https://crates.io/crates/tcplane)
+[![](https://docs.rs/tcplane/badge.svg)](https://docs.rs/tcplane)
 [![](https://github.com/ltpp-universe/tcplane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/tcplane/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/tcplane.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/tcplane/latest/tcplane/)
 

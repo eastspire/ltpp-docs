@@ -11,10 +11,10 @@ dir:
   order: 8
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/rust-get-proxy-request)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/rust-get-proxy-request)
 
 ## 简介
 

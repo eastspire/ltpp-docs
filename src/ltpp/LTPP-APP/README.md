@@ -9,10 +9,10 @@ dir:
   order: 3
 ---
 
-[LTPP-APP GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
-
 <Share colorful />
 <Catalog />
+
+[LTPP-APP GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
 
 ## 简介
 

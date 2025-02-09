@@ -10,10 +10,10 @@ dir:
   order: 5
 ---
 
-[系统地址](https://qrcode.ltpp.vip)
-
 <Share colorful />
 <Catalog />
+
+[系统地址](https://qrcode.ltpp.vip)
 
 ## 功能
 

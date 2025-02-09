@@ -10,15 +10,19 @@ dir:
   order: 33
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/recoverable-spawn)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/recoverable-spawn.svg)](https://crates.io/crates/recoverable-spawn)<br>
-[![](https://docs.rs/recoverable-spawn/badge.svg)](https://docs.rs/recoverable-spawn)<br>
-[![](https://img.shields.io/crates/l/recoverable-spawn.svg)](./LICENSE)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/recoverable-spawn)
+
+<center>
+
+[![](https://img.shields.io/crates/v/recoverable-spawn.svg)](https://crates.io/crates/recoverable-spawn)
+[![](https://docs.rs/recoverable-spawn/badge.svg)](https://docs.rs/recoverable-spawn)
 [![](https://github.com/ltpp-universe/recoverable-spawn/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-spawn/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/recoverable-spawn.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/recoverable-spawn/latest/recoverable_spawn/)
 

@@ -11,10 +11,10 @@ dir:
   order: 9
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/LeetcodeAndAcwingRank)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/LeetcodeAndAcwingRank)
 
 ## 功能
 

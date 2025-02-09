@@ -10,15 +10,19 @@ dir:
   order: 27
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/lombok-macros)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/lombok-macros.svg)](https://crates.io/crates/lombok-macros)<br>
-[![](https://docs.rs/lombok-macros/badge.svg)](https://docs.rs/lombok-macros)<br>
-[![](https://img.shields.io/crates/l/lombok-macros.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/lombok-macros)
+
+<center>
+
+[![](https://img.shields.io/crates/v/lombok-macros.svg)](https://crates.io/crates/lombok-macros)
+[![](https://docs.rs/lombok-macros/badge.svg)](https://docs.rs/lombok-macros)
 [![](https://github.com/ltpp-universe/lombok-macros/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/lombok-macros/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/lombok-macros.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/lombok-macros/latest/lombok_macros/)
 

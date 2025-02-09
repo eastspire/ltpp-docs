@@ -9,10 +9,10 @@ dir:
   order: 3
 ---
 
-[系统地址](https://git.ltpp.vip)
-
 <Share colorful />
 <Catalog />
+
+[系统地址](https://git.ltpp.vip)
 
 ## 功能
 

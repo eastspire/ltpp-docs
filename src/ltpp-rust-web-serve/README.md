@@ -11,10 +11,10 @@ dir:
   order: 7
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
 
 > [!tip]
 > 该项目于 2024 年 5 月 1 日开始开发

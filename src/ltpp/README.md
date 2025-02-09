@@ -9,20 +9,24 @@ dir:
   order: 2
 ---
 
+<Share colorful />
+<Catalog />
+
 [WEB 系统地址](https://ltpp.vip)
 
 [GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
 
-<Share colorful />
-<Catalog />
-
 ## 简介
 
 > [!tip]
-> LTPP `WEB` 基于 `Vue2.js` + `VueX` + `EventBus` + `WebWorker` + `Echarts` + `ElementUI` + `Animate.css` 开发 <br>
-> LTPP `后端` 基于 `Webman` + `GatewayWorker` 框架开发 <br>
-> LTPP 运行在 `Docker` 环境 <br>
-> LTPP `APP` 基于`Flutter`框架开发 <br>
+> LTPP `WEB` 基于 `Vue2.js` + `VueX` + `EventBus` + `WebWorker` + `Echarts` + `ElementUI` + `Animate.css` 开发
+>
+> LTPP `后端` 基于 `Webman` + `GatewayWorker` 框架开发
+>
+> LTPP 运行在 `Docker` 环境
+>
+> LTPP `APP` 基于`Flutter`框架开发
+>
 > LTPP `客户端` 基于`Electron` 和 `Tauri` 框架开发
 
 ## 部署

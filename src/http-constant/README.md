@@ -10,15 +10,19 @@ dir:
   order: 23
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-constant)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/http-constant.svg)](https://crates.io/crates/http-constant)<br>
-[![](https://docs.rs/http-constant/badge.svg)](https://docs.rs/http-constant)<br>
-[![](https://img.shields.io/crates/l/http-constant.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/http-constant)
+
+<center>
+
+[![](https://img.shields.io/crates/v/http-constant.svg)](https://crates.io/crates/http-constant)
+[![](https://docs.rs/http-constant/badge.svg)](https://docs.rs/http-constant)
 [![](https://github.com/ltpp-universe/http-constant/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-constant/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/http-constant.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/http-constant/latest/http_constant/)
 

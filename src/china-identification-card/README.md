@@ -11,15 +11,19 @@ dir:
   order: 18
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/china_identification_card)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/china_identification_card.svg)](https://crates.io/crates/china_identification_card)<br>
-[![](https://docs.rs/china_identification_card/badge.svg)](https://docs.rs/china_identification_card)<br>
-[![](https://img.shields.io/crates/l/china_identification_card.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/china_identification_card)
+
+<center>
+
+[![](https://img.shields.io/crates/v/china_identification_card.svg)](https://crates.io/crates/china_identification_card)
+[![](https://docs.rs/china_identification_card/badge.svg)](https://docs.rs/china_identification_card)
 [![](https://github.com/ltpp-universe/china_identification_card/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/china_identification_card/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/china_identification_card.svg)](./license)
+
+</center>
 
 ## 说明
 

@@ -11,15 +11,19 @@ dir:
   order: 17
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/std-macro-extensions)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/std-macro-extensions.svg)](https://crates.io/crates/std-macro-extensions)<br>
-[![](https://docs.rs/std-macro-extensions/badge.svg)](https://docs.rs/std-macro-extensions)<br>
-[![](https://img.shields.io/crates/l/std-macro-extensions.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/std-macro-extensions)
+
+<center>
+
+[![](https://img.shields.io/crates/v/std-macro-extensions.svg)](https://crates.io/crates/std-macro-extensions)
+[![](https://docs.rs/std-macro-extensions/badge.svg)](https://docs.rs/std-macro-extensions)
 [![](https://github.com/ltpp-universe/std-macro-extensions/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/std-macro-extensions/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/std-macro-extensions.svg)](./license)
+
+</center>
 
 ## 说明
 

@@ -10,15 +10,19 @@ dir:
   order: 16
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/color-output)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/color-output.svg)](https://crates.io/crates/color-output)<br>
-[![](https://docs.rs/color-output/badge.svg)](https://docs.rs/color-output)<br>
-[![](https://img.shields.io/crates/l/color-output.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/color-output)
+
+<center>
+
+[![](https://img.shields.io/crates/v/color-output.svg)](https://crates.io/crates/color-output)
+[![](https://docs.rs/color-output/badge.svg)](https://docs.rs/color-output)
 [![](https://github.com/ltpp-universe/color-output/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/color-output/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/color-output.svg)](./license)
+
+</center>
 
 ## 说明
 

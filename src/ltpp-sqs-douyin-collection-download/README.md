@@ -12,10 +12,10 @@ dir:
   order: 11
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/sqs-douyin-collection-download)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/sqs-douyin-collection-download)
 
 ## 功能
 

@@ -10,10 +10,10 @@ dir:
   order: 14
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
 
 ## 功能
 

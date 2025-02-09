@@ -10,17 +10,21 @@ dir:
   order: 31
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/tcp-request)
-
 <Share colorful />
 <Catalog />
 
+[GITHUB 地址](https://github.com/ltpp-universe/tcp-request)
+
 ## tcp-request
 
-[![](https://img.shields.io/crates/v/tcp-request.svg)](https://crates.io/crates/tcp-request)<br>
-[![](https://docs.rs/tcp-request/badge.svg)](https://docs.rs/tcp-request)<br>
-[![](https://img.shields.io/crates/l/tcp-request.svg)](./LICENSE)<br>
+<center>
+
+[![](https://img.shields.io/crates/v/tcp-request.svg)](https://crates.io/crates/tcp-request)
+[![](https://docs.rs/tcp-request/badge.svg)](https://docs.rs/tcp-request)
 [![](https://github.com/ltpp-universe/tcp-request/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/tcp-request/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/tcp-request.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/tcp-request/latest/tcp_request/)
 

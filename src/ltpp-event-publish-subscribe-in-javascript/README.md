@@ -8,10 +8,10 @@ dir:
   order: 15
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/ltpp-event-publish-subscribe-in-javascript)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/ltpp-event-publish-subscribe-in-javascript)
 
 ## 说明
 

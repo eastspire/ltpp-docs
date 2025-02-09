@@ -10,15 +10,19 @@ dir:
   order: 22
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-compress)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/http-compress.svg)](https://crates.io/crates/http-compress)<br>
-[![](https://docs.rs/http-compress/badge.svg)](https://docs.rs/http-compress)<br>
-[![](https://img.shields.io/crates/l/http-compress.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/http-compress)
+
+<center>
+
+[![](https://img.shields.io/crates/v/http-compress.svg)](https://crates.io/crates/http-compress)
+[![](https://docs.rs/http-compress/badge.svg)](https://docs.rs/http-compress)
 [![](https://github.com/ltpp-universe/http-compress/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-compress/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/http-compress.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/http-compress/latest/http_compress/)
 

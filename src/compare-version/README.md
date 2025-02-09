@@ -11,15 +11,19 @@ dir:
   order: 19
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/compare_version)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/compare_version.svg)](https://crates.io/crates/compare_version)<br>
-[![](https://docs.rs/compare_version/badge.svg)](https://docs.rs/compare_version)<br>
-[![](https://img.shields.io/crates/l/compare_version.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/compare_version)
+
+<center>
+
+[![](https://img.shields.io/crates/v/compare_version.svg)](https://crates.io/crates/compare_version)
+[![](https://docs.rs/compare_version/badge.svg)](https://docs.rs/compare_version)
 [![](https://github.com/ltpp-universe/compare_version/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/compare_version/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/compare_version.svg)](./license)
+
+</center>
 
 ## 说明
 

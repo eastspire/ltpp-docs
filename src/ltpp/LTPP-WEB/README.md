@@ -9,10 +9,10 @@ dir:
   order: 1
 ---
 
-[WEB 系统地址](https://ltpp.vip)
-
 <Share colorful />
 <Catalog />
+
+[WEB 系统地址](https://ltpp.vip)
 
 ## 简介
 

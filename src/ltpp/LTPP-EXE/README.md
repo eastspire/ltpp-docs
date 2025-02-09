@@ -15,8 +15,10 @@ dir:
 ## 简介
 
 > [!tip]
-> 客户端使用 Electron 和 Tauri 框架完成开发<br>
-> 后续将不在维护 Tauri 版本<br>
+> 客户端使用 Electron 和 Tauri 框架完成开发
+>
+> 后续将不在维护 Tauri 版本
+>
 > 主力维护 Electron 版本
 > [安装包下载地址](https://www.alipan.com/s/vQTYUkyCCbC)
 
@@ -61,7 +63,8 @@ dir:
 > [!tip]
 > 日志在安装目录根目录的 `/LTPP/logs` 文件夹下
 >
-> - `logs` 目录为运行信息目录<br>
+> - `logs` 目录为运行信息目录
+>
 > - `error` 目录为错误日志目录
 
 ![](markdown-images/image-8.png)

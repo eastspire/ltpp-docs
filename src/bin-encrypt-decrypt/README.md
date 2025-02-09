@@ -11,15 +11,19 @@ dir:
   order: 21
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/bin-encrypt-decrypt)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/bin-encrypt-decrypt.svg)](https://crates.io/crates/bin-encrypt-decrypt)<br>
-[![](https://docs.rs/bin-encrypt-decrypt/badge.svg)](https://docs.rs/bin-encrypt-decrypt)<br>
-[![](https://img.shields.io/crates/l/bin-encrypt-decrypt.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/bin-encrypt-decrypt)
+
+<center>
+
+[![](https://img.shields.io/crates/v/bin-encrypt-decrypt.svg)](https://crates.io/crates/bin-encrypt-decrypt)
+[![](https://docs.rs/bin-encrypt-decrypt/badge.svg)](https://docs.rs/bin-encrypt-decrypt)
 [![](https://github.com/ltpp-universe/bin-encrypt-decrypt/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/bin-encrypt-decrypt/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/bin-encrypt-decrypt.svg)](./license)
+
+</center>
 
 ## 说明
 

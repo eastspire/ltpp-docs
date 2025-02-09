@@ -10,15 +10,19 @@ dir:
   order: 29
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-time)
-
 <Share colorful />
 <Catalog />
 
+[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-time)
+
+<center>
+
 [![](https://img.shields.io/crates/v/hyperlane-time.svg)](https://crates.io/crates/hyperlane-time)  
 [![](https://docs.rs/hyperlane-time/badge.svg)](https://docs.rs/hyperlane-time)  
-[![](https://img.shields.io/crates/l/hyperlane-time.svg)](./LICENSE)  
 [![](https://github.com/ltpp-universe/hyperlane-time/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane-time/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/hyperlane-time.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/hyperlane-time/latest/hyperlane_time/)
 

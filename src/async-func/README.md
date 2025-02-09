@@ -10,15 +10,19 @@ dir:
   order: 36
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/async-func)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/async-func.svg)](https://crates.io/crates/async-func)<br>
-[![](https://docs.rs/async-func/badge.svg)](https://docs.rs/async-func)<br>
-[![](https://img.shields.io/crates/l/async-func.svg)](./LICENSE)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/async-func)
+
+<center>
+
+[![](https://img.shields.io/crates/v/async-func.svg)](https://crates.io/crates/async-func)
+[![](https://docs.rs/async-func/badge.svg)](https://docs.rs/async-func)
 [![](https://github.com/ltpp-universe/async-func/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/async-func/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/async-func.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/async-func/latest/async_move/)
 

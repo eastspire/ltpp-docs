@@ -10,15 +10,19 @@ dir:
   order: 24
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-response)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/http-response.svg)](https://crates.io/crates/http-response)<br>
-[![](https://docs.rs/http-response/badge.svg)](https://docs.rs/http-response)<br>
-[![](https://img.shields.io/crates/l/http-response.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/http-response)
+
+<center>
+
+[![](https://img.shields.io/crates/v/http-response.svg)](https://crates.io/crates/http-response)
+[![](https://docs.rs/http-response/badge.svg)](https://docs.rs/http-response)
 [![](https://github.com/ltpp-universe/http-response/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-response/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/http-response.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/http-response/latest/http_response/)
 

@@ -10,15 +10,19 @@ dir:
   order: 35
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/clonelicious)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/clonelicious.svg)](https://crates.io/crates/clonelicious)<br>
-[![](https://docs.rs/clonelicious/badge.svg)](https://docs.rs/clonelicious)<br>
-[![](https://img.shields.io/crates/l/clonelicious.svg)](./LICENSE)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/clonelicious)
+
+<center>
+
+[![](https://img.shields.io/crates/v/clonelicious.svg)](https://crates.io/crates/clonelicious)
+[![](https://docs.rs/clonelicious/badge.svg)](https://docs.rs/clonelicious)
 [![](https://github.com/ltpp-universe/clonelicious/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/clonelicious/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/clonelicious.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/clonelicious/latest/clonelicious/)
 

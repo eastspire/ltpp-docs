@@ -9,10 +9,10 @@ dir:
   order: 10
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/OjJudgeTestdataCreat)
-
 <Share colorful />
 <Catalog />
+
+[GITHUB 地址](https://github.com/ltpp-universe/OjJudgeTestdataCreat)
 
 ## 功能
 

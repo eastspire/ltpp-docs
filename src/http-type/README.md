@@ -10,15 +10,19 @@ dir:
   order: 25
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-type)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/http-type.svg)](https://crates.io/crates/http-type)<br>
-[![](https://docs.rs/http-type/badge.svg)](https://docs.rs/http-type)<br>
-[![](https://img.shields.io/crates/l/http-type.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/http-type)
+
+<center>
+
+[![](https://img.shields.io/crates/v/http-type.svg)](https://crates.io/crates/http-type)
+[![](https://docs.rs/http-type/badge.svg)](https://docs.rs/http-type)
 [![](https://github.com/ltpp-universe/http-type/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-type/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/http-type.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/http-type/latest/http_type/)
 

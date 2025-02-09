@@ -10,15 +10,21 @@ dir:
   order: 26
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/hyperlane.svg)](https://crates.io/crates/hyperlane)<br>
-[![](https://docs.rs/hyperlane/badge.svg)](https://docs.rs/hyperlane)<br>
-[![](https://img.shields.io/crates/l/hyperlane.svg)](./license)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/hyperlane)
+
+<center>
+
+<img src="./img/logo.png" alt="" height="160">
+
+[![](https://img.shields.io/crates/v/hyperlane.svg)](https://crates.io/crates/hyperlane)
+[![](https://docs.rs/hyperlane/badge.svg)](https://docs.rs/hyperlane)
 [![](https://github.com/ltpp-universe/hyperlane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/hyperlane.svg)](./license)
+
+</center>
 
 [API 文档](https://docs.rs/hyperlane/latest/hyperlane/)
 

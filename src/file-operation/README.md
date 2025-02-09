@@ -10,17 +10,21 @@ dir:
   order: 32
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/file-operation)
-
 <Share colorful />
 <Catalog />
 
+[GITHUB 地址](https://github.com/ltpp-universe/file-operation)
+
 ## 文件操作
 
-[![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)<br>
-[![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)<br>
-[![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)<br>
+<center>
+
+[![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)
+[![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)
 [![](https://github.com/ltpp-universe/file-operation/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/file-operation/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/file-operation/latest/file_operation/)
 

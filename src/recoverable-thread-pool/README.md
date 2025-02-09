@@ -10,15 +10,19 @@ dir:
   order: 34
 ---
 
-[GITHUB 地址](https://github.com/ltpp-universe/recoverable-thread-pool)
-
 <Share colorful />
 <Catalog />
 
-[![](https://img.shields.io/crates/v/recoverable-thread-pool.svg)](https://crates.io/crates/recoverable-thread-pool)<br>
-[![](https://docs.rs/recoverable-thread-pool/badge.svg)](https://docs.rs/recoverable-thread-pool)<br>
-[![](https://img.shields.io/crates/l/recoverable-thread-pool.svg)](./LICENSE)<br>
+[GITHUB 地址](https://github.com/ltpp-universe/recoverable-thread-pool)
+
+<center>
+
+[![](https://img.shields.io/crates/v/recoverable-thread-pool.svg)](https://crates.io/crates/recoverable-thread-pool)
+[![](https://docs.rs/recoverable-thread-pool/badge.svg)](https://docs.rs/recoverable-thread-pool)
 [![](https://github.com/ltpp-universe/recoverable-thread-pool/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-thread-pool/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/recoverable-thread-pool.svg)](./LICENSE)
+
+</center>
 
 [API 文档](https://docs.rs/recoverable-thread-pool/latest/recoverable_thread_pool/)
 
