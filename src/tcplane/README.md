@@ -22,8 +22,6 @@ dir:
 [![](https://img.shields.io/crates/l/tcplane.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/tcplane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/tcplane/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/tcplane/)
-
 [API 文档](https://docs.rs/tcplane/latest/tcplane/)
 
 > **tcplane** 是一个轻量级且高性能的 Rust TCP 服务器库，旨在简化网络服务开发。它支持 TCP 通信、数据流管理和连接处理，专注于提供高效的底层网络连接和数据传输能力，非常适合构建现代网络服务。

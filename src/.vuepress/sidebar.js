@@ -5,6 +5,7 @@ export default sidebar({
   "/bin-encrypt-decrypt": 'structure',
   "/china-identification-card": 'structure',
   "/clonelicious": 'structure',
+  "/cloud-storage": 'structure',
   "/color-output": 'structure',
   "/compare-version": 'structure',
   "/file-operation": 'structure',

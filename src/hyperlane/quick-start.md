@@ -6,7 +6,7 @@ category:
   - hyperlane
   - web
   - rust
-order: 18
+order: 0
 ---
 
 ## 快速开始
@@ -15,6 +15,8 @@ order: 18
 
 ```sh
 git clone https://github.com/ltpp-universe/hyperlane-quick-start.git
+cd hyperlane-quick-start
+cargo run
 ```
 
 <Bottom />

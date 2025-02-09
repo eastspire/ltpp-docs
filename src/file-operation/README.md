@@ -22,8 +22,6 @@ dir:
 [![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/file-operation/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/file-operation/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/file-operation/)
-
 [API 文档](https://docs.rs/file-operation/latest/file_operation/)
 
 > 一个 Rust 库，提供了一组常见的文件操作工具，如读取、写入和查询文件元数据（例如大小）。它旨在简化 Rust 项目中的文件处理，提供安全且高效的文件操作方法。

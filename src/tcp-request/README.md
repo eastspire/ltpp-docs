@@ -22,8 +22,6 @@ dir:
 [![](https://img.shields.io/crates/l/tcp-request.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/tcp-request/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/tcp-request/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/tcp-request/)
-
 [API 文档](https://docs.rs/tcp-request/latest/tcp_request/)
 
 > 一个 Rust 库，用于发送原始 TCP 请求，支持处理响应、管理重定向以及在 TCP 连接中处理压缩数据。

@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/http-compress.svg)](./license)<br>
 [![](https://github.com/ltpp-universe/http-compress/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-compress/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/HTTP-COMPRESS/)
-
 [API 文档](https://docs.rs/http-compress/latest/http_compress/)
 
 > 一个支持 Brotli、Deflate 和 Gzip 的轻量级 HTTP 响应解压库。

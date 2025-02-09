@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/clonelicious.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/clonelicious/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/clonelicious/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/clonelicious/)
-
 [API 文档](https://docs.rs/clonelicious/latest/clonelicious/)
 
 > clonelicious 是一个 Rust 宏库，简化了克隆和闭包执行。`clone!` 宏自动克隆变量并立即执行闭包，使用克隆的值，这简化了 Rust 编程中的常见模式。

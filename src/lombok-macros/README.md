@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/lombok-macros.svg)](./license)<br>
 [![](https://github.com/ltpp-universe/lombok-macros/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/lombok-macros/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/lombok-macros/)
-
 [API 文档](https://docs.rs/lombok-macros/latest/lombok_macros/)
 
 > 一组提供 Lombok 类似功能的 Rust 宏。

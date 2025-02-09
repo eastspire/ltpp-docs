@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/async-func.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/async-func/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/async-func/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/async-func/)
-
 [API 文档](https://docs.rs/async-func/latest/async_move/)
 
 > 一个 Rust 库，提供宏来简化异步闭包的创建，并捕获外部状态。用于轻松清晰地构建异步代码。

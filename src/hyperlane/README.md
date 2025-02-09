@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/hyperlane.svg)](./license)<br>
 [![](https://github.com/ltpp-universe/hyperlane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/HYPERLANE/)
-
 [API 文档](https://docs.rs/hyperlane/latest/hyperlane/)
 
 > hyperlane 是一个轻量级且高性能的 Rust HTTP 服务器库，旨在简化网络服务的开发。它支持 HTTP 请求解析、响应构建、TCP 通信和重定向功能，适合构建现代 Web 服务。
@@ -36,7 +34,8 @@ cargo add hyperlane
 
 ## 快速开始
 
-[hyperlane-quick-start](https://github.com/ltpp-universe/hyperlane-quick-start)
+- [hyperlane-quick-start git](https://github.com/ltpp-universe/hyperlane-quick-start)
+- [hyperlane-quick-start docs](https://docs.ltpp.vip/hyperlane/quick-start.html)
 
 ```sh
 git clone https://github.com/ltpp-universe/hyperlane-quick-start.git

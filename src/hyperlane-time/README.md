@@ -20,7 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/hyperlane-time.svg)](./LICENSE)  
 [![](https://github.com/ltpp-universe/hyperlane-time/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane-time/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/hyperlane-time/)  
 [API 文档](https://docs.rs/hyperlane-time/latest/hyperlane_time/)
 
 > 一个根据系统的本地设置获取当前时间的库。

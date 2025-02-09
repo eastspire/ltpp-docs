@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/http-constant.svg)](./license)<br>
 [![](https://github.com/ltpp-universe/http-constant/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-constant/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/HTTP-CONSTANT/)
-
 [API 文档](https://docs.rs/http-constant/latest/http_constant/)
 
 > 一个提供常见 HTTP 常量的全面库，包括头部名称、版本、MIME 类型和协议标识符。

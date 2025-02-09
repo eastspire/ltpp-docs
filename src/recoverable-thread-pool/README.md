@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/recoverable-thread-pool.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/recoverable-thread-pool/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-thread-pool/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/recoverable-thread-pool/)
-
 [API 文档](https://docs.rs/recoverable-thread-pool/latest/recoverable_thread_pool/)
 
 > 一个支持自动从恐慌中恢复的线程池，允许线程在发生恐慌后重新启动。适用于网络和 Web 编程中的高容错并发场景。

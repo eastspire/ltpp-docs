@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/hyperlane-log.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/hyperlane-log/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane-log/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/hyperlane-log/)
-
 [API 文档](https://docs.rs/hyperlane-log/latest/hyperlane_log/)
 
 > 一款 Rust 异步日志库，运行在专用线程中，以避免阻塞其他线程。支持多种日志级别（如错误、信息、调试），并允许自定义日志处理方法和配置日志文件路径，单个日志达到限定大小会自动创建新的日志文件。

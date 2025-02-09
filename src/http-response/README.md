@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/http-response.svg)](./license)<br>
 [![](https://github.com/ltpp-universe/http-response/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-response/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/HTTP-RESPONSE/)
-
 [API 文档](https://docs.rs/http-response/latest/http_response/)
 
 > 一个基于 Rust 的库，用于构建和发送 HTTP 响应，提供流畅的接口。该库实现了一个 HTTP Response 类型，支持灵活配置 HTTP 版本、状态码、头部和主体。它支持构建 HTTP 响应负载并通过 `TcpStream` 发送。

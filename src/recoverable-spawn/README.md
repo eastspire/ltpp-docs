@@ -20,8 +20,6 @@ dir:
 [![](https://img.shields.io/crates/l/recoverable-spawn.svg)](./LICENSE)<br>
 [![](https://github.com/ltpp-universe/recoverable-spawn/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-spawn/actions?query=workflow:Rust)
 
-[官方文档](https://docs.ltpp.vip/recoverable-spawn/)
-
 [API 文档](https://docs.rs/recoverable-spawn/latest/recoverable_spawn/)
 
 > 一个库，用于在 panic 后自动重启线程。它在发生意外错误时，确保线程继续运行。它提供了一种简单有效的机制，捕获 panic，重启线程，并可以选择性地记录错误，用于监控和调试。
