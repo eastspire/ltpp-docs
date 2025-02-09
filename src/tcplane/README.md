@@ -41,38 +41,9 @@ cargo add tcplane
 ```rust
 use tcplane::*;
 
-fn println(data: &str) {
-    let binding: String = current_time();
-    let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-    let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-    let time_output: Output<'_> = time_output_builder
-        .text(&binding)
-        .blod(true)
-        .bg_color(ColorType::Use(Color::Yellow))
-        .color(ColorType::Rgb(255, 255, 255))
-        .build();
-    let text_output: Output<'_> = text_output_builder
-        .text(data)
-        .blod(true)
-        .bg_color(ColorType::Use(Color::Green))
-        .color(ColorType::Rgb(255, 255, 255))
-        .endl(true)
-        .build();
-    OutputListBuilder::new()
-        .add(time_output)
-        .add(text_output)
-        .run();
-}
-
-fn common_log(log_data: &String) -> String {
-    println(&log_data);
-    let write_data: String = format!("{}: {}\n", current_time(), log_data);
-    write_data.clone()
-}
-
 fn sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
     let mut controller_data: RwLockWriteControllerData =
-        arc_lock_controller_data.write().unwrap();
+        get_rw_lock_write_controller_data(&arc_lock_controller_data);
     {
         let request: &mut Vec<u8> = controller_data.get_mut_request();
         let mut new_request: Vec<u8> = request.clone();
@@ -86,19 +57,18 @@ fn sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
         .peer_addr()
         .and_then(|host| Ok(host.to_string()))
         .unwrap_or("Unknown".to_owned());
-
     controller_data.get_log().debug(
         format!(
             "Request host => {}\n{:#?}\n",
             host,
             String::from_utf8_lossy(&request),
         ),
-        common_log,
+        log_debug_format_handler,
     );
 }
 
 async fn async_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
+    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
     println!(
         "async middleware request{:?}",
         String::from_utf8_lossy(controller_data.get_request())
@@ -106,7 +76,7 @@ async fn async_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
 }
 
 fn sync_func(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
+    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = controller_data
         .get_response()
@@ -115,12 +85,12 @@ fn sync_func(arc_lock_controller_data: ArcRwLockControllerData) {
         .send(&stream);
     controller_data.get_log().debug(
         format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),
-        common_log,
+        log_debug_format_handler,
     );
 }
 
 async fn async_func(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
+    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = controller_data
         .get_response()
@@ -129,7 +99,7 @@ async fn async_func(arc_lock_controller_data: ArcRwLockControllerData) {
         .send(&stream);
     controller_data.get_log().debug(
         format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),
-        common_log,
+        log_debug_format_handler,
     );
 }
 
@@ -138,8 +108,8 @@ async fn run_server() {
     server.host("0.0.0.0");
     server.port(60000);
     server.log_dir("./logs");
-    server.log_size(1_024_000);
-    server.buffer(1_024_000);
+    server.log_size(100_024_000);
+    server.buffer(100_024_000);
     server.log_interval_millis(360);
     server.middleware(sync_middleware);
     server.async_middleware(async_middleware).await;
