@@ -68,7 +68,7 @@ fn sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
 }
 
 async fn async_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
+    let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data);
     println!(
         "async middleware request{:?}",
         String::from_utf8_lossy(controller_data.get_request())
@@ -76,7 +76,7 @@ async fn async_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
 }
 
 fn sync_func(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
+    let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data);
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = controller_data
         .get_response()
@@ -90,7 +90,7 @@ fn sync_func(arc_lock_controller_data: ArcRwLockControllerData) {
 }
 
 async fn async_func(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: ControllerData = get_read_controller_data(&arc_lock_controller_data);
+    let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data);
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = controller_data
         .get_response()
