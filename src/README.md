@@ -206,6 +206,11 @@ features:
     details: 异步闭包移动宏
     icon: blog
     link: /async-func/
+
+  - title: server-manager
+    details: 服务进程管理
+    icon: blog
+    link: /server-manager/
 ---
 
 <Bottom />
