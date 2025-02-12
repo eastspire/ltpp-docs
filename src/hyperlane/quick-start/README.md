@@ -27,6 +27,10 @@ cd hyperlane-quick-start
 
 ### 运行
 
+> [!tip]
+> 此项目使用 `server-manager` 进行服务管理
+> 使用参考 [官方文档](../../server-manager/README.md)
+
 #### 运行
 
 ```sh
