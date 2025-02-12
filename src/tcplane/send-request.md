@@ -11,7 +11,7 @@ category:
 ## 发送请求
 
 > [!tip]
-> tcplane 请求使用了 `tcp-request` 库，框架已默认导入，无需额外安装和导入
+> 推荐安装和使用 `tcp-request` 库
 > 使用参考 [官方文档](../tcp-request/README.md)
 
 <Bottom />
