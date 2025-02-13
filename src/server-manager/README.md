@@ -26,7 +26,7 @@ dir:
 
 [Api Docs](https://docs.rs/server-manager/latest/server_manager/)
 
-> `server-manager` 是一个用于管理服务器进程的 Rust 库。它封装了服务的启动、停止以及后台守护（daemon）模式，用户可以通过自定义配置来指定 PID 文件、日志文件等路径，同时可以将自己的异步服务器函数传入进行调用。该库支持同步和异步操作，在 Unix 平台下可以使用后台守护进程功能，而在非 Unix 平台上则返回相应错误提示。
+> `server-manager` 是一个用于管理服务器进程的 Rust 库。它封装了服务的启动、停止以及后台守护（daemon）模式，用户可以通过自定义配置来指定 PID 文件、日志文件等路径，同时可以将自己的异步服务器函数传入进行调用。该库支持同步和异步操作，在 Unix 和 Windows 平台下可以使用后台守护进程功能。
 
 ## 安装
 
