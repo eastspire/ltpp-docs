@@ -9,8 +9,6 @@ category:
 order: 1
 ---
 
-## 目录结构
-
 ```txt
 src                      # 项目代码目录
 ├── app                  # app目录
@@ -26,9 +24,10 @@ src                      # 项目代码目录
 |   ├── process          # 进程配置
 │   ├── server           # 服务配置
 ├── plugin               # 插件目录
+│   ├── logo_img         # 服务logo插件
+│   ├── server_manager   # 服务进程管理插件
 ├── init                 # 初始化目录
-│   ├── server_manager   # 服务管理初始化
-│   ├── server_manager   # 服务创建初始化
+│   ├── server           # 服务初始化
 static                   # 静态资源目录
 └── img                  # 图片静态资源
 ```
