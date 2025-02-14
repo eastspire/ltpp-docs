@@ -42,12 +42,34 @@ response.set_status_code(200);
 
 ## 发送响应
 
+### 原子方法
+
 ```rust
 // 省略 server 和 路由处理函数 创建
 let mut controller_data = arc_lock_controller_data.write().unwrap();
 let mut response: Response = controller_data.get_response().clone();
 let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
 let res: ResponseResult = response.send(&stream);
+```
+
+### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作
+
+#### send_response
+
+> [!tip]
+> 发送响应后 `TCP` 连接保留
+
+```rust
+let send_res: ResponseResult = send_response(&arc_lock_controller_data, 200, "hello hyperlane");
+```
+
+#### send_response_once
+
+> [!tip]
+> 发送响应后 `TCP` 连接立即关闭
+
+```rust
+let send_res: ResponseResult = send_response_once(&arc_lock_controller_data, 200, "hello hyperlane");
 ```
 
 ## 综合使用
