@@ -29,7 +29,7 @@ server.func(|arc_lock_controller_data| {
     let mut controller_data = arc_lock_controller_data.write().unwrap();
     let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
     let response: &mut Response = controller_data.get_mut_response();
-    let _ = response.set_data("hello".into()).send(&stream);
+    let _ = response.set_data("hello").send(&stream);
 });
 ```
 

@@ -75,7 +75,7 @@ async fn main() {
                 let res: ResponseResult = controller_data_arc
                     .get_response()
                     .clone()
-                    .set_body("hello world".into())
+                    .set_body("hello world")
                     .send(&stream);
                 controller_data_arc.get_log().log_debug(
                     format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),

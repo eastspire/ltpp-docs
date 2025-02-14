@@ -36,7 +36,7 @@ async fn run_server() {
             let mut data: RwLockWriteControllerData = arc_lock_data.write().unwrap();
             let stream: Arc<TcpStream> = data.get_stream().clone().unwrap();
             data.get_mut_response()
-                .set_body("hello".into())
+                .set_body("hello")
                 .send(&stream)
                 .unwrap();
         })

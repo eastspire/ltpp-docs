@@ -30,7 +30,7 @@ let host: String = stream
 ```rust
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
-let _ = response.set_body("\nhello".into()).send(&stream);
+let _ = response.set_body("\nhello").send(&stream);
 ```
 
 ## 发送响应体
@@ -38,7 +38,7 @@ let _ = response.set_body("\nhello".into()).send(&stream);
 ```rust
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
-let _ = response.set_body("\nhello".into()).send_body(&stream);
+let _ = response.set_body("\nhello").send_body(&stream);
 ```
 
 ## 支持多次响应
@@ -52,7 +52,7 @@ loop {
         break;
     }
     i += 1;
-    let _ = response.set_body("\nhello".into()).send_body(&stream);
+    let _ = response.set_body("\nhello").send_body(&stream);
 }
 ```
 
