@@ -6,7 +6,7 @@ category:
   - tcplane
   - web
   - rust
-order: 11
+order: 10
 ---
 
 > [!tip]

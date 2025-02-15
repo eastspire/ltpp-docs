@@ -26,12 +26,6 @@
   --search-input-width: 10rem;
 }
 
-.ltpp-link {
-  text-decoration: none;
-  font-size: 0.88rem;
-  color: #c0c4cc;
-}
-
 .animate {
   -webkit-transition: all 0.666s ease !important;
   -moz-transition: all 0.666s ease !important;
@@ -40,12 +34,17 @@
   transition: all 0.666s ease !important;
 }
 
-.ltpp-link:hover {
-  color: deepskyblue;
+.ltpp-link {
+  text-decoration: none;
+  font-size: 0.88rem;
+  color: var(--vp-c-text-mute);
+  font-weight: bold;
+  transition: color 0.36s ease;
 }
 
+.ltpp-link:hover,
 .ltpp-link:active {
-  color: deeppink;
+  color: var(--vp-c-accent-bg);
 }
 
 h1,
@@ -213,4 +212,9 @@ code * {
   background: transparent !important;
   width: 0px !important;
   height: 0px !important;
+}
+
+.vp-footer-wrapper,
+.vp-page-nav {
+  border: 0px solid transparent !important;
 }
