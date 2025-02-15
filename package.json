@@ -8,6 +8,8 @@
     "build": "node plugin/creat-sidebar.js && vuepress-vite build src",
     "clean-dev": "node plugin/creat-sidebar.js && vuepress-vite dev src --clean-cache",
     "dev": "node plugin/creat-sidebar.js && vuepress-vite dev src",
+    "serve": "node plugin/creat-sidebar.js && vuepress-vite dev src",
+    "server": "node plugin/creat-sidebar.js && vuepress-vite dev src",
     "update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
