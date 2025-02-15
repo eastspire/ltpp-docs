@@ -1,24 +1,17 @@
 * {
   -webkit-touch-callout: none !important;
-  /* iOS Safari */
   -webkit-user-select: none !important;
-  /* Chrome/Safari/Opera */
   -khtml-user-select: none !important;
-  /* Konqueror */
   -moz-user-select: none !important;
-  /* Firefox */
   -ms-user-select: none !important;
-  /* Internet Explorer/Edge */
   user-select: none !important;
-  /* Non-prefixed version, currently not supported by any browser */
   --vp-sidebar-line-height: 2;
   --vp-sidebar-padding-top-bottom: 4px;
   --vp-catalog-title-line-height: 2.68;
   --vp-sidebar-group-padding-inline-start: 1.38rem;
   --vp-sidebar-link-padding-inline-start: 1.88rem;
-  --ltpp-top-scroll-color: #096dd9;
-  --ltpp-top-scroll-height: 0.26rem;
-
+  --ltpp-top-scroll-color: var(--vp-c-accent-bg);
+  --ltpp-top-scroll-height: 0.1rem;
   ::-webkit-resizer,
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-button,
@@ -41,13 +34,9 @@
 
 .animate {
   -webkit-transition: all 0.666s ease !important;
-  /* Safari and Chrome */
   -moz-transition: all 0.666s ease !important;
-  /* Firefox */
   -o-transition: all 0.666s ease !important;
-  /* Opera */
   -ms-transition: all 0.666s ease !important;
-  /* IE 9 */
   transition: all 0.666s ease !important;
 }
 
@@ -212,4 +201,16 @@ code * {
   -ms-user-select: unset !important;
   /* Internet Explorer/Edge */
   user-select: text !important;
+}
+
+.vp-page-nav .auto-link {
+  border: 0px solid transparent;
+}
+
+.external-link-icon .external-link:not(.no-external-link-icon)::after,
+.external-link-icon [vp-content] a[href*="://"]:not(.no-external-link-icon)::after, .external-link-icon [vp-content] a[target=_blank]:not(.no-external-link-icon)::after
+{
+  background: transparent !important;
+  width: 0px !important;
+  height: 0px !important;
 }
