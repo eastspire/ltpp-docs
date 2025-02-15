@@ -166,8 +166,13 @@ function sendVisit() {
   } catch (e) {}
 }
 
+function disableWarnLog() {
+  console.warn = function () {};
+}
+
 (function () {
   try {
+    disableWarnLog();
     errorHandle();
     printData();
     setCookie();

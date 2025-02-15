@@ -18,6 +18,10 @@ actions:
     icon: star
     link: https://github.com/ltpp-universe
 
+  - text: 赞赏作者
+    icon: sun
+    link: /appreciate
+
   - text: 联系作者
     icon: user
     link: mailto:root@ltpp.vip
