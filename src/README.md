@@ -14,17 +14,13 @@ actions:
     icon: signs-post
     type: primary
 
-  - text: 版本日志
-    icon: lightbulb
-    link: /ltpp/version
-
   - text: 作者主页
     icon: star
     link: https://github.com/ltpp-universe
 
   - text: 联系作者
     icon: user
-    link: https://admin.qidian.qq.com/static_proxy/b2b-qq/wpa-link/index.html#/person?uin=1491579574
+    link: mailto:root@ltpp.vip
 
 features:
   - title: ltpp

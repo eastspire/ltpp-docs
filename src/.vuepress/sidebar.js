@@ -35,6 +35,7 @@ export default sidebar({
   "/ltpp-web-ide": 'structure',
   "/recoverable-spawn": 'structure',
   "/recoverable-thread-pool": 'structure',
+  "/server-manager": 'structure',
   "/std-macro-extensions": 'structure',
   "/tcp-request": 'structure',
   "/tcplane": 'structure',
