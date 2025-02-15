@@ -32,12 +32,12 @@ print_success!("1234", "5678");
 print_warning!("1234", "5678");
 ```
 
-### print_danger!
+### print_error!
 
 > 不换行输出危险信息
 
 ```rust
-print_danger!("1234", "5678");
+print_error!("1234", "5678");
 ```
 
 ### println_success!
@@ -56,12 +56,12 @@ println_success!("1234", "5678");
 println_warning!("1234", "5678");
 ```
 
-### println_danger!
+### println_error!
 
 > 换行输出危险信息
 
 ```rust
-println_danger!("1234", "5678");
+println_error!("1234", "5678");
 ```
 
 <Bottom />
