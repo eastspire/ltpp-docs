@@ -97,11 +97,6 @@ features:
     icon: blog
     link: /ltpp-post-blog-user-crawler/
 
-  - title: ltpp-event-publish...
-    details: 管理浏览器环境事件
-    icon: blog
-    link: /ltpp-event-publish-subscribe-in-javascript/
-
   - title: color-output
     details: 输出库
     icon: blog
