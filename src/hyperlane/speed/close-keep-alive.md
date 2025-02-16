@@ -13,7 +13,7 @@ order: 2
 
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
-> - 1.Hyperlane 框架：47294.55
+> - 1.Hyperlane 框架：51507.09
 > - 2.Tokio：39984.12
 > - 3.Rocket 框架：31979.27
 > - 4.Rust 标准库：31243.92
@@ -29,52 +29,43 @@ Server Hostname:        127.0.0.1
 Server Port:            60000
 
 Document Path:          /
-Document Length:        25 bytes
+Document Length:        5 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   21.144 seconds
+Time taken for tests:   19.415 seconds
 Complete requests:      1000000
 Failed requests:        0
-Total transferred:      144000000 bytes
-HTML transferred:       25000000 bytes
-Requests per second:    47294.55 [#/sec] (mean)
-Time per request:       21.144 [ms] (mean)
-Time per request:       0.021 [ms] (mean, across all concurrent requests)
-Transfer rate:          6650.80 [Kbytes/sec] received
+Total transferred:      107000000 bytes
+HTML transferred:       5000000 bytes
+Requests per second:    51507.09 [#/sec] (mean)
+Time per request:       19.415 [ms] (mean)
+Time per request:       0.019 [ms] (mean, across all concurrent requests)
+Transfer rate:          5382.09 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   18 171.1      1   15778
-Processing:     0    2   3.3      1      40
-Waiting:        0    2   3.2      1      37
-Total:          0   20 171.4      2   15780
+Connect:        0   17 171.8      1    7243
+Processing:     0    2   3.6      1      40
+Waiting:        0    2   3.4      1      36
+Total:          0   19 172.1      2    7245
 
 Percentage of the requests served within a certain time (ms)
   50%      2
-  66%      3
+  66%      2
   75%      3
-  80%      4
-  90%      5
-  95%     11
-  98%     23
-  99%   1032
- 100%  15780 (longest request)
+  80%      3
+  90%      4
+  95%     13
+  98%     24
+  99%   1029
+ 100%   7245 (longest request)
 ```
 
 ```rust
 use hyperlane::*;
 
 fn test_sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
-    let controller_data: RwLockWriteControllerData = arc_lock_controller_data.write().unwrap();
-    let mut response: Response = controller_data.get_response().clone();
-    let stream: ArcTcpStream = controller_data.get_stream().clone().unwrap();
-    response
-        .set_body("hello")
-        .set_status_code(200)
-        .set_header(CONTENT_TYPE, APPLICATION_JSON)
-        .set_header(CONTENT_ENCODING, CONTENT_ENCODING_GZIP)
-        .send(&stream)
-        .unwrap();
+    let _ = send_response(&arc_lock_controller_data, 200, "hello");
 }
 
 fn run_server() {
@@ -82,6 +73,7 @@ fn run_server() {
     server.host("0.0.0.0");
     server.port(60000);
     server.log_dir("./logs");
+    server.log_interval_millis(1_000_000_000);
     server.middleware(test_sync_middleware);
     server.listen();
 }
