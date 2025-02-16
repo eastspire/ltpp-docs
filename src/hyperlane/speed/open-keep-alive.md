@@ -16,7 +16,7 @@ order: 3
 
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
 >
-> - 1.Hyperlane 框架：51507.09（关闭 keep-alive）
+> - 1.Hyperlane 框架：90294.11
 > - 2.Tokio：49932.79
 > - 3.Rocket 框架：43373.54
 > - 4.Rust 标准库：40615.65
@@ -27,8 +27,6 @@ order: 3
 
 ### hyperlane 框架
 
-**关闭 keep-alive 测试结果**
-
 ```sh
 Server Hostname:        127.0.0.1
 Server Port:            60000
@@ -37,33 +35,35 @@ Document Path:          /
 Document Length:        5 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   19.415 seconds
+Time taken for tests:   11.075 seconds
 Complete requests:      1000000
-Failed requests:        0
-Total transferred:      107000000 bytes
-HTML transferred:       5000000 bytes
-Requests per second:    51507.09 [#/sec] (mean)
-Time per request:       19.415 [ms] (mean)
-Time per request:       0.019 [ms] (mean, across all concurrent requests)
-Transfer rate:          5382.09 [Kbytes/sec] received
+Failed requests:        520141
+   (Connect: 0, Receive: 6, Length: 500002, Exceptions: 20133)
+Keep-Alive requests:    500002
+Total transferred:      53500535 bytes
+HTML transferred:       2500025 bytes
+Requests per second:    90294.11 [#/sec] (mean)
+Time per request:       11.075 [ms] (mean)
+Time per request:       0.011 [ms] (mean, across all concurrent requests)
+Transfer rate:          4717.56 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   17 171.8      1    7243
-Processing:     0    2   3.6      1      40
-Waiting:        0    2   3.4      1      36
-Total:          0   19 172.1      2    7245
+Connect:        0    6  35.4      0    1107
+Processing:     0    5   8.9      3     403
+Waiting:        0    5   9.1      1     403
+Total:          0   11  37.3      4    1122
 
 Percentage of the requests served within a certain time (ms)
-  50%      2
-  66%      2
-  75%      3
-  80%      3
-  90%      4
-  95%     13
-  98%     24
-  99%   1029
- 100%   7245 (longest request)
+  50%      4
+  66%     14
+  75%     17
+  80%     19
+  90%     25
+  95%     30
+  98%     36
+  99%     41
+ 100%   1122 (longest request)
 ```
 
 ```rust
