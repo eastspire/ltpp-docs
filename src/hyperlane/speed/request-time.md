@@ -15,8 +15,8 @@ order: 1
 
 | 场景      | http-request 平均耗时 | hyper 平均耗时 |
 | --------- | --------------------- | -------------- |
-| TCP 失败  | 39us                  | 224us          |
-| hyperlane | 100us                 | 300us          |
+| TCP 失败  | 39us                  | 78us           |
+| hyperlane | 100us                 | 150us          |
 | 阿帕奇    | 300us                 | 2500us         |
 
 ### 服务端
