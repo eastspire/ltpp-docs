@@ -9,13 +9,15 @@ category:
 order: 2
 ---
 
+[GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement/tree/master/close-keep-alive)
+
 ## QPS 测试结果
 
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
 > - 1.Hyperlane 框架：51507.09
-> - 2.Tokio：39984.12
-> - 3.Rocket 框架：31979.27
+> - 2.Rocket 框架：50009.23
+> - 3.Tokio：39984.12
 > - 4.Rust 标准库：31243.92
 > - 5.Gin 框架：19514.88
 > - 6.Go 标准库：19316.27
@@ -61,29 +63,6 @@ Percentage of the requests served within a certain time (ms)
  100%   7245 (longest request)
 ```
 
-```rust
-use hyperlane::*;
-
-fn test_sync_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
-    let _ = send_response(&arc_lock_controller_data, 200, "hello");
-}
-
-fn run_server() {
-    let mut server: Server = Server::new();
-    server.host("0.0.0.0");
-    server.port(60000);
-    server.log_dir("./logs");
-    server.log_interval_millis(1_000_000_000);
-    server.middleware(test_sync_middleware);
-    server.listen();
-}
-
-#[tokio::main]
-async fn main() {
-    run_server();
-}
-```
-
 ### Rust 标准库
 
 ```sh
@@ -122,70 +101,6 @@ Percentage of the requests served within a certain time (ms)
   98%      7
   99%   1041
  100%  15764 (longest request)
-```
-
-```rust
-use std::io::{self, Read, Write};
-use std::net::{TcpListener, TcpStream};
-
-static RESPONSE: &[u8] = &[
-    72, 84, 84, 80, 47, 49, 46, 49, 32, 50, 48, 48, 32, 79, 75, 13, 10, 67, 111, 110, 116, 101,
-    110, 116, 45, 84, 121, 112, 101, 58, 32, 116, 101, 120, 116, 47, 112, 108, 97, 105, 110, 13,
-    10, 67, 111, 110, 116, 101, 110, 116, 45, 76, 101, 110, 103, 116, 104, 58, 32, 53, 13, 10, 67,
-    111, 110, 110, 101, 99, 116, 105, 111, 110, 58, 32, 99, 108, 111, 115, 101, 13, 10, 13, 10,
-    104, 101, 108, 108, 111,
-];
-
-fn handle_client(mut stream: TcpStream) {
-    let mut buffer: [u8; 512] = [0; 512];
-    let mut request: Vec<u8> = Vec::new();
-    loop {
-        let n = match stream.read(&mut buffer) {
-            Ok(0) => {
-                break;
-            }
-            Ok(n) => n,
-            Err(e) => {
-                eprintln!("Error reading from stream: {}", e);
-                break;
-            }
-        };
-        request.extend_from_slice(&buffer[..n]);
-        if let Some(pos) = find_http_end(&request) {
-            if let Err(e) = stream.write_all(RESPONSE) {
-                eprintln!("Error writing response to stream: {}", e);
-                break;
-            }
-            request.drain(..pos + 4);
-        }
-        break;
-    }
-}
-
-fn find_http_end(request: &[u8]) -> Option<usize> {
-    for i in 0..request.len() - 3 {
-        if &request[i..i + 4] == b"\r\n\r\n" {
-            return Some(i);
-        }
-    }
-    None
-}
-
-fn main() -> io::Result<()> {
-    let listener: TcpListener = TcpListener::bind("0.0.0.0:9000")?;
-    println!("Server is listening on port 9000");
-    for stream in listener.incoming() {
-        match stream {
-            Ok(stream) => {
-                handle_client(stream);
-            }
-            Err(e) => {
-                eprintln!("Failed to accept connection: {}", e);
-            }
-        }
-    }
-    Ok(())
-}
 ```
 
 ### Tokio 框架
@@ -227,134 +142,43 @@ Percentage of the requests served within a certain time (ms)
  100%  15849 (longest request)
 ```
 
-```rust
-use tokio::io::{self, AsyncReadExt, AsyncWriteExt};
-use tokio::net::{TcpListener, TcpStream};
-
-static RESPONSE: &[u8] = &[
-    72, 84, 84, 80, 47, 49, 46, 49, 32, 50, 48, 48, 32, 79, 75, 13, 10, 67, 111, 110, 116, 101,
-    110, 116, 45, 84, 121, 112, 101, 58, 32, 116, 101, 120, 116, 47, 112, 108, 97, 105, 110, 13,
-    10, 67, 111, 110, 116, 101, 110, 116, 45, 76, 101, 110, 103, 116, 104, 58, 32, 53, 13, 10, 67,
-    111, 110, 110, 101, 99, 116, 105, 111, 110, 58, 32, 99, 108, 111, 115, 101, 13, 10, 13, 10,
-    104, 101, 108, 108, 111,
-];
-
-async fn handle_client(mut stream: TcpStream) {
-    let mut buffer: [u8; 512] = [0; 512];
-    let mut request: Vec<u8> = Vec::new();
-    loop {
-        let n: usize = match stream.read(&mut buffer).await {
-            Ok(0) => {
-                break;
-            }
-            Ok(n) => n,
-            Err(e) => {
-                eprintln!("Error reading from stream: {}", e);
-                break;
-            }
-        };
-        request.extend_from_slice(&buffer[..n]);
-        if let Some(pos) = find_http_end(&request) {
-            if let Err(e) = stream.write_all(RESPONSE).await {
-                eprintln!("Error writing response to stream: {}", e);
-                break;
-            }
-            request.drain(..pos + 4);
-        }
-        break;
-    }
-}
-
-fn find_http_end(request: &[u8]) -> Option<usize> {
-    for i in 0..request.len() - 3 {
-        if &request[i..i + 4] == b"\r\n\r\n" {
-            return Some(i);
-        }
-    }
-    None
-}
-
-#[tokio::main]
-async fn main() -> io::Result<()> {
-    let listener: TcpListener = TcpListener::bind("0.0.0.0:10000").await?;
-    println!("Server is listening on port 10000");
-    loop {
-        match listener.accept().await {
-            Ok((stream, _)) => {
-                tokio::spawn(async move {
-                    handle_client(stream).await;
-                });
-            }
-            Err(e) => {
-                eprintln!("Failed to accept connection: {}", e);
-            }
-        }
-    }
-}
-```
-
 ### Rocket 框架
 
 ```sh
 Server Hostname:        127.0.0.1
-Server Port:            8000
+Server Port:            60000
 
 Document Path:          /
 Document Length:        13 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   31.270 seconds
+Time taken for tests:   19.996 seconds
 Complete requests:      1000000
-Failed requests:        6
-   (Connect: 0, Receive: 2, Length: 2, Exceptions: 2)
-Total transferred:      246999506 bytes
-HTML transferred:       12999974 bytes
-Requests per second:    31979.27 [#/sec] (mean)
-Time per request:       31.270 [ms] (mean)
-Time per request:       0.031 [ms] (mean, across all concurrent requests)
-Transfer rate:          7713.73 [Kbytes/sec] received
+Failed requests:        0
+Total transferred:      247000000 bytes
+HTML transferred:       13000000 bytes
+Requests per second:    50009.23 [#/sec] (mean)
+Time per request:       19.996 [ms] (mean)
+Time per request:       0.020 [ms] (mean, across all concurrent requests)
+Transfer rate:          12062.77 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   24 267.2      0   15838
-Processing:     0    5   6.0      4     315
-Waiting:        0    5   6.0      4     315
-Total:          0   29 267.6      4   15843
+Connect:        0   10  15.9      9    1105
+Processing:     0   10   5.5     10     307
+Waiting:        0    9   5.3      9     307
+Total:          0   20  17.5     19    1122
 
 Percentage of the requests served within a certain time (ms)
-  50%      4
-  66%      5
-  75%      5
-  80%      6
-  90%     11
-  95%     18
-  98%     31
-  99%   1040
- 100%  15843 (longest request)
-```
-
-```rust
-#[macro_use]
-extern crate rocket;
-
-static RESPONSE: [u8; 13] = [72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33];
-
-#[get("/")]
-async fn index() -> &'static [u8] {
-    &RESPONSE
-}
-
-#[launch]
-fn rocket() -> _ {
-    rocket::build()
-        .mount("/", routes![index])
-        .configure(rocket::Config {
-            log_level: rocket::config::LogLevel::Off,
-            port: 8000,
-            keep_alive: 0,
-            ..Default::default()
-        })
-}
+  50%     19
+  66%     22
+  75%     24
+  80%     26
+  90%     31
+  95%     34
+  98%     39
+  99%     43
+ 100%   1122 (longest request)
 ```
 
 ### Apache
@@ -436,23 +260,6 @@ Percentage of the requests served within a certain time (ms)
  100%  32267 (longest request)
 ```
 
-```go
-package main
-
-import "github.com/gin-gonic/gin"
-
-func main() {
-    gin.SetMode(gin.ReleaseMode)
-    r := gin.New()
-    gin.DisableConsoleColor()
-    r.GET("/", func(c *gin.Context) {
-        c.Header("Connection", "close")
-        c.String(200, "Hello")
-    })
-    r.Run(":8080")
-}
-```
-
 ## Go 标准库
 
 ```sh
@@ -492,28 +299,6 @@ Percentage of the requests served within a certain time (ms)
  100%  15849 (longest request)
 ```
 
-```go
-package main
-
-import (
-	"fmt"
-	"net/http"
-)
-
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Connection", "close")
-	fmt.Fprintf(w, "Hello, World!")
-}
-
-func main() {
-	http.HandleFunc("/", helloHandler)
-	fmt.Println("Starting server at :8080...")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Println("Error starting server:", err)
-	}
-}
-```
-
 ## Node 标准库
 
 ```sh
@@ -551,27 +336,6 @@ Percentage of the requests served within a certain time (ms)
   98%   1050
   99%   1054
  100%  32254 (longest request)
-```
-
-```js
-const http = require('http');
-
-const requestHandler = (_req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/plain',
-    Connection: 'close',
-  });
-  res.end('Hello, World!');
-};
-
-const server = http.createServer(requestHandler);
-
-server.keepAliveTimeout = 0;
-server.headersTimeout = 65000;
-
-server.listen(8000, '0.0.0.0', () => {
-  console.log('Server is running on http://localhost:8000');
-});
 ```
 
 <Bottom />
