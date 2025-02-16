@@ -9,9 +9,6 @@ category:
 order: 3
 ---
 
-> [!tip]
-> hyperlane 暂时不对 `keep-alive` 提供支持，可能被恶意攻击后对服务器性能影响较大
-
 ## QPS 测试结果
 
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
