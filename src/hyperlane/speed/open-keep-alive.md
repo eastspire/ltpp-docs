@@ -15,9 +15,9 @@ order: 3
 
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
 >
-> - 1.Hyperlane 框架：90294.11
-> - 2.Tokio：49932.79
-> - 3.Rocket 框架：43373.54
+> - 1.Rocket 框架：274398.41
+> - 2.Hyperlane 框架：90294.11
+> - 3.Tokio：49932.79
 > - 4.Rust 标准库：40615.65
 > - 5.Go 标准库：23476.99
 > - 6.Gin 框架：22663.06
@@ -147,41 +147,41 @@ Percentage of the requests served within a certain time (ms)
 ### Rocket 框架
 
 ```sh
-Server Software:        Rocket
 Server Hostname:        127.0.0.1
-Server Port:            8000
+Server Port:            60000
 
 Document Path:          /
 Document Length:        13 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   29.557 seconds
+Time taken for tests:   3.644 seconds
 Complete requests:      1000000
 Failed requests:        0
-Total transferred:      247000000 bytes
+Keep-Alive requests:    1000000
+Total transferred:      271000000 bytes
 HTML transferred:       13000000 bytes
-Requests per second:    33833.25 [#/sec] (mean)
-Time per request:       29.557 [ms] (mean)
-Time per request:       0.030 [ms] (mean, across all concurrent requests)
-Transfer rate:          8160.95 [Kbytes/sec] received
+Requests per second:    274398.41 [#/sec] (mean)
+Time per request:       3.644 [ms] (mean)
+Time per request:       0.004 [ms] (mean, across all concurrent requests)
+Transfer rate:          72619.11 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   22 277.3      0   15672
-Processing:     0    5   4.6      4      57
-Waiting:        0    5   4.6      4      57
-Total:          0   27 277.7      4   15682
+Connect:        0    0   0.2      0      14
+Processing:     0    4   1.4      3      20
+Waiting:        0    4   1.4      3      20
+Total:          0    4   1.4      3      21
 
 Percentage of the requests served within a certain time (ms)
-  50%      4
+  50%      3
   66%      4
   75%      5
-  80%      6
-  90%     10
-  95%     17
-  98%     27
-  99%   1037
- 100%  15682 (longest request)
+  80%      5
+  90%      6
+  95%      6
+  98%      7
+  99%      7
+ 100%     21 (longest request)
 ```
 
 ### Apache
