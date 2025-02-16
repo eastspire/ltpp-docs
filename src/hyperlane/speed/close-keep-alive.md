@@ -15,9 +15,9 @@ order: 2
 
 > 1000 并发，一共 100w 请求。QPS 结果如下：
 >
-> - 1.Hyperlane 框架：51507.09
-> - 2.Rocket 框架：50009.23
-> - 3.Tokio：39984.12
+> - 1.Hyperlane 框架：52206.36
+> - 2.Tokio：51603.17
+> - 3.Rocket 框架：50009.23
 > - 4.Rust 标准库：31243.92
 > - 5.Gin 框架：19514.88
 > - 6.Go 标准库：19316.27
@@ -39,17 +39,17 @@ Complete requests:      1000000
 Failed requests:        0
 Total transferred:      107000000 bytes
 HTML transferred:       5000000 bytes
-Requests per second:    51507.09 [#/sec] (mean)
+Requests per second:    52206.36 [#/sec] (mean)
 Time per request:       19.415 [ms] (mean)
 Time per request:       0.019 [ms] (mean, across all concurrent requests)
 Transfer rate:          5382.09 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   17 171.8      1    7243
-Processing:     0    2   3.6      1      40
-Waiting:        0    2   3.4      1      36
-Total:          0   19 172.1      2    7245
+Connect:        0    9  22.9      8    1109
+Processing:     0   10   6.0      9     425
+Waiting:        0    9   5.9      8     425
+Total:          0   19  24.0     18    1129
 
 Percentage of the requests served within a certain time (ms)
   50%      2
@@ -59,8 +59,8 @@ Percentage of the requests served within a certain time (ms)
   90%      4
   95%     13
   98%     24
-  99%   1029
- 100%   7245 (longest request)
+  99%     41
+ 100%   1129 (longest request)
 ```
 
 ### Rust 标准库
@@ -107,39 +107,39 @@ Percentage of the requests served within a certain time (ms)
 
 ```sh
 Server Hostname:        127.0.0.1
-Server Port:            10000
+Server Port:            60000
 
 Document Path:          /
 Document Length:        5 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   25.010 seconds
+Time taken for tests:   19.379 seconds
 Complete requests:      1000000
 Failed requests:        0
 Total transferred:      88000000 bytes
 HTML transferred:       5000000 bytes
-Requests per second:    39984.12 [#/sec] (mean)
-Time per request:       25.010 [ms] (mean)
-Time per request:       0.025 [ms] (mean, across all concurrent requests)
-Transfer rate:          3436.14 [Kbytes/sec] received
+Requests per second:    51603.17 [#/sec] (mean)
+Time per request:       19.379 [ms] (mean)
+Time per request:       0.019 [ms] (mean, across all concurrent requests)
+Transfer rate:          4434.65 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   20 241.9      0   15835
-Processing:     0    4   4.4      3      56
-Waiting:        0    4   4.3      3      56
-Total:          0   24 242.2      3   15849
+Connect:        0    9  20.6      9    1097
+Processing:     0   10   5.6      9     296
+Waiting:        0    9   5.4      8     296
+Total:          0   19  21.9     18    1116
 
 Percentage of the requests served within a certain time (ms)
-  50%      3
-  66%      4
-  75%      4
-  80%      5
-  90%      8
-  95%     17
-  98%     26
-  99%   1036
- 100%  15849 (longest request)
+  50%     18
+  66%     21
+  75%     23
+  80%     25
+  90%     29
+  95%     33
+  98%     37
+  99%     41
+ 100%   1116 (longest request)
 ```
 
 ### Rocket 框架
