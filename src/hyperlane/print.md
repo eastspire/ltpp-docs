@@ -31,13 +31,13 @@ server.print(true);
 #### disable_print
 
 ```rust
-server.disable_print();
+server.disable_print().await;
 ```
 
 #### print
 
 ```rust
-server.print(true);
+server.print(true).await;
 ```
 
 <Bottom />

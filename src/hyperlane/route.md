@@ -15,24 +15,13 @@ order: 7
 > [!tip]
 > controller_data 接口参考 [controller-data 文档](./controller-data.md)
 
-## 同步路由
-
-### 注册路由
-
-```rust
-// 省略 server 创建
-server.router("路由名称", |arc_lock_controller_data| {
-    // code
-});
-```
-
 ## 异步路由
 
 ### 注册路由
 
 ```rust
 // 省略 server 创建
-server.async_router("路由名称", |arc_lock_controller_data| async move {
+server.router("路由名称", |arc_lock_controller_data| async move {
     // code
 }).await;
 ```

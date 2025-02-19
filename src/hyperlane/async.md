@@ -18,12 +18,16 @@ order: 22
 > - 再执行同步路由，如果同步路由存在则不会执行同名的异步路由
 > - 最后执行异步路由
 
+> [!tip]
+> hyperlane 框架在 `v4.0.0` 之前支持同步和异步中间件/路由共存。
+> hyperlane 框架在 `v4.0.0` 之后为了性能移除了同步中间件和路由，All in async，在开启 `keep-alive` 情况下带来了效果 QPS 10w+的提升
+
 ## 框架本身异步使用
 
 ```rust
 server
-    .async_router("/", move |arc_lock_controller_data| async move {
-        let controller_data_arc = arc_lock_controller_data.write().unwrap();
+    .router("/", move |arc_lock_controller_data| async move {
+        let controller_data_arc = arc_lock_controller_data.write().await;;
         println!("hello");
     })
     .await;
@@ -31,19 +35,11 @@ server
 
 ## 下面是使用 `tokio` 库的异步运行时示例代码
 
-### 依赖配置
-
-```toml
-[dependencies]
-tokio = { version = "1.43.0", features = ["full"] }
-```
-
 ### 示例代码
 
 ```rust
 use hyperlane::*;
 use runtime::Runtime;
-use tokio::*;
 
 async fn some_async_task() -> i32 {
     println!("Starting the task...");
@@ -59,11 +55,10 @@ async fn main() {
     server.host("0.0.0.0");
     server.port(60000);
     server.log_size(1_024_000);
-    server.router("/", move |controller_data| {
+    server.router("/", move |arc_lock_controller_data| {
         let rt = Runtime::new().unwrap();
         // 使用 block_on 启动异步代码
         rt.block_on(async move {
-            let controller_data_arc = Arc::new(controller_data.clone());
             let async_task = async move {
                 let handle: task::JoinHandle<()> = tokio::spawn(async {
                     let result: i32 = some_async_task().await;
@@ -71,16 +66,6 @@ async fn main() {
                 });
                 // 模拟异步任务
                 handle.await.unwrap();
-                let stream: Arc<TcpStream> = controller_data_arc.get_stream().clone().unwrap();
-                let res: ResponseResult = controller_data_arc
-                    .get_response()
-                    .clone()
-                    .set_body("hello world")
-                    .send(&stream);
-                controller_data_arc.get_log().log_debug(
-                    format!("Response => {:?}\n", String::from_utf8_lossy(&res.unwrap())),
-                    |data| data.clone(),
-                );
             };
             // 使用 tokio::spawn 启动一个新的异步任务
             tokio::spawn(async_task).await.unwrap();
@@ -97,7 +82,7 @@ async fn main() {
 ```rust
 let test_string: String = "test".to_owned();
 server
-    .async_router("/test/async", move |_| {
+    .router("/test/async", move |_| {
         let tmp_test_string = test_string.clone();
         async move {
             println!("{:?}", tmp_test_string);
@@ -110,11 +95,10 @@ server
 
 ```rust
 let test_string: String = "test".to_owned();
-let func = async_func!(test_string, |data| {
+let func = async_func!(test_string, |_| {
     println!("async_move => {:?}", test_string);
-    println!("{:?}", data);
 });
-server.async_router("/test/async", func).await;
+server.router("/test/async", func).await;
 ```
 
 <Bottom />

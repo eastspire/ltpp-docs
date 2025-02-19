@@ -13,7 +13,7 @@ order: 4
 
 ```rust
 // 省略 server 创建
-server.port(60000);
+server.port(60000).await;
 ```
 
 <Bottom />

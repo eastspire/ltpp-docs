@@ -13,7 +13,7 @@ order: 9
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data = arc_lock_controller_data.write().unwrap();
+let controller_data = arc_lock_controller_data.write().await;;
 let request: Request = controller_data.get_request().clone();
 ```
 
@@ -63,7 +63,7 @@ let body = request.get_body();
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let mut controller_data = arc_lock_controller_data.write().unwrap();
+let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
