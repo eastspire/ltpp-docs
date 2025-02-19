@@ -13,7 +13,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 [GITHUB 地址](https://github.com/ltpp-universe/sqs-douyin-collection-download)
 

@@ -10,7 +10,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 ## 简介
 

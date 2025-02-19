@@ -12,7 +12,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 ## 前端文档
 

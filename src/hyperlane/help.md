@@ -11,7 +11,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 ## 死锁问题
 

@@ -7,7 +7,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 #### LTPP 公用数据库
 

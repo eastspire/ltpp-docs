@@ -7,7 +7,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 [配置文件示例](./config.md)
 

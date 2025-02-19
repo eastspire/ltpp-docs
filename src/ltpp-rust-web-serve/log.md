@@ -7,7 +7,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 ```php
 [2024-06-01 11:17:42]

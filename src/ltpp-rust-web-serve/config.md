@@ -7,7 +7,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 ```json
 {

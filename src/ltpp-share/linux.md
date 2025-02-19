@@ -7,7 +7,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 #### LTPP 公益服务器
 

@@ -11,7 +11,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 [系统地址](https://qrcode.ltpp.vip)
 

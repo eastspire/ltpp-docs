@@ -9,7 +9,6 @@ category:
 ---
 
 <Share colorful />
-<Catalog />
 
 #### 在线版本 VSCODE 使用教程
 

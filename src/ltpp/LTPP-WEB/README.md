@@ -10,7 +10,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 [WEB 系统地址](https://ltpp.vip)
 

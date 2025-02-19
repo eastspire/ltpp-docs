@@ -10,7 +10,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 [系统地址](https://git.ltpp.vip)
 

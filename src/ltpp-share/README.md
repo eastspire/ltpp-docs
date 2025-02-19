@@ -11,7 +11,6 @@ dir:
 ---
 
 <Share colorful />
-<Catalog />
 
 > [!tip]
 > LTPP 公益资源分享文档
