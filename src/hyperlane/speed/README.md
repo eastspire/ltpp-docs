@@ -18,7 +18,7 @@ dir:
 
 - 系统: Ubuntu20.04.6 LTS
 - CPU: i9-14900KF
-- 内存: 192GB 4000MT/S
+- 内存: 192GB 6400MT/S（实际运行 4000MT/S）
 - 硬盘: SKC3000D2048G \* 2
 - GPU: AMD Radeon RX 6750 GRE 10GB
 
