@@ -1,5 +1,5 @@
 ---
-title: 输出
+title: 框架内部输出
 index: true
 icon: book
 category:

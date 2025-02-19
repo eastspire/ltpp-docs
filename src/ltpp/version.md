@@ -3,9 +3,9 @@ title: 版本记录
 icon: gears
 category:
   - 更新日志
-
 navbar: false
 sidebar: false
+order: 3
 ---
 
 <Share colorful />
