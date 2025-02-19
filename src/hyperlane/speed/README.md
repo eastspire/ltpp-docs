@@ -7,7 +7,7 @@ category:
   - web
   - rust
 dir:
-  order: 22
+  order: 2
 ---
 
 <Share colorful />
