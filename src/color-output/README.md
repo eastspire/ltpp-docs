@@ -212,6 +212,60 @@ output_macro!(
 );
 ```
 
+#### print_success!
+
+> 不换行输出成功信息
+
+```rust
+use color_output::*;
+print_success!("1234", "5678");
+```
+
+#### print_warning!
+
+> 不换行输出警告信息
+
+```rust
+use color_output::*;
+print_warning!("1234", "5678");
+```
+
+#### print_error!
+
+> 不换行输出错误信息
+
+```rust
+use color_output::*;
+print_error!("1234", "5678");
+```
+
+#### println_success!
+
+> 换行输出成功信息
+
+```rust
+use color_output::*;
+println_success!("1234", "5678");
+```
+
+#### println_warning!
+
+> 换行输出警告信息
+
+```rust
+use color_output::*;
+println_warning!("1234", "5678");
+```
+
+#### println_error!
+
+> 换行输出错误信息
+
+```rust
+use color_output::*;
+println_error!("1234", "5678");
+```
+
 ### 颜色使用
 
 - `ColorType::Use`: 使用内置颜色
