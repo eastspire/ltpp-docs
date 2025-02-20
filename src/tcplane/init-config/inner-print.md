@@ -1,12 +1,12 @@
 ---
-title: 输出
+title: 框架内部输出
 index: true
 icon: book
 category:
   - clone
   - web
   - rust
-order: 11
+order: 4
 ---
 
 > [!tip]
