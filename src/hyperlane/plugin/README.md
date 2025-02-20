@@ -8,5 +8,5 @@ category:
   - rust
 expanded: true
 dir:
-  order: 3
+  order: 7
 ---
