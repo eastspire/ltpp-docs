@@ -92,10 +92,10 @@ features:
     icon: blog
     link: /compare-version/
 
-  - title: bin-encrypt-decrypt
-    details: 二进制加解密库
+  - title: bin-encode-decode
+    details: 二进制编解码库
     icon: blog
-    link: /bin-encrypt-decrypt/
+    link: /bin-encode-decode/
 
   - title: http-compress
     details: http压缩解压库
