@@ -11,6 +11,12 @@ order: 2
 
 [GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement/tree/master/close-keep-alive)
 
+## 测试命令
+
+```sh
+ab -n 1000000 -c 1000 -r http://127.0.0.1:60000/
+```
+
 ## QPS 测试结果
 
 > [!tip]
