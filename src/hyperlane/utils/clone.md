@@ -6,7 +6,7 @@ category:
   - clone
   - web
   - rust
-order: 20
+order: 4
 ---
 
 > [!tip]

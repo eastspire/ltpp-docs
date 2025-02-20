@@ -6,8 +6,7 @@ category:
   - hyperlane
   - web
   - rust
-dir:
-  order: 27
+order: 7
 ---
 
 <Share colorful />
