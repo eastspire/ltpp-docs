@@ -3,7 +3,7 @@ title: LICENSE
 icon: gears
 category:
   - LICENSE
-order: 8
+order: 9
 ---
 
 <Share colorful />
