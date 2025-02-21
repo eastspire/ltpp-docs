@@ -13,7 +13,7 @@ order: 4
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let request: Request = controller_data.get_request().clone();
 ```
 

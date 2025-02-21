@@ -21,8 +21,7 @@ order: 2
 
 ```rust
 server
-    .router("/", move |arc_lock_controller_data| async move {
-        let controller_data_arc = arc_lock_controller_data.write().await;;
+    .router("/", move |_| async move {
         println!("hello");
     })
     .await;

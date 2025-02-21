@@ -27,7 +27,7 @@ pub struct ControllerData {
 ### 获取请求信息
 
 ```rust
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let request: Request = controller_data.get_request().clone();
 ```
 
@@ -39,7 +39,7 @@ let request: Request = controller_data.get_request().clone();
 ### 获取可变请求信息
 
 ```rust
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
@@ -65,7 +65,7 @@ controller_data.set_request(Request::default());
 ### 获取 `stream`
 
 ```rust
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 ```
 
@@ -103,7 +103,7 @@ controller_data.set_stream(None);
 ### 获取响应
 
 ```rust
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let response: Response = controller_data.get_response().clone();
 ```
 
@@ -141,7 +141,7 @@ controller_data.set_response(Response::default());
 ### 获取日志
 
 ```rust
-let controller_data = arc_lock_controller_data.write().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
 let log: &Log = controller_data.get_log();
 ```
 
