@@ -19,11 +19,11 @@ let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap()
 let stream_lock: ArcRwLockStream = get_stream(&arc_lock_controller_data).await.unwrap();
 // 读锁
 {
-    let stream = stream_lock.read().await;
+    let stream = stream_lock.get_read_lock().await;
 }
 // 写锁
 {
-    let stream = stream_lock.write().await;
+    let stream = stream_lock.get_write_lock().await;
 }
 ```
 
