@@ -29,17 +29,24 @@ let stream_lock: ArcRwLockStream = get_stream(&arc_lock_controller_data).await.u
 
 ## 获取客户端地址
 
+### 框架封装 get_socket_addr
+
+```rust
+// 省略 server 和 路由处理函数 创建
+arc_lock_controller_data.get_socket_addr().await;
+```
+
+### 手动解析
+
 ```rust
 // 省略 server 和 路由处理函数 创建
 let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 let socket_addr: String = stream_lock
-    .read()
+    .get_read_lock()
     .await
     .peer_addr()
     .and_then(|host| Ok(host.to_string()))
     .unwrap_or("Unknown".to_owned());
-// 使用 库 封装的函数
-let socket_addr: String = get_socket_addr(&arc_lock_controller_data).await.unwrap();
 ```
 
 ## 发送 HTTP 完整响应
