@@ -17,7 +17,7 @@ order: 5
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let mut response: Response = controller_data.get_response().clone();
 response.set_body(vec![]);
 ```
@@ -26,7 +26,7 @@ response.set_body(vec![]);
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let mut response: Response = controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
@@ -35,7 +35,7 @@ response.set_header("server", "hyperlane");
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let mut response: Response = controller_data.get_response().clone();
 response.set_status_code(200);
 ```
@@ -46,7 +46,7 @@ response.set_status_code(200);
 
 ```rust
 // 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let mut response: Response = controller_data.get_response().clone();
 let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap();
 let res: ResponseResult = response.send(&stream);
@@ -60,7 +60,7 @@ let res: ResponseResult = response.send(&stream);
 > 发送响应后 `TCP` 连接保留
 
 ```rust
-let send_res: ResponseResult = send_response(&arc_lock_controller_data, 200, "hello hyperlane");
+let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hello hyperlane");
 ```
 
 #### send_response_once
@@ -69,7 +69,7 @@ let send_res: ResponseResult = send_response(&arc_lock_controller_data, 200, "he
 > 发送响应后 `TCP` 连接立即关闭
 
 ```rust
-let send_res: ResponseResult = send_response_once(&arc_lock_controller_data, 200, "hello hyperlane");
+let send_res: ResponseResult = arc_lock_controller_data.send_response_once(200, "hello hyperlane");
 ```
 
 ## 综合使用
@@ -77,7 +77,7 @@ let send_res: ResponseResult = send_response_once(&arc_lock_controller_data, 200
 ```rust
 // 省略 server 创建
 server.router("/", |arc_lock_controller_data| {
-    let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;
+    let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
     let mut response: Response = controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
     let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap();

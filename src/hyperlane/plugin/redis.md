@@ -74,12 +74,11 @@ pub async fn redis(arc_lock_controller_data: ArcRwLockControllerData) {
         Ok(_) => println_success!("now value => ", now_value),
         Err(err) => println_danger!("set_value error: ", err),
     }
-    let send_res: ResponseResult = send_response(
-        &arc_lock_controller_data,
+    let send_res: ResponseResult = arc_lock_controller_data.send_response(
         200,
         format!("hello hyperlane => /redis {} times", last_value),
     ).await;
-    let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;
+    let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
     controller_data.get_log().info(
         format!("Response result => {:?}", send_res),
         log_debug_format_handler,

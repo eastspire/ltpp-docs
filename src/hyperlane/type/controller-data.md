@@ -51,7 +51,7 @@ let request: &mut Request = controller_data.get_mut_request();
 ### 设置请求信息
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 controller_data.set_request(Request::default());
 ```
 
@@ -77,7 +77,7 @@ let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 ### 获取可变 `stream`
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 controller_data.get_mut_stream().and_then(|mut stream| {});
 ```
 
@@ -89,7 +89,7 @@ controller_data.get_mut_stream().and_then(|mut stream| {});
 ### 设置 `stream`
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 controller_data.set_stream(None);
 ```
 
@@ -115,7 +115,7 @@ let response: Response = controller_data.get_response().clone();
 ### 获取可变响应
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
@@ -127,7 +127,7 @@ let response: &mut Response = controller_data.get_mut_response();
 ### 设置响应
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 controller_data.set_response(Response::default());
 ```
 
@@ -153,7 +153,7 @@ let log: &Log = controller_data.get_log();
 ### 获取可变日志
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 let log: &mut Log = controller_data.get_mut_log();
 ```
 
@@ -165,7 +165,7 @@ let log: &mut Log = controller_data.get_mut_log();
 ### 设置日志
 
 ```rust
-let controller_data: ControllerData = get_controller_data(&arc_lock_controller_data).await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
 controller_data.set_log(Log::default());
 ```
 
