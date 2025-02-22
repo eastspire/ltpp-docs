@@ -58,6 +58,9 @@ let res: ResponseResult = response.send(&stream);
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
+>
+> - 第一个参数: 状态码
+> - 第二个参数: 内容
 
 ```rust
 let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hello hyperlane");
@@ -67,6 +70,9 @@ let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hell
 
 > [!tip]
 > 发送响应后 `TCP` 连接立即关闭
+>
+> - 第一个参数: 状态码
+> - 第二个参数: 内容
 
 ```rust
 let send_res: ResponseResult = arc_lock_controller_data.send_response_once(200, "hello hyperlane");
