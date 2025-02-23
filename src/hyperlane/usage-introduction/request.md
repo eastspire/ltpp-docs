@@ -9,12 +9,34 @@ category:
 order: 4
 ---
 
-## 获取请求
+### 获取请求信息
 
 ```rust
-// 省略 server 和 路由处理函数 创建
 let controller_data = arc_lock_controller_data.get_write_lock().await;
 let request: Request = controller_data.get_request().clone();
+```
+
+### 获取可变请求信息
+
+```rust
+let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let request: &mut Request = controller_data.get_mut_request();
+```
+
+### 设置请求信息
+
+#### 推荐
+
+```rust
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+controller_data.set_request(Request::default());
+```
+
+#### 通过写锁
+
+```rust
+let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+controller_data.set_request(Request::default());
 ```
 
 ### 获取 `method`
@@ -62,8 +84,7 @@ let body = request.get_body();
 ## 修改请求
 
 ```rust
-// 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 

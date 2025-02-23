@@ -1,5 +1,5 @@
 ---
-title: 发送响应
+title: 响应
 index: true
 icon: book
 category:
@@ -13,29 +13,60 @@ order: 5
 > 通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有东西
 > 当用户调用 `send` 方法时才会构建出完整 `http` 响应
 
-## 设置响应体
+### 获取响应
+
+#### 推荐
 
 ```rust
-// 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
+let controller_data = arc_lock_controller_data.get_write_lock().await;
+let response: Response = controller_data.get_response().clone();
+```
+
+#### 通过写锁
+
+```rust
+let controller_data = arc_lock_controller_data.get_write_lock().await;
+let response: Response = controller_data.get_response().clone();
+```
+
+### 获取可变响应
+
+#### 推荐
+
+```rust
+let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let response: &mut Response = controller_data.get_mut_response();
+```
+
+#### 通过写锁
+
+```rust
+let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let response: &mut Response = controller_data.get_mut_response();
+```
+
+### 设置响应
+
+#### 设置响应体
+
+```rust
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_body(vec![]);
 ```
 
-## 设置响应头
+#### 设置响应头
 
 ```rust
-// 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
 
-## 设置状态码
+#### 设置状态码
 
 ```rust
-// 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
+let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_status_code(200);
 ```
@@ -44,12 +75,22 @@ response.set_status_code(200);
 
 ### 原子方法
 
+#### 发送 HTTP 完整响应
+
 ```rust
-// 省略 server 和 路由处理函数 创建
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;;
-let mut response: Response = controller_data.get_response().clone();
-let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap();
-let res: ResponseResult = response.send(&stream);
+let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let stream = controller_data.get_mut_stream().clone().unwrap();
+let mut response = controller_data.get_response().clone();
+let _ = response.set_body("\nhello").send(&stream);
+```
+
+#### 发送响应体
+
+```rust
+let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let stream = controller_data.get_mut_stream().clone().unwrap();
+let mut response = controller_data.get_response().clone();
+let _ = response.set_body("\nhello").send_body(&stream);
 ```
 
 ### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作
@@ -78,7 +119,7 @@ let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hell
 let send_res: ResponseResult = arc_lock_controller_data.send_response_once(200, "hello hyperlane");
 ```
 
-## 综合使用
+### 综合使用
 
 ```rust
 // 省略 server 创建
