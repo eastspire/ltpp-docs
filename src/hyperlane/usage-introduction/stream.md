@@ -21,7 +21,7 @@ let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 #### 推荐
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 controller_data.get_mut_stream().and_then(|mut stream| {});
 ```
 
@@ -35,7 +35,7 @@ controller_data.get_mut_stream().and_then(|mut stream| {});
 ### 设置 `stream`
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 controller_data.set_stream(None);
 ```
 
@@ -55,7 +55,7 @@ arc_lock_controller_data.get_socket_addr().await;
 #### 手动解析
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let socket_addr: String = stream_lock
     .get_read_lock()
     .await

@@ -28,7 +28,7 @@ let request: &mut Request = controller_data.get_mut_request();
 #### 推荐
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 controller_data.set_request(Request::default());
 ```
 
@@ -84,7 +84,7 @@ let body = request.get_body();
 ## 修改请求
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 

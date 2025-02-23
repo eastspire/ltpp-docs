@@ -21,7 +21,7 @@ let log: &Log = controller_data.get_log();
 #### 推荐
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let log: &mut Log = controller_data.get_mut_log();
 ```
 
@@ -37,7 +37,7 @@ let log: &mut Log = controller_data.get_mut_log();
 #### 推荐
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 controller_data.set_log(Log::default());
 ```
 

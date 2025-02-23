@@ -34,7 +34,7 @@ let response: Response = controller_data.get_response().clone();
 #### 推荐
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
@@ -50,7 +50,7 @@ let response: &mut Response = controller_data.get_mut_response();
 #### 设置响应体
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_body(vec![]);
 ```
@@ -58,7 +58,7 @@ response.set_body(vec![]);
 #### 设置响应头
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
@@ -66,7 +66,7 @@ response.set_header("server", "hyperlane");
 #### 设置状态码
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let mut response: Response = controller_data.get_response().clone();
 response.set_status_code(200);
 ```
@@ -78,7 +78,7 @@ response.set_status_code(200);
 #### 发送 HTTP 完整响应
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
 let _ = response.set_body("\nhello").send(&stream);
@@ -87,7 +87,7 @@ let _ = response.set_body("\nhello").send(&stream);
 #### 发送响应体
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
 let _ = response.set_body("\nhello").send_body(&stream);
@@ -124,7 +124,7 @@ let send_res: ResponseResult = arc_lock_controller_data.send_response_once(200, 
 ```rust
 // 省略 server 创建
 server.router("/", |arc_lock_controller_data| {
-    let controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
+    let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
     let mut response: Response = controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
     let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap();
