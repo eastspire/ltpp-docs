@@ -18,10 +18,14 @@ let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 
 ### 获取可变 `stream`
 
+#### 推荐
+
 ```rust
 let mut controller_data: ControllerData = arc_lock_controller_data.get_clone().await;
 controller_data.get_mut_stream().and_then(|mut stream| {});
 ```
+
+#### 通过写锁
 
 ```rust
 let mut controller_data = arc_lock_controller_data.get_write_lock().await;
