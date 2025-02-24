@@ -57,10 +57,10 @@ let host = request.get_host();
 let path = request.get_path();
 ```
 
-### 获取 `query`
+### 获取 `querys`
 
 ```rust
-let query = request.get_query();
+let querys = request.get_querys();
 ```
 
 ### 获取 `hash`
@@ -109,7 +109,13 @@ request.set_path("server".to_owned());
 ### 修改 `query`
 
 ```rust
-request.set_query("server".to_owned());
+request.set_query("server".to_owned(), "hyperlane".to_owned());
+```
+
+### 修改 `querys`
+
+```rust
+request.set_querys("server=hyperlane&time=2025".to_owned());
 ```
 
 ### 修改 `hash`
