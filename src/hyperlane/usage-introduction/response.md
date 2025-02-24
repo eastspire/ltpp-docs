@@ -13,6 +13,15 @@ order: 5
 > 通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有东西
 > 当用户调用 `send` 方法时才会构建出完整 `http` 响应
 
+> [!tip]
+> 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
+> 例如：调用 `response` 上的 `get_status_code` 方法
+> 一般需要从 arc_lock_controller_data 解出 response，再调用 `response.get_status_code()`，可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
+> 调用规律：
+>
+> - 原 `response` 的 `get` 方法的 `get` 名称后加 `response` 名称，中间使用\_拼接
+> - 原 `response` 的 `set` 方法的 `set` 名称后加 `response` 名称，中间使用\_拼接
+
 ### 获取响应
 
 #### 推荐
