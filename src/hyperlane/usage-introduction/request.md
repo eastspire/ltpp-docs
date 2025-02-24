@@ -109,13 +109,13 @@ request.set_path("server".to_owned());
 ### 修改 `query`
 
 ```rust
-request.set_query("server".to_owned(), "hyperlane".to_owned());
+request.set_query("server", "hyperlane");
 ```
 
 ### 修改 `querys`
 
 ```rust
-request.set_querys("server=hyperlane&time=2025".to_owned());
+request.set_querys(HashMap::new());
 ```
 
 ### 修改 `hash`
