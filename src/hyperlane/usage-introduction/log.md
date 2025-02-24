@@ -1,5 +1,5 @@
 ---
-title: 修改日志
+title: 日志
 index: true
 icon: book
 category:
@@ -10,6 +10,14 @@ order: 6
 ---
 
 ### 获取日志
+
+#### 推荐
+
+```rust
+let log: Log = arc_lock_controller_data.get_log().await;
+```
+
+#### 通过写锁
 
 ```rust
 let controller_data = arc_lock_controller_data.get_write_lock().await;

@@ -1,5 +1,5 @@
 ---
-title: 获取请求
+title: 请求
 index: true
 icon: book
 category:
