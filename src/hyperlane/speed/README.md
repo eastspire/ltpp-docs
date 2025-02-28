@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - speed
 dir:
   order: 2
 ---
@@ -14,7 +15,7 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement)
 
-## 环境信息
+### 环境信息
 
 - 系统: Ubuntu20.04.6 LTS
 - CPU: i9-14900KF
@@ -22,9 +23,9 @@ dir:
 - 硬盘: SKC3000D2048G \* 2
 - GPU: AMD Radeon RX 6750 GRE 10GB
 
-## 调优
+### 调优
 
-### Linux 内核调优
+#### Linux 内核调优
 
 > 打开文件 /etc/sysctl.conf，增加以下设置
 
@@ -46,7 +47,7 @@ net.netfilter.nf_conntrack_max = 2621440
 net.ipv4.ip_local_port_range = 10240 65000
 ```
 
-### 打开文件数
+#### 打开文件数
 
 > 修改 open files 的数值永久生效，修改配置文件：/etc/security/limits.conf. 在这个文件后加上
 

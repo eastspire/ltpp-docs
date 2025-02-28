@@ -6,31 +6,34 @@ category:
   - hyperlane
   - web
   - rust
+  - speed
+  - open
+  - keep-alive
 order: 3
 ---
 
 [GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement/tree/master/open-keep-alive)
 
-## 测试命令
+### 测试命令
 
 ```sh
 ab -n 1000000 -c 1000 -r -k http://127.0.0.1:60000/
 ```
 
-## QPS 测试结果
+### QPS 测试结果
 
 > [!tip]
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
 >
-> - 1.Tokio：305815.63
-> - 2.Hyperlane 框架：304623.76
-> - 3.Rocket 框架：267931.52
-> - 4.Rust 标准库：260514.56
-> - 5.Go 标准库：226550.34
-> - 6.Gin 框架：224296.16
-> - 7.Node 标准库：85357.18
+> - 1.`Tokio`：305815.63
+> - 2.`Hyperlane框架`：304623.76
+> - 3.`Rocket框架`：267931.52
+> - 4.`Rust标准库`：260514.56
+> - 5.`Go标准库`：226550.34
+> - 6.`Gin框架`：224296.16
+> - 7.`Node标准库`：85357.18
 
-## 压测命令
+### 压测命令
 
 ```sh
 ab -n 10000000 -c 1000 -r -k http://127.0.0.1:60000/
@@ -237,7 +240,7 @@ Percentage of the requests served within a certain time (ms)
  100%    184 (longest request)
 ```
 
-## Go 标准库
+### Go 标准库
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -277,7 +280,7 @@ Percentage of the requests served within a certain time (ms)
  100%    176 (longest request)
 ```
 
-## Node 标准库
+### Node 标准库
 
 ```sh
 Server Hostname:        127.0.0.1

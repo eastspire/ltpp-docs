@@ -1,11 +1,13 @@
 ---
-title: stream
+title: 流
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - stream
 order: 3
 ---
 

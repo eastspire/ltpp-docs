@@ -1,22 +1,41 @@
 ---
-title: Content type
+title: Content-type类型
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
-order: 6
+  - type
+  - content-type
+order: 8
 ---
 
 > [!tip]
-> 框架提供了 `FileExtension`， 它提供了获取路径的文件后缀名以及文件后缀名转 `content-type` 等方法
-
-## 使用
+>
+> `Content-type` 内部具体类型定义如下
 
 ```rust
-let extension_name: String = FileExtension::get_extension_name(path);
-let content_type: &str = FileExtension::parse(&extension_name).get_content_type();
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum ContentType {
+    /// Represents the `application/json` content type.
+    ApplicationJson,
+
+    /// Represents the `application/xml` content type.
+    ApplicationXml,
+
+    /// Represents the `text/plain` content type.
+    TextPlain,
+
+    /// Represents the `text/html` content type.
+    TextHtml,
+
+    /// Represents the `application/x-www-form-urlencoded` content type.
+    FormUrlEncoded,
+
+    /// Represents an unknown or unrecognized content type.
+    Unknown,
+}
 ```
 
 <Bottom />

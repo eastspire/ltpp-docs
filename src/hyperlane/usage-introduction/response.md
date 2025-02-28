@@ -6,15 +6,19 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - response
 order: 5
 ---
 
 > [!tip]
-> 没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据，
+>
+> `hyperlane` 框架没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据，
 > 只有当用户发送响应时才会构建出完整 `http` 响应，此后再次 `get_response` 才能获取到响应内容
 
 > [!tip]
-> 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称，
+>
+> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称，
 > 例如：调用 `response` 上的 `get_status_code` 方法，
 > 一般需要从 arc_lock_controller_data 解出 response，再调用 `response.get_status_code()`，
 > 可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
@@ -145,11 +149,11 @@ let mut response: Response = controller_data.get_response().clone();
 response.set_status_code(200);
 ```
 
-## 发送响应
+### 发送响应
 
-### 原子方法
+#### 原子方法
 
-#### 发送 HTTP 完整响应
+##### 发送 HTTP 完整响应
 
 ```rust
 let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
@@ -167,9 +171,9 @@ let mut response = controller_data.get_response().clone();
 let _ = response.set_body("hello").send_body(&stream);
 ```
 
-### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作
+#### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作
 
-#### send_response
+##### send_response
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
@@ -181,7 +185,7 @@ let _ = response.set_body("hello").send_body(&stream);
 let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hello hyperlane");
 ```
 
-#### send_response_once
+##### send_response_once
 
 > [!tip]
 > 发送响应后 `TCP` 连接立即关闭

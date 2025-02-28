@@ -6,13 +6,15 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - thread-pool-size
 order: 1
 ---
 
-## 设置线程池大小
-
 > [!tip]
-> hyperlane 基于 `tokio`，可以参考 `tokio` 进行配置
+>
+> `hyperlane` 框架基于 `tokio`，可以参考 `tokio` 进行配置
 
 ```rust
 #[tokio::main(worker_threads = 4)]

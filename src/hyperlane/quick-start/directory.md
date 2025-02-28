@@ -6,8 +6,13 @@ category:
   - hyperlane
   - web
   - rust
+  - quick-start
 order: 1
 ---
+
+> [!tip]
+>
+> 基于 `hyperlane` 设计的目录结构，配置和业务分离，扩展以插件形式存在，便于开发和维护
 
 ```txt
 src                      # 项目代码目录

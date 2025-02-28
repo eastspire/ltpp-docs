@@ -6,11 +6,14 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - request
 order: 4
 ---
 
 > [!tip]
-> 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
+>
+> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
 > 例如：调用 `request` 上的 `get_method` 方法
 > 一般需要从 arc_lock_controller_data 解出 request，再调用`request.get_method()`，
 > 可以简化成直接调用 `arc_lock_controller_data.get_request_method().await`
@@ -108,62 +111,64 @@ let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.ge
 controller_data.set_request(Request::default());
 ```
 
-## 修改请求
+### 修改请求
 
-### 获取写锁
+#### 获取写锁
 
 ```rust
 let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
-### 修改 `method`
+#### 修改 `method`
 
 ```rust
 request.set_method(GET.to_owned());
 ```
 
-### 修改 `host`
+#### 修改 `host`
 
 ```rust
 request.set_host("localhost".to_owned());
 ```
 
-### 修改 `path`
+#### 修改 `path`
 
 ```rust
 request.set_path("server".to_owned());
 ```
 
-### 修改 `query`
+#### 修改 `query`
 
 ```rust
 request.set_query("server", "hyperlane");
 ```
 
-### 修改 `querys`
+#### 修改 `querys`
 
 ```rust
 request.set_querys(HashMap::new());
 ```
 
-### 修改 `hash`
+#### 修改 `hash`
 
 ```rust
 request.set_hash("server".to_owned());
 ```
 
-### 修改 `headers`
+#### 修改 `header`
 
 ```rust
 request.set_header("server", "hyperlane");
 ```
 
+#### 修改 `headers`
+
 ```rust
 request.set_headers(HashMap::new());
 ```
 
-### 修改 `body`
+#### 修改 `body`
 
 ```rust
 request.set_body(vec![]);

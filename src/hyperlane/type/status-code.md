@@ -6,11 +6,14 @@ category:
   - hyperlane
   - web
   - rust
+  - type
+  - status-code
 order: 4
 ---
 
 > [!tip]
-> StatusCode 内部具体类型定义如下
+>
+> `StatusCode` 内部具体类型定义如下
 
 ```rust
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -38,6 +41,7 @@ pub enum StatusCode {
     /// Unknown status code
     Unknown,
 }
-
 pub type StatusCodeUsize = usize;
 ```
+
+<Bottom />

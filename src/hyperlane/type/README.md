@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - type
 dir:
   order: 4
 ---

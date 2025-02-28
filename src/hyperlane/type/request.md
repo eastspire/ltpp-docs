@@ -6,11 +6,14 @@ category:
   - hyperlane
   - web
   - rust
+  - type
+  - request
 order: 2
 ---
 
 > [!tip]
-> Request 内部具体类型定义如下
+>
+> `Request` 内部具体类型定义如下
 
 ```rust
 pub type RequestMethod = String;
@@ -24,6 +27,7 @@ pub type RequestHeadersKey = String;
 pub type RequestHeadersValue = String;
 pub type RequestHeaders = HashMap<RequestHeadersKey, RequestHeadersValue>;
 pub type RequestNewResult = Result<Request, RequestError>;
+#[derive(Debug, Clone, Lombok, PartialEq, Eq)]
 pub struct Request {
     pub(super) method: RequestMethod,
     pub(super) host: RequestHost,
@@ -33,3 +37,5 @@ pub struct Request {
     pub(super) body: RequestBody,
 }
 ```
+
+<Bottom />

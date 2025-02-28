@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
 dir:
   order: 5
 ---

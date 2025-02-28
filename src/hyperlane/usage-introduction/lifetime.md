@@ -6,10 +6,12 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - lifetime
 order: 1
 ---
 
-### hyperlane 框架版本 < `v3.0.0` 的版本
+### `hyperlane` 框架版本 < `v3.0.0` 的版本
 
 > [!tip]
 > 具体生命周期如下：
@@ -17,7 +19,7 @@ order: 1
 > - 先根据注册顺序执行同步路由
 > - 最后执行同步路由
 
-### hyperlane 框架 >= `v3.0.0` 且 < `v4.0.0` 的版本
+### `hyperlane` 框架 >= `v3.0.0` 且 < `v4.0.0` 的版本
 
 > [!tip]
 > 具体生命周期如下：
@@ -27,7 +29,7 @@ order: 1
 > - 再根据注册顺序执行同步路由，如果同步路由存在则不会执行同名的异步路由
 > - 最后执行异步路由
 
-### hyperlane 框架 >= `v4.0.0` 的版本
+### `hyperlane` 框架 >= `v4.0.0` 的版本
 
 > [!tip]
 > 具体生命周期如下：

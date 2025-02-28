@@ -6,6 +6,9 @@ category:
   - hyperlane
   - web
   - rust
+  - quick-start
+  - quick
+  - start
 dir:
   order: 1
 ---

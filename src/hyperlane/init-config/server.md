@@ -6,10 +6,15 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - server
 order: 2
 ---
 
-## 创建 `Server`
+> [!tip]
+>
+> `hyperlane` 框架创建服务方式如下
 
 ```rust
 let mut server: Server = Server::new();

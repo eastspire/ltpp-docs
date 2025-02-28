@@ -6,10 +6,15 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - port
 order: 4
 ---
 
-## 设置 `port`
+> [!tip]
+>
+> `hyperlane` 框架绑定端口方式如下
 
 ```rust
 // 省略 server 创建

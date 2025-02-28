@@ -6,18 +6,23 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - async
 order: 2
 ---
 
 > [!tip]
-> hyperlane 框架在 `v3.0.0` 之前不对异步做任何处理，如果需要异步操作，可以引入第三方库
-> hyperlane 框架在 `v3.0.0` 之后内置异步机制
+>
+> `hyperlane` 框架在 `v3.0.0` 之前不对异步做任何处理，如果需要异步操作，可以引入第三方库
+>
+> `hyperlane` 框架在 `v3.0.0` 之后内置异步机制
 
 > [!tip]
-> hyperlane 框架在 `v4.0.0` 之前支持同步和异步中间件/路由共存。
-> hyperlane 框架在 `v4.0.0` 之后为了性能移除了同步中间件和路由，All in async，在开启 `keep-alive` 情况下带来了效果 QPS 10w+的提升
+>
+> `hyperlane` 框架在 `v4.0.0` 之前支持同步和异步中间件/路由共存。
+> `hyperlane` 框架在 `v4.0.0` 之后为了性能移除了同步中间件和路由（ `all in async` ），在开启 `keep-alive` 情况下带来了效果 `QPS 10w+`的提升
 
-## 框架本身异步使用
+### 框架本身异步使用
 
 ```rust
 server
@@ -27,9 +32,9 @@ server
     .await;
 ```
 
-## 下面是使用 `tokio` 库的异步运行时示例代码
+### 下面是使用 `tokio` 库的异步运行时示例代码
 
-### v4.0.0 之后版本的示例代码
+#### v4.0.0 之后版本的示例代码
 
 ```rust
 use hyperlane::*;
@@ -69,9 +74,9 @@ async fn main() {
 }
 ```
 
-## 异步闭包捕获外部变量
+### 异步闭包捕获外部变量
 
-### 使用 async move
+#### 使用 async move
 
 ```rust
 let test_string: String = "test".to_owned();
@@ -85,7 +90,7 @@ server
     .await;
 ```
 
-### 使用 async_func!
+#### 使用 async_func!
 
 ```rust
 let test_string: String = "test".to_owned();

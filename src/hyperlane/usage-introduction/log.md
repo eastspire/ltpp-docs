@@ -6,6 +6,8 @@ category:
   - hyperlane
   - web
   - rust
+  - usage-introduction
+  - log
 order: 6
 ---
 

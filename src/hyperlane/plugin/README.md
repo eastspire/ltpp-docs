@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - plugin
 expanded: true
 dir:
   order: 7

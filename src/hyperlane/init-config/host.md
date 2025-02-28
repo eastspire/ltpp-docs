@@ -6,10 +6,15 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - host
 order: 3
 ---
 
-## 设置 `host`
+> [!tip]
+>
+> `hyperlane` 框架绑定 `host` 方式如下
 
 ```rust
 // 省略 server 创建

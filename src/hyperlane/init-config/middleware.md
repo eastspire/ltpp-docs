@@ -6,11 +6,15 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - middleware
 order: 7
 ---
 
 > [!tip]
-> controller_data 接口参考 [controller-data 文档](./controller-data.md)
+>
+> `hyperlane` 框架的中间件参数类型参考 [controller-data 文档](../type/controller-data.md)
 
 ### 设置中间件
 

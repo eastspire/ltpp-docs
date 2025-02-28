@@ -6,11 +6,15 @@ category:
   - clone
   - web
   - rust
+  - init-config
+  - config
+  - inner-print
 order: 5
 ---
 
 > [!tip]
-> hyperlane 内部会对 `panic` 进行输出，默认会启用
+>
+> `hyperlane` 框架内部会对 `panic` 进行输出，默认会启用
 
 ### 开启框架内部输出
 

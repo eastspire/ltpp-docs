@@ -6,11 +6,14 @@ category:
   - hyperlane
   - web
   - rust
+  - type
+  - response
 order: 3
 ---
 
 > [!tip]
-> Response 内部具体类型定义如下
+>
+> `Response` 内部具体类型定义如下
 
 ```rust
 pub type ResponseData = Vec<u8>;
@@ -23,6 +26,7 @@ pub type ResponseStatusCode = usize;
 pub type ResponseReasonPhrase = String;
 pub type ResponseResult = Result<(), ResponseError>;
 pub type CloseStreamResult = Result<(), ResponseError>;
+#[derive(Debug, Clone, Lombok, PartialEq, Eq)]
 pub struct Response {
     pub(super) version: ResponseVersion,
     pub(super) status_code: ResponseStatusCode,
@@ -32,3 +36,5 @@ pub struct Response {
     pub(super) response: ResponseData,
 }
 ```
+
+<Bottom />

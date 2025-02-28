@@ -6,16 +6,16 @@ category:
   - hyperlane
   - web
   - rust
+  - init-config
+  - config
+  - route
 order: 8
 ---
 
 > [!tip]
-> 使用 `router` 接口进行路由注册，第一个参数是路由名称，第二个参数是路由处理函数
-
-> [!tip]
-> controller_data 接口参考 [controller-data 文档](./controller-data.md)
-
-## 异步路由
+>
+> `hyperlane` 框架使用 `router` 接口进行路由注册，第一个参数是路由名称，第二个参数是路由处理函数，
+> 路由处理函数参数类型参考 [controller-data 文档](../type/controller-data.md)
 
 ### 注册路由
 
