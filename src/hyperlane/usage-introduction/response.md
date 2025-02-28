@@ -10,8 +10,8 @@ order: 5
 ---
 
 > [!tip]
-> 通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有东西
-> 当用户调用 `send` 方法时才会构建出完整 `http` 响应
+> 没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据
+> 只有当用户发送响应时才会构建出完整 `http` 响应，此后再次 `get_response` 才能获取到响应内容
 
 > [!tip]
 > 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
@@ -70,8 +70,7 @@ order: 5
 #### 推荐
 
 ```rust
-let controller_data = arc_lock_controller_data.get_write_lock().await;
-let response: Response = controller_data.get_response().clone();
+let response: Response = arc_lock_controller_data.get_response().await;
 ```
 
 #### 通过写锁
@@ -101,13 +100,28 @@ let response: &mut Response = controller_data.get_mut_response();
 
 #### 设置响应体
 
+##### 推荐
+
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let mut response: Response = controller_data.get_response().clone();
+arc_lock_controller_data.set_response_body(vec![]).await;
+```
+
+##### 获取 `controller_data` 克隆
+
+```rust
+let mut response: Response = arc_lock_controller_data.get_response().await;
 response.set_body(vec![]);
 ```
 
 #### 设置响应头
+
+##### 推荐
+
+```rust
+arc_lock_controller_data.set_response_header("server", "hyperlane").await;
+```
+
+##### 获取 `controller_data` 克隆
 
 ```rust
 let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
@@ -116,6 +130,14 @@ response.set_header("server", "hyperlane");
 ```
 
 #### 设置状态码
+
+##### 推荐
+
+```rust
+arc_lock_controller_data.set_response_status_code(200).await;
+```
+
+##### 获取 `controller_data` 克隆
 
 ```rust
 let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
