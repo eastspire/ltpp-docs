@@ -10,12 +10,12 @@ order: 5
 ---
 
 > [!tip]
-> 没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据
+> 没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据，
 > 只有当用户发送响应时才会构建出完整 `http` 响应，此后再次 `get_response` 才能获取到响应内容
 
 > [!tip]
-> 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
-> 例如：调用 `response` 上的 `get_status_code` 方法
+> 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称，
+> 例如：调用 `response` 上的 `get_status_code` 方法，
 > 一般需要从 arc_lock_controller_data 解出 response，再调用 `response.get_status_code()`，
 > 可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
 > 推荐优先使用 `arc_lock_controller_data` 的方法，而不是通过获取 `arc_lock_controller_data` 写锁和读锁，
