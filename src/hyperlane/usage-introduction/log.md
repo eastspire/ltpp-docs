@@ -20,7 +20,7 @@ let log: Log = arc_lock_controller_data.get_log().await;
 #### 通过写锁
 
 ```rust
-let controller_data = arc_lock_controller_data.get_write_lock().await;
+let controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let log: &Log = controller_data.get_log();
 ```
 
@@ -36,7 +36,7 @@ let log: &mut Log = controller_data.get_mut_log();
 #### 通过写锁
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let log: &mut Log = controller_data.get_mut_log();
 ```
 
@@ -52,7 +52,7 @@ controller_data.set_log(Log::default());
 #### 通过写锁
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 controller_data.set_log(Log::default());
 ```
 

@@ -12,7 +12,7 @@ order: 3
 ### 获取 `stream`
 
 ```rust
-let controller_data = arc_lock_controller_data.get_write_lock().await;
+let controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 ```
 
@@ -28,7 +28,7 @@ controller_data.get_mut_stream().and_then(|mut stream| {});
 #### 通过写锁
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 controller_data.get_mut_stream().and_then(|mut stream| {});
 ```
 
@@ -40,7 +40,7 @@ controller_data.set_stream(None);
 ```
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 controller_data.set_stream(None);
 ```
 

@@ -76,7 +76,7 @@ let response: Response = arc_lock_controller_data.get_response().await;
 #### 通过写锁
 
 ```rust
-let controller_data = arc_lock_controller_data.get_write_lock().await;
+let controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let response: Response = controller_data.get_response().clone();
 ```
 
@@ -92,7 +92,7 @@ let response: &mut Response = controller_data.get_mut_response();
 #### 通过写锁
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
@@ -155,7 +155,7 @@ response.set_status_code(200);
 let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
-let _ = response.set_body("\nhello").send(&stream);
+let _ = response.set_body("hello").send(&stream);
 ```
 
 #### 发送响应体
@@ -164,7 +164,7 @@ let _ = response.set_body("\nhello").send(&stream);
 let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
 let stream = controller_data.get_mut_stream().clone().unwrap();
 let mut response = controller_data.get_response().clone();
-let _ = response.set_body("\nhello").send_body(&stream);
+let _ = response.set_body("hello").send_body(&stream);
 ```
 
 ### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作

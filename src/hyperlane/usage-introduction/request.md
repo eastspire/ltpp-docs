@@ -22,15 +22,74 @@ order: 4
 
 ### 获取请求信息
 
+#### 获取 `request`
+
+##### 推荐
+
 ```rust
-let controller_data = arc_lock_controller_data.get_write_lock().await;
+let request: Request = arc_lock_controller_data.get_request().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut controller_data: RwLockReadControllerData = arc_lock_controller_data.get_read_lock().await;
 let request: Request = controller_data.get_request().clone();
+```
+
+##### 通过写锁
+
+```rust
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let request: Request = controller_data.get_request().clone();
+```
+
+#### 获取 `method`
+
+```rust
+let method: RequestMethod = request.get_method();
+```
+
+#### 获取 `host`
+
+```rust
+let host: RequestHost = request.get_host();
+```
+
+#### 获取 `path`
+
+```rust
+let path: RequestPath = request.get_path();
+```
+
+#### 获取 `querys`
+
+```rust
+let querys: RequestQuerys = request.get_querys();
+```
+
+#### 获取 `header`
+
+```rust
+let header: Option<RequestHeadersValue> = request.get_header("key");
+```
+
+#### 获取 `headers`
+
+```rust
+let headers: RequestHeaders = request.get_headers();
+```
+
+#### 获取 `body`
+
+```rust
+let body: RequestBody = request.get_body();
 ```
 
 ### 获取可变请求信息
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
@@ -39,63 +98,22 @@ let request: &mut Request = controller_data.get_mut_request();
 #### 推荐
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-controller_data.set_request(Request::default());
+arc_lock_controller_data.set_request(Request::default()).await;
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 controller_data.set_request(Request::default());
-```
-
-### 获取 `method`
-
-```rust
-let method = request.get_method();
-```
-
-### 获取 `host`
-
-```rust
-let host = request.get_host();
-```
-
-### 获取 `path`
-
-```rust
-let path = request.get_path();
-```
-
-### 获取 `querys`
-
-```rust
-let querys = request.get_querys();
-```
-
-### 获取 `hash`
-
-```rust
-let hash = request.get_hash();
-```
-
-### 获取 `headers`
-
-```rust
-let headers = request.get_headers();
-```
-
-### 获取 `body`
-
-```rust
-let body = request.get_body();
 ```
 
 ## 修改请求
 
+### 获取写锁
+
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
+let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
