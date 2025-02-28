@@ -80,14 +80,12 @@ async fn main() {
 
 ```rust
 let test_string: String = "test".to_owned();
-server
-    .router("/test/async", move |_| {
-        let tmp_test_string = test_string.clone();
-        async move {
-            println!("{:?}", tmp_test_string);
-        }
-    })
-    .await;
+server.router("/test/async", move |_| {
+    let tmp_test_string = test_string.clone();
+    async move {
+        println!("{:?}", tmp_test_string);
+    }
+}).await;
 ```
 
 #### 使用 async_func!
