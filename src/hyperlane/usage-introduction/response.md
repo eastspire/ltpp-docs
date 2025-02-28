@@ -20,9 +20,9 @@ order: 5
 
 > [!tip]
 >
-> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称，
+> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称，
 > 例如：调用 `response` 上的 `get_status_code` 方法，
-> 一般需要从 arc_lock_controller_data 解出 response，再调用 `response.get_status_code()`，
+> 一般需要从 `arc_lock_controller_data` 解出 `response`，再调用 `response.get_status_code()`，
 > 可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
 > 推荐优先使用 `arc_lock_controller_data` 的方法，而不是通过获取 `arc_lock_controller_data` 写锁和读锁，
 > 理论上后者性能会更好，但是后者代码可读性不高且容易导致死锁，维护成本较高。使用前者你可能写出以下代码：

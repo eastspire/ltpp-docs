@@ -13,6 +13,10 @@ order: 3
 
 <Share colorful />
 
+> [!tip]
+>
+> `hyperlane` 框架接收请求和发送响应均依赖 `stream`，使用方式如下
+
 ### 获取 `stream`
 
 ```rust

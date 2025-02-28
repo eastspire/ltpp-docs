@@ -27,11 +27,9 @@ order: 2
 ### 框架本身异步使用
 
 ```rust
-server
-    .router("/", move |_| async move {
-        println!("hello");
-    })
-    .await;
+server.router("/", move |_| async move {
+    println!("hello");
+}).await;
 ```
 
 ### 下面是使用 `tokio` 库的异步运行时示例代码

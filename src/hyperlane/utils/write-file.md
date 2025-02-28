@@ -15,7 +15,7 @@ order: 7
 
 > [!tip]
 >
-> `hyperlane` 框架提供了 `write_to_file()` 函数用于向本地写入文件
+> `hyperlane` 框架提供了 `write_to_file` 函数用于向本地写入文件
 > 文件不存在会自动创建，如果文件中间的任一目录不存在均会自动创建目录
 
 ### 参数

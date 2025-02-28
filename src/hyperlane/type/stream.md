@@ -15,7 +15,7 @@ order: 5
 
 > [!tip]
 >
-> `Stream` 内部具体类型定义如下
+> `hyperlane` 框架的 `Stream` 内部具体类型定义如下
 
 ```rust
 pub type ArcStream = Arc<TcpStream>;

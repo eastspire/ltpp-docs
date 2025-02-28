@@ -15,7 +15,7 @@ order: 5
 
 > [!tip]
 >
-> `Log` 内部具体类型定义如下
+> `hyperlane` 框架的 `Log` 内部具体类型定义如下
 
 ```rust
 #[derive(Debug, Clone, Lombok)]

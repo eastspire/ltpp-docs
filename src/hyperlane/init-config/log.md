@@ -18,7 +18,7 @@ order: 6
 
 > [!tip]
 >
-> `hyperlane` 框架默认当前路径`logs`文件夹
+> `hyperlane` 框架默认当前路径 `logs` 文件夹
 
 ```rust
 // 省略 server 创建

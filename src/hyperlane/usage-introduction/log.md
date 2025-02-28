@@ -13,6 +13,10 @@ order: 6
 
 <Share colorful />
 
+> [!tip]
+>
+> `hyperlane` 框架内置了日志功能，使用方式如下
+
 ### 获取日志
 
 #### 推荐

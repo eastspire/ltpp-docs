@@ -15,7 +15,7 @@ order: 2
 
 > [!tip]
 >
-> `Request` 内部具体类型定义如下
+> `hyperlane` 框架的 `Request` 内部具体类型定义如下
 
 ```rust
 pub type RequestMethod = String;

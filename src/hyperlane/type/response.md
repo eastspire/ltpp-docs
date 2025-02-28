@@ -15,7 +15,7 @@ order: 3
 
 > [!tip]
 >
-> `Response` 内部具体类型定义如下
+> `hyperlane` 框架的 `Response` 内部具体类型定义如下
 
 ```rust
 pub type ResponseData = Vec<u8>;

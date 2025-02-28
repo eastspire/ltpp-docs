@@ -15,7 +15,7 @@ order: 6
 
 > [!tip]
 >
-> `FileExtension` 内部具体类型定义如下
+> `hyperlane` 框架的 `FileExtension` 内部具体类型定义如下
 
 ```rust
 #[derive(Debug, Clone, PartialEq, Eq)]

@@ -15,9 +15,9 @@ order: 4
 
 > [!tip]
 >
-> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称
-> 例如：调用 `request` 上的 `get_method` 方法
-> 一般需要从 arc_lock_controller_data 解出 request，再调用`request.get_method()`，
+> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
+> 例如：调用 `request` 上的 `get_method` 方法，
+> 一般需要从 `arc_lock_controller_data` 解出 `request`，再调用`request.get_method()`，
 > 可以简化成直接调用 `arc_lock_controller_data.get_request_method().await`
 >
 > **调用规律**

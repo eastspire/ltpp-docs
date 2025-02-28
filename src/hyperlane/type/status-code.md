@@ -15,7 +15,7 @@ order: 4
 
 > [!tip]
 >
-> `StatusCode` 内部具体类型定义如下
+> `hyperlane` 框架的 `StatusCode` 内部具体类型定义如下
 
 ```rust
 #[derive(Debug, Clone, PartialEq, Eq)]
