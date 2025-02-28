@@ -36,6 +36,8 @@ async fn test_middleware(arc_lock_controller_data: ArcRwLockControllerData) {
 }
 ```
 
+> [!tip]
+>
 > 修改后的代码: 此代码先获取读锁并释放了该锁（ `get_socket_addr` 完成即释放读锁），后续可以继续获取写锁
 
 ```rust
