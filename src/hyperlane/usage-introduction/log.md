@@ -56,4 +56,49 @@ let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.ge
 controller_data.set_log(Log::default());
 ```
 
+### 写 `info` 日志
+
+#### 推荐
+
+```rust
+arc_lock_controller_data.log_info("test", log_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
+controller_data.get_log().info("test", log_handler);
+```
+
+### 写 `debug` 日志
+
+#### 推荐
+
+```rust
+arc_lock_controller_data.log_debug("test", log_debug_format_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
+controller_data.get_log().debug("test", log_debug_format_handler);
+```
+
+### 写 `error` 日志
+
+#### 推荐
+
+```rust
+arc_lock_controller_data.log_error("test", log_debug_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
+controller_data.get_log().error("test", log_debug_handler);
+```
+
 <Bottom />
