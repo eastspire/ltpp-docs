@@ -11,6 +11,8 @@ category:
 order: 1
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `ControllerData` 作为中间件和路由处理函数的唯一的被 `RwLock` 锁修饰的参数类型，内部具体类型定义如下

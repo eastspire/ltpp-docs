@@ -12,6 +12,8 @@ category:
 order: 1
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架基于 `tokio`，可以参考 `tokio` 进行配置

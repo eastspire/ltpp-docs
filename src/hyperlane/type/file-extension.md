@@ -11,6 +11,8 @@ category:
 order: 6
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `FileExtension` 内部具体类型定义如下

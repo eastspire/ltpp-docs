@@ -6,8 +6,12 @@ category:
   - hyperlane
   - web
   - rust
+  - utils
+  - log
 order: 2
 ---
+
+<Share colorful />
 
 > [!tip]
 >

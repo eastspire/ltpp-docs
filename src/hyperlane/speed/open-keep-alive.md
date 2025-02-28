@@ -12,6 +12,8 @@ category:
 order: 3
 ---
 
+<Share colorful />
+
 [GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement/tree/master/open-keep-alive)
 
 ### 测试命令

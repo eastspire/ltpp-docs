@@ -11,6 +11,8 @@ category:
 order: 3
 ---
 
+<Share colorful />
+
 ### 获取 `stream`
 
 ```rust

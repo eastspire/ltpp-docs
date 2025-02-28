@@ -11,6 +11,8 @@ category:
 order: 7
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架的大部分类型封装在 `http-type` 库，内部提供大量常量以及类型定义，框架已默认导入和导出，无需额外安装和导入

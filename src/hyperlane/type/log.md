@@ -11,6 +11,8 @@ category:
 order: 5
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `Log` 内部具体类型定义如下

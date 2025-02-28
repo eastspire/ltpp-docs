@@ -11,6 +11,8 @@ category:
 order: 6
 ---
 
+<Share colorful />
+
 ### 获取日志
 
 #### 推荐

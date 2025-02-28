@@ -11,6 +11,8 @@ category:
 order: 2
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架在 `v3.0.0` 之前不对异步做任何处理，如果需要异步操作，可以引入第三方库

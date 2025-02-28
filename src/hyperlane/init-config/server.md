@@ -12,6 +12,8 @@ category:
 order: 2
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架创建服务方式如下

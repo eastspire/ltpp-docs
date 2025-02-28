@@ -12,6 +12,8 @@ category:
 order: 5
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架内部会对 `panic` 进行输出，默认会启用

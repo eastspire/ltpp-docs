@@ -11,6 +11,8 @@ category:
 order: 2
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `Request` 内部具体类型定义如下

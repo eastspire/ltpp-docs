@@ -11,6 +11,8 @@ category:
 order: 7
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架对于用户线程 `panic` 会进行捕获并写入错误日志

@@ -11,6 +11,8 @@ category:
 order: 4
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `StatusCode` 内部具体类型定义如下

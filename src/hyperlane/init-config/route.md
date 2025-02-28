@@ -12,6 +12,8 @@ category:
 order: 8
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架使用 `router` 接口进行路由注册，第一个参数是路由名称，第二个参数是路由处理函数，

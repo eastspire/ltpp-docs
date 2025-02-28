@@ -11,6 +11,8 @@ category:
 order: 2
 ---
 
+<Share colorful />
+
 [GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/tree/mysql)
 
 > [!tip]

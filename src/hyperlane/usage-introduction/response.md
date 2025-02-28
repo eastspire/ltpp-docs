@@ -11,6 +11,8 @@ category:
 order: 5
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架没有发送响应前通过 `controller_data` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据，

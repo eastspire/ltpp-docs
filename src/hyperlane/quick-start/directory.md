@@ -10,6 +10,8 @@ category:
 order: 1
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > 基于 `hyperlane` 设计的目录结构，配置和业务分离，扩展以插件形式存在，便于开发和维护

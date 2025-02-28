@@ -11,6 +11,8 @@ category:
 order: 1
 ---
 
+<Share colorful />
+
 ### `hyperlane` 框架版本 < `v3.0.0` 的版本
 
 > [!tip]

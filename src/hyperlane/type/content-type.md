@@ -11,6 +11,8 @@ category:
 order: 8
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `Content-type` 内部具体类型定义如下

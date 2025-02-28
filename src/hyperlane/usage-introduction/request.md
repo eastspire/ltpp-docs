@@ -11,6 +11,8 @@ category:
 order: 4
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的`get`和`set`方法名称

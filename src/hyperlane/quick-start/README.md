@@ -13,6 +13,8 @@ dir:
   order: 1
 ---
 
+<Share colorful />
+
 > [!tip]
 > 这是基于 `hyperlane` 封装的项目（[hyperlane-quick-start](https://github.com/ltpp-universe/hyperlane-quick-start)），旨在简化使用和规范项目代码结构
 

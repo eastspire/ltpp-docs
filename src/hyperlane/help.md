@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - help
 order: 8
 ---
 

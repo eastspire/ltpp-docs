@@ -12,6 +12,8 @@ category:
 order: 1
 ---
 
+<Share colorful />
+
 [GITHUB 地址](https://github.com/ltpp-universe/test-request)
 
 > [!tip]

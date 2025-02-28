@@ -6,6 +6,7 @@ category:
   - hyperlane
   - web
   - rust
+  - utils
 dir:
   order: 6
 ---

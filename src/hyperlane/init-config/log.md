@@ -12,6 +12,8 @@ category:
 order: 6
 ---
 
+<Share colorful />
+
 ### 设置日志存储路径
 
 > [!tip]

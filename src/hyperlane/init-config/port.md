@@ -12,6 +12,8 @@ category:
 order: 4
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架绑定端口方式如下

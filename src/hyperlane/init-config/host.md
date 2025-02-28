@@ -12,6 +12,8 @@ category:
 order: 3
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架绑定 `host` 方式如下

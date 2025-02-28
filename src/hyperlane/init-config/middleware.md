@@ -12,6 +12,8 @@ category:
 order: 7
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `hyperlane` 框架的中间件参数类型参考 [controller-data 文档](../type/controller-data.md)

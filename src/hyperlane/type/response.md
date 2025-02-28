@@ -11,6 +11,8 @@ category:
 order: 3
 ---
 
+<Share colorful />
+
 > [!tip]
 >
 > `Response` 内部具体类型定义如下
