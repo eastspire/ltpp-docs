@@ -18,6 +18,47 @@ order: 5
 > 例如：调用 `response` 上的 `get_status_code` 方法
 > 一般需要从 arc_lock_controller_data 解出 response，再调用 `response.get_status_code()`，
 > 可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
+> 推荐优先使用 `arc_lock_controller_data` 的方法，而不是通过获取 `arc_lock_controller_data` 写锁和读锁，
+> 理论上后者性能会更好，但是后者代码可读性不高且容易导致死锁，维护成本较高。使用前者你可能写出以下代码：
+>
+> ```rust
+> pub async fn favicon_ico(arc_lock_controller_data: ArcRwLockControllerData) {
+>     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
+>     {
+>         let mut controller_data: RwLockWriteControllerData =
+>         arc_lock_controller_data.get_write_lock().await;
+>         let response: &mut Response = controller_data.get_mut_response();
+>         response.set_header(CONTENT_TYPE, IMAGE_PNG);
+>         response.set_header(CACHE_CONTROL, "public, max-age=3600");
+>     }
+>     let send_res: ResponseResult = arc_lock_controller_data.send_response(200, data).await;
+>     arc_lock_controller_data
+>         .get_log()
+>         .await
+>         .info(format!("Response result => {:?}", send_res), log_handler);
+> }
+> ```
+>
+> 但是使用后者，你的代码会是这样，是不是就无需担心死锁发生了
+>
+> ```rust
+> pub async fn favicon_ico(arc_lock_controller_data: ArcRwLockControllerData) {
+>     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
+>     let send_res: ResponseResult = arc_lock_controller_data
+>         .set_response_header(CONTENT_TYPE, IMAGE_PNG)
+>         .await
+>         .set_response_header(CACHE_CONTROL, "public, max-age=3600")
+>         .await
+>         .send_response(200, data)
+>         .await;
+>     let request: Request = arc_lock_controller_data.get_request().await;
+>     arc_lock_controller_data
+>         .log_info(format!("Request result => {}", request), log_handler)
+>         .await
+>         .log_info(format!("Response result => {:?}", send_res), log_handler)
+>         .await;
+> }
+> ```
 >
 > **调用规律**
 >
