@@ -17,6 +17,7 @@ dir:
 <center>
 
 [![](https://img.shields.io/crates/v/udp.svg)](https://crates.io/crates/udp)
+[![](https://img.shields.io/crates/d/udp.svg)](https://img.shields.io/crates/d/udp.svg)
 [![](https://docs.rs/udp/badge.svg)](https://docs.rs/udp)
 [![](https://github.com/ltpp-universe/udp/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/udp/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/udp.svg)](./LICENSE)

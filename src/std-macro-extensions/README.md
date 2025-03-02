@@ -18,6 +18,7 @@ dir:
 <center>
 
 [![](https://img.shields.io/crates/v/std-macro-extensions.svg)](https://crates.io/crates/std-macro-extensions)
+[![](https://img.shields.io/crates/d/std-macro-extensions.svg)](https://img.shields.io/crates/d/std-macro-extensions.svg)
 [![](https://docs.rs/std-macro-extensions/badge.svg)](https://docs.rs/std-macro-extensions)
 [![](https://github.com/ltpp-universe/std-macro-extensions/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/std-macro-extensions/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/std-macro-extensions.svg)](./license)

@@ -17,6 +17,7 @@ dir:
 <center>
 
 [![](https://img.shields.io/crates/v/lombok-macros.svg)](https://crates.io/crates/lombok-macros)
+[![](https://img.shields.io/crates/d/lombok-macros.svg)](https://img.shields.io/crates/d/lombok-macros.svg)
 [![](https://docs.rs/lombok-macros/badge.svg)](https://docs.rs/lombok-macros)
 [![](https://github.com/ltpp-universe/lombok-macros/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/lombok-macros/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/lombok-macros.svg)](./license)

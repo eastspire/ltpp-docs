@@ -17,6 +17,7 @@ dir:
 <center>
 
 [![](https://img.shields.io/crates/v/hyperlane-log.svg)](https://crates.io/crates/hyperlane-log)
+[![](https://img.shields.io/crates/d/hyperlane-log.svg)](https://img.shields.io/crates/d/hyperlane-log.svg)
 [![](https://docs.rs/hyperlane-log/badge.svg)](https://docs.rs/hyperlane-log)
 [![](https://github.com/ltpp-universe/hyperlane-log/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane-log/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/hyperlane-log.svg)](./LICENSE)
