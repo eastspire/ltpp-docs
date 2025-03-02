@@ -39,4 +39,5 @@ export default sidebar({
   "/std-macro-extensions": 'structure',
   "/tcp-request": 'structure',
   "/tcplane": 'structure',
+  "/udp": 'structure',
 });

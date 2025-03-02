@@ -1,44 +1,44 @@
 ---
-title: TCP后端框架（tcplane）
+title: UDP后端框架
 index: true
 icon: book
 category:
-  - tcplane
+  - udp
   - web
   - rust
 dir:
-  order: 30
+  order: 39
 ---
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/tcplane)
+[GITHUB 地址](https://github.com/ltpp-universe/udp)
 
 <center>
 
-[![](https://img.shields.io/crates/v/tcplane.svg)](https://crates.io/crates/tcplane)
-[![](https://docs.rs/tcplane/badge.svg)](https://docs.rs/tcplane)
-[![](https://github.com/ltpp-universe/tcplane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/tcplane/actions?query=workflow:Rust)
-[![](https://img.shields.io/crates/l/tcplane.svg)](./LICENSE)
+[![](https://img.shields.io/crates/v/udp.svg)](https://crates.io/crates/udp)
+[![](https://docs.rs/udp/badge.svg)](https://docs.rs/udp)
+[![](https://github.com/ltpp-universe/udp/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/udp/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/udp.svg)](./LICENSE)
 
 </center>
 
-[API 文档](https://docs.rs/tcplane/latest/tcplane/)
+[API 文档](https://docs.rs/udp/latest/udp/)
 
-> **tcplane** 是一个轻量级且高性能的 Rust TCP 服务器库，旨在简化网络服务开发。它支持 TCP 通信、数据流管理和连接处理，专注于提供高效的底层网络连接和数据传输能力，非常适合构建现代网络服务。
+> 一个轻量高效的 Rust 库，用于构建支持请求-响应处理的 UDP 服务器
 
 ## 安装
 
-可以通过以下命令安装该库：
+要使用此 crate，你可以运行以下命令：
 
 ```shell
-cargo add tcplane
+cargo add udp
 ```
 
-## 使用示例
+## 使用方法
 
 ```rust
-use tcplane::*;
+use udp::*;
 
 async fn test_func(arc_lock_controller_data: ArcRwLockControllerData) {
     let res: ResponseData = arc_lock_controller_data.send("tcplane").await.unwrap();
@@ -85,4 +85,3 @@ async fn run_server() {
 如有任何问题，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
 
 <Bottom />
-```

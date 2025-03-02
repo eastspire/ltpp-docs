@@ -42,13 +42,8 @@ features:
     icon: blog
     link: /ltpp-code-run/
 
-  - title: ltpp-web-ide
-    details: 代码编辑器
-    icon: blog
-    link: /ltpp-web-ide/
-
   - title: hyperlane
-    details: web后端框架（hyperlane）
+    details: web后端框架
     icon: blog
     link: /hyperlane/
 
@@ -58,7 +53,7 @@ features:
     link: /http-request/
 
   - title: tcplane
-    details: tcp后端框架（tcplane）
+    details: tcp后端框架
     icon: blog
     link: /tcplane/
 
@@ -66,6 +61,11 @@ features:
     details: tcp请求库
     icon: blog
     link: /tcp-request/
+
+  - title: udp
+    details: udp后端框架
+    icon: blog
+    link: /udp/
 
   - title: color-output
     details: 输出库
