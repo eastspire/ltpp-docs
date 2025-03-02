@@ -14,8 +14,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/tcp-request)
 
-## tcp-request
-
 <center>
 
 [![](https://img.shields.io/crates/v/tcp-request.svg)](https://crates.io/crates/tcp-request)
@@ -40,17 +38,16 @@ cargo add tcp-request
 
 ### 使用方法
 
-#### 发送文本数据
+#### 接收文本数据
 
-```rust
+```rs
 use tcp_request::*;
 let mut request_builder = RequestBuilder::new()
     .host("127.0.0.1")
     .port(80)
-    .data("tcp send")
     .build();
 request_builder
-    .send()
+    .send("tcp send".as_bytes())
     .and_then(|response| {
         println!("ResponseTrait => {:?}", response.text());
         Ok(())
@@ -58,19 +55,18 @@ request_builder
     .unwrap_or_else(|e| println!("Error => {:?}", e));
 ```
 
-#### 发送二进制数据
+#### 接收二进制数据
 
-```rust
+```rs
 use tcp_request::*;
 let mut request_builder = RequestBuilder::new()
     .host("127.0.0.1")
     .port(80)
-    .data("tcp send")
     .build();
 request_builder
-    .send()
+    .send("tcp send".as_bytes())
     .and_then(|response| {
-        println!("ResponseTrait => {:?}", response.text());
+        println!("ResponseTrait => {:?}", response.binary());
         Ok(())
     })
     .unwrap_or_else(|e| println!("Error => {:?}", e));

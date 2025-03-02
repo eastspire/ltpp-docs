@@ -12,7 +12,6 @@ export default sidebar({
   "/http-compress": 'structure',
   "/http-constant": 'structure',
   "/http-request": 'structure',
-  "/http-response": 'structure',
   "/http-type": 'structure',
   "/hyperlane": 'structure',
   "/hyperlane-log": 'structure',
@@ -40,4 +39,5 @@ export default sidebar({
   "/tcp-request": 'structure',
   "/tcplane": 'structure',
   "/udp": 'structure',
+  "/udp-request": 'structure',
 });

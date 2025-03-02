@@ -42,6 +42,11 @@ features:
     icon: blog
     link: /ltpp-code-run/
 
+  - title: color-output
+    details: 输出库
+    icon: blog
+    link: /color-output/
+
   - title: hyperlane
     details: web后端框架
     icon: blog
@@ -67,10 +72,10 @@ features:
     icon: blog
     link: /udp/
 
-  - title: color-output
-    details: 输出库
+  - title: udp-request
+    details: udp请求库
     icon: blog
-    link: /color-output/
+    link: /udp-request/
 
   - title: lombok-macros
     details: lombok属性宏
@@ -158,7 +163,7 @@ features:
     link: /ltpp-rust-web-serve/
 
   - title: ltpp-rust-get-proxy...
-    details: Get代理Post
+    details: get代理post
     icon: blog
     link: /ltpp-rust-get-proxy-request/
 
@@ -166,6 +171,21 @@ features:
     details: 云端存储
     icon: blog
     link: /cloud-storage/
+
+  - title: ltpp-ssh
+    details: ltpp ssh服务
+    icon: blog
+    link: /ltpp-ssh/
+
+  - title: ltpp-qrcode
+    details: ltpp qrcode服务
+    icon: blog
+    link: /ltpp-qrcode/
+
+  - title: ltpp-html-pdf
+    details: ltpp html转pdf
+    icon: blog
+    link: /ltpp-html-pdf/
 ---
 
 <Bottom />
