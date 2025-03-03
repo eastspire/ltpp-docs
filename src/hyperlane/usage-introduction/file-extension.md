@@ -8,7 +8,7 @@ category:
   - rust
   - usage-introduction
   - file-extension
-order: 7
+order: 9
 ---
 
 <Share colorful />
