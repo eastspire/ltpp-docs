@@ -26,51 +26,52 @@ dir:
 
 [API 文档](https://docs.rs/udp-request/latest/tcp_request/)
 
-> 一个轻量级且高效的 Rust 库，用于构建具有请求-响应处理功能的 UDP 服务器
+> 一个简单的 UDP 请求库，用于在 Rust 应用程序中发送和接收 UDP 数据包，设计用于处理网络通信。
 
 ## 安装
 
-要使用此 crate，可以运行以下命令：
+要使用这个库，你可以运行以下命令：
 
 ```shell
-cargo add udp
+cargo add udp-request
 ```
 
-## 使用示例
+## 使用
 
-```rust
-use udp::*;
+#### 接收文本
 
-async fn test_func(arc_lock_controller_data: ArcRwLockControllerData) {
-    let res: ResponseData = arc_lock_controller_data.send("tcplane").await.unwrap();
-    arc_lock_controller_data
-        .get_controller_data()
-        .await
-        .get_log()
-        .debug(
-            format!("Response => {:?}\n", String::from_utf8_lossy(&res)),
-            log_debug_format_handler,
-        );
-}
+```rs
+use udp_request::*;
 
-async fn run_server() {
-    let mut server: Server = Server::new();
-    server.host("0.0.0.0").await;
-    server.port(60000).await;
-    server.log_dir("./logs").await;
-    server.log_size(100_024_000).await;
-    server.buffer(100_024_000).await;
-    server.log_interval_millis(360).await;
-    server.func(test_func).await;
-    let test_string: String = "test".to_owned();
-    server
-        .func(async_func!(test_string, |data| {
-            println_success!(&test_string);
-            println_success!(&format!("{:?}", data));
-        }))
-        .await;
-    server.listen().await;
-}
+let mut request_builder = RequestBuilder::new()
+    .host("127.0.0.1")
+    .port(80)
+    .build();
+request_builder
+    .send("udp send".as_bytes())
+    .and_then(|response| {
+        println!("ResponseTrait => {:?}", response.text());
+        Ok(())
+    })
+    .unwrap_or_else(|e| println!("Error => {:?}", e));
+```
+
+#### 接收二进制
+
+```rs
+use udp_request::*;
+
+let mut request_builder = RequestBuilder::new()
+    .host("127.0.0.1")
+    .port(80)
+    .build();
+request_builder
+    .send("udp send".as_bytes())
+    .and_then(|response| {
+        println!("ResponseTrait => {:?}", response.binary());
+        Ok(())
+    })
+    .unwrap_or_else(|e| println!("Error => {:?}", e));
 ```
 
 ## 许可证
