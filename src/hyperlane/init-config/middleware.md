@@ -22,7 +22,7 @@ order: 7
 
 ```rust
 // 省略 server 创建
-server.middleware(|arc_lock_controller_data| async move {
+server.middleware(|controller_data| async move {
     // code
 }).await;
 ```
@@ -31,16 +31,16 @@ server.middleware(|arc_lock_controller_data| async move {
 
 ```rust
 // 省略 server 创建
-server.middleware(|arc_lock_controller_data| async move {
+server.middleware(|controller_data| async move {
     // 1
 }).await;
-server.middleware(|arc_lock_controller_data| async move {
+server.middleware(|controller_data| async move {
     // 2
 }).await;
-server.middleware(|arc_lock_controller_data| async move {
+server.middleware(|controller_data| async move {
     // 3
 }).await;
-server.middleware(|arc_lock_controller_data| async move {
+server.middleware(|controller_data| async move {
     // 4
 }).await;
 ```

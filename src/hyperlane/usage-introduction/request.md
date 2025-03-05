@@ -15,10 +15,10 @@ order: 4
 
 > [!tip]
 >
-> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
+> `hyperlane` 框架对 `controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
 > 例如：调用 `request` 上的 `get_method` 方法，
-> 一般需要从 `arc_lock_controller_data` 解出 `request`，再调用`request.get_method()`，
-> 可以简化成直接调用 `arc_lock_controller_data.get_request_method().await`
+> 一般需要从 `controller_data` 解出 `request`，再调用`request.get_method()`，
+> 可以简化成直接调用 `controller_data.get_request_method().await`
 >
 > **调用规律**
 >
@@ -32,20 +32,20 @@ order: 4
 ##### 推荐
 
 ```rust
-let request: Request = arc_lock_controller_data.get_request().await;
+let request: Request = controller_data.get_request().await;
 ```
 
 ##### 通过读锁
 
 ```rust
-let mut controller_data: RwLockReadControllerData = arc_lock_controller_data.get_read_lock().await;
+let mut controller_data: RwLockReadControllerData = controller_data.get_read_lock().await;
 let request: Request = controller_data.get_request().clone();
 ```
 
 ##### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 let request: Request = controller_data.get_request().clone();
 ```
 
@@ -94,7 +94,7 @@ let body: RequestBody = request.get_body();
 ### 获取可变请求信息
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 
@@ -103,13 +103,13 @@ let request: &mut Request = controller_data.get_mut_request();
 #### 推荐
 
 ```rust
-arc_lock_controller_data.set_request(Request::default()).await;
+controller_data.set_request(Request::default()).await;
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 controller_data.set_request(Request::default());
 ```
 
@@ -118,7 +118,7 @@ controller_data.set_request(Request::default());
 #### 获取写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 let request: &mut Request = controller_data.get_mut_request();
 ```
 

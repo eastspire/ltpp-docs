@@ -54,7 +54,7 @@ async fn main() {
     server.host("0.0.0.0");
     server.port(60000);
     server.log_size(1_024_000);
-    server.router("/", move |arc_lock_controller_data| {
+    server.router("/", move |controller_data| {
         let rt = Runtime::new().unwrap();
         // 使用 block_on 启动异步代码
         rt.block_on(async move {

@@ -20,25 +20,25 @@ order: 6
 
 > [!tip]
 >
-> `hyperlane` 框架对 `arc_lock_controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称，
+> `hyperlane` 框架对 `controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称，
 > 例如：调用 `response` 上的 `get_status_code` 方法，
-> 一般需要从 `arc_lock_controller_data` 解出 `response`，再调用 `response.get_status_code()`，
-> 可以简化成 `arc_lock_controller_data.get_response_status_code().await` 直接调用，
-> 推荐优先使用 `arc_lock_controller_data` 的方法，而不是通过获取 `arc_lock_controller_data` 写锁和读锁，
+> 一般需要从 `controller_data` 解出 `response`，再调用 `response.get_status_code()`，
+> 可以简化成 `controller_data.get_response_status_code().await` 直接调用，
+> 推荐优先使用 `controller_data` 的方法，而不是通过获取 `controller_data` 写锁和读锁，
 > 理论上后者性能会更好，但是后者代码可读性不高且容易导致死锁，维护成本较高。使用前者你可能写出以下代码：
 >
 > ```rust
-> pub async fn favicon_ico(arc_lock_controller_data: ArcRwLockControllerData) {
+> pub async fn favicon_ico(controller_data: ControllerData) {
 >     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
 >     {
 >         let mut controller_data: RwLockWriteControllerData =
->         arc_lock_controller_data.get_write_lock().await;
+>         controller_data.get_write_lock().await;
 >         let response: &mut Response = controller_data.get_mut_response();
 >         response.set_header(CONTENT_TYPE, IMAGE_PNG);
 >         response.set_header(CACHE_CONTROL, "public, max-age=3600");
 >     }
->     let send_res: ResponseResult = arc_lock_controller_data.send_response(200, data).await;
->     arc_lock_controller_data
+>     let send_res: ResponseResult = controller_data.send_response(200, data).await;
+>     controller_data
 >         .get_log()
 >         .await
 >         .info(format!("Response result => {:?}", send_res), log_handler);
@@ -48,17 +48,17 @@ order: 6
 > 但是使用后者，你的代码会是这样，是不是就无需担心死锁发生了
 >
 > ```rust
-> pub async fn favicon_ico(arc_lock_controller_data: ArcRwLockControllerData) {
+> pub async fn favicon_ico(controller_data: ControllerData) {
 >     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
->     let send_res: ResponseResult = arc_lock_controller_data
+>     let send_res: ResponseResult = controller_data
 >         .set_response_header(CONTENT_TYPE, IMAGE_PNG)
 >         .await
 >         .set_response_header(CACHE_CONTROL, "public, max-age=3600")
 >         .await
 >         .send_response(200, data)
 >         .await;
->     let request: Request = arc_lock_controller_data.get_request().await;
->     arc_lock_controller_data
+>     let request: Request = controller_data.get_request().await;
+>     controller_data
 >         .log_info(format!("Request result => {}", request), log_handler)
 >         .await
 >         .log_info(format!("Response result => {:?}", send_res), log_handler)
@@ -76,13 +76,13 @@ order: 6
 #### 推荐
 
 ```rust
-let response: Response = arc_lock_controller_data.get_response().await;
+let response: Response = controller_data.get_response().await;
 ```
 
 #### 通过写锁
 
 ```rust
-let controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 let response: Response = controller_data.get_response().clone();
 ```
 
@@ -91,14 +91,14 @@ let response: Response = controller_data.get_response().clone();
 #### 推荐
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let response: &mut Response = controller_data.get_mut_response();
+let mut  = controller_data.get().await;
+let response: &mut Response = inner_controller_data.get_mut_response();
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = arc_lock_controller_data.get_write_lock().await;
+let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
@@ -109,13 +109,13 @@ let response: &mut Response = controller_data.get_mut_response();
 ##### 推荐
 
 ```rust
-arc_lock_controller_data.set_response_body(vec![]).await;
+controller_data.set_response_body(vec![]).await;
 ```
 
 ##### 获取 `controller_data` 克隆
 
 ```rust
-let mut response: Response = arc_lock_controller_data.get_response().await;
+let mut response: Response = controller_data.get_response().await;
 response.set_body(vec![]);
 ```
 
@@ -124,14 +124,14 @@ response.set_body(vec![]);
 ##### 推荐
 
 ```rust
-arc_lock_controller_data.set_response_header("server", "hyperlane").await;
+controller_data.set_response_header("server", "hyperlane").await;
 ```
 
 ##### 获取 `controller_data` 克隆
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let mut response: Response = controller_data.get_response().clone();
+let inner_controller_data: InnerControllerData = controller_data.get().await;
+let mut response: Response = inner_controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
 
@@ -140,14 +140,14 @@ response.set_header("server", "hyperlane");
 ##### 推荐
 
 ```rust
-arc_lock_controller_data.set_response_status_code(200).await;
+controller_data.set_response_status_code(200).await;
 ```
 
 ##### 获取 `controller_data` 克隆
 
 ```rust
-let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let mut response: Response = controller_data.get_response().clone();
+let inner_controller_data: InnerControllerData = controller_data.get().await;
+let mut response: Response = inner_controller_data.get_response().clone();
 response.set_status_code(200);
 ```
 
@@ -158,18 +158,18 @@ response.set_status_code(200);
 ##### 发送 HTTP 完整响应
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let stream = controller_data.get_mut_stream().clone().unwrap();
-let mut response = controller_data.get_response().clone();
+let mut  = controller_data.get().await;
+let stream = inner_controller_data.get_mut_stream().clone().unwrap();
+let mut response = inner_controller_data.get_response().clone();
 let _ = response.set_body("hello").send(&stream);
 ```
 
 #### 发送响应体
 
 ```rust
-let mut controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-let stream = controller_data.get_mut_stream().clone().unwrap();
-let mut response = controller_data.get_response().clone();
+let mut  = controller_data.get().await;
+let stream = inner_controller_data.get_mut_stream().clone().unwrap();
+let mut response = inner_controller_data.get_response().clone();
 let _ = response.set_body("hello").send_body(&stream);
 ```
 
@@ -184,7 +184,7 @@ let _ = response.set_body("hello").send_body(&stream);
 > - 第二个参数: 内容
 
 ```rust
-let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hello hyperlane");
+let send_res: ResponseResult = controller_data.send_response(200, "hello hyperlane");
 ```
 
 ##### send_response_once
@@ -196,18 +196,18 @@ let send_res: ResponseResult = arc_lock_controller_data.send_response(200, "hell
 > - 第二个参数: 内容
 
 ```rust
-let send_res: ResponseResult = arc_lock_controller_data.send_response_once(200, "hello hyperlane");
+let send_res: ResponseResult = controller_data.send_response_once(200, "hello hyperlane");
 ```
 
 ### 综合使用
 
 ```rust
 // 省略 server 创建
-server.router("/", |arc_lock_controller_data| {
-    let controller_data: ControllerData = arc_lock_controller_data.get_controller_data().await;
-    let mut response: Response = controller_data.get_response().clone();
+server.router("/", |controller_data| {
+    let inner_controller_data: InnerControllerData = controller_data.get().await;
+    let mut response: Response = inner_controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
-    let stream_lock: ArcRwLockStream = controller_data.get_stream().clone().unwrap();
+    let stream_lock: ArcRwLockStream = inner_controller_data.get_stream().clone().unwrap();
     let res: ResponseResult = response
         .set_body(body)
         .set_status_code(404)

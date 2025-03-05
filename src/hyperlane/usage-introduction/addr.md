@@ -22,19 +22,19 @@ order: 5
 #### 获取 `SocketAddr`
 
 ```rust
-arc_lock_controller_data.get_socket_addr().await;
+controller_data.get_socket_addr().await;
 ```
 
 #### 获取 `SocketHost`
 
 ```rust
-arc_lock_controller_data.get_socket_host().await;
+controller_data.get_socket_host().await;
 ```
 
 #### 获取 `SocketPort`
 
 ```rust
-arc_lock_controller_data.get_socket_port().await;
+controller_data.get_socket_port().await;
 ```
 
 <Bottom />

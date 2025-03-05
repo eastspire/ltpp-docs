@@ -15,16 +15,22 @@ order: 1
 
 > [!tip]
 >
-> `hyperlane` 框架的 `ControllerData` 作为中间件和路由处理函数的唯一的被 `RwLock` 锁修饰的参数类型，内部具体类型定义如下
+> `hyperlane` 框架的 `ControllerData` 作为中间件和路由处理函数的唯一的参数类型，具体类型定义如下
 
 ```rust
+pub type RwLockWriteControllerData<'a> = RwLockWriteGuard<'a, InnerControllerData>;
+pub type RwLockReadControllerData<'a> = RwLockReadGuard<'a, InnerControllerData>;
+
 #[derive(Clone, Debug, Lombok)]
-pub struct ControllerData {
+pub struct InnerControllerData {
     pub(super) stream: OptionArcRwLockStream,
     pub(super) request: Request,
     pub(super) response: Response,
     pub(super) log: Log,
 }
+
+#[derive(Clone, Debug)]
+pub struct ControllerData(pub(super) ArcRwLock<InnerControllerData>);
 ```
 
 <Bottom />

@@ -23,7 +23,7 @@ order: 8
 
 ```rust
 // 省略 server 创建
-server.router("路由名称", |arc_lock_controller_data| async move {
+server.router("路由名称", |controller_data| async move {
     // code
 }).await;
 ```
