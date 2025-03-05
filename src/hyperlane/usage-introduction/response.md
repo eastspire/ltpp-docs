@@ -199,6 +199,24 @@ let send_res: ResponseResult = controller_data.send_response(200, "hello hyperla
 let send_res: ResponseResult = controller_data.send_response_once(200, "hello hyperlane");
 ```
 
+##### send_response_body
+
+> [!tip]
+> 支持多次主动发送响应
+
+```rust
+let _ = controller_data
+    .set_response_header(CONTENT_TYPE, TEXT_EVENT_STREAM)
+    .await
+    .send_response(200, vec![])
+    .await;
+for i in 0..6 {
+    let _ = controller_data
+        .send_response_body(format!("hello hyperlane => /index {}", i))
+        .await;
+}
+```
+
 ### 综合使用
 
 ```rust
