@@ -47,6 +47,12 @@ net.netfilter.nf_conntrack_max = 2621440
 net.ipv4.ip_local_port_range = 10240 65000
 ```
 
+#### 控制台执行 `ulimit`
+
+```sh
+ulimit -n 1024000
+```
+
 #### 打开文件数
 
 > 修改 open files 的数值永久生效，修改配置文件：/etc/security/limits.conf. 在这个文件后加上
