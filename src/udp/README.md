@@ -42,13 +42,13 @@ cargo add udp
 use udp::*;
 
 async fn test_func(controller_data: ControllerData) {
-let res: ResponseData = controller_data.send("udp").await.unwrap();
-controller_data
-    .log_debug(
-        format!("Response => {:?}\n", String::from_utf8_lossy(&res)),
-        log_debug_format_handler,
-    )
-    .await;
+    let res: ResponseData = controller_data.send("udp").await.unwrap();
+    controller_data
+        .log_debug(
+            format!("Response => {:?}\n", String::from_utf8_lossy(&res)),
+            log_debug_format_handler,
+        )
+        .await;
 }
 
 async fn run_server() {
