@@ -18,8 +18,9 @@ order: 2
 > `hyperlane` 框架的 `Request` 内部具体类型定义如下
 
 ```rust
-pub type RequestMethod = String;
+pub type RequestMethod = Methods;
 pub type RequestHost = String;
+pub type RequestVersion = HttpVersion;
 pub type RequestPath = String;
 pub type RequestQuerysKey = String;
 pub type RequestQuerysValue = String;
@@ -33,6 +34,7 @@ pub type RequestNewResult = Result<Request, RequestError>;
 pub struct Request {
     pub(super) method: RequestMethod,
     pub(super) host: RequestHost,
+    pub(super) version: RequestVersion,
     pub(super) path: RequestPath,
     pub(super) querys: RequestQuerys,
     pub(super) headers: RequestHeaders,
