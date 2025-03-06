@@ -28,7 +28,7 @@ ab -n 1000000 -c 1000 -r http://127.0.0.1:60000/
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
 >
 > - 1 `Tokio` ：51825.13
-> - 2 `Hyperlane框架` ：51390.65
+> - 2 `Hyperlane框架` ：51554.47
 > - 3 `Rocket框架` ：49621.02
 > - 4 `Go标准库` ：47915.20
 > - 5 `Gin框架` ：47081.05
@@ -51,33 +51,33 @@ Document Path:          /
 Document Length:        5 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   19.459 seconds
+Time taken for tests:   19.397 seconds
 Complete requests:      1000000
 Failed requests:        0
 Total transferred:      107000000 bytes
 HTML transferred:       5000000 bytes
-Requests per second:    51390.65 [#/sec] (mean)
-Time per request:       19.459 [ms] (mean)
+Requests per second:    51554.47 [#/sec] (mean)
+Time per request:       19.397 [ms] (mean)
 Time per request:       0.019 [ms] (mean, across all concurrent requests)
-Transfer rate:          5369.92 [Kbytes/sec] received
+Transfer rate:          5387.04 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    9  17.4      8    1104
-Processing:     0   10   5.4      9     328
-Waiting:        0    9   5.1      8     327
-Total:          1   19  18.8     18    1123
+Connect:        0    9   9.1      8    1069
+Processing:     0   10   4.7     10     289
+Waiting:        0    9   4.5      9     286
+Total:          1   19  11.1     19    1085
 
 Percentage of the requests served within a certain time (ms)
-  50%     18
-  66%     21
-  75%     23
+  50%     19
+  66%     22
+  75%     24
   80%     25
   90%     29
-  95%     34
-  98%     39
-  99%     43
- 100%   1123 (longest request)
+  95%     33
+  98%     37
+  99%     41
+ 100%   1085 (longest request)
 ```
 
 ### Rust 标准库
