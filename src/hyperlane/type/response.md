@@ -27,7 +27,6 @@ pub type ResponseVersion = String;
 pub type ResponseStatusCode = usize;
 pub type ResponseReasonPhrase = String;
 pub type ResponseResult = Result<(), ResponseError>;
-pub type CloseStreamResult = Result<(), ResponseError>;
 #[derive(Debug, Clone, Lombok, PartialEq, Eq)]
 pub struct Response {
     pub(super) version: ResponseVersion,
