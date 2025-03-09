@@ -8,7 +8,7 @@ category:
   - rust
   - usage-introduction
   - log
-order: 8
+order: 9
 ---
 
 <Share colorful />

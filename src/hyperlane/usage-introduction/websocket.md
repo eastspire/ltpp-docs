@@ -1,0 +1,62 @@
+---
+title: SSE
+index: true
+icon: book
+category:
+  - hyperlane
+  - web
+  - rust
+  - usage-introduction
+  - websocket
+order: 8
+---
+
+<Share colorful />
+
+[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/)
+
+> [!tip]
+>
+> `hyperlane` 框架支持 `websocket` 协议，服务端自动处理协议升级，支持请求中间件，路由处理，响应中间件
+
+### 服务端代码
+
+> [!tip]
+>
+> `hyperlane` 框架发送 `websocket` 响应使用`send_response_body`，与 `sse` 相同，
+> 框架同时保留 `http` 其他方法（例如`close`，>`send_response`等）。
+> 如果开发者尝试调用 `send_response` 服务端响应会正常发送，但是客户端解析会出问题
+> （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）所以对于 `websocket`，
+> 请统一使用 `send_response_body` 方法
+
+```rust
+pub async fn handle(controller_data: ControllerData) {
+    let request_body: Vec<u8> = controller_data.get_request_body().await;
+    let _ = controller_data.send_response_body(request_body).await;
+}
+```
+
+### 客户端代码
+
+```js
+const ws = new WebSocket('ws://localhost:60000/websocket');
+
+ws.onopen = () => {
+  console.log('WebSocket opened');
+  setInterval(() => {
+    ws.send(`Now time: ${new Date().toISOString()}`);
+  }, 1000);
+};
+
+ws.onmessage = (event) => {
+  console.log('Receive: ', event.data);
+};
+
+ws.onerror = (error) => {
+  console.error('WebSocket error: ', error);
+};
+
+ws.onclose = () => {
+  console.log('WebSocket closed');
+};
+```
