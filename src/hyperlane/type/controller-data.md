@@ -1,5 +1,5 @@
 ---
-title: ControllerData类型
+title: ControllerData
 index: true
 icon: book
 category:

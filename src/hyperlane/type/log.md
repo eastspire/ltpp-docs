@@ -1,5 +1,5 @@
 ---
-title: Log类型
+title: Log
 index: true
 icon: book
 category:

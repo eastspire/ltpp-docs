@@ -1,5 +1,5 @@
 ---
-title: FileExtension类型
+title: FileExtension
 index: true
 icon: book
 category:

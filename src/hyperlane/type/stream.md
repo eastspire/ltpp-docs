@@ -1,5 +1,5 @@
 ---
-title: Stream类型
+title: Stream
 index: true
 icon: book
 category:

@@ -1,5 +1,5 @@
 ---
-title: Content-type类型
+title: Content-type
 index: true
 icon: book
 category:
