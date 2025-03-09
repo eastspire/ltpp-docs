@@ -1,5 +1,5 @@
 ---
-title: sse
+title: SSE
 index: true
 icon: book
 category:

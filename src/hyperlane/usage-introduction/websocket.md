@@ -1,5 +1,5 @@
 ---
-title: websocket
+title: WebSocket
 index: true
 icon: book
 category:
