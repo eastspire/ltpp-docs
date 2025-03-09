@@ -1,5 +1,5 @@
 ---
-title: SSE
+title: websocket
 index: true
 icon: book
 category:
