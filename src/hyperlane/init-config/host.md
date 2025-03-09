@@ -1,5 +1,5 @@
 ---
-title: 绑定host
+title: 绑定Host
 index: true
 icon: book
 category:
