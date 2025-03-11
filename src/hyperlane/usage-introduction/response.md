@@ -221,7 +221,7 @@ for i in 0..6 {
 
 ```rust
 // 省略 server 创建
-server.router("/", |controller_data| {
+server.route("/", |controller_data| {
     let inner_controller_data: InnerControllerData = controller_data.get().await;
     let mut response: Response = inner_controller_data.get_response().clone();
     let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();

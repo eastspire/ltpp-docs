@@ -16,14 +16,14 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架使用 `router` 接口进行路由注册，第一个参数是路由名称，第二个参数是路由处理函数，
+> `hyperlane` 框架使用 `route` 接口进行路由注册，第一个参数是路由名称，第二个参数是路由处理函数，
 > 路由处理函数参数类型参考 [controller-data 文档](../type/controller-data.md)
 
 ### 注册路由
 
 ```rust
 // 省略 server 创建
-server.router("路由名称", |controller_data| async move {
+server.route("路由名称", |controller_data| async move {
     // code
 }).await;
 ```

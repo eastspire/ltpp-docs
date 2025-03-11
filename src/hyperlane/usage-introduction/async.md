@@ -27,7 +27,7 @@ order: 2
 ### 框架本身异步使用
 
 ```rust
-server.router("/", move |_| async move {
+server.route("/", move |_| async move {
     println!("hello");
 }).await;
 ```
@@ -54,7 +54,7 @@ async fn main() {
     server.host("0.0.0.0");
     server.port(60000);
     server.log_size(1_024_000);
-    server.router("/", move |controller_data| {
+    server.route("/", move |controller_data| {
         let rt = Runtime::new().unwrap();
         // 使用 block_on 启动异步代码
         rt.block_on(async move {
@@ -80,7 +80,7 @@ async fn main() {
 
 ```rust
 let test_string: String = "test".to_owned();
-server.router("/test/async", move |_| {
+server.route("/test/async", move |_| {
     let tmp_test_string = test_string.clone();
     async move {
         println!("{:?}", tmp_test_string);
@@ -95,7 +95,7 @@ let test_string: String = "test".to_owned();
 let func = async_func!(test_string, |_| {
     println!("async_move => {:?}", test_string);
 });
-server.router("/test/async", func).await;
+server.route("/test/async", func).await;
 ```
 
 <Bottom />
