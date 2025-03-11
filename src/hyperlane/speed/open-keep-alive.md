@@ -16,13 +16,127 @@ order: 3
 
 [GITHUB 地址](https://github.com/ltpp-universe/web-server-pressure-measurement/tree/master/open-keep-alive)
 
-### 测试命令
+### wrk
+
+#### 压测命令
+
+```sh
+wrk -c360 -d60s http://127.0.0.1:60000/
+```
+
+#### 压测结果
+
+> [!tip]
+> 测试 `360` 并发，持续 `60s` 请求。`QPS` 结果如下：
+>
+> - 1 `Tokio` ：340130.92
+> - 2 `Hyperlane框架` ：324323.71
+> - 3 `Rocket框架` ：298945.31
+> - 4 `Rust标准库` ：291218.96
+> - 5 `Gin框架` ：242570.16
+> - 6 `Go标准库` ：234178.93
+> - 7 `Node标准库` ：139412.13
+
+#### hyperlane 框架
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.46ms    7.74ms 230.59ms   99.57%
+    Req/Sec   163.12k     9.54k  187.65k    67.75%
+  19476349 requests in 1.00m, 1.94GB read
+Requests/sec: 324323.71
+Transfer/sec:     33.10MB
+```
+
+#### Rust 标准库
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.64ms    8.62ms 238.68ms   99.48%
+    Req/Sec   146.49k    20.42k  190.38k    61.42%
+  17494266 requests in 1.00m, 1.52GB read
+Requests/sec: 291218.96
+Transfer/sec:     25.83MB
+```
+
+#### Tokio 框架
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.22ms    5.96ms 230.76ms   99.76%
+    Req/Sec   171.05k     7.56k  192.19k    70.08%
+  20423683 requests in 1.00m, 1.77GB read
+Requests/sec: 340130.92
+Transfer/sec:     30.17MB
+```
+
+#### Rocket 框架
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.42ms    6.67ms 228.04ms   99.67%
+    Req/Sec   150.37k     7.48k  172.42k    70.08%
+  17955815 requests in 1.00m, 4.00GB read
+Requests/sec: 298945.31
+Transfer/sec:     68.14MB
+```
+
+#### Gin 框架
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.67ms    4.67ms 249.72ms   99.63%
+    Req/Sec   122.08k     4.39k  133.88k    69.58%
+  14577127 requests in 1.00m, 1.97GB read
+Requests/sec: 242570.16
+Transfer/sec:     33.54MB
+```
+
+#### Go 标准库
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.58ms    1.15ms  32.24ms   78.06%
+    Req/Sec   117.80k     4.43k  130.07k    70.67%
+  14064777 requests in 1.00m, 1.90GB read
+Requests/sec: 234178.93
+Transfer/sec:     32.38MB
+```
+
+#### Node 标准库
+
+```sh
+Running 1m test @ http://127.0.0.1:60000/
+  2 threads and 360 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.58ms  837.62us  45.39ms   89.66%
+    Req/Sec    70.11k     2.79k   74.29k    98.33%
+  8371733 requests in 1.00m, 1.16GB read
+Requests/sec: 139412.13
+Transfer/sec:     19.81MB
+```
+
+### ab
+
+#### 压测命令
 
 ```sh
 ab -n 1000000 -c 1000 -r -k http://127.0.0.1:60000/
 ```
 
-### QPS 测试结果
+#### 压测结果
 
 > [!tip]
 > 测试 `1000` 并发，一共 `100w` 请求。`QPS` 结果如下：
@@ -35,13 +149,7 @@ ab -n 1000000 -c 1000 -r -k http://127.0.0.1:60000/
 > - 6 `Gin框架` ：224296.16
 > - 7 `Node标准库` ：85357.18
 
-### 压测命令
-
-```sh
-ab -n 10000000 -c 1000 -r -k http://127.0.0.1:60000/
-```
-
-### hyperlane 框架
+#### hyperlane 框架
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -81,7 +189,7 @@ Percentage of the requests served within a certain time (ms)
  100%     16 (longest request)
 ```
 
-### Rust 标准库
+#### Rust 标准库
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -121,7 +229,7 @@ Percentage of the requests served within a certain time (ms)
  100%   1286 (longest request)
 ```
 
-### Tokio 框架
+#### Tokio 框架
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -161,7 +269,7 @@ Percentage of the requests served within a certain time (ms)
  100%     16 (longest request)
 ```
 
-### Rocket 框架
+#### Rocket 框架
 
 ```sh
 Server Software:        Rocket
@@ -202,7 +310,7 @@ Percentage of the requests served within a certain time (ms)
  100%     21 (longest request)
 ```
 
-### Gin 框架
+#### Gin 框架
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -242,7 +350,7 @@ Percentage of the requests served within a certain time (ms)
  100%    184 (longest request)
 ```
 
-### Go 标准库
+#### Go 标准库
 
 ```sh
 Server Hostname:        127.0.0.1
@@ -282,7 +390,7 @@ Percentage of the requests served within a certain time (ms)
  100%    176 (longest request)
 ```
 
-### Node 标准库
+#### Node 标准库
 
 ```sh
 Server Hostname:        127.0.0.1
