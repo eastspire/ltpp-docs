@@ -29,7 +29,7 @@ wrk -c360 -d60s -H "Connection: close" http://127.0.0.1:60000/
 > [!tip]
 > 测试 `360` 并发，持续 `60s` 请求。`QPS` 结果如下：
 >
-> - 1 `Hyperlane框架` ：50896.87
+> - 1 `Hyperlane框架` ：51031.27
 > - 2 `Tokio` ：49555.87
 > - 3 `Rocket框架` ：49345.76
 > - 4 `Gin框架` ：40149.75
@@ -43,11 +43,11 @@ wrk -c360 -d60s -H "Connection: close" http://127.0.0.1:60000/
 Running 1m test @ http://127.0.0.1:60000/
   2 threads and 360 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     3.53ms    2.33ms 233.40ms   79.13%
-    Req/Sec    25.61k     2.04k   35.12k    69.71%
-  3055955 requests in 1.00m, 297.27MB read
-Requests/sec:  50896.87
-Transfer/sec:      4.95MB
+    Latency     3.51ms    2.12ms 254.29ms   74.68%
+    Req/Sec    25.69k     1.78k   42.56k    74.94%
+  3066756 requests in 1.00m, 298.32MB read
+Requests/sec:  51031.27
+Transfer/sec:      4.96MB
 ```
 
 #### Rust 标准库
