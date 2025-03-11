@@ -102,32 +102,30 @@ let mut controller_data: RwLockWriteControllerData = controller_data.get_write_l
 let response: &mut Response = controller_data.get_mut_response();
 ```
 
-### 设置响应
+### 设置响应体
 
-#### 设置响应体
-
-##### 推荐
+#### 推荐
 
 ```rust
 controller_data.set_response_body(vec![]).await;
 ```
 
-##### 获取 `controller_data` 克隆
+#### 获取 `controller_data` 克隆
 
 ```rust
 let mut response: Response = controller_data.get_response().await;
 response.set_body(vec![]);
 ```
 
-#### 设置响应头
+### 设置响应头
 
-##### 推荐
+#### 推荐
 
 ```rust
 controller_data.set_response_header("server", "hyperlane").await;
 ```
 
-##### 获取 `controller_data` 克隆
+#### 获取 `controller_data` 克隆
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
@@ -135,15 +133,15 @@ let mut response: Response = inner_controller_data.get_response().clone();
 response.set_header("server", "hyperlane");
 ```
 
-#### 设置状态码
+### 设置状态码
 
-##### 推荐
+#### 推荐
 
 ```rust
 controller_data.set_response_status_code(200).await;
 ```
 
-##### 获取 `controller_data` 克隆
+#### 获取 `controller_data` 克隆
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
@@ -151,11 +149,16 @@ let mut response: Response = inner_controller_data.get_response().clone();
 response.set_status_code(200);
 ```
 
-### 发送响应
+### 发送完整 HTTP 响应
 
-#### 原子方法
+> [!tip]
+> 如果你已经设置了响应信息，可以直接通过 `send` 或者 `send_once` 发送。此方法常用于响应中间件用于统一发送。
+> 如果是 `websocket` 则不会发送，所以可以在响应中间件放心使用
 
-##### 发送 HTTP 完整响应
+#### response.send
+
+> [!tip]
+> 发送响应后 `TCP` 连接保留
 
 ```rust
 let mut  = controller_data.get().await;
@@ -164,18 +167,7 @@ let mut response = inner_controller_data.get_response().clone();
 let _ = response.set_body("hello").send(&stream);
 ```
 
-#### 发送响应体
-
-```rust
-let mut  = controller_data.get().await;
-let stream = inner_controller_data.get_mut_stream().clone().unwrap();
-let mut response = inner_controller_data.get_response().clone();
-let _ = response.set_body("hello").send_body(&stream);
-```
-
-#### 使用框架封装的 `send_response` 和 `send_response_once` 简化操作
-
-##### send_response
+#### controller_data.send_response
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
@@ -187,7 +179,7 @@ let _ = response.set_body("hello").send_body(&stream);
 let send_res: ResponseResult = controller_data.send_response(200, "hello hyperlane");
 ```
 
-##### send_response_once
+#### controller_data.send_response_once
 
 > [!tip]
 > 发送响应后 `TCP` 连接立即关闭
@@ -199,10 +191,39 @@ let send_res: ResponseResult = controller_data.send_response(200, "hello hyperla
 let send_res: ResponseResult = controller_data.send_response_once(200, "hello hyperlane");
 ```
 
-##### send_response_body
+#### controller_data.send
+
+> [!tip]
+> 发送响应后 `TCP` 连接保留
+
+```rust
+let send_res: ResponseResult = controller_data.send().await;
+```
+
+#### controller_data.send_once
+
+> [!tip]
+> 发送响应后 `TCP` 连接立即关闭
+
+```rust
+let send_res: ResponseResult = controller_data.send_once().await;
+```
+
+### 仅发送响应体
 
 > [!tip]
 > 支持多次主动发送响应
+
+#### response.send_body
+
+```rust
+let mut  = controller_data.get().await;
+let stream = inner_controller_data.get_mut_stream().clone().unwrap();
+let mut response = inner_controller_data.get_response().clone();
+let _ = response.set_body("hello").send_body(&stream).await;
+```
+
+#### controller_data.send_response_body
 
 ```rust
 let _ = controller_data
@@ -217,21 +238,19 @@ for i in 0..6 {
 }
 ```
 
-### 综合使用
+#### controller_data.send_body
 
 ```rust
-// 省略 server 创建
-server.route("/", |controller_data| {
-    let inner_controller_data: InnerControllerData = controller_data.get().await;
-    let mut response: Response = inner_controller_data.get_response().clone();
-    let body: Vec<u8> = "404 Not Found".as_bytes().to_vec();
-    let stream_lock: ArcRwLockStream = inner_controller_data.get_stream().clone().unwrap();
-    let res: ResponseResult = response
-        .set_body(body)
-        .set_status_code(404)
-        .set_header("server", "hyperlane")
-        .send(&stream);
-});
+let _ = controller_data
+    .set_response_header(CONTENT_TYPE, TEXT_EVENT_STREAM)
+    .await
+    .send_response(200, vec![])
+    .await;
+for i in 0..6 {
+    let _ = controller_data
+        .send_body()
+        .await;
+}
 ```
 
 <Bottom />
