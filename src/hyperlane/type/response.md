@@ -18,7 +18,6 @@ order: 3
 > `hyperlane` 框架的 `Response` 内部具体类型定义如下
 
 ```rust
-pub type ResponseData = Vec<u8>;
 pub type ResponseBody = Vec<u8>;
 pub type ResponseHeadersKey = String;
 pub type ResponseHeadersValue = String;
@@ -37,8 +36,6 @@ pub struct Response {
     pub(super) headers: ResponseHeaders,
     #[set(skip)]
     pub(super) body: ResponseBody,
-    #[set(super)]
-    pub(super) response: ResponseData,
 }
 ```
 

@@ -26,7 +26,6 @@ pub type RequestQuerysKey = String;
 pub type RequestQuerysValue = String;
 pub type RequestQuerys = HashMap<RequestQuerysKey, RequestQuerysValue>;
 pub type RequestBody = Vec<u8>;
-pub type RequestUpgradeType = UpgradeType;
 pub type RequestHeadersKey = String;
 pub type RequestHeadersValue = String;
 pub type RequestHeaders = HashMap<RequestHeadersKey, RequestHeadersValue>;
@@ -45,8 +44,6 @@ pub struct Request {
     pub(super) headers: RequestHeaders,
     #[set(skip)]
     pub(super) body: RequestBody,
-    #[set(skip)]
-    pub(super) upgrade_type: RequestUpgradeType,
 }
 ```
 
