@@ -28,7 +28,7 @@ dir:
 
 [API 文档](https://docs.rs/hyperlane/latest/hyperlane/)
 
-> hyperlane 是一个轻量级且高性能的 Rust HTTP 服务器库，旨在简化网络服务的开发。它支持 HTTP 请求解析、响应构建、TCP 通信和重定向功能，适合构建现代 Web 服务。
+> Hyperlane 是一个轻量级、高性能的 Rust HTTP 服务器库，旨在简化网络服务开发。它支持 HTTP 请求解析、响应构建和 TCP 通信，使其成为构建现代 web 服务的理想选择。此外，它还支持请求和响应中间件、WebSocket 和服务器发送事件（SSE），实现了灵活高效的实时通信。
 
 ## 安装
 
@@ -60,6 +60,8 @@ async fn request_middleware(controller_data: ControllerData) {
         .set_response_header(CONNECTION, CONNECTION_KEEP_ALIVE)
         .await
         .set_response_header("SocketAddr", socket_addr)
+        .await
+        .set_request_header(CONTENT_TYPE, content_type_charset(TEXT_PLAIN, UTF8))
         .await;
 }
 
