@@ -176,4 +176,24 @@ request.set_headers(HashMap::new());
 request.set_body(vec![]);
 ```
 
+#### 转字符串
+
+##### 通过 `to_string`
+
+> [!tip]
+> 将获得完整的原始结构体字符串结构
+
+```rust
+request.to_string();
+```
+
+##### 通过 `get_string`
+
+> [!tip]
+> 将获得简化的结构体字符串结构
+
+```rust
+request.get_string();
+```
+
 <Bottom />

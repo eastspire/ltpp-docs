@@ -15,24 +15,851 @@ order: 8
 
 > [!tip]
 >
-> `hyperlane` 框架的 `Content-type` 内部具体类型定义如下
+> `hyperlane` 框架的 `Content-type` 内部 `value` 定义如下
 
 ```rust
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum ContentType {
-    /// Represents the `application/json` content type.
-    ApplicationJson,
-    /// Represents the `application/xml` content type.
-    ApplicationXml,
-    /// Represents the `text/plain` content type.
-    TextPlain,
-    /// Represents the `text/html` content type.
-    TextHtml,
-    /// Represents the `application/x-www-form-urlencoded` content type.
-    FormUrlEncoded,
-    /// Represents an unknown or unrecognized content type.
-    Unknown,
-}
+pub static APPLICATION_VND_LOTUS_1_2_3: &str = "application/vnd.lotus-1-2-3";
+pub static TEXT_VND_IN3D_3DML: &str = "text/vnd.in3d.3dml";
+pub static IMAGE_X_3DS: &str = "image/x-3ds";
+pub static VIDEO_3GPP2: &str = "video/3gpp2";
+pub static VIDEO_3GPP: &str = "video/3gpp";
+pub static APPLICATION_X_7Z_COMPRESSED: &str = "application/x-7z-compressed";
+pub static APPLICATION_X_AUTHORWARE_BIN: &str = "application/x-authorware-bin";
+pub static AUDIO_X_AAC: &str = "audio/x-aac";
+pub static APPLICATION_X_AUTHORWARE_MAP: &str = "application/x-authorware-map";
+pub static APPLICATION_X_AUTHORWARE_SEG: &str = "application/x-authorware-seg";
+pub static AUDIO_X_MPEG: &str = "audio/x-mpeg";
+pub static APPLICATION_X_ABIWORD: &str = "application/x-abiword";
+pub static APPLICATION_PKIX_ATTR_CERT: &str = "application/pkix-attr-cert";
+pub static APPLICATION_VND_AMERICANDYNAMICS_ACC: &str = "application/vnd.americandynamics.acc";
+pub static APPLICATION_X_ACE_COMPRESSED: &str = "application/x-ace-compressed";
+pub static APPLICATION_VND_ACUCOBOL: &str = "application/vnd.acucobol";
+pub static APPLICATION_VND_ACUCORP: &str = "application/vnd.acucorp";
+pub static AUDIO_ADPCM: &str = "audio/adpcm";
+pub static APPLICATION_VND_AUDIOGRAPH: &str = "application/vnd.audiograph";
+pub static APPLICATION_X_FONT_TYPE1: &str = "application/x-font-type1";
+pub static APPLICATION_VND_IBM_MODCAP: &str = "application/vnd.ibm.modcap";
+pub static APPLICATION_VND_AHEAD_SPACE: &str = "application/vnd.ahead.space";
+pub static APPLICATION_POSTSCRIPT: &str = "application/postscript";
+pub static AUDIO_X_AIFF: &str = "audio/x-aiff";
+pub static APPLICATION_X_AIM: &str = "application/x-aim";
+pub static APPLICATION_VND_ADOBE_AIR_APPLICATION_INSTALLER_PACKAGE_ZIP: &str =
+    "application/vnd.adobe.air-application-installer-package+zip";
+pub static APPLICATION_VND_DVB_AIT: &str = "application/vnd.dvb.ait";
+pub static APPLICATION_VND_AMIGA_AMI: &str = "application/vnd.amiga.ami";
+pub static APPLICATION_ANNODEX: &str = "application/annodex";
+pub static APPLICATION_VND_ANDROID_PACKAGE_ARCHIVE: &str =
+    "application/vnd.android.package-archive";
+pub static TEXT_CACHE_MANIFEST: &str = "text/cache-manifest";
+pub static TEXT_EVENT_STREAM: &str = "text/event-stream";
+pub static APPLICATION_X_MS_APPLICATION: &str = "application/x-ms-application";
+pub static APPLICATION_VND_LOTUS_APPROACH: &str = "application/vnd.lotus-approach";
+pub static APPLICATION_X_FREEARC: &str = "application/x-freearc";
+pub static IMAGE_X_JG: &str = "image/x-jg";
+pub static APPLICATION_PGP_SIGNATURE: &str = "application/pgp-signature";
+pub static VIDEO_X_MS_ASF: &str = "video/x-ms-asf";
+pub static TEXT_X_ASM: &str = "text/x-asm";
+pub static APPLICATION_VND_ACCPAC_SIMPLY_ASO: &str = "application/vnd.accpac.simply.aso";
+pub static APPLICATION_ATOM_XML: &str = "application/atom+xml";
+pub static APPLICATION_ATOMCAT_XML: &str = "application/atomcat+xml";
+pub static APPLICATION_ATOMSVC_XML: &str = "application/atomsvc+xml";
+pub static APPLICATION_VND_ANTIX_GAME_COMPONENT: &str = "application/vnd.antix.game-component";
+pub static AUDIO_BASIC: &str = "audio/basic";
+pub static VIDEO_X_MSVIDEO: &str = "video/x-msvideo";
+pub static VIDEO_X_RAD_SCREENPLAY: &str = "video/x-rad-screenplay";
+pub static APPLICATION_APPLIXWARE: &str = "application/applixware";
+pub static AUDIO_ANNODEX: &str = "audio/annodex";
+pub static VIDEO_ANNODEX: &str = "video/annodex";
+pub static APPLICATION_VND_AIRZIP_FILESECURE_AZF: &str = "application/vnd.airzip.filesecure.azf";
+pub static APPLICATION_VND_AIRZIP_FILESECURE_AZS: &str = "application/vnd.airzip.filesecure.azs";
+pub static APPLICATION_VND_AMAZON_EBOOK: &str = "application/vnd.amazon.ebook";
+pub static APPLICATION_X_MSDOWNLOAD: &str = "application/x-msdownload";
+pub static APPLICATION_X_BCPIO: &str = "application/x-bcpio";
+pub static APPLICATION_X_FONT_BDF: &str = "application/x-font-bdf";
+pub static APPLICATION_VND_SYNCML_DM_WBXML: &str = "application/vnd.syncml.dm+wbxml";
+pub static APPLICATION_VND_REALVNC_BED: &str = "application/vnd.realvnc.bed";
+pub static APPLICATION_VND_FUJITSU_OASYSPRS: &str = "application/vnd.fujitsu.oasysprs";
+pub static APPLICATION_OCTET_STREAM: &str = "application/octet-stream";
+pub static APPLICATION_X_BLORB: &str = "application/x-blorb";
+pub static APPLICATION_VND_BMI: &str = "application/vnd.bmi";
+pub static IMAGE_BMP: &str = "image/bmp";
+pub static TEXT_HTML: &str = "text/html";
+pub static FORM_URLENCODED: &str = "application/x-www-form-urlencoded";
+pub static APPLICATION_VND_FRAMEMAKER: &str = "application/vnd.framemaker";
+pub static APPLICATION_VND_PREVIEWSYSTEMS_BOX: &str = "application/vnd.previewsystems.box";
+pub static APPLICATION_X_BZIP2: &str = "application/x-bzip2";
+pub static IMAGE_PRS_BTIF: &str = "image/prs.btif";
+pub static APPLICATION_X_BZIP: &str = "application/x-bzip";
+pub static TEXT_X_C: &str = "text/x-c";
+pub static APPLICATION_VND_CLUETRUST_CARTOMOBILE_CONFIG: &str =
+    "application/vnd.cluetrust.cartomobile-config";
+pub static APPLICATION_VND_CLUETRUST_CARTOMOBILE_CONFIG_PKG: &str =
+    "application/vnd.cluetrust.cartomobile-config-pkg";
+pub static APPLICATION_VND_CLONK_C4GROUP: &str = "application/vnd.clonk.c4group";
+pub static APPLICATION_VND_MS_CAB_COMPRESSED: &str = "application/vnd.ms-cab-compressed";
+pub static AUDIO_X_CAF: &str = "audio/x-caf";
+pub static APPLICATION_VND_TCPDUMP_PCAP: &str = "application/vnd.tcpdump.pcap";
+pub static APPLICATION_VND_CURL_CAR: &str = "application/vnd.curl.car";
+pub static APPLICATION_VND_MS_PKI_SECCAT: &str = "application/vnd.ms-pki.seccat";
+pub static APPLICATION_X_CBR: &str = "application/x-cbr";
+pub static APPLICATION_X_DIRECTOR: &str = "application/x-director";
+pub static APPLICATION_CCXML_XML: &str = "application/ccxml+xml";
+pub static APPLICATION_VND_CONTACT_CMSG: &str = "application/vnd.contact.cmsg";
+pub static APPLICATION_X_CDF: &str = "application/x-cdf";
+pub static APPLICATION_VND_MEDIASTATION_CDKEY: &str = "application/vnd.mediastation.cdkey";
+pub static APPLICATION_CDMI_CAPABILITY: &str = "application/cdmi-capability";
+pub static APPLICATION_CDMI_CONTAINER: &str = "application/cdmi-container";
+pub static APPLICATION_CDMI_DOMAIN: &str = "application/cdmi-domain";
+pub static APPLICATION_CDMI_OBJECT: &str = "application/cdmi-object";
+pub static APPLICATION_CDMI_QUEUE: &str = "application/cdmi-queue";
+pub static CHEMICAL_X_CDX: &str = "chemical/x-cdx";
+pub static APPLICATION_VND_CHEMDRAW_XML: &str = "application/vnd.chemdraw+xml";
+pub static APPLICATION_VND_CINDERELLA: &str = "application/vnd.cinderella";
+pub static APPLICATION_PKIX_CERT: &str = "application/pkix-cert";
+pub static APPLICATION_X_CFS_COMPRESSED: &str = "application/x-cfs-compressed";
+pub static IMAGE_CGM: &str = "image/cgm";
+pub static APPLICATION_X_CHAT: &str = "application/x-chat";
+pub static APPLICATION_VND_MS_HTMLHELP: &str = "application/vnd.ms-htmlhelp";
+pub static APPLICATION_VND_KDE_KCHART: &str = "application/vnd.kde.kchart";
+pub static CHEMICAL_X_CIF: &str = "chemical/x-cif";
+pub static APPLICATION_VND_ANSER_WEB_CERTIFICATE_ISSUE_INITIATION: &str =
+    "application/vnd.anser-web-certificate-issue-initiation";
+pub static APPLICATION_VND_MS_ARTGALRY: &str = "application/vnd.ms-artgalry";
+pub static APPLICATION_VND_CLAYMORE: &str = "application/vnd.claymore";
+pub static APPLICATION_JAVA: &str = "application/java";
+pub static APPLICATION_VND_CRICK_CLICKER_KEYBOARD: &str = "application/vnd.crick.clicker.keyboard";
+pub static APPLICATION_VND_CRICK_CLICKER_PALETTE: &str = "application/vnd.crick.clicker.palette";
+pub static APPLICATION_VND_CRICK_CLICKER_TEMPLATE: &str = "application/vnd.crick.clicker.template";
+pub static APPLICATION_VND_CRICK_CLICKER_WORDBANK: &str = "application/vnd.crick.clicker.wordbank";
+pub static APPLICATION_VND_CRICK_CLICKER: &str = "application/vnd.crick.clicker";
+pub static APPLICATION_X_MSCLIP: &str = "application/x-msclip";
+pub static APPLICATION_VND_COSMOCALLER: &str = "application/vnd.cosmocaller";
+pub static CHEMICAL_X_CMDF: &str = "chemical/x-cmdf";
+pub static CHEMICAL_X_CML: &str = "chemical/x-cml";
+pub static APPLICATION_VND_YELLOWRIVER_CUSTOM_MENU: &str =
+    "application/vnd.yellowriver-custom-menu";
+pub static IMAGE_X_CMX: &str = "image/x-cmx";
+pub static APPLICATION_VND_RIM_COD: &str = "application/vnd.rim.cod";
+pub static TEXT_PLAIN: &str = "text/plain";
+pub static APPLICATION_X_CPIO: &str = "application/x-cpio";
+pub static APPLICATION_MAC_COMPACTPRO: &str = "application/mac-compactpro";
+pub static APPLICATION_X_MSCARDFILE: &str = "application/x-mscardfile";
+pub static APPLICATION_PKIX_CRL: &str = "application/pkix-crl";
+pub static APPLICATION_X_X509_CA_CERT: &str = "application/x-x509-ca-cert";
+pub static APPLICATION_VND_RIG_CRYPTONOTE: &str = "application/vnd.rig.cryptonote";
+pub static APPLICATION_X_CSH: &str = "application/x-csh";
+pub static CHEMICAL_X_CSML: &str = "chemical/x-csml";
+pub static APPLICATION_VND_COMMONSPACE: &str = "application/vnd.commonspace";
+pub static TEXT_CSS: &str = "text/css";
+pub static TEXT_CSV: &str = "text/csv";
+pub static APPLICATION_CU_SEEME: &str = "application/cu-seeme";
+pub static TEXT_VND_CURL: &str = "text/vnd.curl";
+pub static APPLICATION_PRS_CWW: &str = "application/prs.cww";
+pub static MODEL_VND_COLLADA_XML: &str = "model/vnd.collada+xml";
+pub static APPLICATION_VND_MOBIUS_DAF: &str = "application/vnd.mobius.daf";
+pub static APPLICATION_VND_DART: &str = "application/vnd.dart";
+pub static APPLICATION_VND_FDSN_SEED: &str = "application/vnd.fdsn.seed";
+pub static APPLICATION_DAVMOUNT_XML: &str = "application/davmount+xml";
+pub static APPLICATION_DOCBOOK_XML: &str = "application/docbook+xml";
+pub static TEXT_VND_CURL_DCURL: &str = "text/vnd.curl.dcurl";
+pub static APPLICATION_VND_OMA_DD2_XML: &str = "application/vnd.oma.dd2+xml";
+pub static APPLICATION_VND_FUJIXEROX_DDD: &str = "application/vnd.fujixerox.ddd";
+pub static APPLICATION_X_DEBIAN_PACKAGE: &str = "application/x-debian-package";
+pub static APPLICATION_VND_DREAMFACTORY: &str = "application/vnd.dreamfactory";
+pub static APPLICATION_X_DGC_COMPRESSED: &str = "application/x-dgc-compressed";
+pub static APPLICATION_VND_MOBIUS_DIS: &str = "application/vnd.mobius.dis";
+pub static IMAGE_VND_DJVU: &str = "image/vnd.djvu";
+pub static APPLICATION_X_APPLE_DISKIMAGE: &str = "application/x-apple-diskimage";
+pub static APPLICATION_VND_DNA: &str = "application/vnd.dna";
+pub static APPLICATION_MSWORD: &str = "application/msword";
+pub static APPLICATION_VND_MS_WORD_DOCUMENT_MACROENABLED_12: &str =
+    "application/vnd.ms-word.document.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_DOCUMENT: &str =
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+pub static APPLICATION_VND_MS_WORD_TEMPLATE_MACROENABLED_12: &str =
+    "application/vnd.ms-word.template.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_WORDPROCESSINGML_TEMPLATE: &str =
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.template";
+pub static APPLICATION_VND_OSGI_DP: &str = "application/vnd.osgi.dp";
+pub static APPLICATION_VND_DPGRAPH: &str = "application/vnd.dpgraph";
+pub static AUDIO_VND_DRA: &str = "audio/vnd.dra";
+pub static TEXT_PRS_LINES_TAG: &str = "text/prs.lines.tag";
+pub static APPLICATION_DSSC_DER: &str = "application/dssc+der";
+pub static APPLICATION_X_DTBOOK_XML: &str = "application/x-dtbook+xml";
+pub static APPLICATION_XML_DTD: &str = "application/xml-dtd";
+pub static AUDIO_VND_DTS: &str = "audio/vnd.dts";
+pub static AUDIO_VND_DTS_HD: &str = "audio/vnd.dts.hd";
+pub static VIDEO_X_DV: &str = "video/x-dv";
+pub static VIDEO_VND_DVB_FILE: &str = "video/vnd.dvb.file";
+pub static APPLICATION_X_DVI: &str = "application/x-dvi";
+pub static MODEL_VND_DWF: &str = "model/vnd.dwf";
+pub static IMAGE_VND_DWG: &str = "image/vnd.dwg";
+pub static IMAGE_VND_DXF: &str = "image/vnd.dxf";
+pub static APPLICATION_VND_SPOTFIRE_DXP: &str = "application/vnd.spotfire.dxp";
+pub static AUDIO_VND_NUERA_ECELP4800: &str = "audio/vnd.nuera.ecelp4800";
+pub static AUDIO_VND_NUERA_ECELP7470: &str = "audio/vnd.nuera.ecelp7470";
+pub static AUDIO_VND_NUERA_ECELP9600: &str = "audio/vnd.nuera.ecelp9600";
+pub static APPLICATION_ECMASCRIPT: &str = "application/ecmascript";
+pub static APPLICATION_VND_NOVADIGM_EDM: &str = "application/vnd.novadigm.edm";
+pub static APPLICATION_VND_NOVADIGM_EDX: &str = "application/vnd.novadigm.edx";
+pub static APPLICATION_VND_PICSEL: &str = "application/vnd.picsel";
+pub static APPLICATION_VND_PG_OSASLI: &str = "application/vnd.pg.osasli";
+pub static APPLICATION_X_MSMETAFILE: &str = "application/x-msmetafile";
+pub static MESSAGE_RFC822: &str = "message/rfc822";
+pub static APPLICATION_EMMA_XML: &str = "application/emma+xml";
+pub static AUDIO_VND_DIGITAL_WINDS: &str = "audio/vnd.digital-winds";
+pub static APPLICATION_VND_MS_FONTOBJECT: &str = "application/vnd.ms-fontobject";
+pub static APPLICATION_EPUB_ZIP: &str = "application/epub+zip";
+pub static APPLICATION_VND_ESZIGNO3_XML: &str = "application/vnd.eszigno3+xml";
+pub static APPLICATION_VND_OSGI_SUBSYSTEM: &str = "application/vnd.osgi.subsystem";
+pub static APPLICATION_VND_EPSON_ESF: &str = "application/vnd.epson.esf";
+pub static TEXT_X_SETEXT: &str = "text/x-setext";
+pub static APPLICATION_X_EVA: &str = "application/x-eva";
+pub static APPLICATION_X_ENVOY: &str = "application/x-envoy";
+pub static APPLICATION_EXI: &str = "application/exi";
+pub static APPLICATION_VND_NOVADIGM_EXT: &str = "application/vnd.novadigm.ext";
+pub static APPLICATION_ANDREW_INSET: &str = "application/andrew-inset";
+pub static APPLICATION_VND_EZPIX_ALBUM: &str = "application/vnd.ezpix-album";
+pub static APPLICATION_VND_EZPIX_PACKAGE: &str = "application/vnd.ezpix-package";
+pub static TEXT_X_FORTRAN: &str = "text/x-fortran";
+pub static VIDEO_X_F4V: &str = "video/x-f4v";
+pub static IMAGE_VND_FASTBIDSHEET: &str = "image/vnd.fastbidsheet";
+pub static APPLICATION_VND_ADOBE_FORMSCENTRAL_FCDT: &str =
+    "application/vnd.adobe.formscentral.fcdt";
+pub static APPLICATION_VND_ISAC_FCS: &str = "application/vnd.isac.fcs";
+pub static APPLICATION_VND_FDF: &str = "application/vnd.fdf";
+pub static APPLICATION_VND_DENOVO_FCSELAYOUT_LINK: &str = "application/vnd.denovo.fcselayout-link";
+pub static APPLICATION_VND_FUJITSU_OASYSGP: &str = "application/vnd.fujitsu.oasysgp";
+pub static IMAGE_X_FREEHAND: &str = "image/x-freehand";
+pub static APPLICATION_X_XFIG: &str = "application/x-xfig";
+pub static AUDIO_FLAC: &str = "audio/flac";
+pub static VIDEO_X_FLI: &str = "video/x-fli";
+pub static APPLICATION_VND_MICROGRAFX_FLO: &str = "application/vnd.micrografx.flo";
+pub static VIDEO_X_FLV: &str = "video/x-flv";
+pub static APPLICATION_VND_KDE_KIVIO: &str = "application/vnd.kde.kivio";
+pub static TEXT_VND_FMI_FLEXSTOR: &str = "text/vnd.fmi.flexstor";
+pub static TEXT_VND_FLY: &str = "text/vnd.fly";
+pub static APPLICATION_VND_FROGANS_FNC: &str = "application/vnd.frogans.fnc";
+pub static IMAGE_VND_FPX: &str = "image/vnd.fpx";
+pub static APPLICATION_VND_FSC_WEBLAUNCH: &str = "application/vnd.fsc.weblaunch";
+pub static IMAGE_VND_FST: &str = "image/vnd.fst";
+pub static APPLICATION_VND_FLUXTIME_CLIP: &str = "application/vnd.fluxtime.clip";
+pub static APPLICATION_VND_ANSER_WEB_FUNDS_TRANSFER_INITIATION: &str =
+    "application/vnd.anser-web-funds-transfer-initiation";
+pub static VIDEO_VND_FVT: &str = "video/vnd.fvt";
+pub static APPLICATION_VND_ADOBE_FXP: &str = "application/vnd.adobe.fxp";
+pub static APPLICATION_VND_FUZZYSHEET: &str = "application/vnd.fuzzysheet";
+pub static APPLICATION_VND_GEOPLAN: &str = "application/vnd.geoplan";
+pub static IMAGE_G3FAX: &str = "image/g3fax";
+pub static APPLICATION_VND_GEOSPACE: &str = "application/vnd.geospace";
+pub static APPLICATION_VND_GROOVE_ACCOUNT: &str = "application/vnd.groove-account";
+pub static APPLICATION_X_TADS: &str = "application/x-tads";
+pub static APPLICATION_RPKI_GHOSTBUSTERS: &str = "application/rpki-ghostbusters";
+pub static APPLICATION_X_GCA_COMPRESSED: &str = "application/x-gca-compressed";
+pub static MODEL_VND_GDL: &str = "model/vnd.gdl";
+pub static APPLICATION_VND_DYNAGEO: &str = "application/vnd.dynageo";
+pub static APPLICATION_VND_GEOMETRY_EXPLORER: &str = "application/vnd.geometry-explorer";
+pub static APPLICATION_VND_GEOGEBRA_FILE: &str = "application/vnd.geogebra.file";
+pub static APPLICATION_VND_GEOGEBRA_TOOL: &str = "application/vnd.geogebra.tool";
+pub static APPLICATION_VND_GROOVE_HELP: &str = "application/vnd.groove-help";
+pub static IMAGE_GIF: &str = "image/gif";
+pub static APPLICATION_VND_GROOVE_IDENTITY_MESSAGE: &str =
+    "application/vnd.groove-identity-message";
+pub static APPLICATION_GML_XML: &str = "application/gml+xml";
+pub static APPLICATION_VND_GMX: &str = "application/vnd.gmx";
+pub static APPLICATION_X_GNUMERIC: &str = "application/x-gnumeric";
+pub static APPLICATION_VND_FLOGRAPHIT: &str = "application/vnd.flographit";
+pub static APPLICATION_GPX_XML: &str = "application/gpx+xml";
+pub static APPLICATION_VND_GRAFEQ: &str = "application/vnd.grafeq";
+pub static APPLICATION_SRGS: &str = "application/srgs";
+pub static APPLICATION_X_GRAMPS_XML: &str = "application/x-gramps-xml";
+pub static APPLICATION_VND_GROOVE_INJECTOR: &str = "application/vnd.groove-injector";
+pub static APPLICATION_SRGS_XML: &str = "application/srgs+xml";
+pub static APPLICATION_X_FONT_GHOSTSCRIPT: &str = "application/x-font-ghostscript";
+pub static APPLICATION_X_GTAR: &str = "application/x-gtar";
+pub static APPLICATION_VND_GROOVE_TOOL_MESSAGE: &str = "application/vnd.groove-tool-message";
+pub static MODEL_VND_GTW: &str = "model/vnd.gtw";
+pub static TEXT_VND_GRAPHVIZ: &str = "text/vnd.graphviz";
+pub static APPLICATION_GXF: &str = "application/gxf";
+pub static APPLICATION_VND_GEONEXT: &str = "application/vnd.geonext";
+pub static APPLICATION_X_GZIP: &str = "application/x-gzip";
+pub static VIDEO_H261: &str = "video/h261";
+pub static VIDEO_H263: &str = "video/h263";
+pub static VIDEO_H264: &str = "video/h264";
+pub static APPLICATION_VND_HAL_XML: &str = "application/vnd.hal+xml";
+pub static APPLICATION_VND_HBCI: &str = "application/vnd.hbci";
+pub static APPLICATION_X_HDF: &str = "application/x-hdf";
+pub static APPLICATION_WINHLP: &str = "application/winhlp";
+pub static APPLICATION_VND_HP_HPGL: &str = "application/vnd.hp-hpgl";
+pub static APPLICATION_VND_HP_HPID: &str = "application/vnd.hp-hpid";
+pub static APPLICATION_VND_HP_HPS: &str = "application/vnd.hp-hps";
+pub static APPLICATION_MAC_BINHEX40: &str = "application/mac-binhex40";
+pub static TEXT_X_COMPONENT: &str = "text/x-component";
+pub static APPLICATION_VND_KENAMEAAPP: &str = "application/vnd.kenameaapp";
+pub static APPLICATION_VND_YAMAHA_HV_DIC: &str = "application/vnd.yamaha.hv-dic";
+pub static APPLICATION_VND_YAMAHA_HV_VOICE: &str = "application/vnd.yamaha.hv-voice";
+pub static APPLICATION_VND_YAMAHA_HV_SCRIPT: &str = "application/vnd.yamaha.hv-script";
+pub static APPLICATION_VND_INTERGEO: &str = "application/vnd.intergeo";
+pub static APPLICATION_VND_ICCPROFILE: &str = "application/vnd.iccprofile";
+pub static X_CONFERENCE_X_COOLTALK: &str = "x-conference/x-cooltalk";
+pub static IMAGE_X_ICON: &str = "image/x-icon";
+pub static TEXT_CALENDAR: &str = "text/calendar";
+pub static IMAGE_IEF: &str = "image/ief";
+pub static APPLICATION_VND_SHANA_INFORMED_FORMDATA: &str =
+    "application/vnd.shana.informed.formdata";
+pub static MODEL_IGES: &str = "model/iges";
+pub static APPLICATION_VND_IGLOADER: &str = "application/vnd.igloader";
+pub static APPLICATION_VND_INSORS_IGM: &str = "application/vnd.insors.igm";
+pub static APPLICATION_VND_MICROGRAFX_IGX: &str = "application/vnd.micrografx.igx";
+pub static APPLICATION_VND_SHANA_INFORMED_INTERCHANGE: &str =
+    "application/vnd.shana.informed.interchange";
+pub static APPLICATION_VND_ACCPAC_SIMPLY_IMP: &str = "application/vnd.accpac.simply.imp";
+pub static APPLICATION_VND_MS_IMS: &str = "application/vnd.ms-ims";
+pub static APPLICATION_INKML_XML: &str = "application/inkml+xml";
+pub static APPLICATION_X_INSTALL_INSTRUCTIONS: &str = "application/x-install-instructions";
+pub static APPLICATION_VND_ASTRAEA_SOFTWARE_IOTA: &str = "application/vnd.astraea-software.iota";
+pub static APPLICATION_IPFIX: &str = "application/ipfix";
+pub static APPLICATION_VND_SHANA_INFORMED_PACKAGE: &str = "application/vnd.shana.informed.package";
+pub static APPLICATION_VND_IBM_RIGHTS_MANAGEMENT: &str = "application/vnd.ibm.rights-management";
+pub static APPLICATION_VND_IREPOSITORY_PACKAGE_XML: &str =
+    "application/vnd.irepository.package+xml";
+pub static APPLICATION_X_ISO9660_IMAGE: &str = "application/x-iso9660-image";
+pub static APPLICATION_VND_SHANA_INFORMED_FORMTEMPLATE: &str =
+    "application/vnd.shana.informed.formtemplate";
+pub static APPLICATION_VND_IMMERVISION_IVP: &str = "application/vnd.immervision-ivp";
+pub static APPLICATION_VND_IMMERVISION_IVU: &str = "application/vnd.immervision-ivu";
+pub static TEXT_VND_SUN_J2ME_APP_DESCRIPTOR: &str = "text/vnd.sun.j2me.app-descriptor";
+pub static APPLICATION_VND_JAM: &str = "application/vnd.jam";
+pub static APPLICATION_JAVA_ARCHIVE: &str = "application/java-archive";
+pub static TEXT_X_JAVA_SOURCE: &str = "text/x-java-source";
+pub static APPLICATION_VND_JISP: &str = "application/vnd.jisp";
+pub static APPLICATION_VND_HP_JLYT: &str = "application/vnd.hp-jlyt";
+pub static APPLICATION_X_JAVA_JNLP_FILE: &str = "application/x-java-jnlp-file";
+pub static APPLICATION_VND_JOOST_JODA_ARCHIVE: &str = "application/vnd.joost.joda-archive";
+pub static IMAGE_JPEG: &str = "image/jpeg";
+pub static VIDEO_JPM: &str = "video/jpm";
+pub static VIDEO_JPEG: &str = "video/jpeg";
+pub static APPLICATION_JAVASCRIPT: &str = "application/javascript";
+pub static APPLICATION_JSON: &str = "application/json";
+pub static APPLICATION_JSONML_JSON: &str = "application/jsonml+json";
+pub static AUDIO_MIDI: &str = "audio/midi";
+pub static APPLICATION_VND_KDE_KARBON: &str = "application/vnd.kde.karbon";
+pub static APPLICATION_VND_KDE_KFORMULA: &str = "application/vnd.kde.kformula";
+pub static APPLICATION_VND_KIDSPIRATION: &str = "application/vnd.kidspiration";
+pub static APPLICATION_VND_GOOGLE_EARTH_KML_XML: &str = "application/vnd.google-earth.kml+xml";
+pub static APPLICATION_VND_GOOGLE_EARTH_KMZ: &str = "application/vnd.google-earth.kmz";
+pub static APPLICATION_VND_KINAR: &str = "application/vnd.kinar";
+pub static APPLICATION_VND_KDE_KONTOUR: &str = "application/vnd.kde.kontour";
+pub static APPLICATION_VND_KDE_KPRESENTER: &str = "application/vnd.kde.kpresenter";
+pub static APPLICATION_VND_DS_KEYPOINT: &str = "application/vnd.ds-keypoint";
+pub static APPLICATION_VND_KDE_KSPREAD: &str = "application/vnd.kde.kspread";
+pub static APPLICATION_VND_KAHOOTZ: &str = "application/vnd.kahootz";
+pub static IMAGE_KTX: &str = "image/ktx";
+pub static APPLICATION_VND_KDE_KWORD: &str = "application/vnd.kde.kword";
+pub static APPLICATION_VND_LAS_LAS_XML: &str = "application/vnd.las.las+xml";
+pub static APPLICATION_X_LATEX: &str = "application/x-latex";
+pub static APPLICATION_VND_LLAMAGRAPHICS_LIFE_BALANCE_DESKTOP: &str =
+    "application/vnd.llamagraphics.life-balance.desktop";
+pub static APPLICATION_VND_LLAMAGRAPHICS_LIFE_BALANCE_EXCHANGE_XML: &str =
+    "application/vnd.llamagraphics.life-balance.exchange+xml";
+pub static APPLICATION_VND_HHE_LESSON_PLAYER: &str = "application/vnd.hhe.lesson-player";
+pub static APPLICATION_X_LZH_COMPRESSED: &str = "application/x-lzh-compressed";
+pub static APPLICATION_VND_ROUTE66_LINK66_XML: &str = "application/vnd.route66.link66+xml";
+pub static APPLICATION_X_MS_SHORTCUT: &str = "application/x-ms-shortcut";
+pub static APPLICATION_LOST_XML: &str = "application/lost+xml";
+pub static APPLICATION_VND_MS_LRM: &str = "application/vnd.ms-lrm";
+pub static APPLICATION_VND_FROGANS_LTF: &str = "application/vnd.frogans.ltf";
+pub static AUDIO_VND_LUCENT_VOICE: &str = "audio/vnd.lucent.voice";
+pub static APPLICATION_VND_LOTUS_WORDPRO: &str = "application/vnd.lotus-wordpro";
+pub static APPLICATION_X_MSMEDIAVIEW: &str = "application/x-msmediaview";
+pub static VIDEO_MPEG: &str = "video/mpeg";
+pub static APPLICATION_MP21: &str = "application/mp21";
+pub static AUDIO_MPEG: &str = "audio/mpeg";
+pub static AUDIO_X_MPEGURL: &str = "audio/x-mpegurl";
+pub static APPLICATION_VND_APPLE_MPEGURL: &str = "application/vnd.apple.mpegurl";
+pub static AUDIO_MP4: &str = "audio/mp4";
+pub static VIDEO_VND_MPEGURL: &str = "video/vnd.mpegurl";
+pub static VIDEO_MP4: &str = "video/mp4";
+pub static APPLICATION_MATHEMATICA: &str = "application/mathematica";
+pub static IMAGE_X_MACPAINT: &str = "image/x-macpaint";
+pub static APPLICATION_MADS_XML: &str = "application/mads+xml";
+pub static APPLICATION_VND_ECOWIN_CHART: &str = "application/vnd.ecowin.chart";
+pub static TEXT_TROFF: &str = "text/troff";
+pub static APPLICATION_MATHML_XML: &str = "application/mathml+xml";
+pub static APPLICATION_VND_MOBIUS_MBK: &str = "application/vnd.mobius.mbk";
+pub static APPLICATION_MBOX: &str = "application/mbox";
+pub static APPLICATION_VND_MEDCALCDATA: &str = "application/vnd.medcalcdata";
+pub static APPLICATION_VND_MCD: &str = "application/vnd.mcd";
+pub static TEXT_VND_CURL_MCURL: &str = "text/vnd.curl.mcurl";
+pub static APPLICATION_X_MSACCESS: &str = "application/x-msaccess";
+pub static IMAGE_VND_MS_MODI: &str = "image/vnd.ms-modi";
+pub static MODEL_MESH: &str = "model/mesh";
+pub static APPLICATION_METALINK4_XML: &str = "application/metalink4+xml";
+pub static APPLICATION_METALINK_XML: &str = "application/metalink+xml";
+pub static APPLICATION_METS_XML: &str = "application/mets+xml";
+pub static APPLICATION_VND_MFMP: &str = "application/vnd.mfmp";
+pub static APPLICATION_RPKI_MANIFEST: &str = "application/rpki-manifest";
+pub static APPLICATION_VND_OSGEO_MAPGUIDE_PACKAGE: &str = "application/vnd.osgeo.mapguide.package";
+pub static APPLICATION_VND_PROTEUS_MAGAZINE: &str = "application/vnd.proteus.magazine";
+pub static APPLICATION_X_MIE: &str = "application/x-mie";
+pub static APPLICATION_X_MIF: &str = "application/x-mif";
+pub static VIDEO_MJ2: &str = "video/mj2";
+pub static VIDEO_X_MATROSKA: &str = "video/x-matroska";
+pub static AUDIO_X_MATROSKA: &str = "audio/x-matroska";
+pub static APPLICATION_VND_DOLBY_MLP: &str = "application/vnd.dolby.mlp";
+pub static APPLICATION_VND_CHIPNUTS_KARAOKE_MMD: &str = "application/vnd.chipnuts.karaoke-mmd";
+pub static APPLICATION_VND_SMAF: &str = "application/vnd.smaf";
+pub static IMAGE_VND_FUJIXEROX_EDMICS_MMR: &str = "image/vnd.fujixerox.edmics-mmr";
+pub static VIDEO_X_MNG: &str = "video/x-mng";
+pub static APPLICATION_X_MSMONEY: &str = "application/x-msmoney";
+pub static APPLICATION_X_MOBIPOCKET_EBOOK: &str = "application/x-mobipocket-ebook";
+pub static APPLICATION_MODS_XML: &str = "application/mods+xml";
+pub static VIDEO_QUICKTIME: &str = "video/quicktime";
+pub static VIDEO_X_SGI_MOVIE: &str = "video/x-sgi-movie";
+pub static APPLICATION_MP4: &str = "application/mp4";
+pub static APPLICATION_VND_MOPHUN_CERTIFICATE: &str = "application/vnd.mophun.certificate";
+pub static APPLICATION_VND_APPLE_INSTALLER_XML: &str = "application/vnd.apple.installer+xml";
+pub static APPLICATION_VND_BLUEICE_MULTIPASS: &str = "application/vnd.blueice.multipass";
+pub static APPLICATION_VND_MOPHUN_APPLICATION: &str = "application/vnd.mophun.application";
+pub static APPLICATION_VND_MS_PROJECT: &str = "application/vnd.ms-project";
+pub static VIDEO_MPEG2: &str = "video/mpeg2";
+pub static APPLICATION_VND_IBM_MINIPAY: &str = "application/vnd.ibm.minipay";
+pub static APPLICATION_VND_MOBIUS_MQY: &str = "application/vnd.mobius.mqy";
+pub static APPLICATION_MARC: &str = "application/marc";
+pub static APPLICATION_MARCXML_XML: &str = "application/marcxml+xml";
+pub static APPLICATION_MEDIASERVERCONTROL_XML: &str = "application/mediaservercontrol+xml";
+pub static APPLICATION_VND_FDSN_MSEED: &str = "application/vnd.fdsn.mseed";
+pub static APPLICATION_VND_MSEQ: &str = "application/vnd.mseq";
+pub static APPLICATION_VND_EPSON_MSF: &str = "application/vnd.epson.msf";
+pub static APPLICATION_VND_MOBIUS_MSL: &str = "application/vnd.mobius.msl";
+pub static APPLICATION_VND_MUVEE_STYLE: &str = "application/vnd.muvee.style";
+pub static MODEL_VND_MTS: &str = "model/vnd.mts";
+pub static APPLICATION_VND_MUSICIAN: &str = "application/vnd.musician";
+pub static APPLICATION_VND_RECORDARE_MUSICXML_XML: &str = "application/vnd.recordare.musicxml+xml";
+pub static APPLICATION_VND_MFER: &str = "application/vnd.mfer";
+pub static APPLICATION_MXF: &str = "application/mxf";
+pub static APPLICATION_VND_RECORDARE_MUSICXML: &str = "application/vnd.recordare.musicxml";
+pub static APPLICATION_XV_XML: &str = "application/xv+xml";
+pub static APPLICATION_VND_TRISCAPE_MXS: &str = "application/vnd.triscape.mxs";
+pub static APPLICATION_VND_NOKIA_N_GAGE_SYMBIAN_INSTALL: &str =
+    "application/vnd.nokia.n-gage.symbian.install";
+pub static TEXT_N3: &str = "text/n3";
+pub static APPLICATION_VND_WOLFRAM_PLAYER: &str = "application/vnd.wolfram.player";
+pub static APPLICATION_X_NETCDF: &str = "application/x-netcdf";
+pub static APPLICATION_X_DTBNCX_XML: &str = "application/x-dtbncx+xml";
+pub static TEXT_X_NFO: &str = "text/x-nfo";
+pub static APPLICATION_VND_NOKIA_N_GAGE_DATA: &str = "application/vnd.nokia.n-gage.data";
+pub static APPLICATION_VND_NITF: &str = "application/vnd.nitf";
+pub static APPLICATION_VND_NEUROLANGUAGE_NLU: &str = "application/vnd.neurolanguage.nlu";
+pub static APPLICATION_VND_ENLIVEN: &str = "application/vnd.enliven";
+pub static APPLICATION_VND_NOBLENET_DIRECTORY: &str = "application/vnd.noblenet-directory";
+pub static APPLICATION_VND_NOBLENET_SEALER: &str = "application/vnd.noblenet-sealer";
+pub static APPLICATION_VND_NOBLENET_WEB: &str = "application/vnd.noblenet-web";
+pub static IMAGE_VND_NET_FPX: &str = "image/vnd.net-fpx";
+pub static APPLICATION_X_CONFERENCE: &str = "application/x-conference";
+pub static APPLICATION_VND_LOTUS_NOTES: &str = "application/vnd.lotus-notes";
+pub static APPLICATION_X_NZB: &str = "application/x-nzb";
+pub static APPLICATION_VND_FUJITSU_OASYS2: &str = "application/vnd.fujitsu.oasys2";
+pub static APPLICATION_VND_FUJITSU_OASYS3: &str = "application/vnd.fujitsu.oasys3";
+pub static APPLICATION_VND_FUJITSU_OASYS: &str = "application/vnd.fujitsu.oasys";
+pub static APPLICATION_X_MSBINDER: &str = "application/x-msbinder";
+pub static APPLICATION_X_TGIF: &str = "application/x-tgif";
+pub static APPLICATION_ODA: &str = "application/oda";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_DATABASE: &str =
+    "application/vnd.oasis.opendocument.database";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_CHART: &str =
+    "application/vnd.oasis.opendocument.chart";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA: &str =
+    "application/vnd.oasis.opendocument.formula";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_FORMULA_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.formula-template";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS: &str =
+    "application/vnd.oasis.opendocument.graphics";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_IMAGE: &str =
+    "application/vnd.oasis.opendocument.image";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT_MASTER: &str =
+    "application/vnd.oasis.opendocument.text-master";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION: &str =
+    "application/vnd.oasis.opendocument.presentation";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET: &str =
+    "application/vnd.oasis.opendocument.spreadsheet";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT: &str =
+    "application/vnd.oasis.opendocument.text";
+pub static AUDIO_OGG: &str = "audio/ogg";
+pub static VIDEO_OGG: &str = "video/ogg";
+pub static APPLICATION_OGG: &str = "application/ogg";
+pub static APPLICATION_OMDOC_XML: &str = "application/omdoc+xml";
+pub static APPLICATION_ONENOTE: &str = "application/onenote";
+pub static APPLICATION_OEBPS_PACKAGE_XML: &str = "application/oebps-package+xml";
+pub static TEXT_X_OPML: &str = "text/x-opml";
+pub static APPLICATION_VND_PALM: &str = "application/vnd.palm";
+pub static APPLICATION_VND_LOTUS_ORGANIZER: &str = "application/vnd.lotus-organizer";
+pub static APPLICATION_VND_YAMAHA_OPENSCOREFORMAT: &str = "application/vnd.yamaha.openscoreformat";
+pub static APPLICATION_VND_YAMAHA_OPENSCOREFORMAT_OSFPVG_XML: &str =
+    "application/vnd.yamaha.openscoreformat.osfpvg+xml";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_CHART_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.chart-template";
+pub static FONT_OTF: &str = "font/otf";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_GRAPHICS_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.graphics-template";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT_WEB: &str =
+    "application/vnd.oasis.opendocument.text-web";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_IMAGE_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.image-template";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_PRESENTATION_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.presentation-template";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_SPREADSHEET_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.spreadsheet-template";
+pub static APPLICATION_VND_OASIS_OPENDOCUMENT_TEXT_TEMPLATE: &str =
+    "application/vnd.oasis.opendocument.text-template";
+pub static APPLICATION_OXPS: &str = "application/oxps";
+pub static APPLICATION_VND_OPENOFFICEORG_EXTENSION: &str =
+    "application/vnd.openofficeorg.extension";
+pub static TEXT_X_PASCAL: &str = "text/x-pascal";
+pub static APPLICATION_PKCS10: &str = "application/pkcs10";
+pub static APPLICATION_X_PKCS12: &str = "application/x-pkcs12";
+pub static APPLICATION_X_PKCS7_CERTIFICATES: &str = "application/x-pkcs7-certificates";
+pub static APPLICATION_PKCS7_MIME: &str = "application/pkcs7-mime";
+pub static APPLICATION_X_PKCS7_CERTREQRESP: &str = "application/x-pkcs7-certreqresp";
+pub static APPLICATION_PKCS7_SIGNATURE: &str = "application/pkcs7-signature";
+pub static APPLICATION_PKCS8: &str = "application/pkcs8";
+pub static APPLICATION_VND_PAWAAFILE: &str = "application/vnd.pawaafile";
+pub static APPLICATION_VND_POWERBUILDER6: &str = "application/vnd.powerbuilder6";
+pub static IMAGE_X_PORTABLE_BITMAP: &str = "image/x-portable-bitmap";
+pub static APPLICATION_X_FONT_PCF: &str = "application/x-font-pcf";
+pub static APPLICATION_VND_HP_PCL: &str = "application/vnd.hp-pcl";
+pub static APPLICATION_VND_HP_PCLXL: &str = "application/vnd.hp-pclxl";
+pub static IMAGE_PICT: &str = "image/pict";
+pub static APPLICATION_VND_CURL_PCURL: &str = "application/vnd.curl.pcurl";
+pub static IMAGE_X_PCX: &str = "image/x-pcx";
+pub static APPLICATION_PDF: &str = "application/pdf";
+pub static APPLICATION_FONT_TDPFR: &str = "application/font-tdpfr";
+pub static IMAGE_X_PORTABLE_GRAYMAP: &str = "image/x-portable-graymap";
+pub static APPLICATION_X_CHESS_PGN: &str = "application/x-chess-pgn";
+pub static APPLICATION_PGP_ENCRYPTED: &str = "application/pgp-encrypted";
+pub static APPLICATION_PKIXCMP: &str = "application/pkixcmp";
+pub static APPLICATION_PKIX_PKIPATH: &str = "application/pkix-pkipath";
+pub static APPLICATION_VND_3GPP_PIC_BW_LARGE: &str = "application/vnd.3gpp.pic-bw-large";
+pub static APPLICATION_VND_MOBIUS_PLC: &str = "application/vnd.mobius.plc";
+pub static APPLICATION_VND_POCKETLEARN: &str = "application/vnd.pocketlearn";
+pub static AUDIO_X_SCPLS: &str = "audio/x-scpls";
+pub static APPLICATION_VND_CTC_POSML: &str = "application/vnd.ctc-posml";
+pub static IMAGE_PNG: &str = "image/png";
+pub static IMAGE_X_PORTABLE_ANYMAP: &str = "image/x-portable-anymap";
+pub static APPLICATION_VND_MACPORTS_PORTPKG: &str = "application/vnd.macports.portpkg";
+pub static APPLICATION_VND_MS_POWERPOINT: &str = "application/vnd.ms-powerpoint";
+pub static APPLICATION_VND_MS_POWERPOINT_TEMPLATE_MACROENABLED_12: &str =
+    "application/vnd.ms-powerpoint.template.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_TEMPLATE: &str =
+    "application/vnd.openxmlformats-officedocument.presentationml.template";
+pub static APPLICATION_VND_MS_POWERPOINT_ADDIN_MACROENABLED_12: &str =
+    "application/vnd.ms-powerpoint.addin.macroenabled.12";
+pub static APPLICATION_VND_CUPS_PPD: &str = "application/vnd.cups-ppd";
+pub static IMAGE_X_PORTABLE_PIXMAP: &str = "image/x-portable-pixmap";
+pub static APPLICATION_VND_MS_POWERPOINT_SLIDESHOW_MACROENABLED_12: &str =
+    "application/vnd.ms-powerpoint.slideshow.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDESHOW: &str =
+    "application/vnd.openxmlformats-officedocument.presentationml.slideshow";
+pub static APPLICATION_VND_MS_POWERPOINT_PRESENTATION_MACROENABLED_12: &str =
+    "application/vnd.ms-powerpoint.presentation.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_PRESENTATION: &str =
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+pub static APPLICATION_VND_LOTUS_FREELANCE: &str = "application/vnd.lotus-freelance";
+pub static APPLICATION_PICS_RULES: &str = "application/pics-rules";
+pub static APPLICATION_VND_3GPP_PIC_BW_SMALL: &str = "application/vnd.3gpp.pic-bw-small";
+pub static IMAGE_VND_ADOBE_PHOTOSHOP: &str = "image/vnd.adobe.photoshop";
+pub static APPLICATION_X_FONT_LINUX_PSF: &str = "application/x-font-linux-psf";
+pub static APPLICATION_PSKC_XML: &str = "application/pskc+xml";
+pub static APPLICATION_VND_PVI_PTID1: &str = "application/vnd.pvi.ptid1";
+pub static APPLICATION_X_MSPUBLISHER: &str = "application/x-mspublisher";
+pub static APPLICATION_VND_3GPP_PIC_BW_VAR: &str = "application/vnd.3gpp.pic-bw-var";
+pub static APPLICATION_VND_3M_POST_IT_NOTES: &str = "application/vnd.3m.post-it-notes";
+pub static AUDIO_VND_MS_PLAYREADY_MEDIA_PYA: &str = "audio/vnd.ms-playready.media.pya";
+pub static VIDEO_VND_MS_PLAYREADY_MEDIA_PYV: &str = "video/vnd.ms-playready.media.pyv";
+pub static APPLICATION_VND_EPSON_QUICKANIME: &str = "application/vnd.epson.quickanime";
+pub static APPLICATION_VND_INTU_QBO: &str = "application/vnd.intu.qbo";
+pub static APPLICATION_VND_INTU_QFX: &str = "application/vnd.intu.qfx";
+pub static APPLICATION_VND_PUBLISHARE_DELTA_TREE: &str = "application/vnd.publishare-delta-tree";
+pub static IMAGE_X_QUICKTIME: &str = "image/x-quicktime";
+pub static APPLICATION_VND_QUARK_QUARKXPRESS: &str = "application/vnd.quark.quarkxpress";
+pub static AUDIO_X_PN_REALAUDIO: &str = "audio/x-pn-realaudio";
+pub static APPLICATION_X_RAR_COMPRESSED: &str = "application/x-rar-compressed";
+pub static IMAGE_X_CMU_RASTER: &str = "image/x-cmu-raster";
+pub static APPLICATION_VND_IPUNPLUGGED_RCPROFILE: &str = "application/vnd.ipunplugged.rcprofile";
+pub static APPLICATION_RDF_XML: &str = "application/rdf+xml";
+pub static APPLICATION_VND_DATA_VISION_RDZ: &str = "application/vnd.data-vision.rdz";
+pub static APPLICATION_VND_BUSINESSOBJECTS: &str = "application/vnd.businessobjects";
+pub static APPLICATION_X_DTBRESOURCE_XML: &str = "application/x-dtbresource+xml";
+pub static IMAGE_X_RGB: &str = "image/x-rgb";
+pub static APPLICATION_REGINFO_XML: &str = "application/reginfo+xml";
+pub static AUDIO_VND_RIP: &str = "audio/vnd.rip";
+pub static APPLICATION_X_RESEARCH_INFO_SYSTEMS: &str = "application/x-research-info-systems";
+pub static APPLICATION_RESOURCE_LISTS_XML: &str = "application/resource-lists+xml";
+pub static IMAGE_VND_FUJIXEROX_EDMICS_RLC: &str = "image/vnd.fujixerox.edmics-rlc";
+pub static APPLICATION_RESOURCE_LISTS_DIFF_XML: &str = "application/resource-lists-diff+xml";
+pub static APPLICATION_VND_RN_REALMEDIA: &str = "application/vnd.rn-realmedia";
+pub static AUDIO_X_PN_REALAUDIO_PLUGIN: &str = "audio/x-pn-realaudio-plugin";
+pub static APPLICATION_VND_JCP_JAVAME_MIDLET_RMS: &str = "application/vnd.jcp.javame.midlet-rms";
+pub static APPLICATION_VND_RN_REALMEDIA_VBR: &str = "application/vnd.rn-realmedia-vbr";
+pub static APPLICATION_RELAX_NG_COMPACT_SYNTAX: &str = "application/relax-ng-compact-syntax";
+pub static APPLICATION_RPKI_ROA: &str = "application/rpki-roa";
+pub static APPLICATION_VND_CLOANTO_RP9: &str = "application/vnd.cloanto.rp9";
+pub static APPLICATION_VND_NOKIA_RADIO_PRESETS: &str = "application/vnd.nokia.radio-presets";
+pub static APPLICATION_VND_NOKIA_RADIO_PRESET: &str = "application/vnd.nokia.radio-preset";
+pub static APPLICATION_SPARQL_QUERY: &str = "application/sparql-query";
+pub static APPLICATION_RLS_SERVICES_XML: &str = "application/rls-services+xml";
+pub static APPLICATION_RSD_XML: &str = "application/rsd+xml";
+pub static APPLICATION_RSS_XML: &str = "application/rss+xml";
+pub static APPLICATION_RTF: &str = "application/rtf";
+pub static TEXT_RICHTEXT: &str = "text/richtext";
+pub static AUDIO_S3M: &str = "audio/s3m";
+pub static APPLICATION_VND_YAMAHA_SMAF_AUDIO: &str = "application/vnd.yamaha.smaf-audio";
+pub static APPLICATION_SBML_XML: &str = "application/sbml+xml";
+pub static APPLICATION_VND_IBM_SECURE_CONTAINER: &str = "application/vnd.ibm.secure-container";
+pub static APPLICATION_X_MSSCHEDULE: &str = "application/x-msschedule";
+pub static APPLICATION_VND_LOTUS_SCREENCAM: &str = "application/vnd.lotus-screencam";
+pub static APPLICATION_SCVP_CV_REQUEST: &str = "application/scvp-cv-request";
+pub static APPLICATION_SCVP_CV_RESPONSE: &str = "application/scvp-cv-response";
+pub static TEXT_VND_CURL_SCURL: &str = "text/vnd.curl.scurl";
+pub static APPLICATION_VND_STARDIVISION_DRAW: &str = "application/vnd.stardivision.draw";
+pub static APPLICATION_VND_STARDIVISION_CALC: &str = "application/vnd.stardivision.calc";
+pub static APPLICATION_VND_STARDIVISION_IMPRESS: &str = "application/vnd.stardivision.impress";
+pub static APPLICATION_VND_SOLENT_SDKM_XML: &str = "application/vnd.solent.sdkm+xml";
+pub static APPLICATION_SDP: &str = "application/sdp";
+pub static APPLICATION_VND_STARDIVISION_WRITER: &str = "application/vnd.stardivision.writer";
+pub static APPLICATION_VND_SEEMAIL: &str = "application/vnd.seemail";
+pub static APPLICATION_VND_SEMA: &str = "application/vnd.sema";
+pub static APPLICATION_VND_SEMD: &str = "application/vnd.semd";
+pub static APPLICATION_VND_SEMF: &str = "application/vnd.semf";
+pub static APPLICATION_JAVA_SERIALIZED_OBJECT: &str = "application/java-serialized-object";
+pub static APPLICATION_SET_PAYMENT_INITIATION: &str = "application/set-payment-initiation";
+pub static APPLICATION_SET_REGISTRATION_INITIATION: &str =
+    "application/set-registration-initiation";
+pub static APPLICATION_VND_HYDROSTATIX_SOF_DATA: &str = "application/vnd.hydrostatix.sof-data";
+pub static APPLICATION_VND_SPOTFIRE_SFS: &str = "application/vnd.spotfire.sfs";
+pub static TEXT_X_SFV: &str = "text/x-sfv";
+pub static IMAGE_SGI: &str = "image/sgi";
+pub static APPLICATION_VND_STARDIVISION_WRITER_GLOBAL: &str =
+    "application/vnd.stardivision.writer-global";
+pub static TEXT_SGML: &str = "text/sgml";
+pub static APPLICATION_X_SH: &str = "application/x-sh";
+pub static APPLICATION_X_SHAR: &str = "application/x-shar";
+pub static APPLICATION_SHF_XML: &str = "application/shf+xml";
+pub static IMAGE_X_MRSID_IMAGE: &str = "image/x-mrsid-image";
+pub static AUDIO_SILK: &str = "audio/silk";
+pub static APPLICATION_VND_SYMBIAN_INSTALL: &str = "application/vnd.symbian.install";
+pub static APPLICATION_X_STUFFIT: &str = "application/x-stuffit";
+pub static APPLICATION_X_STUFFITX: &str = "application/x-stuffitx";
+pub static APPLICATION_VND_KOAN: &str = "application/vnd.koan";
+pub static APPLICATION_VND_MS_POWERPOINT_SLIDE_MACROENABLED_12: &str =
+    "application/vnd.ms-powerpoint.slide.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_PRESENTATIONML_SLIDE: &str =
+    "application/vnd.openxmlformats-officedocument.presentationml.slide";
+pub static APPLICATION_VND_EPSON_SALT: &str = "application/vnd.epson.salt";
+pub static APPLICATION_VND_STEPMANIA_STEPCHART: &str = "application/vnd.stepmania.stepchart";
+pub static APPLICATION_VND_STARDIVISION_MATH: &str = "application/vnd.stardivision.math";
+pub static APPLICATION_SMIL_XML: &str = "application/smil+xml";
+pub static VIDEO_X_SMV: &str = "video/x-smv";
+pub static APPLICATION_VND_STEPMANIA_PACKAGE: &str = "application/vnd.stepmania.package";
+pub static APPLICATION_X_FONT_SNF: &str = "application/x-font-snf";
+pub static APPLICATION_VND_YAMAHA_SMAF_PHRASE: &str = "application/vnd.yamaha.smaf-phrase";
+pub static APPLICATION_X_FUTURESPLASH: &str = "application/x-futuresplash";
+pub static TEXT_VND_IN3D_SPOT: &str = "text/vnd.in3d.spot";
+pub static APPLICATION_SCVP_VP_RESPONSE: &str = "application/scvp-vp-response";
+pub static APPLICATION_SCVP_VP_REQUEST: &str = "application/scvp-vp-request";
+pub static APPLICATION_X_SQL: &str = "application/x-sql";
+pub static APPLICATION_X_WAIS_SOURCE: &str = "application/x-wais-source";
+pub static APPLICATION_X_SUBRIP: &str = "application/x-subrip";
+pub static APPLICATION_SRU_XML: &str = "application/sru+xml";
+pub static APPLICATION_SPARQL_RESULTS_XML: &str = "application/sparql-results+xml";
+pub static APPLICATION_SSDL_XML: &str = "application/ssdl+xml";
+pub static APPLICATION_VND_KODAK_DESCRIPTOR: &str = "application/vnd.kodak-descriptor";
+pub static APPLICATION_VND_EPSON_SSF: &str = "application/vnd.epson.ssf";
+pub static APPLICATION_SSML_XML: &str = "application/ssml+xml";
+pub static APPLICATION_VND_SAILINGTRACKER_TRACK: &str = "application/vnd.sailingtracker.track";
+pub static APPLICATION_VND_SUN_XML_CALC_TEMPLATE: &str = "application/vnd.sun.xml.calc.template";
+pub static APPLICATION_VND_SUN_XML_DRAW_TEMPLATE: &str = "application/vnd.sun.xml.draw.template";
+pub static APPLICATION_VND_WT_STF: &str = "application/vnd.wt.stf";
+pub static APPLICATION_VND_SUN_XML_IMPRESS_TEMPLATE: &str =
+    "application/vnd.sun.xml.impress.template";
+pub static APPLICATION_HYPERSTUDIO: &str = "application/hyperstudio";
+pub static APPLICATION_VND_MS_PKI_STL: &str = "application/vnd.ms-pki.stl";
+pub static APPLICATION_VND_PG_FORMAT: &str = "application/vnd.pg.format";
+pub static APPLICATION_VND_SUN_XML_WRITER_TEMPLATE: &str =
+    "application/vnd.sun.xml.writer.template";
+pub static TEXT_VND_DVB_SUBTITLE: &str = "text/vnd.dvb.subtitle";
+pub static APPLICATION_VND_SUS_CALENDAR: &str = "application/vnd.sus-calendar";
+pub static APPLICATION_X_SV4CPIO: &str = "application/x-sv4cpio";
+pub static APPLICATION_X_SV4CRC: &str = "application/x-sv4crc";
+pub static APPLICATION_VND_DVB_SERVICE: &str = "application/vnd.dvb.service";
+pub static APPLICATION_VND_SVD: &str = "application/vnd.svd";
+pub static IMAGE_SVG_XML: &str = "image/svg+xml";
+pub static APPLICATION_X_SHOCKWAVE_FLASH: &str = "application/x-shockwave-flash";
+pub static APPLICATION_VND_ARISTANETWORKS_SWI: &str = "application/vnd.aristanetworks.swi";
+pub static APPLICATION_VND_SUN_XML_CALC: &str = "application/vnd.sun.xml.calc";
+pub static APPLICATION_VND_SUN_XML_DRAW: &str = "application/vnd.sun.xml.draw";
+pub static APPLICATION_VND_SUN_XML_WRITER_GLOBAL: &str = "application/vnd.sun.xml.writer.global";
+pub static APPLICATION_VND_SUN_XML_IMPRESS: &str = "application/vnd.sun.xml.impress";
+pub static APPLICATION_VND_SUN_XML_MATH: &str = "application/vnd.sun.xml.math";
+pub static APPLICATION_VND_SUN_XML_WRITER: &str = "application/vnd.sun.xml.writer";
+pub static APPLICATION_X_T3VM_IMAGE: &str = "application/x-t3vm-image";
+pub static APPLICATION_VND_MYNFC: &str = "application/vnd.mynfc";
+pub static APPLICATION_VND_TAO_INTENT_MODULE_ARCHIVE: &str =
+    "application/vnd.tao.intent-module-archive";
+pub static APPLICATION_X_TAR: &str = "application/x-tar";
+pub static APPLICATION_VND_3GPP2_TCAP: &str = "application/vnd.3gpp2.tcap";
+pub static APPLICATION_X_TCL: &str = "application/x-tcl";
+pub static APPLICATION_VND_SMART_TEACHER: &str = "application/vnd.smart.teacher";
+pub static APPLICATION_TEI_XML: &str = "application/tei+xml";
+pub static APPLICATION_X_TEX: &str = "application/x-tex";
+pub static APPLICATION_X_TEXINFO: &str = "application/x-texinfo";
+pub static APPLICATION_THRAUD_XML: &str = "application/thraud+xml";
+pub static APPLICATION_X_TEX_TFM: &str = "application/x-tex-tfm";
+pub static IMAGE_X_TGA: &str = "image/x-tga";
+pub static APPLICATION_VND_MS_OFFICETHEME: &str = "application/vnd.ms-officetheme";
+pub static IMAGE_TIFF: &str = "image/tiff";
+pub static APPLICATION_VND_TMOBILE_LIVETV: &str = "application/vnd.tmobile-livetv";
+pub static APPLICATION_X_BITTORRENT: &str = "application/x-bittorrent";
+pub static APPLICATION_VND_GROOVE_TOOL_TEMPLATE: &str = "application/vnd.groove-tool-template";
+pub static APPLICATION_VND_TRID_TPT: &str = "application/vnd.trid.tpt";
+pub static APPLICATION_VND_TRUEAPP: &str = "application/vnd.trueapp";
+pub static APPLICATION_X_MSTERMINAL: &str = "application/x-msterminal";
+pub static APPLICATION_TIMESTAMPED_DATA: &str = "application/timestamped-data";
+pub static TEXT_TAB_SEPARATED_VALUES: &str = "text/tab-separated-values";
+pub static FONT_COLLECTION: &str = "font/collection";
+pub static FONT_TTF: &str = "font/ttf";
+pub static TEXT_TURTLE: &str = "text/turtle";
+pub static APPLICATION_VND_SIMTECH_MINDMAPPER: &str = "application/vnd.simtech-mindmapper";
+pub static APPLICATION_VND_GENOMATIX_TUXEDO: &str = "application/vnd.genomatix.tuxedo";
+pub static APPLICATION_VND_MOBIUS_TXF: &str = "application/vnd.mobius.txf";
+pub static APPLICATION_VND_UFDL: &str = "application/vnd.ufdl";
+pub static APPLICATION_X_GLULX: &str = "application/x-glulx";
+pub static APPLICATION_VND_UMAJIN: &str = "application/vnd.umajin";
+pub static APPLICATION_VND_UNITY: &str = "application/vnd.unity";
+pub static APPLICATION_VND_UOML_XML: &str = "application/vnd.uoml+xml";
+pub static TEXT_URI_LIST: &str = "text/uri-list";
+pub static APPLICATION_X_USTAR: &str = "application/x-ustar";
+pub static APPLICATION_VND_UIQ_THEME: &str = "application/vnd.uiq.theme";
+pub static TEXT_X_UUENCODE: &str = "text/x-uuencode";
+pub static AUDIO_VND_DECE_AUDIO: &str = "audio/vnd.dece.audio";
+pub static APPLICATION_VND_DECE_DATA: &str = "application/vnd.dece.data";
+pub static IMAGE_VND_DECE_GRAPHIC: &str = "image/vnd.dece.graphic";
+pub static VIDEO_VND_DECE_HD: &str = "video/vnd.dece.hd";
+pub static VIDEO_VND_DECE_MOBILE: &str = "video/vnd.dece.mobile";
+pub static VIDEO_VND_DECE_PD: &str = "video/vnd.dece.pd";
+pub static VIDEO_VND_DECE_SD: &str = "video/vnd.dece.sd";
+pub static APPLICATION_VND_DECE_TTML_XML: &str = "application/vnd.dece.ttml+xml";
+pub static VIDEO_VND_UVVU_MP4: &str = "video/vnd.uvvu.mp4";
+pub static VIDEO_VND_DECE_VIDEO: &str = "video/vnd.dece.video";
+pub static APPLICATION_VND_DECE_UNSPECIFIED: &str = "application/vnd.dece.unspecified";
+pub static APPLICATION_VND_DECE_ZIP: &str = "application/vnd.dece.zip";
+pub static TEXT_VCARD: &str = "text/vcard";
+pub static APPLICATION_X_CDLINK: &str = "application/x-cdlink";
+pub static TEXT_X_VCARD: &str = "text/x-vcard";
+pub static APPLICATION_VND_GROOVE_VCARD: &str = "application/vnd.groove-vcard";
+pub static TEXT_X_VCALENDAR: &str = "text/x-vcalendar";
+pub static APPLICATION_VND_VCX: &str = "application/vnd.vcx";
+pub static APPLICATION_VND_VISIONARY: &str = "application/vnd.visionary";
+pub static VIDEO_VND_VIVO: &str = "video/vnd.vivo";
+pub static VIDEO_X_MS_VOB: &str = "video/x-ms-vob";
+pub static MODEL_VRML: &str = "model/vrml";
+pub static APPLICATION_VND_VISIO: &str = "application/vnd.visio";
+pub static APPLICATION_VND_VSF: &str = "application/vnd.vsf";
+pub static MODEL_VND_VTU: &str = "model/vnd.vtu";
+pub static APPLICATION_VOICEXML_XML: &str = "application/voicexml+xml";
+pub static APPLICATION_X_DOOM: &str = "application/x-doom";
+pub static AUDIO_X_WAV: &str = "audio/x-wav";
+pub static AUDIO_X_MS_WAX: &str = "audio/x-ms-wax";
+pub static IMAGE_VND_WAP_WBMP: &str = "image/vnd.wap.wbmp";
+pub static APPLICATION_VND_CRITICALTOOLS_WBS_XML: &str = "application/vnd.criticaltools.wbs+xml";
+pub static APPLICATION_VND_WAP_WBXML: &str = "application/vnd.wap.wbxml";
+pub static APPLICATION_VND_MS_WORKS: &str = "application/vnd.ms-works";
+pub static IMAGE_VND_MS_PHOTO: &str = "image/vnd.ms-photo";
+pub static AUDIO_WEBM: &str = "audio/webm";
+pub static VIDEO_WEBM: &str = "video/webm";
+pub static IMAGE_WEBP: &str = "image/webp";
+pub static APPLICATION_VND_PMI_WIDGET: &str = "application/vnd.pmi.widget";
+pub static APPLICATION_WIDGET: &str = "application/widget";
+pub static VIDEO_X_MS_WM: &str = "video/x-ms-wm";
+pub static AUDIO_X_MS_WMA: &str = "audio/x-ms-wma";
+pub static APPLICATION_X_MS_WMD: &str = "application/x-ms-wmd";
+pub static TEXT_VND_WAP_WML: &str = "text/vnd.wap.wml";
+pub static APPLICATION_VND_WAP_WMLC: &str = "application/vnd.wap.wmlc";
+pub static TEXT_VND_WAP_WMLSCRIPT: &str = "text/vnd.wap.wmlscript";
+pub static APPLICATION_VND_WAP_WMLSCRIPTC: &str = "application/vnd.wap.wmlscriptc";
+pub static VIDEO_X_MS_WMV: &str = "video/x-ms-wmv";
+pub static VIDEO_X_MS_WMX: &str = "video/x-ms-wmx";
+pub static FONT_WOFF: &str = "font/woff";
+pub static FONT_WOFF2: &str = "font/woff2";
+pub static APPLICATION_VND_WORDPERFECT: &str = "application/vnd.wordperfect";
+pub static APPLICATION_VND_MS_WPL: &str = "application/vnd.ms-wpl";
+pub static APPLICATION_VND_WQD: &str = "application/vnd.wqd";
+pub static APPLICATION_X_MSWRITE: &str = "application/x-mswrite";
+pub static APPLICATION_WSDL_XML: &str = "application/wsdl+xml";
+pub static APPLICATION_WSPOLICY_XML: &str = "application/wspolicy+xml";
+pub static APPLICATION_VND_WEBTURBO: &str = "application/vnd.webturbo";
+pub static VIDEO_X_MS_WVX: &str = "video/x-ms-wvx";
+pub static MODEL_X3D_XML: &str = "model/x3d+xml";
+pub static MODEL_X3D_BINARY: &str = "model/x3d+binary";
+pub static MODEL_X3D_VRML: &str = "model/x3d+vrml";
+pub static APPLICATION_XAML_XML: &str = "application/xaml+xml";
+pub static APPLICATION_X_SILVERLIGHT_APP: &str = "application/x-silverlight-app";
+pub static APPLICATION_VND_XARA: &str = "application/vnd.xara";
+pub static APPLICATION_X_MS_XBAP: &str = "application/x-ms-xbap";
+pub static APPLICATION_VND_FUJIXEROX_DOCUWORKS_BINDER: &str =
+    "application/vnd.fujixerox.docuworks.binder";
+pub static IMAGE_X_XBITMAP: &str = "image/x-xbitmap";
+pub static APPLICATION_XCAP_DIFF_XML: &str = "application/xcap-diff+xml";
+pub static APPLICATION_VND_SYNCML_DM_XML: &str = "application/vnd.syncml.dm+xml";
+pub static APPLICATION_VND_ADOBE_XDP_XML: &str = "application/vnd.adobe.xdp+xml";
+pub static APPLICATION_DSSC_XML: &str = "application/dssc+xml";
+pub static APPLICATION_VND_FUJIXEROX_DOCUWORKS: &str = "application/vnd.fujixerox.docuworks";
+pub static APPLICATION_XENC_XML: &str = "application/xenc+xml";
+pub static APPLICATION_PATCH_OPS_ERROR_XML: &str = "application/patch-ops-error+xml";
+pub static APPLICATION_VND_ADOBE_XFDF: &str = "application/vnd.adobe.xfdf";
+pub static APPLICATION_VND_XFDL: &str = "application/vnd.xfdl";
+pub static APPLICATION_XHTML_XML: &str = "application/xhtml+xml";
+pub static IMAGE_VND_XIFF: &str = "image/vnd.xiff";
+pub static APPLICATION_VND_MS_EXCEL: &str = "application/vnd.ms-excel";
+pub static APPLICATION_VND_MS_EXCEL_ADDIN_MACROENABLED_12: &str =
+    "application/vnd.ms-excel.addin.macroenabled.12";
+pub static APPLICATION_X_XLIFF_XML: &str = "application/x-xliff+xml";
+pub static APPLICATION_VND_MS_EXCEL_SHEET_BINARY_MACROENABLED_12: &str =
+    "application/vnd.ms-excel.sheet.binary.macroenabled.12";
+pub static APPLICATION_VND_MS_EXCEL_SHEET_MACROENABLED_12: &str =
+    "application/vnd.ms-excel.sheet.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_SHEET: &str =
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+pub static APPLICATION_VND_MS_EXCEL_TEMPLATE_MACROENABLED_12: &str =
+    "application/vnd.ms-excel.template.macroenabled.12";
+pub static APPLICATION_VND_OPENXMLFORMATS_OFFICEDOCUMENT_SPREADSHEETML_TEMPLATE: &str =
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.template";
+pub static AUDIO_XM: &str = "audio/xm";
+pub static APPLICATION_XML: &str = "application/xml";
+pub static APPLICATION_VND_OLPC_SUGAR: &str = "application/vnd.olpc-sugar";
+pub static APPLICATION_XOP_XML: &str = "application/xop+xml";
+pub static APPLICATION_X_XPINSTALL: &str = "application/x-xpinstall";
+pub static APPLICATION_XPROC_XML: &str = "application/xproc+xml";
+pub static IMAGE_X_XPIXMAP: &str = "image/x-xpixmap";
+pub static APPLICATION_VND_IS_XPR: &str = "application/vnd.is-xpr";
+pub static APPLICATION_VND_MS_XPSDOCUMENT: &str = "application/vnd.ms-xpsdocument";
+pub static APPLICATION_VND_INTERCON_FORMNET: &str = "application/vnd.intercon.formnet";
+pub static APPLICATION_XSLT_XML: &str = "application/xslt+xml";
+pub static APPLICATION_VND_SYNCML_XML: &str = "application/vnd.syncml+xml";
+pub static APPLICATION_XSPF_XML: &str = "application/xspf+xml";
+pub static APPLICATION_VND_MOZILLA_XUL_XML: &str = "application/vnd.mozilla.xul+xml";
+pub static IMAGE_X_XWINDOWDUMP: &str = "image/x-xwindowdump";
+pub static CHEMICAL_X_XYZ: &str = "chemical/x-xyz";
+pub static APPLICATION_X_XZ: &str = "application/x-xz";
+pub static APPLICATION_YANG: &str = "application/yang";
+pub static APPLICATION_YIN_XML: &str = "application/yin+xml";
+pub static APPLICATION_X_COMPRESS: &str = "application/x-compress";
+pub static APPLICATION_X_ZMACHINE: &str = "application/x-zmachine";
+pub static APPLICATION_VND_ZZAZZ_DECK_XML: &str = "application/vnd.zzazz.deck+xml";
+pub static APPLICATION_ZIP: &str = "application/zip";
+pub static APPLICATION_VND_ZUL: &str = "application/vnd.zul";
+pub static APPLICATION_VND_HANDHELD_ENTERTAINMENT_XML: &str =
+    "application/vnd.handheld-entertainment+xml";
 ```
 
 <Bottom />

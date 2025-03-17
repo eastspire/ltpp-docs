@@ -54,13 +54,9 @@ controller_data.set_stream(None);
 
 ### 获取客户端地址
 
-#### 框架封装 get_socket_addr
-
-```rust
-controller_data.get_socket_addr().await;
-```
-
-#### 手动解析
+> [!tip]
+>
+> 完整接口参阅[官方文档](./addr.md)，此处只介绍通过 `stream` 解析使用
 
 ```rust
 let socket_addr: String = controller_data
