@@ -3,7 +3,7 @@
     <div class="hint-container tip">
       <p class="hint-container-title">赞赏</p>
       <p>
-        作为这些项目的<strong>唯一开发者</strong>，这些项目凝聚了我的心血和热情，如果您觉得项目对您有帮助，或希望支持一个坚持不懈的个人开发者，<strong>无论金额大小，您的赞助都将是对我的莫大鼓励</strong>。感谢您的信任和支持！
+        作为这些项目的<strong>开发者</strong>，这些项目凝聚了我的心血和热情，如果您觉得项目对您有帮助，或希望支持一个坚持不懈的个人开发者，<strong>无论金额大小，您的赞助都将是对我的莫大鼓励</strong>。感谢您的信任和支持！
       </p>
       <div class="pay-wrap">
         <div class="wechat-pay">
