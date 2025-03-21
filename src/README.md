@@ -167,10 +167,10 @@ features:
     icon: blog
     link: /ltpp-rust-get-proxy-request/
 
-  - title: cloud-storage
+  - title: cloud-file-storage
     details: 云端存储
     icon: blog
-    link: /cloud-storage/
+    link: /cloud-file-storage/
 
   - title: ltpp-ssh
     details: ltpp ssh服务

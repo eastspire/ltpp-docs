@@ -1,9 +1,9 @@
 ---
-title: cloud-storage
+title: cloud-file-storage
 index: true
 icon: book
 category:
-  - cloud-storage
+  - cloud-file-storage
   - picture
   - bed
 dir:
@@ -12,9 +12,21 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/cloud-storage)
+[GITHUB 地址](https://github.com/ltpp-universe/cloud-file-storage)
 
-> 基于 Rust hyperlane 框架开发的图床服务端，支持多种文件类型上传
+<center>
+
+[![](https://img.shields.io/crates/v/cloud-file-storage.svg)](https://crates.io/crates/cloud-file-storage)
+[![](https://img.shields.io/crates/d/cloud-file-storage.svg)](https://img.shields.io/crates/d/cloud-file-storage.svg)
+[![](https://docs.rs/cloud-file-storage/badge.svg)](https://docs.rs/cloud-file-storage)
+[![](https://github.com/ltpp-universe/cloud-file-storage/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/cloud-file-storage/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/cloud-file-storage.svg)](./license)
+
+</center>
+
+[API 文档](https://docs.rs/cloud-file-storage/latest/cloud_storage/)
+
+> 基于 Rust hyperlane 框架的云文件存储服务器，支持多种文件类型的上传。
 
 ## 使用现有地址（服务器不在大陆且经过多个服务器中转，接口会比较慢）
 
@@ -25,7 +37,7 @@ dir:
 ### 克隆
 
 ```sh
-git clone git@github.com:ltpp-universe/cloud-storage.git
+git clone git@github.com:ltpp-universe/cloud-file-storage.git
 ```
 
 ### 运行
