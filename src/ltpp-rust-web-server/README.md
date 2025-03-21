@@ -15,12 +15,6 @@ dir:
 
 [GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
 
-<center>
-
-[![](https://img.shields.io/crates/l/rust-web-server.svg)](./LICENSE)
-
-<center>
-
 > [!tip]
 > 该项目于 2024 年 5 月 1 日开始开发
 
