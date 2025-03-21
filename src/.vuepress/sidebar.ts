@@ -25,7 +25,7 @@ export default sidebar({
   'ltpp-post-blog-user-crawler': 'structure',
   'ltpp-qrcode': 'structure',
   'ltpp-rust-get-proxy-request': 'structure',
-  'ltpp-rust-web-serve': 'structure',
+  'ltpp-rust-web-server': 'structure',
   'ltpp-share': 'structure',
   'ltpp-sqs-douyin-collection-download': 'structure',
   'ltpp-ssh': 'structure',

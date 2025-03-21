@@ -157,10 +157,10 @@ features:
     icon: blog
     link: /server-manager/
 
-  - title: ltpp-rust-web-serve
+  - title: ltpp-rust-web-server
     details: ltpp-web服务器
     icon: blog
-    link: /ltpp-rust-web-serve/
+    link: /ltpp-rust-web-server/
 
   - title: ltpp-rust-get-proxy...
     details: get代理post
