@@ -19,7 +19,7 @@ order: 2
 > `hyperlane` 框架创建服务方式如下
 
 ```rust
-let mut server: Server = Server::new();
+let server: Server = Server::new();
 ```
 
 <Bottom />
