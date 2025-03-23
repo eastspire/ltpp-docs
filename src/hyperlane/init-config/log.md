@@ -47,15 +47,26 @@ server.log_size(100_024_000).await;
 server.log_interval_millis(1000).await;
 ```
 
-### 禁用所有日志
+### 禁用所有日志记录
 
 > [!tip]
 >
-> `hyperlane` 框架禁用日志原理是设置日志文件大小为 `DISABLE_LOG_FILE_SIZE`
+> `hyperlane` 框架禁用日志记录原理是设置日志文件大小为 `DISABLE_LOG_FILE_SIZE`
 
 ```rust
 // 省略 server 创建
 server.disable_log().await;
+```
+
+### 启用所有日志记录
+
+> [!tip]
+>
+> `hyperlane` 框架框架默认会启用所有日志记录
+
+```rust
+// 省略 server 创建
+server.enable_log().await;
 ```
 
 ### 开启框架内部日志记录
