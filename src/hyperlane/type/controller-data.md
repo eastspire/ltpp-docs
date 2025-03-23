@@ -18,18 +18,18 @@ order: 1
 > `hyperlane` 框架的 `ControllerData` 作为中间件和路由处理函数的唯一的参数类型，具体类型定义如下
 
 ```rust
-pub type RwLockWriteControllerData<'a> = RwLockWriteGuard<'a, InnerControllerData>;
-pub type RwLockReadControllerData<'a> = RwLockReadGuard<'a, InnerControllerData>;
+pub type RwLockWriteInnerControllerData<'a> = RwLockWriteGuard<'a, InnerControllerData>;
+pub type RwLockReadInnerControllerData<'a> = RwLockReadGuard<'a, InnerControllerData>;
 
-#[derive(Clone, Debug, Lombok)]
+#[derive(Clone, Debug, Lombok, Default)]
 pub struct InnerControllerData {
-    pub(super) stream: OptionArcRwLockStream,
-    pub(super) request: Request,
-    pub(super) response: Response,
-    pub(super) log: Log,
+    stream: OptionArcRwLockStream,
+    request: Request,
+    response: Response,
+    log: Log,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct ControllerData(pub(super) ArcRwLock<InnerControllerData>);
 ```
 
