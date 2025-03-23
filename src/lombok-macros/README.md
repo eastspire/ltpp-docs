@@ -104,42 +104,33 @@ struct LombokTest<'a, 'b, T: Clone + Debug> {
     opt_str_lifetime_b: Option<&'b str>,
 }
 impl<'a, 'b, T: Clone + Debug> LombokTest<'a, 'b, T> {
-    #[inline]
     pub(crate) fn get_list(&self) -> &Vec<String> {
         &self.list
     }
-    #[inline]
     pub(crate) fn set_list(&mut self, val: Vec<String>) -> &mut Self {
         self.list = val;
         self
     }
-    #[inline]
     pub fn get_mut_list(&mut self) -> &mut Vec<String> {
         &mut self.list
     }
-    #[inline]
     pub(crate) fn get_opt_str_lifetime_a(&self) -> &Option<&'a T> {
         &self.opt_str_lifetime_a
     }
-    #[inline]
     pub fn get_mut_opt_str_lifetime_a(&mut self) -> &mut Option<&'a T> {
         &mut self.opt_str_lifetime_a
     }
-    #[inline]
     pub fn set_opt_str_lifetime_a(&mut self, val: Option<&'a T>) -> &mut Self {
         self.opt_str_lifetime_a = val;
         self
     }
-    #[inline]
     fn set_opt_str_lifetime_b(&mut self, val: Option<&'b str>) -> &mut Self {
         self.opt_str_lifetime_b = val;
         self
     }
-    #[inline]
     pub(crate) fn get_mut_opt_str_lifetime_b(&mut self) -> &mut Option<&'b str> {
         &mut self.opt_str_lifetime_b
     }
-    #[inline]
     pub fn get_opt_str_lifetime_b(&self) -> &Option<&'b str> {
         &self.opt_str_lifetime_b
     }
@@ -147,7 +138,6 @@ impl<'a, 'b, T: Clone + Debug> LombokTest<'a, 'b, T> {
 #[automatically_derived]
 impl<'a, 'b, T: ::core::fmt::Debug + Clone + Debug> ::core::fmt::Debug
 for LombokTest<'a, 'b, T> {
-    #[inline]
     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
         ::core::fmt::Formatter::debug_struct_field3_finish(
             f,
@@ -164,7 +154,6 @@ for LombokTest<'a, 'b, T> {
 #[automatically_derived]
 impl<'a, 'b, T: ::core::clone::Clone + Clone + Debug> ::core::clone::Clone
 for LombokTest<'a, 'b, T> {
-    #[inline]
     fn clone(&self) -> LombokTest<'a, 'b, T> {
         LombokTest {
             list: ::core::clone::Clone::clone(&self.list),
@@ -174,7 +163,6 @@ for LombokTest<'a, 'b, T> {
     }
 }
 impl<'a, 'b, T: Clone + Debug> std::fmt::Display for LombokTest<'a, 'b, T> {
-    #[inline]
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{0:?}", self))
     }
@@ -309,42 +297,33 @@ struct LombokTest<'a, 'b, T: Clone + Debug> {
     opt_str_lifetime_b: Option<&'b str>,
 }
 impl<'a, 'b, T: Clone + Debug> LombokTest<'a, 'b, T> {
-    #[inline]
     pub(crate) fn get_list(&self) -> &Vec<String> {
         &self.list
     }
-    #[inline]
     pub(crate) fn set_list(&mut self, val: Vec<String>) -> &mut Self {
         self.list = val;
         self
     }
-    #[inline]
     pub fn get_mut_list(&mut self) -> &mut Vec<String> {
         &mut self.list
     }
-    #[inline]
     pub(crate) fn get_opt_str_lifetime_a(&self) -> &Option<&'a T> {
         &self.opt_str_lifetime_a
     }
-    #[inline]
     pub fn get_mut_opt_str_lifetime_a(&mut self) -> &mut Option<&'a T> {
         &mut self.opt_str_lifetime_a
     }
-    #[inline]
     pub fn set_opt_str_lifetime_a(&mut self, val: Option<&'a T>) -> &mut Self {
         self.opt_str_lifetime_a = val;
         self
     }
-    #[inline]
     fn set_opt_str_lifetime_b(&mut self, val: Option<&'b str>) -> &mut Self {
         self.opt_str_lifetime_b = val;
         self
     }
-    #[inline]
     pub(crate) fn get_mut_opt_str_lifetime_b(&mut self) -> &mut Option<&'b str> {
         &mut self.opt_str_lifetime_b
     }
-    #[inline]
     pub fn get_opt_str_lifetime_b(&self) -> &Option<&'b str> {
         &self.opt_str_lifetime_b
     }
@@ -352,7 +331,6 @@ impl<'a, 'b, T: Clone + Debug> LombokTest<'a, 'b, T> {
 #[automatically_derived]
 impl<'a, 'b, T: ::core::fmt::Debug + Clone + Debug> ::core::fmt::Debug
 for LombokTest<'a, 'b, T> {
-    #[inline]
     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
         ::core::fmt::Formatter::debug_struct_field3_finish(
             f,
@@ -369,7 +347,6 @@ for LombokTest<'a, 'b, T> {
 #[automatically_derived]
 impl<'a, 'b, T: ::core::clone::Clone + Clone + Debug> ::core::clone::Clone
 for LombokTest<'a, 'b, T> {
-    #[inline]
     fn clone(&self) -> LombokTest<'a, 'b, T> {
         LombokTest {
             list: ::core::clone::Clone::clone(&self.list),
@@ -379,7 +356,6 @@ for LombokTest<'a, 'b, T> {
     }
 }
 impl<'a, 'b, T: Clone + Debug> std::fmt::Display for LombokTest<'a, 'b, T> {
-    #[inline]
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.write_fmt(format_args!("{0:#?}", self))
     }
