@@ -56,7 +56,8 @@ async fn test_func(controller_data: ControllerData) {
         .await;
 }
 
-async fn run_server() {
+#[tokio::main]
+async fn main() {
     let mut server: Server = Server::new();
     server.host("0.0.0.0").await;
     server.port(60000).await;
@@ -69,7 +70,7 @@ async fn run_server() {
     server
         .func(async_func!(test_string, |data| {
             println_success!(&test_string);
-            println_success!(&format!("{:?}", data));
+            println_success!(String::from_utf8_lossy(&data.get_request().await));
         }))
         .await;
     server.listen().await;
