@@ -9,7 +9,7 @@ category:
   - init-config
   - config
   - middleware
-order: 9
+order: 10
 ---
 
 <Share colorful />
