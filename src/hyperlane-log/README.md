@@ -61,6 +61,12 @@ log.debug("debug data!", |debug| {
 let _ = log_thread.join();
 ```
 
+## 禁用日志
+
+```rust
+let log: Log = Log::new("./logs", 0, 360);
+```
+
 ## 许可证
 
 该项目采用 MIT 许可证。详细信息请参阅 [LICENSE](LICENSE) 文件。
