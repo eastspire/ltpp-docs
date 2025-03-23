@@ -112,7 +112,7 @@ async fn run_server() {
             "/test/panic",
             async_func!(test_string, |controller_data| {
                 println_success!(test_string);
-                print_success!(controller_data.get_request().await.get_string());
+                println_success!(controller_data.get_request().await.get_string());
                 panic!("Test panic");
             }),
         )
