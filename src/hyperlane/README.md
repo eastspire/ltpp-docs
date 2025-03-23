@@ -91,7 +91,8 @@ async fn websocket_route(controller_data: ControllerData) {
     let _ = controller_data.send_response_body(request_body).await;
 }
 
-async fn run_server() {
+#[tokio::main]
+async fn main() {
     let server: Server = Server::new();
     server.host("0.0.0.0").await;
     server.port(60000).await;
