@@ -9,7 +9,7 @@ category:
   - init-config
   - config
   - log
-order: 8
+order: 7
 ---
 
 <Share colorful />

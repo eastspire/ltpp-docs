@@ -9,7 +9,7 @@ category:
   - init-config
   - config
   - log
-order: 7
+order: 6
 ---
 
 <Share colorful />
@@ -45,4 +45,47 @@ server.log_size(100_024_000).await;
 ```rust
 // 省略 server 创建
 server.log_interval_millis(1000).await;
+```
+
+### 禁用所有日志
+
+> [!tip]
+>
+> `hyperlane` 框架禁用日志原理是设置日志文件大小为 `DISABLE_LOG_FILE_SIZE`
+
+```rust
+// 省略 server 创建
+server.disable_log().await;
+```
+
+### 开启框架内部日志记录
+
+> [!tip]
+>
+> `hyperlane` 框架内部会对 `panic` 进行日志记录，默认会启用，此配置不影响用户代码里的日志记录。
+
+#### enable_inner_log
+
+```rust
+server.enable_inner_log();
+```
+
+#### log
+
+```rust
+server.inner_log(true);
+```
+
+### 关闭框架内部日志记录
+
+#### disable_inner_log
+
+```rust
+server.disable_inner_log().await;
+```
+
+#### log
+
+```rust
+server.inner_log(false).await;
 ```

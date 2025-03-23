@@ -9,7 +9,7 @@ category:
   - init-config
   - config
   - route
-order: 11
+order: 10
 ---
 
 <Share colorful />
