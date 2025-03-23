@@ -64,7 +64,7 @@ let _ = log_thread.join();
 ## 禁用日志
 
 ```rust
-let log: Log = Log::new("./logs", 0, 360);
+let log: Log = Log::new("./logs", DISABLE_LOG_FILE_SIZE, 360);
 ```
 
 ## 许可证
