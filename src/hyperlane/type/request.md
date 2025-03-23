@@ -8,7 +8,7 @@ category:
   - rust
   - type
   - request
-order: 2
+order: 5
 ---
 
 <Share colorful />
@@ -31,7 +31,7 @@ pub type RequestQuerysKey = String;
 /// Request querys value
 pub type RequestQuerysValue = String;
 /// Request querys
-pub type RequestQuerys = HashMap<RequestQuerysKey, RequestQuerysValue>;
+pub type RequestQuerys = HashMapXxHash3_64<RequestQuerysKey, RequestQuerysValue>;
 ///  Request body
 pub type RequestBody = Vec<u8>;
 ///  Request body string
@@ -41,9 +41,13 @@ pub type RequestHeadersKey = String;
 /// Request headers value
 pub type RequestHeadersValue = String;
 /// Request headers
-pub type RequestHeaders = HashMap<RequestHeadersKey, RequestHeadersValue>;
+pub type RequestHeaders = HashMapXxHash3_64<RequestHeadersKey, RequestHeadersValue>;
 /// Request new result
 pub type RequestNewResult = Result<Request, RequestError>;
+/// RwLockReadGuardRequest
+pub type RwLockReadGuardRequest<'a> = RwLockReadGuard<'a, Request>;
+/// RwLockWriteGuardRequest
+pub type RwLockWriteGuardRequest<'a> = RwLockWriteGuard<'a, Request>;
 
 /// Represents an HTTP request.
 ///
@@ -55,7 +59,7 @@ pub type RequestNewResult = Result<Request, RequestError>;
 /// - `querys`: The query string of the request.
 /// - `headers`: A collection of HTTP headers as key-value pairs.
 /// - `body`: The binary body of the request.
-#[derive(Debug, Clone, Lombok, PartialEq, Eq, DisplayDebug)]
+#[derive(Debug, Clone, Lombok, DisplayDebug)]
 pub struct Request {
     #[set(skip)]
     pub(super) method: RequestMethod,

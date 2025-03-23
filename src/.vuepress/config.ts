@@ -17,8 +17,8 @@ export default defineUserConfig({
       lang: 'zh-CN',
     },
   },
-  title: 'LTPP宇宙文档',
-  description: 'LTPP宇宙文档',
+  title: 'LTPP-UNIVERSE文档',
+  description: 'LTPP-UNIVERSE文档',
   theme,
   dest: resolve(__dirname, '../../docs-html'),
   head: [
@@ -43,15 +43,14 @@ export default defineUserConfig({
       {
         name: 'keywords',
         content:
-          'LTPP,开发,编程,计算机,学习,资源,OJ,LTPP-在线开发平台,LTPP宇宙,LTPP宇宙文档',
+          'LTPP,开发,编程,计算机,学习,资源,OJ,LTPP-在线开发平台,LTPP-UNIVERSE,LTPP-UNIVERSE文档,Rust,博客,文字,文章,精选',
       },
     ],
     [
       'meta',
       {
         name: 'description',
-        content:
-          'LTPP（Learning teaching practice platform）在线开发平台是一个编程学习网站，该网站集文章学习、短视频、在线直播、代码训练、在线问答、在线聊天和在线商店于一体，专注于提升用户编程能力，做到“学”与“练”的统一。',
+        content: 'LTPP-UNIVERSE文档',
       },
     ],
     [

@@ -8,7 +8,7 @@ category:
   - rust
   - type
   - controller_data
-order: 1
+order: 11
 ---
 
 <Share colorful />

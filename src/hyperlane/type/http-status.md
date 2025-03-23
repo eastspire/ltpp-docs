@@ -8,7 +8,7 @@ category:
   - rust
   - type
   - http-status
-order: 4
+order: 6
 ---
 
 <Share colorful />

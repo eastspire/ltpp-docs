@@ -4,7 +4,7 @@ export default navbar([
   '/',
   '/catalog',
   {
-    text: 'LTPP-WEB项目地址',
+    text: 'WEB项目',
     icon: 'laptop-code',
     children: [
       {

@@ -1,5 +1,5 @@
 ---
-title: 赞赏LTPP宇宙作者
+title: 赞赏作者
 index: true
 icon: blog
 category:

@@ -1,8 +1,8 @@
 ---
 home: true
 icon: home
-title: LTPP宇宙文档首页
-heroText: LTPP宇宙文档
+title: 文档首页
+heroText: LTPP-UNIVERSE文档
 tagline: 只要我们为人民的利益坚持好的，为人民的利益改正错的，我们这个队伍就一定会兴旺起来。As long as we persist in what is right for the people's interests and correct what is wrong for the people's intere.
 heroFullScreen: true
 bgImage: /img/light-background.png

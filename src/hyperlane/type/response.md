@@ -8,7 +8,7 @@ category:
   - rust
   - type
   - response
-order: 3
+order: 7
 ---
 
 <Share colorful />
@@ -27,7 +27,7 @@ pub type ResponseHeadersKey = String;
 ///  Response headers value
 pub type ResponseHeadersValue = String;
 ///  Response headers
-pub type ResponseHeaders = HashMap<ResponseHeadersKey, ResponseHeadersValue>;
+pub type ResponseHeaders = HashMapXxHash3_64<ResponseHeadersKey, ResponseHeadersValue>;
 /// Response version
 pub type ResponseVersion = String;
 /// Response status code
@@ -40,6 +40,10 @@ pub type ResponseResult = Result<(), ResponseError>;
 pub type ResponseData = Vec<u8>;
 /// Response data string
 pub type ResponseDataString = String;
+/// RwLockReadGuardResponse
+pub type RwLockReadGuardResponse<'a> = RwLockReadGuard<'a, Response>;
+/// RwLockWriteGuardResponse
+pub type RwLockWriteGuardResponse<'a> = RwLockWriteGuard<'a, Response>;
 
 /// Represents an HTTP response.
 ///
@@ -49,7 +53,7 @@ pub type ResponseDataString = String;
 /// - `reason_phrase`: The reason phrase corresponding to the status code.
 /// - `headers`: A collection of HTTP headers as key-value pairs.
 /// - `body`: The binary body of the response.
-#[derive(Debug, Clone, Lombok, PartialEq, Eq, DisplayDebug)]
+#[derive(Debug, Clone, Lombok, DisplayDebug)]
 pub struct Response {
     #[set(skip)]
     pub(super) version: ResponseVersion,

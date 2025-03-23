@@ -8,7 +8,7 @@ category:
   - rust
   - type
   - content-type
-order: 8
+order: 9
 ---
 
 <Share colorful />
