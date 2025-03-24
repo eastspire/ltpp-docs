@@ -17,7 +17,7 @@ order: 9
 >
 > `hyperlane` 框架内置了日志功能，使用方式如下
 
-### 获取日志
+### 获取日志实例
 
 #### 推荐
 
@@ -53,18 +53,26 @@ let log: &mut Log = controller_data.get_mut_log();
 #### 推荐
 
 ```rust
+controller_data.set_log(Log::default()).await;
+```
+
+#### 通过写锁
+
+##### 通过 `get`
+
+```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
 inner_controller_data.set_log(Log::default());
 ```
 
-#### 通过写锁
+##### 通过 `get_write_lock`
 
 ```rust
 let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
 controller_data.set_log(Log::default());
 ```
 
-### 写 `info` 日志
+### 同步写 `info` 日志
 
 #### 推荐
 
@@ -79,7 +87,22 @@ let inner_controller_data: InnerControllerData = controller_data.get().await;
 inner_controller_data.get_log().info("test", log_handler);
 ```
 
-### 写 `debug` 日志
+### 异步写 `info` 日志
+
+#### 推荐
+
+```rust
+controller_data.async_log_info("test", log_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let inner_controller_data: InnerControllerData = controller_data.get().await;
+inner_controller_data.get_log().async_info("test", log_handler);
+```
+
+### 同步写 `debug` 日志
 
 #### 推荐
 
@@ -94,7 +117,22 @@ let inner_controller_data: InnerControllerData = controller_data.get().await;
 inner_controller_data.get_log().debug("test", log_debug_format_handler);
 ```
 
-### 写 `error` 日志
+### 异步写 `debug` 日志
+
+#### 推荐
+
+```rust
+controller_data.async_log_debug("test", log_debug_format_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let inner_controller_data: InnerControllerData = controller_data.get().await;
+inner_controller_data.get_log().async_debug("test", log_debug_format_handler);
+```
+
+### 同步写 `error` 日志
 
 #### 推荐
 
@@ -107,6 +145,21 @@ controller_data.log_error("test", log_debug_handler).await;
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
 inner_controller_data.get_log().error("test", log_debug_handler);
+```
+
+### 异步写 `error` 日志
+
+#### 推荐
+
+```rust
+controller_data.async_log_error("test", log_debug_handler).await;
+```
+
+#### 通过 `controller_data`
+
+```rust
+let inner_controller_data: InnerControllerData = controller_data.get().await;
+inner_controller_data.get_log().async_error("test", log_debug_handler);
 ```
 
 <Bottom />
