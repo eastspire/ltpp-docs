@@ -107,14 +107,14 @@ inner_controller_data.get_log().async_info("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.log_debug("test", log_debug_format_handler).await;
+controller_data.log_debug("test", log_handler).await;
 ```
 
 #### 通过 `controller_data`
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().debug("test", log_debug_format_handler);
+inner_controller_data.get_log().debug("test", log_handler);
 ```
 
 ### 异步写 `debug` 日志
@@ -122,14 +122,14 @@ inner_controller_data.get_log().debug("test", log_debug_format_handler);
 #### 推荐
 
 ```rust
-controller_data.async_log_debug("test", log_debug_format_handler).await;
+controller_data.async_log_debug("test", log_handler).await;
 ```
 
 #### 通过 `controller_data`
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().async_debug("test", log_debug_format_handler);
+inner_controller_data.get_log().async_debug("test", log_handler);
 ```
 
 ### 同步写 `error` 日志
@@ -137,14 +137,14 @@ inner_controller_data.get_log().async_debug("test", log_debug_format_handler);
 #### 推荐
 
 ```rust
-controller_data.log_error("test", log_debug_handler).await;
+controller_data.log_error("test", log_handler).await;
 ```
 
 #### 通过 `controller_data`
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().error("test", log_debug_handler);
+inner_controller_data.get_log().error("test", log_handler);
 ```
 
 ### 异步写 `error` 日志
@@ -152,14 +152,14 @@ inner_controller_data.get_log().error("test", log_debug_handler);
 #### 推荐
 
 ```rust
-controller_data.async_log_error("test", log_debug_handler).await;
+controller_data.async_log_error("test", log_handler).await;
 ```
 
 #### 通过 `controller_data`
 
 ```rust
 let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().async_error("test", log_debug_handler);
+inner_controller_data.get_log().async_error("test", log_handler);
 ```
 
 <Bottom />
