@@ -13,6 +13,20 @@ order: 1
 
 <Share colorful />
 
+### 中间件洋葱模型
+
+```mermaid
+graph TD
+    A[Client] -->|Request| B[Request Middleware 1]
+    B --> C[Request Middleware 2]
+    C --> D[Request Middleware 3]
+    D --> E[Controller]
+    E --> F[Response Middleware 1]
+    F --> G[Response Middleware 2]
+    G --> H[Response Middleware 3]
+    H -->|Response| I[Client]
+```
+
 ### `hyperlane` 框架版本 < `v3.0.0` 的版本
 
 > [!tip]
