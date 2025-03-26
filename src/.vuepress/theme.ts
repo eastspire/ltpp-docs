@@ -1,6 +1,7 @@
 import { hopeTheme } from 'vuepress-theme-hope';
 import navbar from './navbar.js';
 import sidebar from './sidebar.js';
+import { mdEnhancePlugin } from 'mermaid';
 
 export default hopeTheme({
   hostname: 'https://docs.ltpp.vip',
@@ -77,6 +78,7 @@ export default hopeTheme({
     mdEnhance: {
       alert: true,
       align: true,
+      mermaid: true,
       attrs: true,
       codetabs: true,
       component: true,
