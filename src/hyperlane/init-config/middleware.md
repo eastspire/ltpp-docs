@@ -24,7 +24,7 @@ order: 9
 
 ```rust
 // 省略 server 创建
-server.request_middleware(|controller_data| async move {
+server.request_middleware(|ctx: Context| async move {
     // code
 }).await;
 ```
@@ -33,16 +33,16 @@ server.request_middleware(|controller_data| async move {
 
 ```rust
 // 省略 server 创建
-server.request_middleware(|controller_data| async move {
+server.request_middleware(|ctx: Context| async move {
     // 1
 }).await;
-server.request_middleware(|controller_data| async move {
+server.request_middleware(|ctx: Context| async move {
     // 2
 }).await;
-server.request_middleware(|controller_data| async move {
+server.request_middleware(|ctx: Context| async move {
     // 3
 }).await;
-server.request_middleware(|controller_data| async move {
+server.request_middleware(|ctx: Context| async move {
     // 4
 }).await;
 ```
@@ -53,7 +53,7 @@ server.request_middleware(|controller_data| async move {
 
 ```rust
 // 省略 server 创建
-server.response_middleware(|controller_data| async move {
+server.response_middleware(|ctx: Context| async move {
     // code
 }).await;
 ```
@@ -62,16 +62,16 @@ server.response_middleware(|controller_data| async move {
 
 ```rust
 // 省略 server 创建
-server.response_middleware(|controller_data| async move {
+server.response_middleware(|ctx: Context| async move {
     // 1
 }).await;
-server.response_middleware(|controller_data| async move {
+server.response_middleware(|ctx: Context| async move {
     // 2
 }).await;
-server.response_middleware(|controller_data| async move {
+server.response_middleware(|ctx: Context| async move {
     // 3
 }).await;
-server.response_middleware(|controller_data| async move {
+server.response_middleware(|ctx: Context| async move {
     // 4
 }).await;
 ```

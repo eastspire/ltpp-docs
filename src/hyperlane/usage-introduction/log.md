@@ -22,14 +22,14 @@ order: 9
 #### 推荐
 
 ```rust
-let log: Log = controller_data.get_log().await;
+let log: Log = ctx.get_log().await;
 ```
 
 #### 通过写锁
 
 ```rust
-let controller_data_write_lock: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let log: &Log = controller_data_write_lock.get_log();
+let ctx_write_lock: RwLockWriteContext = ctx.get_write_lock().await;
+let log: &Log = ctx_write_lock.get_log();
 ```
 
 ### 获取可变日志
@@ -37,15 +37,15 @@ let log: &Log = controller_data_write_lock.get_log();
 #### 推荐
 
 ```rust
-let mut  = controller_data.get().await;
-let log: &mut Log = inner_controller_data.get_mut_log();
+let mut  = ctx.get().await;
+let log: &mut Log = inner_ctx.get_mut_log();
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let log: &mut Log = controller_data.get_mut_log();
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let log: &mut Log = ctx.get_mut_log();
 ```
 
 ### 设置日志
@@ -53,7 +53,7 @@ let log: &mut Log = controller_data.get_mut_log();
 #### 推荐
 
 ```rust
-controller_data.set_log(Log::default()).await;
+ctx.set_log(Log::default()).await;
 ```
 
 #### 通过写锁
@@ -61,15 +61,15 @@ controller_data.set_log(Log::default()).await;
 ##### 通过 `get`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.set_log(Log::default());
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.set_log(Log::default());
 ```
 
 ##### 通过 `get_write_lock`
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-controller_data.set_log(Log::default());
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+ctx.set_log(Log::default());
 ```
 
 ### 同步写 `info` 日志
@@ -77,14 +77,14 @@ controller_data.set_log(Log::default());
 #### 推荐
 
 ```rust
-controller_data.log_info("test", log_handler).await;
+ctx.log_info("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().info("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().info("test", log_handler);
 ```
 
 ### 异步写 `info` 日志
@@ -92,14 +92,14 @@ inner_controller_data.get_log().info("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.async_log_info("test", log_handler).await;
+ctx.async_log_info("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().async_info("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().async_info("test", log_handler);
 ```
 
 ### 同步写 `debug` 日志
@@ -107,14 +107,14 @@ inner_controller_data.get_log().async_info("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.log_debug("test", log_handler).await;
+ctx.log_debug("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().debug("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().debug("test", log_handler);
 ```
 
 ### 异步写 `debug` 日志
@@ -122,14 +122,14 @@ inner_controller_data.get_log().debug("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.async_log_debug("test", log_handler).await;
+ctx.async_log_debug("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().async_debug("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().async_debug("test", log_handler);
 ```
 
 ### 同步写 `error` 日志
@@ -137,14 +137,14 @@ inner_controller_data.get_log().async_debug("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.log_error("test", log_handler).await;
+ctx.log_error("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().error("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().error("test", log_handler);
 ```
 
 ### 异步写 `error` 日志
@@ -152,14 +152,14 @@ inner_controller_data.get_log().error("test", log_handler);
 #### 推荐
 
 ```rust
-controller_data.async_log_error("test", log_handler).await;
+ctx.async_log_error("test", log_handler).await;
 ```
 
-#### 通过 `controller_data`
+#### 通过 `ctx`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.get_log().async_error("test", log_handler);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.get_log().async_error("test", log_handler);
 ```
 
 <Bottom />

@@ -15,10 +15,10 @@ order: 4
 
 > [!tip]
 >
-> `hyperlane` 框架对 `controller_data` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
+> `hyperlane` 框架对 `ctx` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
 > 例如：调用 `request` 上的 `get_method` 方法，
-> 一般需要从 `controller_data` 解出 `request`，再调用`request.get_method()`，
-> 可以简化成直接调用 `controller_data.get_request_method().await`
+> 一般需要从 `ctx` 解出 `request`，再调用`request.get_method()`，
+> 可以简化成直接调用 `ctx.get_request_method().await`
 >
 > **调用规律**
 >
@@ -32,21 +32,21 @@ order: 4
 ##### 推荐
 
 ```rust
-let request: Request = controller_data.get_request().await;
+let request: Request = ctx.get_request().await;
 ```
 
 ##### 通过读锁
 
 ```rust
-let mut controller_data: RwLockReadControllerData = controller_data.get_read_lock().await;
-let request: Request = controller_data.get_request().clone();
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let request: Request = ctx.get_request().clone();
 ```
 
 ##### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let request: Request = controller_data.get_request().clone();
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let request: Request = ctx.get_request().clone();
 ```
 
 #### 获取 `method`
@@ -94,8 +94,8 @@ let body: RequestBody = request.get_body();
 ### 获取可变请求信息
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let request: &mut Request = controller_data.get_mut_request();
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let request: &mut Request = ctx.get_mut_request();
 ```
 
 ### 设置请求信息
@@ -103,14 +103,14 @@ let request: &mut Request = controller_data.get_mut_request();
 #### 推荐
 
 ```rust
-controller_data.set_request(Request::default()).await;
+ctx.set_request(Request::default()).await;
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-controller_data.set_request(Request::default());
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+ctx.set_request(Request::default());
 ```
 
 ### 修改请求
@@ -118,8 +118,8 @@ controller_data.set_request(Request::default());
 #### 获取写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let request: &mut Request = controller_data.get_mut_request();
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let request: &mut Request = ctx.get_mut_request();
 ```
 
 #### 修改 `method`

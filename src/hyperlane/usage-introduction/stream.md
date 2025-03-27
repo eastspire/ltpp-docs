@@ -20,8 +20,8 @@ order: 3
 ### 获取 `stream`
 
 ```rust
-let controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
+let ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let stream_lock: Arc<TcpStream> = ctx.get_stream().clone().unwrap();
 ```
 
 ### 获取可变 `stream`
@@ -29,27 +29,27 @@ let stream_lock: Arc<TcpStream> = controller_data.get_stream().clone().unwrap();
 #### 推荐
 
 ```rust
-let mut  = controller_data.get().await;
-inner_controller_data.get_mut_stream().and_then(|mut stream| {});
+let mut  = ctx.get().await;
+inner_ctx.get_mut_stream().and_then(|mut stream| {});
 ```
 
 #### 通过写锁
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-controller_data.get_mut_stream().and_then(|mut stream| {});
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+ctx.get_mut_stream().and_then(|mut stream| {});
 ```
 
 ### 设置 `stream`
 
 ```rust
-let inner_controller_data: InnerControllerData = controller_data.get().await;
-inner_controller_data.set_stream(None);
+let inner_ctx: InnerContext = ctx.get().await;
+inner_ctx.set_stream(None);
 ```
 
 ```rust
-let mut controller_data: RwLockWriteControllerData = controller_data.get_write_lock().await;
-controller_data.set_stream(None);
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+ctx.set_stream(None);
 ```
 
 ### 获取客户端地址
@@ -59,7 +59,7 @@ controller_data.set_stream(None);
 > 完整接口参阅[官方文档](./addr.md)，此处只介绍通过 `stream` 解析使用
 
 ```rust
-let socket_addr: String = controller_data
+let socket_addr: String = ctx
     .get_read_lock()
     .await
     .peer_addr()

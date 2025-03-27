@@ -23,7 +23,7 @@ order: 10
 
 ```rust
 // 省略 server 创建
-server.route("路由名称", |controller_data| async move {
+server.route("路由名称", |ctx: Context| async move {
     // code
 }).await;
 ```

@@ -22,7 +22,7 @@ order: 10
 
 ```rust
 // 省略 server 创建
-server.route("/", |_controller_data| {
+server.route("/", |_ctx| {
     panic!("test panic");
 });
 ```
