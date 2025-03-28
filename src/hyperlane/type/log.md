@@ -15,7 +15,7 @@ order: 12
 
 > [!tip]
 >
-> `hyperlane` 框架的 `Log` 内部具体类型定义如下
+> `hyperlane` 框架的 `Log` （使用参考 [官方文档](../../hyperlane-log/README.md)）内部具体类型定义如下
 
 ```rust
 #[derive(Clone, Lombok)]
