@@ -76,7 +76,7 @@ let querys: RequestQuerys = request.get_querys();
 #### 获取 `header`
 
 ```rust
-let header: Option<RequestHeadersValue> = request.get_header("key");
+let header: OptionRequestHeadersValue = request.get_header("key");
 ```
 
 #### 获取 `headers`
