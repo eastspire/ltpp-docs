@@ -12,6 +12,24 @@ order: 8
 
 <Share colorful />
 
+### 安装
+
+> [!tip]
+>
+> 框架不推荐使用 `Cargo.lock`，因为在跨平台下编译可能会导致错误，
+> 但是框架会不断升级迭代，这导致开发者需要锁定依赖版本，
+> 推荐如下形式，在版本前加 `=` 即可锁定使用此版本，避免了未锁版本导致的不确定错误
+
+```toml
+[dependencies]
+hyperlane = "=*.*.*"
+```
+
+### 异步
+
+> [!tip]
+> 由于 `hyperlane` 框架本身涉及到锁的数据均采取 `tokio`中的锁实现，所以涉及到锁的方法调用均需要 `await`
+
 ### 死锁问题
 
 > [!tip]
@@ -56,10 +74,5 @@ async fn test_middleware(ctx: Context) {
         .set_header("SocketAddr", socket_addr);
 }
 ```
-
-### 异步
-
-> [!tip]
-> 由于 `hyperlane` 框架本身涉及到锁的数据均采取 `tokio`中的实现，所以涉及到锁的方法调用均需要 `await`
 
 <Bottom />
