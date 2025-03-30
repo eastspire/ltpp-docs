@@ -8,7 +8,7 @@ category:
   - rust
   - usage-introduction
   - panic
-order: 10
+order: 11
 ---
 
 <Share colorful />

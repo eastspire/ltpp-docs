@@ -20,6 +20,7 @@ order: 11
 ```rust
 pub type RwLockWriteInnerContext<'a> = RwLockWriteGuard<'a, InnerContext>;
 pub type RwLockReadInnerContext<'a> = RwLockReadGuard<'a, InnerContext>;
+pub type HashMapArcAnySendSync = HashMap<String, ArcAnySendSync>;
 
 #[derive(Clone, Lombok, Default)]
 pub struct InnerContext {
@@ -27,6 +28,7 @@ pub struct InnerContext {
     request: Request,
     response: Response,
     log: Log,
+    data: HashMapArcAnySendSync,
 }
 
 #[derive(Clone, Default)]
