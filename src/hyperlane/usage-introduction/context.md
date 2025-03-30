@@ -27,7 +27,7 @@ ctx.set_data_value("key", &"value").await;
 ### 获取某个临时上下文数据
 
 ```rust
-let value = ctx.get_data_value::<String>("key").await;
+let value: Option<String> = ctx.get_data_value::<String>("key").await;
 ```
 
 ### 移除某个临时上下文数据
