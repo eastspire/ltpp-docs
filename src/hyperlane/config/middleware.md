@@ -6,7 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-  - init-config
   - config
   - middleware
 order: 9

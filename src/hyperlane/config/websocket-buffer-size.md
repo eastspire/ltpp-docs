@@ -6,7 +6,6 @@ category:
   - clone
   - web
   - rust
-  - init-config
   - config
   - log
 order: 8

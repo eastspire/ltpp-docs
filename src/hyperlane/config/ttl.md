@@ -1,26 +1,27 @@
 ---
-title: 绑定Host
+title: ttl
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
-  - init-config
   - config
-  - host
-order: 3
+  - ttl
+order: 13
 ---
 
 <Share colorful />
 
 > [!tip]
 >
-> `hyperlane` 框架绑定 `host` 方式如下
+> `hyperlane` 框架支持配置 `ttl`
+
+### 设置 `ttl`
 
 ```rust
 // 省略 server 创建
-server.host("0.0.0.0").await;
+server.set_ttl(128).await;
 ```
 
 <Bottom />

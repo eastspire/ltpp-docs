@@ -6,7 +6,6 @@ category:
   - hyperlane
   - web
   - rust
-  - init-config
   - config
   - thread-pool-size
 order: 1

@@ -6,7 +6,6 @@ category:
   - clone
   - web
   - rust
-  - init-config
   - config
   - inner-print
 order: 5
