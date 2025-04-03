@@ -99,7 +99,7 @@ ctx.async_log_info("test", log_handler).await;
 
 ```rust
 let inner_ctx: InnerContext = ctx.get().await;
-inner_ctx.get_log().async_info("test", log_handler);
+inner_ctx.get_log().async_info("test", log_handler).await;
 ```
 
 ### 同步写 `debug` 日志
@@ -129,7 +129,7 @@ ctx.async_log_debug("test", log_handler).await;
 
 ```rust
 let inner_ctx: InnerContext = ctx.get().await;
-inner_ctx.get_log().async_debug("test", log_handler);
+inner_ctx.get_log().async_debug("test", log_handler).await;
 ```
 
 ### 同步写 `error` 日志
@@ -159,7 +159,7 @@ ctx.async_log_error("test", log_handler).await;
 
 ```rust
 let inner_ctx: InnerContext = ctx.get().await;
-inner_ctx.get_log().async_error("test", log_handler);
+inner_ctx.get_log().async_error("test", log_handler).await;
 ```
 
 <Bottom />
