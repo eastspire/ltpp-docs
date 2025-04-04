@@ -68,6 +68,7 @@ async fn request_middleware(ctx: Context) {
 
 async fn response_middleware(ctx: Context) {
     let _ = ctx.send().await;
+    let _ = ctx.flush().await;
     let request: String = ctx.get_request_string().await;
     let response: String = ctx.get_response_string().await;
     ctx.log_info(&request, log_handler)
@@ -92,7 +93,7 @@ async fn websocket_route(ctx: Context) {
 async fn main() {
     let server: Server = Server::new();
     server.host("0.0.0.0").await;
-    server.port(60000).await;
+    server.port(60001).await;
     server.enable_nodelay().await;
     server.disable_linger().await;
     server.log_dir("./logs").await;
@@ -101,6 +102,8 @@ async fn main() {
     server.log_size(100_024_000).await;
     server.http_line_buffer_size(4096).await;
     server.websocket_buffer_size(4096).await;
+    server.set_max_blocking_threads(5120).await;
+    server.set_max_io_events_per_tick(5120).await;
     server.request_middleware(request_middleware).await;
     server.response_middleware(response_middleware).await;
     server.route("/", root_route).await;
@@ -109,7 +112,7 @@ async fn main() {
     server
         .route(
             "/test/panic",
-            async_func!(test_string, |ctx: Context| {
+            async_func!(test_string, |ctx| {
                 println_success!(test_string);
                 println_success!(ctx.get_request().await.get_string());
                 panic!("Test panic\ndata: test");
