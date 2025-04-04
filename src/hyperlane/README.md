@@ -93,7 +93,7 @@ async fn websocket_route(ctx: Context) {
 async fn main() {
     let server: Server = Server::new();
     server.host("0.0.0.0").await;
-    server.port(60001).await;
+    server.port(60000).await;
     server.enable_nodelay().await;
     server.disable_linger().await;
     server.log_dir("./logs").await;
@@ -102,8 +102,6 @@ async fn main() {
     server.log_size(100_024_000).await;
     server.http_line_buffer_size(4096).await;
     server.websocket_buffer_size(4096).await;
-    server.set_max_blocking_threads(5120).await;
-    server.set_max_io_events_per_tick(5120).await;
     server.request_middleware(request_middleware).await;
     server.response_middleware(response_middleware).await;
     server.route("/", root_route).await;
