@@ -29,7 +29,7 @@ async fn main() {}
 ```rust
 #[tokio::main]
 async fn main() {
-    let thread_count: usize = get_thread_count().max(1);
+    let thread_count: usize = get_thread_count();
     let runtime: tokio::runtime::Runtime = tokio::runtime::Builder::new_multi_thread()
         .worker_threads(thread_count)
         .thread_stack_size(2097152)
