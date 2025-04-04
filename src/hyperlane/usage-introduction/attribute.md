@@ -1,5 +1,5 @@
 ---
-title: Attribute
+title: 属性
 index: true
 icon: book
 category:
@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - usage-introduction
-  - context
+  - attribute
 order: 9
 ---
 
@@ -15,8 +15,8 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架支持临时上下文 `attribute` 数据 `k-v` 存储，生命周期贯穿一个完整的请求和响应
-> 存储的 `value` 支持实现了`Any + Send + Sync + Clone` `trait` 的类型
+> `hyperlane` 框架支持临时上下文属性以 `key-value` 形式存储，生命周期贯穿一个完整的请求和响应
+> 存储的 `value` 支持实现了`Any + Send + Sync + Clone` 的 `trait` 的类型
 
 ### 设置某个临时上下文数据
 
