@@ -17,9 +17,15 @@ order: 11
 >
 > `hyperlane` 框架使用 `flamegraph` 生成火焰图步骤如下
 
+### 安装
+
+```sh
+cargo install flamegraph
+```
+
 ### 使用
 
-```rust
+```sh
 CARGO_PROFILE_RELEASE_DEBUG=true cargo flamegraph --release
 ```
 
