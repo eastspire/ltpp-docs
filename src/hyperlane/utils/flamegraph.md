@@ -15,7 +15,7 @@ order: 11
 
 > [!tip]
 >
-> `hyperlane` 框架使用 `flamegraph`，使用需要保证有 `perf` 环境，生成火焰图步骤如下
+> `hyperlane` 框架使用 `flamegraph`，使用前提是需要有 `perf` 环境，生成火焰图步骤如下
 
 ### 安装
 
