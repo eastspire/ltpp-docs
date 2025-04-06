@@ -16,17 +16,17 @@ order: 1
 
 ### 环境信息
 
-- 系统: Ubuntu20.04.6 LTS
-- CPU: i9-14900KF
-- 内存: 192GB 6400MT/S（实际运行 4000MT/S）
-- 硬盘: SKC3000D2048G \* 2
-- GPU: AMD Radeon RX 6750 GRE 10GB
+- 系统: `Ubuntu20.04.6 LTS`
+- CPU: `i9-14900KF`
+- 内存: `192GB 6400MT/S（实际运行 4000MT/S）`
+- 硬盘: `SKC3000D2048G \* 2`
+- GPU: `AMD Radeon RX 6750 GRE 10GB`
 
 ### 调优
 
 #### Linux 内核调优
 
-> 打开文件 /etc/sysctl.conf，增加以下设置
+> 打开文件 `/etc/sysctl.conf`，增加以下设置
 
 ```sh
 #该参数设置系统的TIME_WAIT的数量，如果超过默认值则会被立即清除
@@ -54,7 +54,7 @@ ulimit -n 1024000
 
 #### 打开文件数
 
-> 修改 open files 的数值永久生效，修改配置文件：/etc/security/limits.conf. 在这个文件后加上
+> 修改 `open files` 的数值重启后永久生效，修改配置文件：`/etc/security/limits.conf`. 在这个文件后加上
 
 ```sh
 * soft nofile 1024000
