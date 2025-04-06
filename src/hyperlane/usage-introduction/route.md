@@ -17,7 +17,7 @@ order: 5
 
 > [!tip]
 >
-> `hyperlane` 框架支持静态路由，使用方法如下
+> `hyperlane` 框架支持静态路由（如果重复注册相同的静态路由，框架会抛出异常，程序退出运行），使用方法如下
 
 ### 注册
 
@@ -29,12 +29,12 @@ server.route("/test", |ctx: Context| {}).await;
 
 > [!tip]
 >
-> `hyperlane` 框架支持动态路由，使用方法如下
+> `hyperlane` 框架支持动态路由（如果重复注册相同模式的动态路由，框架会抛出异常，程序退出运行）具体使用方法如下
 
 ### 注册
 
 > [!tip]
-> 动态路由使用 `:`开头，后面的字符串作为 `key` 存储在 `ctx` 中
+> 动态路由使用 `:`（英文冒号）开头，后面的字符串作为 `key` 存储在 `ctx` 中
 
 ```rust
 server.route("/test/:text", |ctx: Context| {}).await;

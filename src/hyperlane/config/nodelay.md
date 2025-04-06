@@ -1,5 +1,5 @@
 ---
-title: nodelay
+title: Nodelay
 index: true
 icon: book
 category:

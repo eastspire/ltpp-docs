@@ -1,5 +1,5 @@
 ---
-title: ttl
+title: Time-To-Live
 index: true
 icon: book
 category:

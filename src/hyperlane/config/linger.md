@@ -1,5 +1,5 @@
 ---
-title: linger
+title: Linger
 index: true
 icon: book
 category:
