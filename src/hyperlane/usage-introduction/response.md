@@ -119,6 +119,10 @@ response.set_body(vec![]);
 
 ### 设置响应头
 
+> [!tip]
+>
+> `hyperlane` 框架对响应头的 `key` 是不做大小写处理的，这点与[请求头](./request.md)的 `key` 处理方式不同
+
 #### 推荐
 
 ```rust

@@ -75,6 +75,10 @@ let querys: RequestQuerys = request.get_querys();
 
 #### 获取 `header`
 
+> [!tip]
+>
+> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以获取请求头时需要注意 `key` 使用全小写
+
 ```rust
 let header: OptionRequestHeadersValue = request.get_header("key");
 ```
@@ -159,6 +163,10 @@ request.set_hash("server".to_owned());
 ```
 
 #### 修改 `header`
+
+> [!tip]
+>
+> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以更新请求头时需要注意 `key` 使用全小写
 
 ```rust
 request.set_header("server", "hyperlane");
