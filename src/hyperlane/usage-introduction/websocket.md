@@ -22,7 +22,7 @@ order: 8
 > [!tip]
 >
 > `hyperlane` 框架发送 `websocket` 响应使用`send_response_body`，与 `sse` 相同，
-> 框架同时保留 `http` 其他方法（例如`close`，>`send_response`等）。
+> 由于 `websocket`协议基于`http`，所以可以像使用 `http` 一样处理请求。
 > 如果开发者尝试调用 `send_response` 服务端响应会正常发送，但是客户端解析会出问题
 > （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）所以对于 `websocket`，
 > 请统一使用 `send_response_body` 方法
