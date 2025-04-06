@@ -8,7 +8,7 @@ category:
   - rust
   - usage-introduction
   - response
-order: 6
+order: 7
 ---
 
 <Share colorful />

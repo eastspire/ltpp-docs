@@ -8,7 +8,7 @@ category:
   - rust
   - usage-introduction
   - sse
-order: 7
+order: 8
 ---
 
 <Share colorful />

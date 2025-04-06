@@ -68,7 +68,6 @@ async fn request_middleware(ctx: Context) {
 
 async fn response_middleware(ctx: Context) {
     let _ = ctx.send().await;
-    let _ = ctx.flush().await;
     let request: String = ctx.get_request_string().await;
     let response: String = ctx.get_response_string().await;
     ctx.log_info(&request, log_handler)
@@ -95,7 +94,6 @@ async fn main() {
     server.host("0.0.0.0").await;
     server.port(60000).await;
     server.enable_nodelay().await;
-    server.disable_linger().await;
     server.log_dir("./logs").await;
     server.enable_inner_log().await;
     server.enable_inner_print().await;
@@ -109,11 +107,12 @@ async fn main() {
     let test_string: String = "Hello hyperlane".to_owned();
     server
         .route(
-            "/test/panic",
+            "/test/:text",
             async_func!(test_string, |ctx| {
+                let param: RouteParams = ctx.get_route_params().await;
+                print_success!(format!("{:?}", param));
                 println_success!(test_string);
-                println_success!(ctx.get_request().await.get_string());
-                panic!("Test panic\ndata: test");
+                panic!("Test panic\n\ndata: test");
             }),
         )
         .await;
