@@ -7,8 +7,7 @@ category:
   - web
   - rust
   - speed
-  - close
-  - keep-alive
+  - close-keep-alive
 order: 3
 ---
 
