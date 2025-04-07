@@ -7,26 +7,11 @@ category:
   - web
   - rust
   - help
-order: 8
+  - lock
+order: 1
 ---
 
 <Share colorful />
-
-### 安装
-
-> [!tip]
->
-> 如果不使用 `Cargo.lock`，请在版本前加 `=` 来锁定版本
-
-```toml
-[dependencies]
-hyperlane = "=*.*.*"
-```
-
-### 异步
-
-> [!tip]
-> 由于 `hyperlane` 框架本身涉及到锁的数据均采取 `tokio`中的锁实现，所以涉及到锁的方法调用均需要 `await`
 
 ### 死锁问题
 

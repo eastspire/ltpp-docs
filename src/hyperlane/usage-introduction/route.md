@@ -75,3 +75,5 @@ ctx.remove_route_param("text").await;
 ```rust
 ctx.clear_route_param().await;
 ```
+
+<Bottom />
