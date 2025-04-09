@@ -57,7 +57,7 @@ export default defineUserConfig({
       'link',
       {
         rel: 'icon',
-        href: `${base}img/logo.ico`,
+        href: `${base}img/logo.png`,
       },
     ],
     [
