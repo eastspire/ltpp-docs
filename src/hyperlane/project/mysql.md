@@ -6,7 +6,7 @@ category:
   - clone
   - web
   - rust
-  - plugin
+  - project
   - mysql
 order: 2
 ---
@@ -17,7 +17,7 @@ order: 2
 
 > [!tip]
 >
-> 基于 `hyperlane` 框架，使用 `sqlx` 开发的 `mysql` 数据库插件的 `demo`
+> 基于 `hyperlane` 框架，使用 `sqlx` 开发的 `mysql` 数据库 `demo`
 
 ### 克隆项目
 
