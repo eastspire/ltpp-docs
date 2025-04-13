@@ -40,8 +40,12 @@ cargo add hyperlane-time
 
 ```rust
 use hyperlane_time::*;
-println!("当前时间: {}", current_time());
-println!("今天日期: {}", current_date());
+
+println!("Current Time: {}", current_time());
+println!("Current Date: {}", current_date());
+println!("GMT Date: {}", current_date_gmt());
+println!("Timestamp (ms): {}", current_timestamp_millis());
+println!("Timestamp (μs): {}", current_timestamp_micros());
 ```
 
 ## 许可证
