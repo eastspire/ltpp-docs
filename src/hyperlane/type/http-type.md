@@ -1,5 +1,5 @@
 ---
-title: HTTP类型库
+title: Http类型库
 index: true
 icon: book
 category:
