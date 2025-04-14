@@ -1,5 +1,5 @@
 ---
-title: LICENSE
+title: License
 icon: gears
 category:
   - LICENSE

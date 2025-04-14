@@ -1,8 +1,8 @@
 ---
-title: LICENSE
+title: License
 icon: gears
 category:
-  - LICENSE
+  - license
 order: 9
 ---
 
