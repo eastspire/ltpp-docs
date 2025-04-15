@@ -55,7 +55,7 @@ ctx.get_route_param("text").await;
 ### 设置全部动态路由参数
 
 ```rust
-ctx.set_route_params("text", &hash_map_xxhash3_64!()).await;
+ctx.set_route_params("text", hash_map_xxhash3_64!()).await;
 ```
 
 ### 添加动态路由某个参数
