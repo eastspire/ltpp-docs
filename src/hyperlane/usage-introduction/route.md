@@ -46,34 +46,10 @@ server.route("/test/:text", |ctx: Context| {}).await;
 ctx.get_route_params().await;
 ```
 
-### 查询动态路由某个参数
+### 获取某个动态路由参数
 
 ```rust
 ctx.get_route_param("text").await;
-```
-
-### 设置全部动态路由参数
-
-```rust
-ctx.set_route_params("text", hash_map_xxhash3_64!()).await;
-```
-
-### 添加动态路由某个参数
-
-```rust
-ctx.add_route_param("text", "hello world").await;
-```
-
-### 删除动态路由某个参数
-
-```rust
-ctx.remove_route_param("text").await;
-```
-
-### 清空全部动态路由参数
-
-```rust
-ctx.clear_route_param().await;
 ```
 
 <Bottom />
