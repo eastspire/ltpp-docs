@@ -18,10 +18,6 @@ order: 11
 > `hyperlane` 框架的 `Context` 作为中间件和路由处理函数的唯一的参数类型，其内部保存了上下文数据，具体类型定义如下
 
 ```rust
-pub type RwLockWriteInnerContext<'a> = RwLockWriteGuard<'a, InnerContext>;
-pub type RwLockReadInnerContext<'a> = RwLockReadGuard<'a, InnerContext>;
-pub type HashMapArcAnySendSync = HashMap<String, ArcAnySendSync>;
-
 #[derive(Clone, Lombok, Default)]
 pub struct InnerContext {
     stream: OptionArcRwLockStream,
@@ -30,6 +26,7 @@ pub struct InnerContext {
     log: Log,
     attribute: HashMapArcAnySendSync,
     route_params: ArcRwLockRouteParams,
+    aborted: bool,
 }
 
 #[derive(Clone, Default)]
