@@ -102,6 +102,26 @@ let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
 let response: &mut Response = ctx.get_mut_response();
 ```
 
+### 获取响应体
+
+#### 获取 `body`
+
+```rust
+let body: ResponseBody = response.get_body();
+```
+
+##### 获取 `body string`
+
+```rust
+let body: String = response.get_body_string();
+```
+
+##### 获取 `body json`
+
+```rust
+let body: T = response.get_body_json::<T>();
+```
+
 ### 设置响应体
 
 #### 推荐

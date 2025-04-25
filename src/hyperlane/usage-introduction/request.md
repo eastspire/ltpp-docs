@@ -95,6 +95,18 @@ let headers: RequestHeaders = request.get_headers();
 let body: RequestBody = request.get_body();
 ```
 
+#### 获取 `body string`
+
+```rust
+let body: String = request.get_body_string();
+```
+
+#### 获取 `body json`
+
+```rust
+let body: T = request.get_body_json::<T>();
+```
+
 ### 获取可变请求信息
 
 ```rust
