@@ -73,17 +73,67 @@ order: 7
 
 ### 获取响应
 
-#### 推荐
+#### 获取 `response`
+
+##### 推荐
 
 ```rust
 let response: Response = ctx.get_response().await;
 ```
 
-#### 通过写锁
+##### 通过写锁
 
 ```rust
 let ctx: RwLockWriteContext = ctx.get_write_lock().await;
 let response: Response = ctx.get_response().clone();
+```
+
+#### 获取响应版本
+
+```rust
+let version: ResponseVersion = response.get_version();
+```
+
+#### 获取响应状态码
+
+```rust
+let status_code: ResponseStatusCode = response.get_status_code();
+```
+
+#### 获取响应原因短语
+
+```rust
+let reason_phrase: ResponseReasonPhrase = response.get_reason_phrase();
+```
+
+#### 获取完整响应头
+
+```rust
+let headers: ResponseHeaders = response.get_headers();
+```
+
+#### 获取某个响应头
+
+```rust
+let value: ResponseHeadersValue = response.get_header("key");
+```
+
+#### 获取请求体
+
+```rust
+let body: ResponseBody = response.get_body();
+```
+
+#### 获取 `string` 格式的请求体
+
+```rust
+let body: String = response.get_body_string();
+```
+
+#### 获取 `json` 格式的请求体
+
+```rust
+let body: T = response.get_body_json::<T>();
 ```
 
 ### 获取可变响应
@@ -100,26 +150,6 @@ let response: &mut Response = inner_ctx.get_mut_response();
 ```rust
 let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
 let response: &mut Response = ctx.get_mut_response();
-```
-
-### 获取响应体
-
-#### 获取 `body`
-
-```rust
-let body: ResponseBody = response.get_body();
-```
-
-##### 获取 `body string`
-
-```rust
-let body: String = response.get_body_string();
-```
-
-##### 获取 `body json`
-
-```rust
-let body: T = response.get_body_json::<T>();
 ```
 
 ### 设置响应体

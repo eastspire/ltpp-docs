@@ -89,19 +89,19 @@ let header: OptionRequestHeadersValue = request.get_header("key");
 let headers: RequestHeaders = request.get_headers();
 ```
 
-#### 获取 `body`
+#### 获取请求体
 
 ```rust
 let body: RequestBody = request.get_body();
 ```
 
-#### 获取 `body string`
+#### 获取 `string` 格式的请求体
 
 ```rust
 let body: String = request.get_body_string();
 ```
 
-#### 获取 `body json`
+#### 获取 `json` 格式的请求体
 
 ```rust
 let body: T = request.get_body_json::<T>();
