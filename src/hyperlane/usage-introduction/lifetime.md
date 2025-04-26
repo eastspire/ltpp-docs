@@ -65,6 +65,6 @@ graph TD
 ### `hyperlane` 框架 >= `v4.89.0` 的版本
 
 > [!tip]
-> 如果任一环节调用`ctx.aborted().await` 则会中止后续操作
+> 如果任一环节调用`ctx.aborted().await` 则会中止后续流程
 
 <Bottom />
