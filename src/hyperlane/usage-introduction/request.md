@@ -51,26 +51,90 @@ let request: Request = ctx.get_request().clone();
 
 #### 获取 `method`
 
+##### 推荐
+
 ```rust
-let method: RequestMethod = request.get_method();
+let method: RequestMethod = ctx.get_request_method().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let method: RequestMethod = ctx.get_request().get_method();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let method: RequestMethod = ctx.get_request().get_method();
 ```
 
 #### 获取 `host`
 
+##### 推荐
+
 ```rust
-let host: RequestHost = request.get_host();
+let host: RequestHost = ctx.get_request_host().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let host: RequestHost = ctx.get_request().get_host();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let host: RequestHost = ctx.get_request().get_host();
 ```
 
 #### 获取 `path`
 
+##### 推荐
+
 ```rust
-let path: RequestPath = request.get_path();
+let path: RequestPath = ctx.get_request_path().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let path: RequestPath = ctx.get_request().get_path();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let path: RequestPath = ctx.get_request().get_path();
 ```
 
 #### 获取 `querys`
 
+##### 推荐
+
 ```rust
-let querys: RequestQuerys = request.get_querys();
+let querys: RequestQuerys = ctx.get_request_querys().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let querys: RequestQuerys = ctx.get_request().get_querys();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let querys: RequestQuerys = ctx.get_request().get_querys();
 ```
 
 #### 获取 `header`
@@ -79,32 +143,112 @@ let querys: RequestQuerys = request.get_querys();
 >
 > `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以获取请求头时需要注意 `key` 使用全小写
 
+##### 推荐
+
 ```rust
-let header: OptionRequestHeadersValue = request.get_header("key");
+let header: OptionRequestHeadersValue = ctx.get_request_header("key").await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let header: OptionRequestHeadersValue = ctx.get_request().get_header("key");
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let header: OptionRequestHeadersValue = ctx.get_request().get_header("key");
 ```
 
 #### 获取 `headers`
 
+##### 推荐
+
 ```rust
-let headers: RequestHeaders = request.get_headers();
+let headers: RequestHeaders = ctx.get_request_headers().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let headers: RequestHeaders = ctx.get_request().get_headers();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let headers: RequestHeaders = ctx.get_request().get_headers();
 ```
 
 #### 获取请求体
 
+##### 推荐
+
 ```rust
-let body: RequestBody = request.get_body();
+let body: RequestBody = ctx.get_request_body().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: RequestBody = ctx.get_request().get_body();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: RequestBody = ctx.get_request().get_body();
 ```
 
 #### 获取 `string` 格式的请求体
 
+##### 推荐
+
 ```rust
-let body: String = request.get_body_string();
+let body: String = ctx.get_request_body_string().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: String = ctx.get_request().get_body_string();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: String = ctx.get_request().get_body_string();
 ```
 
 #### 获取 `json` 格式的请求体
 
+##### 推荐
+
 ```rust
-let body: T = request.get_body_json::<T>();
+let body: T = ctx.get_request_body_json::<T>().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: T = ctx.get_request().get_body_json::<T>();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: T = ctx.get_request().get_body_json::<T>();
 ```
 
 ### 获取可变请求信息

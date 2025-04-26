@@ -90,50 +90,178 @@ let response: Response = ctx.get_response().clone();
 
 #### 获取响应版本
 
+##### 推荐
+
 ```rust
-let version: ResponseVersion = response.get_version();
+let version: ResponseVersion = ctx.get_response_version().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let version: ResponseVersion = ctx.get_response().get_version();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let version: ResponseVersion = ctx.get_response().get_version();
 ```
 
 #### 获取响应状态码
 
+##### 推荐
+
 ```rust
-let status_code: ResponseStatusCode = response.get_status_code();
+let status_code: ResponseStatusCode = ctx.get_response_status_code().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let status_code: ResponseStatusCode = ctx.get_response().get_status_code();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let status_code: ResponseStatusCode = ctx.get_response().get_status_code();
 ```
 
 #### 获取响应原因短语
 
+##### 推荐
+
 ```rust
-let reason_phrase: ResponseReasonPhrase = response.get_reason_phrase();
+let reason_phrase: ResponseReasonPhrase = ctx.get_response_reason_phrase().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let reason_phrase: ResponseReasonPhrase = ctx.get_response().get_reason_phrase();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let reason_phrase: ResponseReasonPhrase = ctx.get_response().get_reason_phrase();
 ```
 
 #### 获取完整响应头
 
+##### 推荐
+
 ```rust
-let headers: ResponseHeaders = response.get_headers();
+let headers: ResponseHeaders = ctx.get_response_headers().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let headers: ResponseHeaders = ctx.get_response().get_headers();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let headers: ResponseHeaders = ctx.get_response().get_headers();
 ```
 
 #### 获取某个响应头
 
+##### 推荐
+
 ```rust
-let value: ResponseHeadersValue = response.get_header("key");
+let value: ResponseHeadersValue = ctx.get_response_header("key").await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let value: ResponseHeadersValue = ctx.get_response().get_header("key");
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let value: ResponseHeadersValue = ctx.get_response().get_header("key");
 ```
 
 #### 获取请求体
 
+##### 推荐
+
 ```rust
-let body: ResponseBody = response.get_body();
+let body: ResponseBody = ctx.get_response_body().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: ResponseBody = ctx.get_response().get_body();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: ResponseBody = ctx.get_response().get_body();
 ```
 
 #### 获取 `string` 格式的请求体
 
+##### 推荐
+
 ```rust
-let body: String = response.get_body_string();
+let body: String = ctx.get_response_body_string().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: String = ctx.get_response().get_body_string();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: String = ctx.get_response().get_body_string();
 ```
 
 #### 获取 `json` 格式的请求体
 
+##### 推荐
+
 ```rust
-let body: T = response.get_body_json::<T>();
+let body: T = ctx.get_response_body_json::<T>().await;
+```
+
+##### 通过读锁
+
+```rust
+let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
+let body: T = ctx.get_response().get_body_json::<T>();
+```
+
+##### 通过写锁
+
+```rust
+let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
+let body: T = ctx.get_response().get_body_json::<T>();
 ```
 
 ### 获取可变响应
