@@ -19,8 +19,13 @@ order: 1
 ```txt
 src                      # 项目代码目录
 ├── app                  # app目录
-│   ├── controller       # 控制器
-│   ├── middleware       # 中间件
+│   ├── controller       # 接口控制层
+│   ├── dao              # 数据访问对象层
+│   ├── domain           # 数据表对象层
+│   ├── middleware       # 中间件层
+│   ├── service          # 业务逻辑层
+│   ├── utils            # 工具层
+│   ├── view             # 视图层
 ├── config               # 配置目录
 │   ├── host             # host 配置
 │   ├── port             # 端口配置
