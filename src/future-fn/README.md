@@ -1,9 +1,9 @@
 ---
-title: async-func
+title: future-fn
 index: true
 icon: book
 category:
-  - async-func
+  - future-fn
   - spawn
   - rust
 dir:
@@ -12,28 +12,28 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/async-func)
+[GITHUB 地址](https://github.com/ltpp-universe/future-fn)
 
 <center>
 
-[![](https://img.shields.io/crates/v/async-func.svg)](https://crates.io/crates/async-func)
-[![](https://img.shields.io/crates/d/async-func.svg)](https://img.shields.io/crates/d/async-func.svg)
-[![](https://docs.rs/async-func/badge.svg)](https://docs.rs/async-func)
-[![](https://github.com/ltpp-universe/async-func/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/async-func/actions?query=workflow:Rust)
-[![](https://img.shields.io/crates/l/async-func.svg)](./LICENSE)
+[![](https://img.shields.io/crates/v/future-fn.svg)](https://crates.io/crates/future-fn)
+[![](https://img.shields.io/crates/d/future-fn.svg)](https://img.shields.io/crates/d/future-fn.svg)
+[![](https://docs.rs/future-fn/badge.svg)](https://docs.rs/future-fn)
+[![](https://github.com/ltpp-universe/future-fn/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/future-fn/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/future-fn.svg)](./LICENSE)
 
 </center>
 
-[API 文档](https://docs.rs/async-func/latest/async_move/)
+[API 文档](https://docs.rs/future-fn/latest/async_move/)
 
 > 一个 Rust 库，提供宏来简化异步闭包的创建，并捕获外部状态。用于轻松清晰地构建异步代码。
 
 ## 安装
 
-要安装 `async-func`，请运行以下命令：
+要安装 `future-fn`，请运行以下命令：
 
 ```sh
-cargo add async-func
+cargo add future-fn
 ```
 
 ## 使用
@@ -43,20 +43,20 @@ use async_move::*;
 
 let string: String = String::from("test");
 let number: i32 = 1;
-let func = async_func!(string, number, {
+let future_fn = future_fn!(string, number, {
     let tmp_string: String = String::from("test");
     assert_eq!(string, tmp_string);
     assert_eq!(number, 1);
 });
-func().await;
+future_fn().await;
 
-let func = async_func!(string, number, |data| {
+let future_fn = future_fn!(string, number, |data| {
     let tmp_string: String = String::from("test");
     assert_eq!(string, tmp_string);
     assert_eq!(data, 1);
     assert_eq!(number, 1);
 });
-func(1).await;
+future_fn(1).await;
 ```
 
 ## 许可证

@@ -88,11 +88,11 @@ server.route("/test/async", move |_| {
 }).await;
 ```
 
-#### 使用 async_func!
+#### 使用 future_fn!
 
 ```rust
 let test_string: String = "test".to_owned();
-let func = async_func!(test_string, |_| {
+let func = future_fn!(test_string, |_| {
     println!("async_move => {:?}", test_string);
 });
 server.route("/test/async", func).await;

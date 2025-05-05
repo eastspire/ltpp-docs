@@ -147,10 +147,10 @@ features:
     icon: blog
     link: /clonelicious/
 
-  - title: async-func
+  - title: future-fn
     details: 异步闭包移动宏
     icon: blog
-    link: /async-func/
+    link: /future-fn/
 
   - title: server-manager
     details: 服务进程管理
