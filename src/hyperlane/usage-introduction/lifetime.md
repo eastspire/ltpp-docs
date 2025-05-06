@@ -65,7 +65,10 @@ graph TD
 ### `hyperlane` 框架 >= `v4.89.0` 的版本
 
 > [!tip]
-> 如果任一环节调用 `ctx.aborted().await` 或者 `ctx.set_aborted(true).await` 则会中止后续流程。
-> 可以通过调用 `ctx.get_aborted().await` 来判断是否中止（大部分场景用不到）
+> 如果任一环节调用 `ctx.aborted().await` 或者 `ctx.set_aborted(true).await` 则会中止后续流程，
+> 相关 `API`（大部分场景用不到）
+>
+> - 调用 `ctx.cancel_aborted().await` 取消中止，继续后续流程
+> - 调用 `ctx.get_aborted().await` 来判断是否中止
 
 <Bottom />
