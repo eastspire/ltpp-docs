@@ -15,11 +15,11 @@ order: 2
 
 > [!tip]
 >
-> `hyperlane` 框架创建服务方式如下，需要监听服务才会正常运行
+> `hyperlane` 框架创建服务方式如下，需要调用 `run` 方法，服务才会正常运行
 
 ```rust
 let server: Server = Server::new();
-server.listen().await.unwrap();
+server.run().await.unwrap();
 ```
 
 <Bottom />

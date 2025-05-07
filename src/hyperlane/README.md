@@ -116,7 +116,7 @@ async fn main() {
             }),
         )
         .await;
-    server.listen().await.unwrap();
+    server.run().await.unwrap();
 }
 ```
 
