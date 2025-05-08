@@ -42,4 +42,23 @@ ctx.remove_attribute("key").await;
 ctx.clear_attribute().await;
 ```
 
+### 额外示例
+
+#### 设置闭包
+
+> [!tip]
+> 闭包需要实现 `Send + Sync` 的 `trait`，否则无法跨线程调用。一般不推荐 `value` 存储函数，这里只是提供一个示例
+
+```rust
+let func: &(dyn Fn(&str) + Send + Sync) = &|msg: &str| {
+    print_success!("hyperlane: ", msg);
+};
+ctx.set_attribute("print_hyperlane", &func).await;
+let print_hyperlane = ctx
+    .get_attribute::<&(dyn Fn(&str) + Send + Sync)>("print_hyperlane")
+    .await
+    .unwrap();
+print_hyperlane("test");
+```
+
 <Bottom />
