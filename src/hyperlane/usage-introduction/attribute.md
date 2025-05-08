@@ -47,7 +47,8 @@ ctx.clear_attribute().await;
 #### 设置闭包
 
 > [!tip]
-> 闭包需要实现 `Send + Sync` 的 `trait`，否则无法跨线程调用。一般不推荐 `value` 存储函数，这里只是提供一个示例
+> 闭包需要实现 `Send + Sync` 的 `trait`，否则无法跨线程调用，
+> 不推荐 `value` 存储函数，这里只是提供一个示例
 
 ```rust
 let func: &(dyn Fn(&str) + Send + Sync) = &|msg: &str| {
