@@ -17,7 +17,9 @@ order: 3
 
 > [!tip]
 >
-> 基于 `hyperlane` 框架，使用 `chunkify`（[官方文档](../../chunkify/README.md)） 开发的的文件分块全栈 `demo`
+> 基于 `hyperlane` 框架，使用 `chunkify`
+> （[官方文档](../../chunkify/README.md)） 开发的的文件分块项目
+> （[点击此处在线体验](https://file.ltpp.vip/)）
 
 ### 克隆项目
 
