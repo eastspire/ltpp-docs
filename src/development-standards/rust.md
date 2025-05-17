@@ -21,7 +21,7 @@ dir:
 - 模块名使用蛇形命名法
 - 宏名使用蛇形命名法
 
-## package
+## Package
 
 - `lib` 项目包在根 `crate` 导入依赖，子模块引入根 `crate`
 - `bin` 项目包在各自 `mod` 导入依赖
@@ -31,7 +31,7 @@ dir:
 - `lib` 项目不需要上传 `lock` 文件
 - `bin` 项目需要上传 `lock` 文件
 
-## monorepo
+## Monorepo
 
 - 需要尽可能拆分子 `crate`
 
