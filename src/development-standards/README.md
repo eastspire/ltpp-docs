@@ -1,6 +1,6 @@
 ---
 title: 开发规范
-index: true
+index: false
 icon: book
 category:
   - development-standards
