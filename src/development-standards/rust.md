@@ -11,8 +11,6 @@ dir:
 
 <Share colorful />
 
-<center>
-
 ## 变量命名
 
 - 变量名使用蛇形命名法

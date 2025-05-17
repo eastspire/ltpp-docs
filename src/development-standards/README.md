@@ -10,4 +10,4 @@ dir:
 
 <Share colorful />
 
-<center>
+<Bottom />
