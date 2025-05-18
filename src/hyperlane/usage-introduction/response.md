@@ -21,50 +21,7 @@ order: 7
 > [!tip]
 >
 > `hyperlane` 框架对 `ctx` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称，
-> 例如：调用 `response` 上的 `get_status_code` 方法，
-> 一般需要从 `ctx` 解出 `response`，再调用 `response.get_status_code()`，
-> 可以简化成 `ctx.get_response_status_code().await` 直接调用，
-> 推荐优先使用 `ctx` 的方法，而不是通过获取 `ctx` 写锁和读锁，
-> 理论上后者性能会更好，但是后者代码可读性不高且容易导致死锁，维护成本较高。使用前者你可能写出以下代码：
->
-> ```rust
-> pub async fn favicon_ico(ctx: Context) {
->     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
->     {
->         let mut ctx: RwLockWriteContext =
->         ctx.get_write_lock().await;
->         let response: &mut Response = ctx.get_mut_response();
->         response.set_header(CONTENT_TYPE, IMAGE_PNG);
->         response.set_header(CACHE_CONTROL, "public, max-age=3600");
->     }
->     let send_res: ResponseResult = ctx.send_response(200, data).await;
->     ctx
->         .get_log()
->         .await
->         .info(format!("Response result => {:?}", send_res), log_handler);
-> }
-> ```
->
-> 但是使用后者，你的代码会是这样，是不是就无需担心死锁发生了
->
-> ```rust
-> pub async fn favicon_ico(ctx: Context) {
->     let data: Vec<u8> = plugin::logo_img::func::get_logo_img();
->     let send_res: ResponseResult = ctx
->         .set_response_header(CONTENT_TYPE, IMAGE_PNG)
->         .await
->         .set_response_header(CACHE_CONTROL, "public, max-age=3600")
->         .await
->         .send_response(200, data)
->         .await;
->     let request: Request = ctx.get_request().await;
->     ctx
->         .log_info(format!("Request result => {}", request), log_handler)
->         .await
->         .log_info(format!("Response result => {:?}", send_res), log_handler)
->         .await;
-> }
-> ```
+> 例如：调用 `response` 上的 `get_status_code` 方法
 >
 > **调用规律**
 >
@@ -75,224 +32,62 @@ order: 7
 
 #### 获取 `response`
 
-##### 推荐
-
 ```rust
 let response: Response = ctx.get_response().await;
 ```
 
-##### 通过写锁
-
-```rust
-let ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let response: Response = ctx.get_response().clone();
-```
-
 #### 获取响应版本
-
-##### 推荐
 
 ```rust
 let version: ResponseVersion = ctx.get_response_version().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let version: ResponseVersion = ctx.get_response().get_version();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let version: ResponseVersion = ctx.get_response().get_version();
-```
-
 #### 获取响应状态码
-
-##### 推荐
 
 ```rust
 let status_code: ResponseStatusCode = ctx.get_response_status_code().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let status_code: ResponseStatusCode = ctx.get_response().get_status_code();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let status_code: ResponseStatusCode = ctx.get_response().get_status_code();
-```
-
 #### 获取响应原因短语
-
-##### 推荐
 
 ```rust
 let reason_phrase: ResponseReasonPhrase = ctx.get_response_reason_phrase().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let reason_phrase: ResponseReasonPhrase = ctx.get_response().get_reason_phrase();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let reason_phrase: ResponseReasonPhrase = ctx.get_response().get_reason_phrase();
-```
-
 #### 获取完整响应头
-
-##### 推荐
 
 ```rust
 let headers: ResponseHeaders = ctx.get_response_headers().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let headers: ResponseHeaders = ctx.get_response().get_headers();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let headers: ResponseHeaders = ctx.get_response().get_headers();
-```
-
 #### 获取某个响应头
-
-##### 推荐
 
 ```rust
 let value: ResponseHeadersValue = ctx.get_response_header("key").await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let value: ResponseHeadersValue = ctx.get_response().get_header("key");
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let value: ResponseHeadersValue = ctx.get_response().get_header("key");
-```
-
 #### 获取请求体
-
-##### 推荐
 
 ```rust
 let body: ResponseBody = ctx.get_response_body().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let body: ResponseBody = ctx.get_response().get_body();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let body: ResponseBody = ctx.get_response().get_body();
-```
-
 #### 获取 `string` 格式的请求体
-
-##### 推荐
 
 ```rust
 let body: String = ctx.get_response_body_string().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let body: String = ctx.get_response().get_body_string();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let body: String = ctx.get_response().get_body_string();
-```
-
 #### 获取 `json` 格式的请求体
-
-##### 推荐
 
 ```rust
 let body: T = ctx.get_response_body_json::<T>().await;
 ```
 
-##### 通过读锁
-
-```rust
-let mut ctx: RwLockReadContext = ctx.get_read_lock().await;
-let body: T = ctx.get_response().get_body_json::<T>();
-```
-
-##### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let body: T = ctx.get_response().get_body_json::<T>();
-```
-
-### 获取可变响应
-
-#### 推荐
-
-```rust
-let mut  = ctx.get().await;
-let response: &mut Response = inner_ctx.get_mut_response();
-```
-
-#### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let response: &mut Response = ctx.get_mut_response();
-```
-
 ### 设置响应体
-
-#### 推荐
 
 ```rust
 ctx.set_response_body(vec![]).await;
-```
-
-#### 获取 `ctx` 克隆
-
-```rust
-let mut response: Response = ctx.get_response().await;
-response.set_body(vec![]);
 ```
 
 ### 设置响应头
@@ -301,34 +96,14 @@ response.set_body(vec![]);
 >
 > `hyperlane` 框架对响应头的 `key` 是不做大小写处理的，这点与[请求头](./request.md)的 `key` 处理方式不同
 
-#### 推荐
-
 ```rust
 ctx.set_response_header("server", "hyperlane").await;
 ```
 
-#### 获取 `ctx` 克隆
-
-```rust
-let inner_ctx: InnerContext = ctx.get().await;
-let mut response: Response = inner_ctx.get_response().clone();
-response.set_header("server", "hyperlane");
-```
-
 ### 设置状态码
-
-#### 推荐
 
 ```rust
 ctx.set_response_status_code(200).await;
-```
-
-#### 获取 `ctx` 克隆
-
-```rust
-let inner_ctx: InnerContext = ctx.get().await;
-let mut response: Response = inner_ctx.get_response().clone();
-response.set_status_code(200);
 ```
 
 ### 发送完整 HTTP 响应
@@ -343,10 +118,9 @@ response.set_status_code(200);
 > 发送响应后 `TCP` 连接保留
 
 ```rust
-let mut  = ctx.get().await;
-let stream = inner_ctx.get_mut_stream().clone().unwrap();
-let mut response = inner_ctx.get_response().clone();
-let _ = response.set_body("hello").send(&stream);
+let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
+let mut response: Response = ctx.get_response().await;
+let _ = response.set_body("hello").send(&stream).await;
 ```
 
 #### ctx.send_response
@@ -399,10 +173,9 @@ let send_res: ResponseResult = ctx.send_once().await;
 #### response.send_body
 
 ```rust
-let mut  = ctx.get().await;
-let stream = inner_ctx.get_mut_stream().clone().unwrap();
-let mut response = inner_ctx.get_response().clone();
-let _ = response.set_body("hello").send_body(&stream).await;
+let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
+let mut response: Response = ctx.get_response().await;
+let _ = response.set_body("hello").send_body(&stream, false).await;
 ```
 
 #### ctx.send_response_body
@@ -429,9 +202,7 @@ let _ = ctx
     .send_response(200, vec![])
     .await;
 for i in 0..6 {
-    let _ = ctx
-        .send_body()
-        .await;
+    let _ = ctx.send_body().await;
 }
 ```
 

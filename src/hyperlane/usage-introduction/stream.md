@@ -20,36 +20,7 @@ order: 3
 ### 获取 `stream`
 
 ```rust
-let ctx: RwLockWriteContext = ctx.get_write_lock().await;
-let stream_lock: Arc<TcpStream> = ctx.get_stream().clone().unwrap();
-```
-
-### 获取可变 `stream`
-
-#### 推荐
-
-```rust
-let mut  = ctx.get().await;
-inner_ctx.get_mut_stream().and_then(|mut stream| {});
-```
-
-#### 通过写锁
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-ctx.get_mut_stream().and_then(|mut stream| {});
-```
-
-### 设置 `stream`
-
-```rust
-let inner_ctx: InnerContext = ctx.get().await;
-inner_ctx.set_stream(None);
-```
-
-```rust
-let mut ctx: RwLockWriteContext = ctx.get_write_lock().await;
-ctx.set_stream(None);
+let stream_lock: ArcRwLockStream = ctx.get_stream().await.clone().unwrap();
 ```
 
 ### 获取客户端地址
@@ -60,6 +31,9 @@ ctx.set_stream(None);
 
 ```rust
 let socket_addr: String = ctx
+    .get_stream()
+    .await
+    .unwrap()
     .get_read_lock()
     .await
     .peer_addr()
