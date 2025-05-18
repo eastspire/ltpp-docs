@@ -93,49 +93,49 @@ let body: T = ctx.get_request_body_json::<T>().await;
 
 ### 设置请求信息
 
+#### 设置 `request`
+
 ```rust
 ctx.set_request(Request::default()).await;
 ```
 
-### 修改请求
-
-#### 修改 `method`
+#### 设置 `method`
 
 ```rust
 request.set_request_method(GET.to_owned());
 ```
 
-#### 修改 `host`
+#### 设置 `host`
 
 ```rust
 request.set_request_host("localhost".to_owned());
 ```
 
-#### 修改 `path`
+#### 设置 `path`
 
 ```rust
 request.set_request_path("server".to_owned());
 ```
 
-#### 修改 `query`
+#### 设置 `query`
 
 ```rust
 request.set_request_query("server", "hyperlane");
 ```
 
-#### 修改 `querys`
+#### 设置 `querys`
 
 ```rust
 request.set_request_querys(HashMap::new());
 ```
 
-#### 修改 `hash`
+#### 设置 `hash`
 
 ```rust
 request.set_request_hash("server".to_owned());
 ```
 
-#### 修改 `header`
+#### 设置 `header`
 
 > [!tip]
 >
@@ -145,21 +145,21 @@ request.set_request_hash("server".to_owned());
 request.set_request_header("server", "hyperlane");
 ```
 
-#### 修改 `headers`
+#### 设置 `headers`
 
 ```rust
 request.set_request_headers(HashMap::new());
 ```
 
-#### 修改 `body`
+#### 设置 `body`
 
 ```rust
 request.set_request_body(vec![]);
 ```
 
-#### 转字符串
+### 转字符串
 
-##### 通过 `to_string`
+#### 通过 `to_string`
 
 > [!tip]
 > 将获得完整的原始结构体字符串结构
@@ -168,7 +168,7 @@ request.set_request_body(vec![]);
 ctx.get_request().await.to_string();
 ```
 
-##### 通过 `get_string`
+#### 通过 `get_string`
 
 > [!tip]
 > 将获得简化的结构体字符串结构

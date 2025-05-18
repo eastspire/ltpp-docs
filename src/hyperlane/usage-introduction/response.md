@@ -84,13 +84,21 @@ let body: String = ctx.get_response_body_string().await;
 let body: T = ctx.get_response_body_json::<T>().await;
 ```
 
-### 设置响应体
+### 设置响应
+
+#### 设置 `response`
+
+```rust
+ctx.set_response(Response::default()).await;
+```
+
+#### 设置响应体
 
 ```rust
 ctx.set_response_body(vec![]).await;
 ```
 
-### 设置响应头
+#### 设置响应头
 
 > [!tip]
 >
@@ -100,19 +108,19 @@ ctx.set_response_body(vec![]).await;
 ctx.set_response_header("server", "hyperlane").await;
 ```
 
-### 设置状态码
+#### 设置状态码
 
 ```rust
 ctx.set_response_status_code(200).await;
 ```
 
-### 发送完整 HTTP 响应
+#### 发送完整 HTTP 响应
 
 > [!tip]
 > 如果你已经设置了响应信息，可以直接通过 `send` 或者 `send_once` 发送。此方法常用于响应中间件用于统一发送。
 > 如果是 `websocket` 则不会发送，所以可以在响应中间件放心使用
 
-#### response.send
+##### response.send
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
@@ -123,7 +131,7 @@ let mut response: Response = ctx.get_response().await;
 let _ = response.set_body("hello").send(&stream).await;
 ```
 
-#### ctx.send_response
+##### ctx.send_response
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
@@ -135,7 +143,7 @@ let _ = response.set_body("hello").send(&stream).await;
 let send_res: ResponseResult = ctx.send_response(200, "hello hyperlane");
 ```
 
-#### ctx.send_response_once
+##### ctx.send_response_once
 
 > [!tip]
 > 发送响应后 `TCP` 连接立即关闭
@@ -147,7 +155,7 @@ let send_res: ResponseResult = ctx.send_response(200, "hello hyperlane");
 let send_res: ResponseResult = ctx.send_response_once(200, "hello hyperlane");
 ```
 
-#### ctx.send
+##### ctx.send
 
 > [!tip]
 > 发送响应后 `TCP` 连接保留
@@ -156,7 +164,7 @@ let send_res: ResponseResult = ctx.send_response_once(200, "hello hyperlane");
 let send_res: ResponseResult = ctx.send().await;
 ```
 
-#### ctx.send_once
+##### ctx.send_once
 
 > [!tip]
 > 发送响应后 `TCP` 连接立即关闭
@@ -165,12 +173,12 @@ let send_res: ResponseResult = ctx.send().await;
 let send_res: ResponseResult = ctx.send_once().await;
 ```
 
-### 仅发送响应体
+#### 仅发送响应体
 
 > [!tip]
 > 支持多次主动发送响应
 
-#### response.send_body
+##### response.send_body
 
 ```rust
 let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
@@ -178,7 +186,7 @@ let mut response: Response = ctx.get_response().await;
 let _ = response.set_body("hello").send_body(&stream, false).await;
 ```
 
-#### ctx.send_response_body
+##### ctx.send_response_body
 
 ```rust
 let _ = ctx
@@ -193,7 +201,7 @@ for i in 0..6 {
 }
 ```
 
-#### ctx.send_body
+##### ctx.send_body
 
 ```rust
 let _ = ctx
