@@ -12,7 +12,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane)
+[GITHUB 地址](https://github.com/eastspire/hyperlane)
 
 <center>
 
@@ -21,7 +21,7 @@ dir:
 [![](https://img.shields.io/crates/v/hyperlane.svg)](https://crates.io/crates/hyperlane)
 [![](https://img.shields.io/crates/d/hyperlane.svg)](https://img.shields.io/crates/d/hyperlane.svg)
 [![](https://docs.rs/hyperlane/badge.svg)](https://docs.rs/hyperlane)
-[![](https://github.com/ltpp-universe/hyperlane/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/hyperlane/workflows/Rust/badge.svg)](https://github.com/eastspire/hyperlane/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/hyperlane.svg)](./license)
 
 </center>
@@ -40,11 +40,11 @@ cargo add hyperlane
 
 ## 快速开始
 
-- [hyperlane-quick-start git](https://github.com/ltpp-universe/hyperlane-quick-start)
+- [hyperlane-quick-start git](https://github.com/eastspire/hyperlane-quick-start)
 - [hyperlane-quick-start docs](https://docs.ltpp.vip/hyperlane/quick-start/)
 
 ```sh
-git clone https://github.com/ltpp-universe/hyperlane-quick-start.git
+git clone https://github.com/eastspire/hyperlane-quick-start.git
 ```
 
 ## 使用示例
@@ -108,7 +108,7 @@ async fn main() {
     server
         .route(
             "/test/:text",
-            future_fn!(test_string, |ctx| {
+            future_fn!(test_string, |ctx: Context| {
                 let param: RouteParams = ctx.get_route_params().await;
                 println_success!(format!("{:?}", param));
                 println_success!(test_string);
@@ -130,6 +130,6 @@ async fn main() {
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[eastspire <root@ltpp.vip>](mailto:root@ltpp.vip)。
 
 <Bottom />

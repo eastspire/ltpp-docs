@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/udp)
+[GITHUB 地址](https://github.com/eastspire/udp)
 
 <center>
 
 [![](https://img.shields.io/crates/v/udp.svg)](https://crates.io/crates/udp)
 [![](https://img.shields.io/crates/d/udp.svg)](https://img.shields.io/crates/d/udp.svg)
 [![](https://docs.rs/udp/badge.svg)](https://docs.rs/udp)
-[![](https://github.com/ltpp-universe/udp/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/udp/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/udp/workflows/Rust/badge.svg)](https://github.com/eastspire/udp/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/udp.svg)](./LICENSE)
 
 </center>
@@ -66,7 +66,7 @@ async fn main() {
     server.func(test_func).await;
     let test_string: String = "test".to_owned();
     server
-        .func(future_fn!(test_string, |data| {
+        .func(future_fn!(test_string, |data: Context| {
             println_success!(&test_string);
             println_success!(String::from_utf8_lossy(&data.get_request().await));
         }))
@@ -85,6 +85,6 @@ async fn main() {
 
 ## 联系方式
 
-如有任何问题，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请联系作者：[eastspire <root@ltpp.vip>](mailto:root@ltpp.vip)。
 
 <Bottom />
