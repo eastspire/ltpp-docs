@@ -13,14 +13,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/bin-encode-decode)
+[GITHUB 地址](https://github.com/eastspire/bin-encode-decode)
 
 <center>
 
 [![](https://img.shields.io/crates/v/bin-encode-decode.svg)](https://crates.io/crates/bin-encode-decode)
 [![](https://img.shields.io/crates/d/bin-encode-decode.svg)](https://img.shields.io/crates/d/bin-encode-decode.svg)
 [![](https://docs.rs/bin-encode-decode/badge.svg)](https://docs.rs/bin-encode-decode)
-[![](https://github.com/ltpp-universe/bin-encode-decode/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/bin-encode-decode/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/bin-encode-decode/workflows/Rust/badge.svg)](https://github.com/eastspire/bin-encode-decode/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/bin-encode-decode.svg)](./license)
 
 </center>
@@ -102,6 +102,6 @@ let encoded_str = encode(charset, original_str);
 
 ## 联系方式
 
-如有任何疑问，请联系作者 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者 [root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

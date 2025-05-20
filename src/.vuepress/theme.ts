@@ -7,15 +7,15 @@ export default hopeTheme({
   hostname: 'https://docs.ltpp.vip',
 
   author: {
-    name: 'ltpp-universe',
-    url: 'https://github.com/ltpp-universe',
+    name: 'eastspire',
+    url: 'https://github.com/eastspire',
   },
 
   iconAssets: 'fontawesome-with-brands',
 
   logo: '/img/logo.png',
 
-  repo: 'https://github.com/ltpp-universe',
+  repo: 'https://github.com/eastspire',
 
   docsDir: 'src',
 
@@ -34,7 +34,7 @@ export default hopeTheme({
   editLink: false,
 
   copyright:
-    '<a target="_blank" class="ltpp-link animate" href="mailto:root@ltpp.vip">© 2021 - present ltpp-universe 版权所有</a>',
+    '<a target="_blank" class="ltpp-link animate" href="mailto:root@ltpp.vip">© 2021 - present eastspire 版权所有</a>',
 
   // 多语言配置
   metaLocales: {

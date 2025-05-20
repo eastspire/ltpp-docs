@@ -10,14 +10,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/chunkify)
+[GITHUB 地址](https://github.com/eastspire/chunkify)
 
 <center>
 
 [![](https://img.shields.io/crates/v/chunkify.svg)](https://crates.io/crates/chunkify)
 [![](https://img.shields.io/crates/d/chunkify.svg)](https://img.shields.io/crates/d/chunkify.svg)
 [![](https://docs.rs/chunkify/badge.svg)](https://docs.rs/chunkify)
-[![](https://github.com/ltpp-universe/chunkify/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/chunkify/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/chunkify/workflows/Rust/badge.svg)](https://github.com/eastspire/chunkify/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/chunkify.svg)](./LICENSE)
 
 </center>
@@ -62,6 +62,6 @@ chunk_strategy.merge_chunks().await.unwrap();
 
 ## 联系方式
 
-如有任何问题，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

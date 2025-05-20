@@ -12,21 +12,21 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/cloud-storage)
+[GITHUB 地址](https://github.com/eastspire/cloud-storage)
 
 <center>
 
 [![](https://img.shields.io/crates/v/server-manager.svg)](https://crates.io/crates/server-manager)
 [![](https://img.shields.io/crates/d/server-manager.svg)](https://img.shields.io/crates/d/server-manager.svg)
 [![](https://docs.rs/server-manager/badge.svg)](https://docs.rs/server-manager)
-[![](https://github.com/ltpp-universe/server-manager/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/server-manager/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/server-manager/workflows/Rust/badge.svg)](https://github.com/eastspire/server-manager/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/server-manager.svg)](./LICENSE)
 
 </center>
 
 [Api Docs](https://docs.rs/server-manager/latest/server_manager/)
 
-> `server-manager` 是一个用于管理服务器进程的 Rust 库。它封装了服务的启动、停止以及后台守护（daemon）模式，用户可以通过自定义配置来指定 PID 文件、日志文件等路径，同时可以将自己的异步服务器函数传入进行调用。该库支持同步和异步操作，在 Unix 和 Windows 平台下可以使用后台守护进程功能。
+> server-manager 是一个用于管理服务器进程的 rust 库。它封装了服务的启动、停止以及后台守护（daemon）模式，用户可以通过自定义配置来指定 PID 文件、日志文件等路径，同时可以将自己的异步服务器函数传入进行调用。该库支持同步和异步操作，在 Unix 和 Windows 平台下可以使用后台守护进程功能。
 
 ## 安装
 
@@ -69,6 +69,6 @@ let _ = fs::remove_file(&pid_file);
 
 ## 联系方式
 
-如有任何疑问，请通过 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip) 与作者联系。
+如有任何疑问，请通过 [root@ltpp.vip](mailto:root@ltpp.vip) 与作者联系。
 
 <Bottom />

@@ -13,14 +13,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/std-macro-extensions)
+[GITHUB 地址](https://github.com/eastspire/std-macro-extensions)
 
 <center>
 
 [![](https://img.shields.io/crates/v/std-macro-extensions.svg)](https://crates.io/crates/std-macro-extensions)
 [![](https://img.shields.io/crates/d/std-macro-extensions.svg)](https://img.shields.io/crates/d/std-macro-extensions.svg)
 [![](https://docs.rs/std-macro-extensions/badge.svg)](https://docs.rs/std-macro-extensions)
-[![](https://github.com/ltpp-universe/std-macro-extensions/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/std-macro-extensions/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/std-macro-extensions/workflows/Rust/badge.svg)](https://github.com/eastspire/std-macro-extensions/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/std-macro-extensions.svg)](./license)
 
 </center>
@@ -248,6 +248,6 @@ let another_path: String = join_paths!("C:/", "/Program Files", "App");
 
 ## 联系方式
 
-如有任何询问，请联系作者 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何询问，请联系作者 [root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

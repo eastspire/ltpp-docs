@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-request)
+[GITHUB 地址](https://github.com/eastspire/http-request)
 
 <center>
 
 [![](https://img.shields.io/crates/v/http-request.svg)](https://crates.io/crates/http-request)
 [![](https://img.shields.io/crates/d/http-request.svg)](https://img.shields.io/crates/d/http-request.svg)
 [![](https://docs.rs/http-request/badge.svg)](https://docs.rs/http-request)
-[![](https://github.com/ltpp-universe/http-request/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-request/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/http-request/workflows/Rust/badge.svg)](https://github.com/eastspire/http-request/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/http-request.svg)](./license)
 
 </center>
@@ -178,6 +178,6 @@ _request_builder
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

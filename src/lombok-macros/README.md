@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/lombok-macros)
+[GITHUB 地址](https://github.com/eastspire/lombok-macros)
 
 <center>
 
 [![](https://img.shields.io/crates/v/lombok-macros.svg)](https://crates.io/crates/lombok-macros)
 [![](https://img.shields.io/crates/d/lombok-macros.svg)](https://img.shields.io/crates/d/lombok-macros.svg)
 [![](https://docs.rs/lombok-macros/badge.svg)](https://docs.rs/lombok-macros)
-[![](https://github.com/ltpp-universe/lombok-macros/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/lombok-macros/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/lombok-macros/workflows/Rust/badge.svg)](https://github.com/eastspire/lombok-macros/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/lombok-macros.svg)](./license)
 
 </center>
@@ -434,6 +434,6 @@ fn main() {
 
 ## 联系
 
-如有任何问题，请通过邮件联系作者 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请通过邮件联系作者 [root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

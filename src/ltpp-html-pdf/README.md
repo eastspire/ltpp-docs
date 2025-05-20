@@ -12,7 +12,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/HTML-PDF)
+[GITHUB 地址](https://github.com/eastspire/HTML-PDF)
 
 ## 功能
 

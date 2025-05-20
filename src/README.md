@@ -16,7 +16,7 @@ actions:
 
   - text: 作者主页
     icon: star
-    link: https://github.com/ltpp-universe
+    link: https://github.com/eastspire
 
   - text: 赞赏作者
     icon: sun

@@ -12,7 +12,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/file-operation)
+[GITHUB 地址](https://github.com/eastspire/file-operation)
 
 ## 文件操作
 
@@ -21,7 +21,7 @@ dir:
 [![](https://img.shields.io/crates/v/file-operation.svg)](https://crates.io/crates/file-operation)
 [![](https://img.shields.io/crates/d/file-operation.svg)](https://img.shields.io/crates/d/file-operation.svg)
 [![](https://docs.rs/file-operation/badge.svg)](https://docs.rs/file-operation)
-[![](https://github.com/ltpp-universe/file-operation/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/file-operation/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/file-operation/workflows/Rust/badge.svg)](https://github.com/eastspire/file-operation/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/file-operation.svg)](./LICENSE)
 
 </center>
@@ -250,6 +250,6 @@ let res: Result<(), std::io::Error> = async_delete_dir(NEW_TEST_DIR).await;
 
 ## 联系
 
-如有任何问题，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

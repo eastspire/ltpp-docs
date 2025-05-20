@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/recoverable-spawn)
+[GITHUB 地址](https://github.com/eastspire/recoverable-spawn)
 
 <center>
 
 [![](https://img.shields.io/crates/v/recoverable-spawn.svg)](https://crates.io/crates/recoverable-spawn)
 [![](https://img.shields.io/crates/d/recoverable-spawn.svg)](https://img.shields.io/crates/d/recoverable-spawn.svg)
 [![](https://docs.rs/recoverable-spawn/badge.svg)](https://docs.rs/recoverable-spawn)
-[![](https://github.com/ltpp-universe/recoverable-spawn/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-spawn/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/recoverable-spawn/workflows/Rust/badge.svg)](https://github.com/eastspire/recoverable-spawn/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/recoverable-spawn.svg)](./LICENSE)
 
 </center>
@@ -125,6 +125,6 @@ let res: AsyncSpawnResult = async_recoverable_spawn_catch_finally(
 
 ## 联系
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

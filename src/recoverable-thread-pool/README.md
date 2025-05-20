@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/recoverable-thread-pool)
+[GITHUB 地址](https://github.com/eastspire/recoverable-thread-pool)
 
 <center>
 
 [![](https://img.shields.io/crates/v/recoverable-thread-pool.svg)](https://crates.io/crates/recoverable-thread-pool)
 [![](https://img.shields.io/crates/d/recoverable-thread-pool.svg)](https://img.shields.io/crates/d/recoverable-thread-pool.svg)
 [![](https://docs.rs/recoverable-thread-pool/badge.svg)](https://docs.rs/recoverable-thread-pool)
-[![](https://github.com/ltpp-universe/recoverable-thread-pool/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/recoverable-thread-pool/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/recoverable-thread-pool/workflows/Rust/badge.svg)](https://github.com/eastspire/recoverable-thread-pool/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/recoverable-thread-pool.svg)](./LICENSE)
 
 </center>
@@ -116,6 +116,6 @@ sleep(Duration::from_secs(10));
 
 ## 联系方式
 
-如有任何问题，请通过以下邮箱联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请通过以下邮箱联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

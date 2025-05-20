@@ -85,6 +85,6 @@ async fn main() {
 
 ## 联系方式
 
-如有任何问题，请联系作者：[eastspire <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

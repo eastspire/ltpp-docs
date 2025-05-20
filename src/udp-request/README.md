@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/udp-request)
+[GITHUB 地址](https://github.com/eastspire/udp-request)
 
 <center>
 
 [![](https://img.shields.io/crates/v/udp-request.svg)](https://crates.io/crates/udp-request)
 [![](https://img.shields.io/crates/d/udp-request.svg)](https://img.shields.io/crates/d/udp-request.svg)
 [![](https://docs.rs/udp-request/badge.svg)](https://docs.rs/udp-request)
-[![](https://github.com/ltpp-universe/udp-request/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/udp-request/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/udp-request/workflows/Rust/badge.svg)](https://github.com/eastspire/udp-request/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/udp-request.svg)](./LICENSE)
 
 </center>
@@ -84,6 +84,6 @@ request_builder
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

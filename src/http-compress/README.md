@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-compress)
+[GITHUB 地址](https://github.com/eastspire/http-compress)
 
 <center>
 
 [![](https://img.shields.io/crates/v/http-compress.svg)](https://crates.io/crates/http-compress)
 [![](https://img.shields.io/crates/d/http-compress.svg)](https://img.shields.io/crates/d/http-compress.svg)
 [![](https://docs.rs/http-compress/badge.svg)](https://docs.rs/http-compress)
-[![](https://github.com/ltpp-universe/http-compress/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-compress/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/http-compress/workflows/Rust/badge.svg)](https://github.com/eastspire/http-compress/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/http-compress.svg)](./license)
 
 </center>
@@ -79,6 +79,6 @@ let _ = Compress::Br.decode(&[], 1_024_000);
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

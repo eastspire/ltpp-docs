@@ -14,7 +14,7 @@ order: 2
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/test-request)
+[GITHUB 地址](https://github.com/eastspire/test-request)
 
 > [!tip]
 > 测试累计请求 `1w` 次

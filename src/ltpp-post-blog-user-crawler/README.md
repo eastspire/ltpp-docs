@@ -12,7 +12,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/RUST-WEB-SERVE)
+[GITHUB 地址](https://github.com/eastspire/RUST-WEB-SERVE)
 
 ## 功能
 

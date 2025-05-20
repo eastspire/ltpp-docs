@@ -148,7 +148,7 @@ access-control-allow-headers: Authorization,Requestid,Key,Content-Type,If-Match,
 content-type: application/json
 connection: close
 access-control-allow-credentials: true
-git: https://github.com/ltpp-universe/RUST-WEB-SERVE.git
+git: https://github.com/eastspire/RUST-WEB-SERVE.git
 access-control-allow-origin: https://api.ltpp.vip:443/Version/getVersion
 access-control-max-age: 88888888
 server: nginx

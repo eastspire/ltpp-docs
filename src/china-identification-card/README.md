@@ -13,14 +13,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/china_identification_card)
+[GITHUB 地址](https://github.com/eastspire/china_identification_card)
 
 <center>
 
 [![](https://img.shields.io/crates/v/china_identification_card.svg)](https://crates.io/crates/china_identification_card)
 [![](https://img.shields.io/crates/d/china_identification_card.svg)](https://img.shields.io/crates/d/china_identification_card.svg)
 [![](https://docs.rs/china_identification_card/badge.svg)](https://docs.rs/china_identification_card)
-[![](https://github.com/ltpp-universe/china_identification_card/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/china_identification_card/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/china_identification_card/workflows/Rust/badge.svg)](https://github.com/eastspire/china_identification_card/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/china_identification_card.svg)](./license)
 
 </center>
@@ -61,6 +61,6 @@ let is_valid: bool = is_valid_id_number("110101202311012176");
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

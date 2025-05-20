@@ -13,7 +13,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/rust-get-proxy-request)
+[GITHUB 地址](https://github.com/eastspire/rust-get-proxy-request)
 
 ## 简介
 

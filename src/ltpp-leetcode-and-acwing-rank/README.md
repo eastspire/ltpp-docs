@@ -13,7 +13,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/LeetcodeAndAcwingRank)
+[GITHUB 地址](https://github.com/eastspire/LeetcodeAndAcwingRank)
 
 ## 功能
 

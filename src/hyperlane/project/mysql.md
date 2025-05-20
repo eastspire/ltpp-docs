@@ -13,7 +13,7 @@ order: 2
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/tree/mysql)
+[GITHUB 地址](https://github.com/eastspire/hyperlane-quick-start/tree/mysql)
 
 > [!tip]
 >
@@ -22,7 +22,7 @@ order: 2
 ### 克隆项目
 
 ```sh
-git clone git@github.com:ltpp-universe/hyperlane-quick-start.git;
+git clone git@github.com:eastspire/hyperlane-quick-start.git;
 ```
 
 ### 进入项目目录
@@ -33,7 +33,7 @@ cd ./hyperlane-quick-start;
 
 ### Mysql 配置
 
-修改代码文件：[src/config/mysql/constant.rs](https://github.com/ltpp-universe/hyperlane-quick-start/blob/mysql/src/config/mysql/constant.rs)
+修改代码文件：[src/config/mysql/constant.rs](https://github.com/eastspire/hyperlane-quick-start/blob/mysql/src/config/mysql/constant.rs)
 
 ### 切换分支
 

@@ -11,7 +11,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/OjJudgeTestdataCreat)
+[GITHUB 地址](https://github.com/eastspire/OjJudgeTestdataCreat)
 
 ## 功能
 

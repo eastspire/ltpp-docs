@@ -13,7 +13,7 @@ order: 4
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/tree/group-chat)
+[GITHUB 地址](https://github.com/eastspire/hyperlane-quick-start/tree/group-chat)
 
 > [!tip]
 >
@@ -23,7 +23,7 @@ order: 4
 ### 克隆项目
 
 ```sh
-git clone git@github.com:ltpp-universe/hyperlane-quick-start.git;
+git clone git@github.com:eastspire/hyperlane-quick-start.git;
 ```
 
 ### 进入项目目录

@@ -10,7 +10,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/ltpp-event-publish-subscribe-in-javascript)
+[GITHUB 地址](https://github.com/eastspire/ltpp-event-publish-subscribe-in-javascript)
 
 ## 说明
 

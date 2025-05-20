@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/http-type)
+[GITHUB 地址](https://github.com/eastspire/http-type)
 
 <center>
 
 [![](https://img.shields.io/crates/v/http-type.svg)](https://crates.io/crates/http-type)
 [![](https://img.shields.io/crates/d/http-type.svg)](https://img.shields.io/crates/d/http-type.svg)
 [![](https://docs.rs/http-type/badge.svg)](https://docs.rs/http-type)
-[![](https://github.com/ltpp-universe/http-type/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/http-type/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/http-type/workflows/Rust/badge.svg)](https://github.com/eastspire/http-type/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/http-type.svg)](./license)
 
 </center>
@@ -52,6 +52,6 @@ use http_type::*;
 
 ## 联系方式
 
-如有任何疑问，请联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

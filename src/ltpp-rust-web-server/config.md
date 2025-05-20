@@ -27,7 +27,7 @@ category:
             "Access-Control-Allow-Headers: *",
             "Access-Control-Allow-Methods: *",
             "Access-Control-Allow-Origin: *",
-            "Git: https://github.com/ltpp-universe/RUST-WEB-SERVE.git",
+            "Git: https://github.com/eastspire/RUST-WEB-SERVE.git",
             "Content-Type: text/html",
             "Content-Encoding: gzip"
           ],
@@ -47,7 +47,7 @@ category:
             "Access-Control-Allow-Headers: *",
             "Access-Control-Allow-Methods: *",
             "Access-Control-Allow-Origin: *",
-            "Git: https://github.com/ltpp-universe/RUST-WEB-SERVE.git",
+            "Git: https://github.com/eastspire/RUST-WEB-SERVE.git",
             "Content-Type: application/json",
             "Content-Encoding: gzip"
           ],
@@ -77,7 +77,7 @@ category:
             "Access-Control-Allow-Headers: *",
             "Access-Control-Allow-Credentials: true",
             "Server: RUST-WEB-SERVER",
-            "Git: https://github.com/ltpp-universe/RUST-WEB-SERVE.git",
+            "Git: https://github.com/eastspire/RUST-WEB-SERVE.git",
             "Content-Type: application/json",
             "Content-Encoding: gzip"
           ],

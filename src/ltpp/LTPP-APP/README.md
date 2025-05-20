@@ -11,7 +11,7 @@ dir:
 
 <Share colorful />
 
-[LTPP-APP GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
+[LTPP-APP GITHUB 地址](https://github.com/eastspire/LTPP-APP-Flutter)
 
 ## 简介
 

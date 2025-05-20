@@ -13,7 +13,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/cloud-file-storage)
+[GITHUB 地址](https://github.com/eastspire/cloud-file-storage)
 
 <center>
 
@@ -34,7 +34,7 @@ dir:
 ### 克隆
 
 ```sh
-git clone git@github.com:ltpp-universe/cloud-file-storage.git
+git clone git@github.com:eastspire/cloud-file-storage.git
 ```
 
 ### 运行
@@ -97,6 +97,6 @@ cargo run
 
 ## 联系方式
 
-如有任何疑问，请通过 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip) 与作者联系。
+如有任何疑问，请通过 [root@ltpp.vip](mailto:root@ltpp.vip) 与作者联系。
 
 <Bottom />

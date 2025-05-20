@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-time)
+[GITHUB 地址](https://github.com/eastspire/hyperlane-time)
 
 <center>
 
 [![](https://img.shields.io/crates/v/hyperlane-time.svg)](https://crates.io/crates/hyperlane-time)
 [![](https://img.shields.io/crates/d/hyperlane-time.svg)](https://img.shields.io/crates/d/hyperlane-time.svg)
 [![](https://docs.rs/hyperlane-time/badge.svg)](https://docs.rs/hyperlane-time)  
-[![](https://github.com/ltpp-universe/hyperlane-time/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/hyperlane-time/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/hyperlane-time/workflows/Rust/badge.svg)](https://github.com/eastspire/hyperlane-time/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/hyperlane-time.svg)](./LICENSE)
 
 </center>
@@ -72,6 +72,6 @@ println!("Current Time with Micros: {}", time_micros());
 
 ## 联系
 
-如有任何问题，请通过邮件联系作者 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何问题，请通过邮件联系作者 [root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

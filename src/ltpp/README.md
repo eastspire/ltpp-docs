@@ -13,7 +13,7 @@ dir:
 
 [WEB 系统地址](https://ltpp.vip)
 
-[GITHUB 地址](https://github.com/ltpp-universe/LTPP-APP-Flutter)
+[GITHUB 地址](https://github.com/eastspire/LTPP-APP-Flutter)
 
 ## 简介
 

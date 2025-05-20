@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/future-fn)
+[GITHUB 地址](https://github.com/eastspire/future-fn)
 
 <center>
 
 [![](https://img.shields.io/crates/v/future-fn.svg)](https://crates.io/crates/future-fn)
 [![](https://img.shields.io/crates/d/future-fn.svg)](https://img.shields.io/crates/d/future-fn.svg)
 [![](https://docs.rs/future-fn/badge.svg)](https://docs.rs/future-fn)
-[![](https://github.com/ltpp-universe/future-fn/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/future-fn/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/future-fn/workflows/Rust/badge.svg)](https://github.com/eastspire/future-fn/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/future-fn.svg)](./LICENSE)
 
 </center>
@@ -91,6 +91,6 @@ future_fn(1).await;
 
 ## 联系方式
 
-如有任何疑问，请通过 [ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip) 与作者联系。
+如有任何疑问，请通过 [root@ltpp.vip](mailto:root@ltpp.vip) 与作者联系。
 
 <Bottom />

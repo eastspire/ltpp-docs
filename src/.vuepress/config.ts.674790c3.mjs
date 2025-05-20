@@ -157,12 +157,12 @@ var sidebar_default = sidebar({
 var theme_default = hopeTheme({
   hostname: "https://docs.ltpp.vip",
   author: {
-    name: "ltpp-universe",
-    url: "https://github.com/ltpp-universe"
+    name: "eastspire",
+    url: "https://github.com/eastspire"
   },
   iconAssets: "fontawesome-with-brands",
   logo: "/img/logo.png",
-  repo: "https://github.com/ltpp-universe",
+  repo: "https://github.com/eastspire",
   docsDir: "src",
   repoDisplay: true,
   print: true,
@@ -172,7 +172,7 @@ var theme_default = hopeTheme({
   sidebar: sidebar_default,
   displayFooter: true,
   editLink: false,
-  copyright: '<a target="_blank" class="ltpp-link animate" href="mailto:root@ltpp.vip">\xA9 2021 - present ltpp-universe \u7248\u6743\u6240\u6709</a>',
+  copyright: '<a target="_blank" class="ltpp-link animate" href="mailto:root@ltpp.vip">\xA9 2021 - present eastspire \u7248\u6743\u6240\u6709</a>',
   // 多语言配置
   metaLocales: {
     editLink: "\u5728 GitHub \u4E0A\u7F16\u8F91\u6B64\u9875"

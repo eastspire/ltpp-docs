@@ -12,14 +12,14 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/clonelicious)
+[GITHUB 地址](https://github.com/eastspire/clonelicious)
 
 <center>
 
 [![](https://img.shields.io/crates/v/clonelicious.svg)](https://crates.io/crates/clonelicious)
 [![](https://img.shields.io/crates/d/clonelicious.svg)](https://img.shields.io/crates/d/clonelicious.svg)
 [![](https://docs.rs/clonelicious/badge.svg)](https://docs.rs/clonelicious)
-[![](https://github.com/ltpp-universe/clonelicious/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/clonelicious/actions?query=workflow:Rust)
+[![](https://github.com/eastspire/clonelicious/workflows/Rust/badge.svg)](https://github.com/eastspire/clonelicious/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/clonelicious.svg)](./LICENSE)
 
 </center>
@@ -71,6 +71,6 @@ assert_eq!(res, String::from("Hello World"));
 
 ## 联系
 
-如有任何疑问，请通过电子邮件联系作者：[ltpp-universe <root@ltpp.vip>](mailto:root@ltpp.vip)。
+如有任何疑问，请通过电子邮件联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

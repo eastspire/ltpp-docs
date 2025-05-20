@@ -13,7 +13,7 @@ order: 1
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/tree/redis)
+[GITHUB 地址](https://github.com/eastspire/hyperlane-quick-start/tree/redis)
 
 > [!tip]
 >
@@ -22,7 +22,7 @@ order: 1
 ### 克隆项目
 
 ```sh
-git clone git@github.com:ltpp-universe/hyperlane-quick-start.git;
+git clone git@github.com:eastspire/hyperlane-quick-start.git;
 ```
 
 ### 进入项目目录
@@ -33,7 +33,7 @@ cd ./hyperlane-quick-start;
 
 ### Redis 配置
 
-修改代码文件：[src/config/redis.rs](https://github.com/ltpp-universe/hyperlane-quick-start/blob/redis/src/config/redis.rs)
+修改代码文件：[src/config/redis.rs](https://github.com/eastspire/hyperlane-quick-start/blob/redis/src/config/redis.rs)
 
 ### 切换分支
 

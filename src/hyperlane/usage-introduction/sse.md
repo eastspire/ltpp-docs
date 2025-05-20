@@ -13,7 +13,7 @@ order: 8
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/hyperlane-quick-start/tree/sse)
+[GITHUB 地址](https://github.com/eastspire/hyperlane-quick-start/tree/sse)
 
 > [!tip]
 >

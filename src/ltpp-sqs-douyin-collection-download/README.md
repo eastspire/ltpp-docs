@@ -14,7 +14,7 @@ dir:
 
 <Share colorful />
 
-[GITHUB 地址](https://github.com/ltpp-universe/sqs-douyin-collection-download)
+[GITHUB 地址](https://github.com/eastspire/sqs-douyin-collection-download)
 
 ## 功能
 
