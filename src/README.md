@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: 文档首页
-heroText: LTPP-UNIVERSE文档
+heroText: Eastspire文档
 tagline: 只要我们为人民的利益坚持好的，为人民的利益改正错的，我们这个队伍就一定会兴旺起来。
 heroFullScreen: true
 bgImage: /img/light-background.png

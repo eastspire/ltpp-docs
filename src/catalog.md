@@ -5,14 +5,14 @@ icon: book
 category:
   - 目录
   - 文档目录
-  - LTPP-UNIVERSE
+  - Eastspire
 ---
 
 <Share colorful />
 
 > [!tip]
 >
-> `LTPP-UNIVERSE` 文档目录
+> `Eastspire` 文档目录
 
 <Catalog :level=2 />
 

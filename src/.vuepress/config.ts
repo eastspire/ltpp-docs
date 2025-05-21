@@ -17,8 +17,8 @@ export default defineUserConfig({
       lang: 'zh-CN',
     },
   },
-  title: 'LTPP-UNIVERSE文档',
-  description: 'LTPP-UNIVERSE文档',
+  title: 'Eastspire文档',
+  description: 'Eastspire文档',
   theme,
   dest: resolve(__dirname, '../../docs-html'),
   head: [
@@ -43,14 +43,14 @@ export default defineUserConfig({
       {
         name: 'keywords',
         content:
-          'LTPP,开发,编程,计算机,学习,资源,OJ,LTPP-在线开发平台,LTPP-UNIVERSE,LTPP-UNIVERSE文档,Rust,博客,文字,文章,精选',
+          'LTPP,开发,编程,计算机,学习,资源,OJ,LTPP-在线开发平台,Eastspire,Eastspire文档,Rust,博客,文字,文章,精选',
       },
     ],
     [
       'meta',
       {
         name: 'description',
-        content: 'LTPP-UNIVERSE文档',
+        content: 'Eastspire文档',
       },
     ],
     [
