@@ -27,10 +27,63 @@ order: 9
 > （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）所以对于 `websocket`，
 > 请统一使用 `send_response_body` 方法
 
+#### 单点发送
+
 ```rust
 pub async fn handle(ctx: Context) {
     let request_body: Vec<u8> = ctx.get_request_body().await;
     let _ = ctx.send_response_body(request_body).await;
+}
+```
+
+#### 广播发送
+
+> [!tip]
+>
+> 需要阻塞住当前处理函数，将后续所有请求在处理函数中处理，
+> 这里使用 `tokio` 的 `select` 来处理多个请求，使用 `tokio` 的 `broadcast` 来实现广播
+
+```rust
+use super::*;
+use hyperlane::tokio::sync::broadcast::{Receiver, Sender, channel};
+use std::sync::OnceLock;
+
+type Message = Vec<u8>;
+static BROADCAST_CHANNEL: OnceLock<Sender<Message>> = OnceLock::new();
+
+fn ensure_broadcast_channel() -> Sender<Message> {
+    BROADCAST_CHANNEL
+        .get_or_init(|| {
+            let (sender, _) = channel(1);
+            sender
+        })
+        .clone()
+}
+
+pub async fn handle(ctx: Context) {
+    let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
+    let mut first_request: Request = ctx.get_request().await;
+    let log: Log = ctx.get_log().await;
+    let sender: Sender<Vec<u8>> = ensure_broadcast_channel();
+    let ctx: Context = Context::from_stream_request_log(&stream, &first_request, &log);
+    let mut receiver: Receiver<Vec<u8>> = sender.subscribe();
+    loop {
+        tokio::select! {
+            request_res = Request::websocket_request_from_stream(&stream, 10000) => {
+                let request = request_res.unwrap();
+                let body: RequestBody = request.get_body().clone();
+                first_request.set_body(body.clone());
+                sender.send(body).unwrap();
+            },
+            msg_res = receiver.recv() => {
+                if let Ok(msg) = msg_res {
+                    if ctx.send_response_body(msg).await.is_err() || ctx.flush().await.is_err() {
+                        break;
+                    }
+                }
+           }
+        }
+    }
 }
 ```
 
