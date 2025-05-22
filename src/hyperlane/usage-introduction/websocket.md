@@ -47,7 +47,7 @@ pub async fn handle(ctx: Context) {
 
 > [!tip]
 >
-> 完整代码参考[`GroupChat`](../project/group-chat.md);
+> 完整代码参考 [`GroupChat`](../project/group-chat.md);
 
 ```rust
 use hyperlane::tokio::sync::broadcast::{Receiver, Sender, channel};
