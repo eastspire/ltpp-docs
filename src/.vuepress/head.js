@@ -45,8 +45,8 @@ function setCookie() {
 
 function redirectToLowerCaseUrl() {
   try {
-    const parsedUrl = new URL(window.location.href);
-    const lowerCaseUrl = (
+    var parsedUrl = new URL(window.location.href);
+    var lowerCaseUrl = (
       `${parsedUrl.protocol.toLowerCase()}//` +
       `${parsedUrl.hostname.toLowerCase()}` +
       (parsedUrl.port ? `:${parsedUrl.port}` : '') +
@@ -157,7 +157,7 @@ function listen() {
 
 function sendVisit() {
   try {
-    const dom = document.createElement('img');
+    var dom = document.createElement('img');
     dom.setAttribute(
       'src',
       `https://proxy.ltpp.vip/visit/add?origin=${window.location.href}`
@@ -170,6 +170,18 @@ function disableWarnLog() {
   console.warn = function () {};
 }
 
+function disableClickDom() {
+  setTimeout(function () {
+    var noClickElements = document.querySelectorAll('.no-click');
+    noClickElements.forEach(function (element) {
+      element.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  }, 0);
+}
+
 (function () {
   try {
     disableWarnLog();
@@ -179,5 +191,6 @@ function disableWarnLog() {
     listen();
     redirectToLowerCaseUrl();
     sendVisit();
+    disableClickDom();
   } catch (e) {}
 })();
