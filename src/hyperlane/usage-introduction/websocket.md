@@ -15,7 +15,7 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架支持 `websocket` 协议，服务端自动处理协议升级，支持请求中间件，路由处理，响应中间件
+> `hyperlane` 框架支持 `websocket` 协议，服务端自动处理协议升级，支持请求中间件，路由处理，响应中间件。
 
 ### 服务端代码
 
@@ -25,7 +25,7 @@ order: 9
 > 由于 `websocket`协议基于`http`，所以可以像使用 `http` 一样处理请求。
 > 如果开发者尝试调用 `send_response` 服务端响应会正常发送，但是客户端解析会出问题
 > （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）所以对于 `websocket`，
-> 请统一使用 `send_response_body` 方法
+> 请统一使用 `send_response_body` 方法。
 
 #### 单点发送
 
@@ -47,7 +47,7 @@ pub async fn handle(ctx: Context) {
 
 > [!tip]
 >
-> 完整代码参考 [`GroupChat`](../project/group-chat.md);
+> 完整代码参考 [`GroupChat`](../project/group-chat.md) 。
 
 ```rust
 use hyperlane::tokio::sync::broadcast::{Receiver, Sender, channel};
