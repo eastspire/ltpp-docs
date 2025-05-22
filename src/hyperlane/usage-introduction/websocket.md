@@ -45,8 +45,11 @@ pub async fn handle(ctx: Context) {
 > 需要特别注意，群发消息必须要求客户端连接后主动向服务端发送一条消息（空消息即可），否则不会接收到广播的信息，
 > 因为服务端会先完成握手，然后等待读取一次客户端请求，才会执行到用户代码。
 
+> [!tip]
+>
+> 完整代码参考[`GroupChat`](../project/group-chat.md);
+
 ```rust
-use super::*;
 use hyperlane::tokio::sync::broadcast::{Receiver, Sender, channel};
 use std::sync::OnceLock;
 
@@ -63,6 +66,10 @@ fn ensure_broadcast_channel() -> Sender<Message> {
 }
 
 pub async fn handle(ctx: Context) {
+    if ctx.get_stream().await.is_none() {
+        ctx.aborted().await;
+        return;
+    }
     let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
     let mut first_request: Request = ctx.get_request().await;
     let log: Log = ctx.get_log().await;
@@ -72,10 +79,15 @@ pub async fn handle(ctx: Context) {
     loop {
         tokio::select! {
             request_res = Request::websocket_request_from_stream(&stream, 10000) => {
-                let request = request_res.unwrap();
+                if request_res.is_err() {
+                    break;
+                }
+                let request = request_res.unwrap_or_default();
                 let body: RequestBody = request.get_body().clone();
                 first_request.set_body(body.clone());
-                sender.send(body).unwrap();
+                if sender.send(body).is_err() {
+                    break;
+                }
             },
             msg_res = receiver.recv() => {
                 if let Ok(msg) = msg_res {
