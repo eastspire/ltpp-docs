@@ -172,10 +172,10 @@ features:
     icon: blog
     link: /cloud-file-storage/
 
-  - title: ltpp-ssh
-    details: ltpp ssh服务
+  - title: hyperlane-broadcast
+    details: Hyperlane广播库
     icon: blog
-    link: /ltpp-ssh/
+    link: /hyperlane-broadcast/
 
   - title: ltpp-qrcode
     details: ltpp qrcode服务
