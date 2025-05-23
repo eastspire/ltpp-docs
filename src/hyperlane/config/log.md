@@ -17,7 +17,7 @@ order: 6
 
 > [!tip]
 >
-> `hyperlane` 框架默认当前路径 `logs` 文件夹
+> `hyperlane` 框架默认当前路径 `logs` 文件夹。
 
 ```rust
 // 省略 server 创建
@@ -28,7 +28,7 @@ server.log_dir("./logs").await;
 
 > [!tip]
 >
-> `hyperlane` 框架文件大小的单位是字节（byte），默认 `1GB`
+> `hyperlane` 框架文件大小的单位是字节（byte），默认 `1GB`。
 
 ```rust
 // 省略 server 创建
@@ -39,7 +39,7 @@ server.log_size(100_024_000).await;
 
 > [!tip]
 >
-> `hyperlane` 框架写入日志文件间隔时间的单位是毫秒（ms） ，默认 `360MS`
+> `hyperlane` 框架写入日志文件间隔时间的单位是毫秒（ms） ，默认 `360MS`。
 
 ```rust
 // 省略 server 创建
@@ -50,7 +50,7 @@ server.log_interval_millis(1000).await;
 
 > [!tip]
 >
-> `hyperlane` 框架禁用日志记录原理是设置日志文件大小为 `DISABLE_LOG_FILE_SIZE`
+> `hyperlane` 框架禁用日志记录原理是设置日志文件大小为 `DISABLE_LOG_FILE_SIZE`。
 
 ```rust
 // 省略 server 创建
@@ -61,7 +61,7 @@ server.disable_log().await;
 
 > [!tip]
 >
-> `hyperlane` 框架框架默认会启用所有日志记录
+> `hyperlane` 框架框架默认会启用所有日志记录。
 
 ```rust
 // 省略 server 创建
