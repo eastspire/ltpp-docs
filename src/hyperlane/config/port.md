@@ -15,7 +15,7 @@ order: 4
 
 > [!tip]
 >
-> `hyperlane` 框架绑定端口方式如下
+> `hyperlane` 框架绑定端口方式如下。
 
 ```rust
 // 省略 server 创建

@@ -17,7 +17,7 @@ order: 1
 
 > [!tip]
 >
-> 如果不使用 `Cargo.lock`，请在版本号前加 `=` 来锁定版本
+> 如果不使用 `Cargo.lock`，请在版本号前加 `=` 来锁定版本。
 
 ```toml
 [dependencies]
