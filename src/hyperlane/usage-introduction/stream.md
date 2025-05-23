@@ -15,7 +15,7 @@ order: 3
 
 > [!tip]
 >
-> `hyperlane` 框架接收请求和发送响应均依赖 `stream`，使用方式如下
+> `hyperlane` 框架接收请求和发送响应均依赖 `stream`，使用方式如下。
 
 ### 获取 `stream`
 
@@ -27,7 +27,7 @@ let stream_lock: ArcRwLockStream = ctx.get_stream().await.clone().unwrap();
 
 > [!tip]
 >
-> 完整接口参阅[官方文档](./addr.md)，此处只介绍通过 `stream` 解析使用
+> 完整接口参阅[官方文档](./addr.md)，此处只介绍通过 `stream` 解析使用。
 
 ```rust
 let socket_addr: String = ctx

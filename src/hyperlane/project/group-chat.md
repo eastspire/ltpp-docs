@@ -18,7 +18,7 @@ order: 4
 > [!tip]
 >
 > 基于 `hyperlane` 框架开发的全栈在线群聊项目
-> （[点击此处在线体验](https://chat.ltpp.vip/)）
+> （[点击此处在线体验](https://chat.ltpp.vip/)）。
 
 ### 克隆项目
 

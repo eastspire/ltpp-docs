@@ -15,7 +15,7 @@ order: 11
 
 > [!tip]
 >
-> `hyperlane` 框架使用 `urlencoding` 库，可以实现 `url` 编解码
+> `hyperlane` 框架使用 `urlencoding` 库，可以实现 `url` 编解码。
 
 ### 编码
 

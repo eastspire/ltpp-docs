@@ -17,7 +17,7 @@ order: 8
 
 > [!tip]
 >
-> `hyperlane` 框架支持 `SSE`，服务端主动推送，下面是每隔 `1s` 完成一次推送，并在 `10` 次后关闭连接
+> `hyperlane` 框架支持 `SSE`，服务端主动推送，下面是每隔 `1s` 完成一次推送，并在 `10` 次后关闭连接。
 
 > [!tip]
 > SSE 规范: 服务器使用 "Content-Type: text/event-stream" 表示响应是一个 SSE 事件流。

@@ -17,7 +17,7 @@ order: 1
 
 > [!tip]
 >
-> 基于 `hyperlane` 框架，使用 `redis` 和 `server-manager` 开发的 `redis` 数据库 `demo`
+> 基于 `hyperlane` 框架，使用 `redis` 和 `server-manager` 开发的 `redis` 数据库 `demo`。
 
 ### 克隆项目
 

@@ -21,10 +21,10 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架发送 `websocket` 响应使用`send_response_body`，与 `sse` 相同，
+> `hyperlane` 框架发送 `websocket` 响应使用`send_response_body`，与 `sse` 相同。
 > 由于 `websocket`协议基于`http`，所以可以像使用 `http` 一样处理请求。
 > 如果开发者尝试调用 `send_response` 服务端响应会正常发送，但是客户端解析会出问题
-> （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）所以对于 `websocket`，
+> （因为服务端发送响应前需要处理成符合`websocket` 规范的响应，客户端才能正确解析）。所以对于 `websocket`，
 > 请统一使用 `send_response_body` 方法。
 
 #### 单点发送
@@ -40,10 +40,10 @@ pub async fn handle(ctx: Context) {
 
 > [!tip]
 >
-> 需要阻塞住当前处理函数，将后续所有请求在处理函数中处理，
-> 这里使用 `tokio` 的 `select` 来处理多个请求，使用 `tokio` 的 `broadcast` 来实现广播，
+> 需要阻塞住当前处理函数，将后续所有请求在处理函数中处理。
+> 这里使用 `tokio` 的 `select` 来处理多个请求，使用 `tokio` 的 `broadcast` 来实现广播。
 > 需要特别注意，如果 `server` 没有配置 [`enable_inner_websocket_handle`](../config/enable_inner_websocket_handle.md) ，群发消息必须要求客户端连接后主动向服务端发送一条消息（空消息即可），否则不会接收到广播的信息，
-> 因为服务端在框架内部会先完成握手，然后等待读取一次客户端请求，才会执行到用户代码，
+> 因为服务端在框架内部会先完成握手，然后等待读取一次客户端请求，才会执行到用户代码。
 > 如果配置了则连接后即可接收到广播的信息。
 
 > [!tip]
