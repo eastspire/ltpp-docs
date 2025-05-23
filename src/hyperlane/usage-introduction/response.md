@@ -16,17 +16,17 @@ order: 7
 > [!tip]
 >
 > `hyperlane` 框架没有发送响应前通过 `ctx` 中 `get_response` 获取的只是响应的初始化实例，里面其实没有数据，
-> 只有当用户发送响应时才会构建出完整 `http` 响应，此后再次 `get_response` 才能获取到响应内容
+> 只有当用户发送响应时才会构建出完整 `http` 响应，此后再次 `get_response` 才能获取到响应内容。
 
 > [!tip]
 >
 > `hyperlane` 框架对 `ctx` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称，
-> 例如：调用 `response` 上的 `get_status_code` 方法
+> 例如：调用 `response` 上的 `get_status_code` 方法。
 >
 > **调用规律**
 >
-> - 原 `response` 的 `get` 方法的 `get` 名称后加 `response` 名称，中间使用\_拼接
-> - 原 `response` 的 `set` 方法的 `set` 名称后加 `response` 名称，中间使用\_拼接
+> - 原 `response` 的 `get` 方法的 `get` 名称后加 `response` 名称，中间使用\_拼接。
+> - 原 `response` 的 `set` 方法的 `set` 名称后加 `response` 名称，中间使用\_拼接。
 
 ### 获取响应
 
@@ -102,7 +102,7 @@ ctx.set_response_body(vec![]).await;
 
 > [!tip]
 >
-> `hyperlane` 框架对响应头的 `key` 是不做大小写处理的，这点与[请求头](./request.md)的 `key` 处理方式不同
+> `hyperlane` 框架对响应头的 `key` 是不做大小写处理的，这点与[请求头](./request.md)的 `key` 处理方式不同。
 
 ```rust
 ctx.set_response_header("server", "hyperlane").await;
@@ -118,12 +118,12 @@ ctx.set_response_status_code(200).await;
 
 > [!tip]
 > 如果你已经设置了响应信息，可以直接通过 `send` 或者 `send_once` 发送。此方法常用于响应中间件用于统一发送。
-> 如果是 `websocket` 则不会发送，所以可以在响应中间件放心使用
+> 如果是 `websocket` 则不会发送，所以可以在响应中间件放心使用。
 
 ##### response.send
 
 > [!tip]
-> 发送响应后 `TCP` 连接保留
+> 发送响应后 `TCP` 连接保留。
 
 ```rust
 let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
@@ -134,7 +134,7 @@ let _ = response.set_body("hello").send(&stream).await;
 ##### ctx.send_response
 
 > [!tip]
-> 发送响应后 `TCP` 连接保留
+> 发送响应后 `TCP` 连接保留。
 >
 > - 第一个参数: 状态码
 > - 第二个参数: 内容
@@ -146,7 +146,7 @@ let send_res: ResponseResult = ctx.send_response(200, "hello hyperlane");
 ##### ctx.send_response_once
 
 > [!tip]
-> 发送响应后 `TCP` 连接立即关闭
+> 发送响应后 `TCP` 连接立即关闭。
 >
 > - 第一个参数: 状态码
 > - 第二个参数: 内容
@@ -158,7 +158,7 @@ let send_res: ResponseResult = ctx.send_response_once(200, "hello hyperlane");
 ##### ctx.send
 
 > [!tip]
-> 发送响应后 `TCP` 连接保留
+> 发送响应后 `TCP` 连接保留。
 
 ```rust
 let send_res: ResponseResult = ctx.send().await;
@@ -167,7 +167,7 @@ let send_res: ResponseResult = ctx.send().await;
 ##### ctx.send_once
 
 > [!tip]
-> 发送响应后 `TCP` 连接立即关闭
+> 发送响应后 `TCP` 连接立即关闭。
 
 ```rust
 let send_res: ResponseResult = ctx.send_once().await;
@@ -176,7 +176,7 @@ let send_res: ResponseResult = ctx.send_once().await;
 #### 仅发送响应体
 
 > [!tip]
-> 支持多次主动发送响应
+> 支持多次主动发送响应。
 
 ##### response.send_body
 

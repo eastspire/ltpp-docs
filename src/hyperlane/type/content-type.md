@@ -15,7 +15,7 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架的 `Content-type` 内部 `value` 定义如下
+> `hyperlane` 框架的 `Content-type` 内部 `value` 定义如下：
 
 ```rust
 pub static APPLICATION_VND_LOTUS_1_2_3: &str = "application/vnd.lotus-1-2-3";

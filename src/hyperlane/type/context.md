@@ -15,7 +15,7 @@ order: 11
 
 > [!tip]
 >
-> `hyperlane` 框架的 `Context` 作为中间件和路由处理函数的唯一的参数类型，其内部保存了上下文数据，具体类型定义如下
+> `hyperlane` 框架的 `Context` 作为中间件和路由处理函数的唯一的参数类型，其内部保存了上下文数据，具体类型定义如下：
 
 ```rust
 #[derive(Clone, Lombok, Default)]

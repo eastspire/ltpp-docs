@@ -15,15 +15,15 @@ order: 4
 
 > [!tip]
 >
-> `hyperlane` 框架对 `ctx` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称
+> `hyperlane` 框架对 `ctx` 额外封装了子字段的方法，可以直接调用大部分子字段的 `get` 和 `set` 方法名称。
 > 例如：调用 `request` 上的 `get_method` 方法，
 > 一般需要从 `ctx` 解出 `request`，再调用`request.get_method()`，
-> 可以简化成直接调用 `ctx.get_request_method().await`
+> 可以简化成直接调用 `ctx.get_request_method().await`。
 >
 > **调用规律**
 >
-> - 原 `request` 的 `get` 方法的 `get` 名称后加 `request` 名称，中间使用\_拼接
-> - 原 `request` 的 `set` 方法的 `set` 名称后加 `request` 名称，中间使用\_拼接
+> - 原 `request` 的 `get` 方法的 `get` 名称后加 `request` 名称，中间使用\_拼接。
+> - 原 `request` 的 `set` 方法的 `set` 名称后加 `request` 名称，中间使用\_拼接。
 
 ### 获取请求信息
 
@@ -61,7 +61,7 @@ let querys: RequestQuerys = ctx.get_request_querys().await;
 
 > [!tip]
 >
-> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以获取请求头时需要注意 `key` 使用全小写
+> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以获取请求头时需要注意 `key` 使用全小写。
 
 ```rust
 let header: OptionRequestHeadersValue = ctx.get_request_header("key").await;
@@ -139,7 +139,7 @@ request.set_request_hash("server".to_owned());
 
 > [!tip]
 >
-> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以更新请求头时需要注意 `key` 使用全小写
+> `hyperlane` 框架请求头的 `key` 是经过全小写处理，所以更新请求头时需要注意 `key` 使用全小写。
 
 ```rust
 request.set_request_header("server", "hyperlane");
@@ -162,7 +162,7 @@ request.set_request_body(vec![]);
 #### 通过 `to_string`
 
 > [!tip]
-> 将获得完整的原始结构体字符串结构
+> 将获得完整的原始结构体字符串结构。
 
 ```rust
 ctx.get_request().await.to_string();
@@ -171,7 +171,7 @@ ctx.get_request().await.to_string();
 #### 通过 `get_string`
 
 > [!tip]
-> 将获得简化的结构体字符串结构
+> 将获得简化的结构体字符串结构。
 
 ```rust
 ctx.get_request().await.get_string();
