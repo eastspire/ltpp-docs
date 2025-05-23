@@ -17,6 +17,7 @@ export default sidebar({
   "/http-request": 'structure',
   "/http-type": 'structure',
   "/hyperlane": 'structure',
+  "/hyperlane-broadcast": 'structure',
   "/hyperlane-log": 'structure',
   "/hyperlane-time": 'structure',
   "/lombok-macros": 'structure',

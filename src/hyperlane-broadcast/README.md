@@ -3,9 +3,8 @@ title: Hyperlane 广播库
 index: false
 icon: book
 category:
-
-- hyperlane-broadcast
-  dir:
+  - hyperlane-broadcast
+dir:
   order: 44
 ---
 
