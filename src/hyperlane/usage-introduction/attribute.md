@@ -15,8 +15,8 @@ order: 10
 
 > [!tip]
 >
-> `hyperlane` 框架支持临时上下文属性以 `key-value` 形式存储，生命周期贯穿一个完整的请求和响应
-> 存储的 `value` 支持实现了`Any + Send + Sync + Clone` 的 `trait` 的类型
+> `hyperlane` 框架支持临时上下文属性以 `key-value` 形式存储，生命周期贯穿一个完整的请求和响应。
+> 存储的 `value` 支持实现了`Any + Send + Sync + Clone` 的 `trait` 的类型。
 
 ### 设置某个临时上下文属性
 
@@ -47,7 +47,7 @@ ctx.clear_attribute().await;
 #### 设置闭包
 
 > [!tip]
-> 闭包需要实现 `Send + Sync` 的 `trait`，否则无法跨线程调用，
+> 闭包需要实现 `Send + Sync` 的 `trait`，否则无法跨线程调用。
 > 不推荐 `value` 存储函数，这里只是提供一个示例
 
 ```rust

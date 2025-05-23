@@ -26,7 +26,7 @@ order: 1
 
 #### Linux 内核调优
 
-> 打开文件 `/etc/sysctl.conf`，增加以下设置
+> 打开文件 `/etc/sysctl.conf`，增加以下设置。
 
 ```sh
 #该参数设置系统的TIME_WAIT的数量，如果超过默认值则会被立即清除
@@ -54,7 +54,7 @@ ulimit -n 1024000
 
 #### 打开文件数
 
-> 修改 `open files` 的数值重启后永久生效，修改配置文件：`/etc/security/limits.conf`. 在这个文件后加上
+> 修改 `open files` 的数值重启后永久生效，修改配置文件：`/etc/security/limits.conf`。在这个文件后加上
 
 ```sh
 * soft nofile 1024000

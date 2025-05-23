@@ -15,7 +15,7 @@ order: 10
 
 > [!tip]
 >
-> `hyperlane` 框架提供了 `FileExtension`， 它提供了获取路径的文件后缀名以及文件后缀名转 `content-type` 等方法
+> `hyperlane` 框架提供了 `FileExtension`， 它提供了获取路径的文件后缀名以及文件后缀名转 `content-type` 等方法。
 
 ### 使用
 

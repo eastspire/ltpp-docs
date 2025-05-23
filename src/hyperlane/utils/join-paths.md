@@ -17,8 +17,8 @@ order: 3
 
 > [!tip]
 >
-> `hyperlane` 框架提供了 `join_paths!` 宏用于将多个路径组合成一个有效的路径，并处理重叠的斜杠
-> 此宏来自`std-macro-extensions`库，使用参考 [官方文档](../../std-macro-extensions/README.md)
+> `hyperlane` 框架提供了 `join_paths!` 宏用于将多个路径组合成一个有效的路径，并处理重叠的斜杠。
+> 此宏来自`std-macro-extensions`库，使用参考 [官方文档](../../std-macro-extensions/README.md)。
 
 #### 参数
 

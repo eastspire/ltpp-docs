@@ -172,13 +172,15 @@ function disableWarnLog() {
 
 function disableClickDom() {
   function disableClicks() {
-    var noClickElements = document.querySelectorAll('.no-click');
-    noClickElements.forEach(function (element) {
-      element.addEventListener('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
+    setTimeout(() => {
+      var noClickElements = document.querySelectorAll('.no-click');
+      noClickElements.forEach(function (element) {
+        element.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        });
       });
-    });
+    }, 0);
   }
   const observer = new MutationObserver(disableClicks);
   observer.observe(document.body, {
