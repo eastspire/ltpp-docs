@@ -171,7 +171,7 @@ function disableWarnLog() {
 }
 
 function disableClickDom() {
-  function disableClicks() {
+  setInterval(() => {
     var noClickElements = document.querySelectorAll('.no-click');
     noClickElements.forEach(function (element) {
       element.addEventListener('click', function (event) {
@@ -179,12 +179,7 @@ function disableClickDom() {
         event.stopPropagation();
       });
     });
-  }
-  const observer = new MutationObserver(disableClicks);
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+  }, 360);
 }
 
 (function () {
