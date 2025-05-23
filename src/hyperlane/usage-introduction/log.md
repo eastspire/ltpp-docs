@@ -15,7 +15,7 @@ order: 11
 
 > [!tip]
 >
-> `hyperlane` 框架内置了日志功能（使用参考 [官方文档](../../hyperlane-log/README.md)）使用方式如下。
+> `hyperlane` 框架内置了日志功能（使用参考 [官方文档](../../hyperlane-log/README.md)）使用方式如下：
 
 ### 获取日志实例
 
