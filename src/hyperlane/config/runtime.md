@@ -15,7 +15,7 @@ order: 1
 
 > [!tip]
 >
-> `hyperlane` 框架基于 `tokio`，可以参考 `tokio` [官方文档](https://docs.rs/tokio/latest/tokio/) 进行配置
+> `hyperlane` 框架基于 `tokio`，可以参考 `tokio` [官方文档](https://docs.rs/tokio/latest/tokio/) 进行配置。
 
 ### 通过宏
 

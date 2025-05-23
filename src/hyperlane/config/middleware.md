@@ -15,7 +15,7 @@ order: 10
 
 > [!tip]
 >
-> `hyperlane` 框架支持请求中间件和响应中间件，中间件参数类型参考 [controller-data 文档](../type/controller-data.md)
+> `hyperlane` 框架支持请求中间件和响应中间件，中间件参数类型参考 [controller-data 文档](../type/controller-data.md)。
 
 ### 请求中间件
 
