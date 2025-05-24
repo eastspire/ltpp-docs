@@ -8,6 +8,7 @@ category:
   - rust
   - config
   - log
+  - http
 order: 9
 ---
 
