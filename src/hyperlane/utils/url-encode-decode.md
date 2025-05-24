@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - url-encode-decode
-order: 11
+order: 10
 ---
 
 <Share colorful />

@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - recoverable-thread-pool
-order: 5
+order: 15
 ---
 
 <Share colorful />

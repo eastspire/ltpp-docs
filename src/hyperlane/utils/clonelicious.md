@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - clonelicious
-order: 1
+order: 5
 ---
 
 <Share colorful />

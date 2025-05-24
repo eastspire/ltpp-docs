@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - compare-version
-order: 3
+order: 11
 ---
 
 <Share colorful />

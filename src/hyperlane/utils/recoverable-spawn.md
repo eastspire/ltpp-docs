@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - recoverable-spawn
-order: 12
+order: 14
 ---
 
 <Share colorful />

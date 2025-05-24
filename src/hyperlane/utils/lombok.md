@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - lombok
-order: 9
+order: 7
 ---
 
 <Share colorful />

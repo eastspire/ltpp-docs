@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - future-fn
-order: 12
+order: 6
 ---
 
 <Share colorful />

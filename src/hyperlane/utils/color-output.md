@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - color-output
-order: 1
+order: 12
 ---
 
 <Share colorful />

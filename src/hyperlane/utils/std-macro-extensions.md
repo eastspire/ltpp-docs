@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - std-macro-extensions
-order: 3
+order: 2
 ---
 
 <Share colorful />

@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - file-extension
-order: 10
+order: 17
 ---
 
 <Share colorful />

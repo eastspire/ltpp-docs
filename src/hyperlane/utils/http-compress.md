@@ -8,7 +8,7 @@ category:
   - rust
   - utils
   - http-compress
-order: 12
+order: 3
 ---
 
 <Share colorful />
