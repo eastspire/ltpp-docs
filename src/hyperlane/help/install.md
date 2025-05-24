@@ -8,7 +8,7 @@ category:
   - rust
   - help
   - install
-order: 1
+order: 2
 ---
 
 <Share colorful />

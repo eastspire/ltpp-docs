@@ -8,7 +8,7 @@ category:
   - rust
   - config
   - multi-server
-order: 13
+order: 12
 ---
 
 <Share colorful />
