@@ -15,7 +15,7 @@ order: 5
 
 > [!tip]
 >
-> `hyperlane` 使用了 `clonelicious` 库，内部提供变量捕获和克隆（框架已内置，无需额外安装和导入）。
+> `hyperlane` 框架推荐使用 `clonelicious` 库，内部提供变量捕获和克隆（需额外安装和导入）。
 > 使用参考 [官方文档](../../clonelicious/README.md)。
 
 <Bottom />

@@ -15,7 +15,7 @@ order: 21
 
 > [!tip]
 >
-> `hyperlane` 框架使用了 `bin-encode-decode` 库（框架已内置，无需额外安装和导入）。
+> `hyperlane` 框架推荐使用 `bin-encode-decode` 库（需额外安装和导入）。
 > 使用参考 [官方文档](../../bin-encode-decode/README.md)。
 
 <Bottom />
