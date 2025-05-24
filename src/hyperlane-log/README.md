@@ -44,6 +44,7 @@ cargo add hyperlane-log
 
 ```rust
 use hyperlane_log::*;
+
 let log: Log = Log::new("./logs", 1_024_000);
 log.error("error data!", |error| {
     let write_data: String = format!("User error func => {:?}\n", error);
@@ -75,6 +76,7 @@ log.debug(String::from("debug data!"), |debug| {
 
 ```rust
 use hyperlane_log::*;
+
 let log: Log = Log::new("./logs", 1_024_000);
 log.async_error("async error data!", |error| {
     let write_data: String = format!("User error func => {:?}\n", error);
