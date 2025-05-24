@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - utils
-  - log
+  - hyperlane-log
 order: 2
 ---
 
@@ -15,7 +15,7 @@ order: 2
 
 > [!tip]
 >
-> `hyperlane` 框架日志使用了 `hyperlane-log` 库，框架已默认导入，无需额外安装和导入。
+> `hyperlane` 使用了 `hyperlane-log` 库（框架已内置，无需额外安装和导入）。
 > 使用参考 [官方文档](../../hyperlane-log/README.md)。
 
 ### 日志处理函数

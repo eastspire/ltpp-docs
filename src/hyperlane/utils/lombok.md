@@ -15,7 +15,7 @@ order: 9
 
 > [!tip]
 >
-> `hyperlane` 框架内置了 `lombok` 库。
+> `hyperlane` 使用了 `lombok` 库（框架已内置，无需额外安装和导入）。
 > 使用参考 [官方文档](../../lombok-macros/README.md)。
 
 <Bottom />

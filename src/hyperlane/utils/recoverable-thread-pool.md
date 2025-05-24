@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - utils
-  - thread-pool
+  - recoverable-thread-pool
 order: 5
 ---
 
@@ -15,7 +15,7 @@ order: 5
 
 > [!tip]
 >
-> `hyperlane` 框架提供了线程池 `recoverable-thread-pool` 库，框架已默认导入，无需额外安装和导入。
+> `hyperlane` 框架使用了 `recoverable-thread-pool` 库（框架已内置，无需额外安装和导入）。
 > 使用参考 [官方文档](../../recoverable-thread-pool/README.md)。
 
 <Bottom />

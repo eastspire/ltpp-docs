@@ -3,19 +3,19 @@ title: 克隆
 index: true
 icon: book
 category:
-  - clone
+  - hyperlane
   - web
   - rust
   - utils
-  - clone
-order: 4
+  - clonelicious
+order: 1
 ---
 
 <Share colorful />
 
 > [!tip]
 >
-> `hyperlane` 框架克隆使用了 `clone` 库，内部提供变量捕获和克隆，框架已默认导入，无需额外安装和导入。
+> `hyperlane` 使用了 `clonelicious` 库，内部提供变量捕获和克隆（框架已内置，无需额外安装和导入）。
 > 使用参考 [官方文档](../../clonelicious/README.md)。
 
 <Bottom />
