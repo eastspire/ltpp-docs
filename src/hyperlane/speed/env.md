@@ -63,4 +63,10 @@ root soft nofile 1024000
 root hard nofile 1024000
 ```
 
+#### 运行命令
+
+```sh
+RUSTFLAGS="-C target-cpu=native -C link-arg=-fuse-ld=lld" cargo run --release
+```
+
 <Bottom />
