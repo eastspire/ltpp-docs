@@ -60,10 +60,6 @@ fn ensure_broadcast_channel() -> Broadcast<ResponseBody> {
 }
 
 pub async fn handle(ctx: Context) {
-    if ctx.get_stream().await.is_none() {
-        ctx.aborted().await;
-        return;
-    }
     let broadcast: Broadcast<ResponseBody> = ensure_broadcast_channel();
     let mut receiver: BroadcastReceiver<Vec<u8>> = broadcast.subscribe();
     loop {
