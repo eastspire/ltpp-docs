@@ -51,8 +51,6 @@ pub async fn handle(ctx: Context) {
 > 完整代码参考 [`GroupChat`](../project/group-chat.md) 。
 
 ```rust
-use super::*;
-
 static BROADCAST_CHANNEL: OnceLock<Broadcast<ResponseBody>> = OnceLock::new();
 
 fn ensure_broadcast_channel() -> Broadcast<ResponseBody> {
@@ -66,19 +64,16 @@ pub async fn handle(ctx: Context) {
         ctx.aborted().await;
         return;
     }
-    let stream: ArcRwLockStream = ctx.get_stream().await.unwrap();
-    let mut first_request: Request = ctx.get_request().await;
     let broadcast: Broadcast<ResponseBody> = ensure_broadcast_channel();
     let mut receiver: BroadcastReceiver<Vec<u8>> = broadcast.subscribe();
     loop {
         tokio::select! {
-            request_res = Request::websocket_request_from_stream(&stream, 10000) => {
+            request_res = ctx.websocket_request_from_stream(10000) => {
                 if request_res.is_err() {
                     break;
                 }
                 let request = request_res.unwrap_or_default();
                 let body: RequestBody = request.get_body().clone();
-                first_request.set_body(body.clone());
                 if broadcast.send(body).is_err() {
                     break;
                 }
