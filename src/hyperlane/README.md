@@ -60,20 +60,12 @@ async fn request_middleware(ctx: Context) {
         .await
         .set_response_header(CONTENT_TYPE, content_type_charset(TEXT_PLAIN, UTF8))
         .await
-        .set_response_header(DATE, gmt())
-        .await
         .set_response_header("SocketAddr", socket_addr)
         .await;
 }
 
 async fn response_middleware(ctx: Context) {
     let _ = ctx.send().await;
-    let request: String = ctx.get_request_string().await;
-    let response: String = ctx.get_response_string().await;
-    ctx.log_info(&request, log_handler)
-        .await
-        .log_info(&response, log_handler)
-        .await;
 }
 
 async fn root_route(ctx: Context) {
@@ -95,10 +87,11 @@ async fn main() {
     server.port(60000).await;
     server.enable_nodelay().await;
     server.disable_linger().await;
-    server.log_dir("./logs").await;
-    server.enable_inner_log().await;
-    server.enable_inner_print().await;
-    server.log_size(100_024_000).await;
+    server
+        .error_handle(|data: String| {
+            println!("{}", data);
+        })
+        .await;
     server.http_line_buffer_size(4096).await;
     server.websocket_buffer_size(4096).await;
     server.request_middleware(request_middleware).await;
@@ -108,8 +101,7 @@ async fn main() {
     server
         .route("/test/:text", move |ctx: Context| async move {
             let param: RouteParams = ctx.get_route_params().await;
-            println_success!(format!("{:?}", param));
-            panic!("Test panic");
+            panic!("Test panic {:?}", param);
         })
         .await;
     server.run().await.unwrap();
