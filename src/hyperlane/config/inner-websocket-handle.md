@@ -1,5 +1,5 @@
 ---
-title: 框架内部处理websocket
+title: 内置websocket处理
 index: true
 icon: book
 category:
@@ -21,7 +21,7 @@ order: 10
 > 需要在路由注册的处理函数中手动处理请求。如果启用，需要设置具体的路由，则会自动处理请求缓存设置，一般用于单发场景。
 > 如果不启用，则需要在业务代码中使用死循环去循环处理请求，一般用于群发场景。
 
-## 启用 `websocket` 内部处理
+## 启用框架内部 `websocket` 处理
 
 ### 静态路由
 

@@ -1,5 +1,5 @@
 ---
-title: 框架内部处理http
+title: 内置http处理
 index: true
 icon: book
 category:
@@ -19,7 +19,7 @@ order: 9
 > `hyperlane` 框架支持配置 `http` 内部处理方式，默认启用，
 > 值得一提的是此配置支持动态路由设置。
 
-## 启用 `http` 内部处理
+## 启用框架内部 `http` 处理
 
 ### 静态路由
 
