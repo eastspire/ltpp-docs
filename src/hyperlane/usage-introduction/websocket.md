@@ -42,7 +42,7 @@ pub async fn handle(ctx: Context) {
 >
 > 需要阻塞住当前处理函数，将后续所有请求在处理函数中处理。
 > 这里使用 `tokio` 的 `select` 来处理多个请求，使用 [`hyperlane-broadcast`](../../hyperlane-broadcast/README.md) 来实现广播。
-> 需要特别注意，如果 `server` 没有配置 [`enable_inner_websocket_handle`](../config/enable_inner_websocket_handle.md) ，群发消息必须要求客户端连接后主动向服务端发送一条消息（空消息即可），否则不会接收到广播的信息，
+> 需要特别注意，如果 `server` 没有配置 [`disable_inner_websocket_handle`](../config/inner-websocket-handle.md) ，群发消息必须要求客户端连接后主动向服务端发送一条消息（空消息即可），否则不会接收到广播的信息，
 > 因为服务端在框架内部会先完成握手，然后等待读取一次客户端请求，才会执行到用户代码。
 > 如果配置了则连接后即可接收到广播的信息。
 
