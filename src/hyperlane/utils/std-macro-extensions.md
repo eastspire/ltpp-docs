@@ -15,7 +15,7 @@ order: 2
 
 > [!tip]
 >
-> `hyperlane` 框架使用了 `std-macro-extensions` 库（框架已内置，无需额外安装和导入），无需额外安装和导入。
+> `hyperlane` 框架使用了 `std-macro-extensions` 库（框架已内置，无需额外安装和导入）。
 > 使用参考 [官方文档](../../std-macro-extensions/README.md)。
 
 <Bottom />

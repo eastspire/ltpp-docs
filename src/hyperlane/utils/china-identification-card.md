@@ -15,7 +15,7 @@ order: 20
 
 > [!tip]
 >
-> `hyperlane` 框架使用了 `china_identification_card` 库（框架已内置，无需额外安装和导入），无需额外安装和导入。
+> `hyperlane` 框架推荐使用 `china_identification_card` 库（需额外安装和导入）。
 > 使用参考 [官方文档](../../china-identification-card/README.md)。
 
 <Bottom />
