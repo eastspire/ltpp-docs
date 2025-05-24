@@ -46,13 +46,12 @@ order: 1
 │   ├── server           # 服务初始化
 ├── plugin               # 插件目录
 │   ├── server_manager   # 服务进程管理插件
-├── utils                # 通用工具目录
-resources                # 资源目录
-├── static               # 静态资源目录
-│   ├── html             # HTML静态资源
-│   ├── img              # 图片静态资源
-├── templates            # 模板目录
-│   ├── html             # HTML模板
+├── resources            # 资源目录
+│   ├── static           # 静态资源目录
+│      ├── html          # HTML静态资源
+│      ├── img           # 图片静态资源
+│   ├── templates        # 模板目录
+│      ├── html          # HTML模板
 ```
 
 <Bottom />
