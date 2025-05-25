@@ -22,6 +22,6 @@ order: 1
 ### 推荐阅读
 
 > [!tip]
-> 推荐阅读[点击阅读](../utils/README.md);
+> 推荐阅读 [点击阅读](../../hyperlane-utils/README.md) 。
 
 <Bottom />
