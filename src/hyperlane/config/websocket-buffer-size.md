@@ -8,7 +8,7 @@ category:
   - rust
   - config
   - log
-order: 8
+order: 7
 ---
 
 <Share colorful />
