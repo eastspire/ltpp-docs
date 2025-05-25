@@ -1,5 +1,5 @@
 ---
-title: 内置http处理
+title: 内置HTTP处理
 index: true
 icon: book
 category:
