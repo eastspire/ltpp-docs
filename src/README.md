@@ -177,10 +177,10 @@ features:
     icon: blog
     link: /hyperlane-broadcast/
 
-  - title: ltpp-qrcode
-    details: ltpp qrcode服务
+  - title: hyperlane-utils
+    details: Hyperlane工具库
     icon: blog
-    link: /ltpp-qrcode/
+    link: /hyperlane-utils/
 
   - title: ltpp-html-pdf
     details: ltpp html转pdf
