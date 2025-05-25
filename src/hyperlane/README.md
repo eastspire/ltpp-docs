@@ -81,7 +81,7 @@ async fn websocket_route(ctx: Context) {
 }
 
 fn error_handle(error: String) {
-    eprint!("{}", error);
+    eprintln!("{}", error);
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
