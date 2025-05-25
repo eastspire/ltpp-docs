@@ -42,7 +42,7 @@ cargo add tcplane
 use tcplane::*;
 
 async fn test_func(ctx: Context) {
-    ctx.send("tcplane").await.unwrap();
+    ctx.send("tcplane: 1").await.unwrap();
 }
 
 fn error_handle(error: String) {
@@ -55,12 +55,12 @@ async fn main() {
     let mut server: Server = Server::new();
     server.host("0.0.0.0").await;
     server.port(60000).await;
-    server.error_handle(error_handle).await;
     server.buffer(100_024_000).await;
+    server.error_handle(error_handle).await;
     server.func(test_func).await;
     server
         .func(|ctx: Context| async move {
-            ctx.send("tcplane").await.unwrap();
+            ctx.send("tcplane: 2").await.unwrap();
         })
         .await;
     server.run().await;
