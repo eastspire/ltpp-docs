@@ -45,6 +45,8 @@ dir:
 - 优先导入顺序：pub use、pub(crate)、pub(super)
 - 其次导入顺序：本地库、标准库、外部库
 
+**例如**
+
 ```rust
 pub(crate) mod cfg;
 pub(crate) mod config;
