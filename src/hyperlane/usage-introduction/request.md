@@ -91,14 +91,6 @@ let body: String = ctx.get_request_body_string().await;
 let body: T = ctx.get_request_body_json::<T>().await;
 ```
 
-### 设置请求
-
-#### 设置 `request`
-
-```rust
-ctx.set_request(Request::default()).await;
-```
-
 ### 转字符串
 
 #### 通过 `to_string`
