@@ -18,34 +18,40 @@ order: 7
 > `hyperlane` 框架的 `Response` 内部具体类型定义如下
 
 ```rust
-///  Response body
-pub type ResponseBody = Vec<u8>;
-///  Response body string
-pub type ResponseBodyString = String;
-///  Response headers key
-pub type ResponseHeadersKey = String;
-///  Response headers value
-pub type ResponseHeadersValue = String;
-///  Response headers
-pub type ResponseHeaders = HashMapXxHash3_64<ResponseHeadersKey, ResponseHeadersValue>;
-/// Response version
-pub type ResponseVersion = String;
-/// Response status code
-pub type ResponseStatusCode = usize;
-/// Response reason phrase
-pub type ResponseReasonPhrase = String;
-///  Response result
-pub type ResponseResult = Result<(), ResponseError>;
-/// Response data
-pub type ResponseData = Vec<u8>;
-/// Response data string
-pub type ResponseDataString = String;
-/// RwLockReadGuardResponse
-pub type RwLockReadGuardResponse<'a> = RwLockReadGuard<'a, Response>;
-/// RwLockWriteGuardResponse
-pub type RwLockWriteGuardResponse<'a> = RwLockWriteGuard<'a, Response>;
-/// OptionResponseHeadersValue
-pub type OptionResponseHeadersValue = Option<ResponseHeadersValue>;
+/// Request method
+pub type RequestMethod = Methods;
+/// Request host
+pub type RequestHost = String;
+/// Request version
+pub type RequestVersion = HttpVersion;
+/// Request path
+pub type RequestPath = String;
+/// Request querys key
+pub type RequestQuerysKey = String;
+/// Request querys value
+pub type RequestQuerysValue = String;
+/// Request querys
+pub type RequestQuerys = HashMapXxHash3_64<RequestQuerysKey, RequestQuerysValue>;
+///  Request body
+pub type RequestBody = Vec<u8>;
+///  Request body string
+pub type RequestBodyString = String;
+/// Request headers key
+pub type RequestHeadersKey = String;
+/// Request headers value
+pub type RequestHeadersValue = String;
+/// Request headers
+pub type RequestHeaders = HashMapXxHash3_64<RequestHeadersKey, RequestHeadersValue>;
+/// Request reader handle result
+pub type RequestReaderHandleResult = Result<Request, RequestError>;
+/// RwLockReadGuardRequest
+pub type RwLockReadGuardRequest<'a> = RwLockReadGuard<'a, Request>;
+/// RwLockWriteGuardRequest
+pub type RwLockWriteGuardRequest<'a> = RwLockWriteGuard<'a, Request>;
+/// OptionRequestQuerysValue
+pub type OptionRequestQuerysValue = Option<RequestQuerysValue>;
+/// OptionRequestHeadersValue
+pub type OptionRequestHeadersValue = Option<RequestHeadersValue>;
 
 /// Represents an HTTP response.
 ///
