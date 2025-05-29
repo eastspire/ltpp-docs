@@ -183,7 +183,7 @@ features:
     link: /hyperlane-utils/
 
   - title: hyperlane-plugin-websocket
-    details: HyperlaneWebSocket插件
+    details: WebSocket插件
     icon: blog
     link: /hyperlane-plugin-websocket/
 ---
