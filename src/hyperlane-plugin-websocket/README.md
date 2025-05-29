@@ -1,5 +1,5 @@
 ---
-title: Hyperlane WebSocket 插件
+title: HyperlaneWebSocket插件
 index: false
 icon: book
 category:
