@@ -182,10 +182,10 @@ features:
     icon: blog
     link: /hyperlane-utils/
 
-  - title: ltpp-html-pdf
-    details: ltpp html转pdf
+  - title: hyperlane-plugin-websocket
+    details: HyperlaneWebSocket插件
     icon: blog
-    link: /ltpp-html-pdf/
+    link: /hyperlane-plugin-websocket/
 ---
 
 <div class="center">

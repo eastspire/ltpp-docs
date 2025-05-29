@@ -69,6 +69,6 @@ assert_eq!(rec3.recv().await, Ok(10));
 
 ## 联系方式
 
-如有任何问题，欢迎联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)
+如有任何问题，欢迎联系作者：[root@ltpp.vip](mailto:root@ltpp.vip)。
 
 <Bottom />

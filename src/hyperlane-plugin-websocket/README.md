@@ -1,0 +1,110 @@
+---
+title: Hyperlane WebSocket 插件
+index: false
+icon: book
+category:
+  - hyperlane-plugin-websocket
+dir:
+  order: 46
+---
+
+<Share colorful />
+
+[GITHUB 地址](https://github.com/eastspire/hyperlane-plugin-websocket)
+
+<center>
+
+[![](https://img.shields.io/crates/v/hyperlane-plugin-websocket.svg)](https://crates.io/crates/hyperlane-plugin-websocket)
+[![](https://img.shields.io/crates/d/hyperlane-plugin-websocket.svg)](https://img.shields.io/crates/d/hyperlane-plugin-websocket.svg)
+[![](https://docs.rs/hyperlane-plugin-websocket/badge.svg)](https://docs.rs/hyperlane-plugin-websocket)
+[![](https://github.com/eastspire/hyperlane-plugin-websocket/workflows/Rust/badge.svg)](https://github.com/eastspire/hyperlane-plugin-websocket/actions?query=workflow:Rust)
+[![](https://img.shields.io/crates/l/hyperlane-plugin-websocket.svg)](./LICENSE)
+
+</center>
+
+[官方文档](https://docs.ltpp.vip/hyperlane-plugin-websocket/)
+
+[API 文档](https://docs.rs/hyperlane-plugin-websocket/latest/hyperlane_plugin_websocket/)
+
+> hyperlane 框架的 WebSocket 插件
+
+## 安装
+
+使用以下命令添加此依赖：
+
+```shell
+cargo add hyperlane-plugin-websocket
+```
+
+## 使用示例
+
+```rust
+use hyperlane::*;
+use hyperlane_plugin_websocket::*;
+use hyperlane_utils::*;
+
+static BROADCAST_MAP: OnceLock<WebSocket> = OnceLock::new();
+
+fn get_broadcast_map() -> &'static WebSocket {
+    BROADCAST_MAP.get_or_init(|| WebSocket::new())
+}
+
+async fn websocket_callback(ws_ctx: Context) {
+    let body: RequestBody = ws_ctx.get_request_body().await;
+    ws_ctx.set_response_body(body).await;
+}
+
+async fn private_chat(ctx: Context) {
+    let my_name: String = ctx.get_route_param("my_name").await.unwrap();
+    let your_name: String = ctx.get_route_param("your_name").await.unwrap();
+    get_broadcast_map()
+        .run(
+            &ctx,
+            BroadcastType::PointToPoint(&my_name, &your_name),
+            websocket_callback,
+        )
+        .await;
+}
+
+async fn group_chat(ctx: Context) {
+    let your_name: String = ctx.get_route_param("group_name").await.unwrap();
+    get_broadcast_map()
+        .run(
+            &ctx,
+            BroadcastType::PointToGroup(&your_name),
+            websocket_callback,
+        )
+        .await;
+}
+
+async fn main() {
+    let server: Server = Server::new();
+    server.host("0.0.0.0").await;
+    server.port(60000).await;
+    server.enable_nodelay().await;
+    server.disable_linger().await;
+    server.http_line_buffer_size(4096).await;
+    server.websocket_buffer_size(4096).await;
+    server.disable_inner_websocket_handle("/:group_name").await;
+    server.route("/:group_name", group_chat).await;
+    server
+        .disable_inner_websocket_handle("/:my_name/:your_name")
+        .await;
+    server.route("/:my_name/:your_name", private_chat).await;
+    server.run().await.unwrap();
+}
+```
+
+## 许可证
+
+本项目使用 MIT 协议，详情请参见 [LICENSE](LICENSE) 文件。
+
+## 贡献
+
+欢迎贡献代码！请提交 issue 或 pull request。
+
+## 联系方式
+
+如有任何问题，请联系作者 [root@ltpp.vip](mailto:root@ltpp.vip)。
+
+<Bottom />

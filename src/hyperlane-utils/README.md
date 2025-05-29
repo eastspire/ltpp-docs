@@ -53,6 +53,4 @@ use hyperlane_utils::*;
 
 如有任何疑问，请通过邮箱 [root@ltpp.vip](mailto:root@ltpp.vip) 联系作者。
 
-如需进一步润色或添加徽章说明、示例代码等内容，我也可以协助完善。
-
 <Bottom />
