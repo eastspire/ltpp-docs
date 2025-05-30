@@ -273,6 +273,17 @@ let total_with_offset: i32 = execute!(add_offset, &nums, 10);
 assert_eq!(total_with_offset, 36);
 ```
 
+### 示例：使用 `execute_async!`
+
+```rust
+let data: Vec<i32> = vec![1, 2, 3];
+async fn async_func(data: &[i32], offset: i32) -> i32 {
+    data.iter().map(|x| x + offset).sum()
+}
+let res: i32 = execute_async!(async_func, &data, 1).await;
+assert_eq!(res, 9);
+```
+
 ## 可用的宏
 
 - `arc!`：创建一个 `Arc<T>`。
@@ -299,6 +310,7 @@ assert_eq!(total_with_offset, 36);
 - `endl!`: 打印一个换行符到标准输出。
 - `cout_endl!`: 打印格式化输出并追加一个换行符到标准输出，同时刷新缓冲区。
 - `execute!`: 使用提供的参数调用并执行指定函数。
+- `execute_async!`: 使用提供的参数调用并异步执行指定函数。
 
 ## 许可证
 
