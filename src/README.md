@@ -162,7 +162,7 @@ features:
     icon: blog
     link: /ltpp-rust-web-server/
 
-  - title: ltpp-rust-get-proxy...
+  - title: get-proxy-request
     details: get代理post
     icon: blog
     link: /ltpp-rust-get-proxy-request/
