@@ -217,6 +217,62 @@ let combined_path: String = join_paths!("/home/", "/user/", "/documents", "file.
 let another_path: String = join_paths!("C:/", "/Program Files", "App");
 ```
 
+### 示例：使用 `cin!`
+
+```rust
+let input: String = cin!();
+println!("You typed: {}", input);
+```
+
+### 示例：使用 `cin_parse!`
+
+```rust
+let input: &str = "1 2 3";
+let numbers: Vec<i32> = cin_parse!(input, Vec<i32>);
+assert_eq!(numbers, vec![1, 2, 3]);
+let single_input: &str = "12";
+let number: i32 = cin_parse!(single_input, i32);
+assert_eq!(number, 12);
+```
+
+### 示例：使用 `cout!`
+
+```rust
+let name: &str = "Alice";
+let age: i32 = 30;
+cout!("Name: {}, Age: {}\n", name, age);
+```
+
+### 示例：使用 `endl!`
+
+```rust
+endl!();
+```
+
+### 示例：使用 `cout_endl!`
+
+```rust
+let name: &str = "Alice";
+let age: i32 = 30;
+cout_endl!("Name: {}, Age: {}\n", name, age);
+```
+
+### 示例：使用 `execute!`
+
+```rust
+fn sum(data: &[i32]) -> i32 {
+    data.iter().sum()
+}
+fn add_offset(data: &[i32], offset: i32) -> i32 {
+    data.iter().map(|x| x + offset).sum()
+}
+let nums: Vec<i32> = vec![1, 2, 3];
+let total: i32 = execute!(sum, &nums);
+assert_eq!(total, 6);
+let total_with_offset: i32 = execute!(add_offset, &nums, 10);
+assert_eq!(total_with_offset, 36);
+```
+
 ## 可用的宏
 
 - `arc!`：创建一个 `Arc<T>`。
@@ -237,6 +293,12 @@ let another_path: String = join_paths!("C:/", "/Program Files", "App");
 - `ref_cell!`：创建一个 `RefCell<T>`。
 - `vector_deque!`: Creates a `VecDeque<T>`。
 - `join_paths!`: 将多个路径组合成一个有效的路径，并处理重叠的斜杠。
+- `cin!`: 从标准输入读取一行字符串输入。
+- `cin_parse!`: 将输入解析为指定的类型或类型数组。
+- `cout!`: 将格式化输出打印到标准输出（不换行）。
+- `endl!`: 打印一个换行符到标准输出。
+- `cout_endl!`: 打印格式化输出并追加一个换行符到标准输出，同时刷新缓冲区。
+- `execute!`: 使用提供的参数调用并执行指定函数。
 
 ## 许可证
 
