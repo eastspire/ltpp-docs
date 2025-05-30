@@ -15,12 +15,12 @@ order: 5
 
 ## plaintext
 
-![](../img/flamegraph_plaintext.svg)
+![](../markdown-images/flamegraph_plaintext.svg)
 
 ## query db
 
-![](../img/flamegraph_db.svg)
+![](../markdown-images/flamegraph_db.svg)
 
 ## sleep 100ms
 
-![](../img/flamegraph_sleep100.svg)
+![](../markdown-images/flamegraph_sleep100.svg)
