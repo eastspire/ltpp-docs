@@ -66,4 +66,10 @@ cargo run restart
 cargo run restart -d
 ```
 
+#### 热重启
+
+```sh
+cargo run hot
+```
+
 <Bottom />
