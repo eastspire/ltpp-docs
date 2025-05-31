@@ -43,7 +43,7 @@ dir:
 ## 导入
 
 - 优先导入顺序：pub use、pub(crate)、pub(super)
-- 其次导入顺序：本地库、标准库、外部库
+- 其次导入顺序：本地库、标准库、外部库、单元测试独享的库
 
 **例如**
 
@@ -89,3 +89,5 @@ pub(crate) use tokio::{
     task::yield_now,
 };
 ```
+
+<Bottom />
