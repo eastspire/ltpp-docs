@@ -162,11 +162,6 @@ features:
     icon: blog
     link: /ltpp-rust-web-server/
 
-  - title: get-proxy-request
-    details: get代理post
-    icon: blog
-    link: /ltpp-rust-get-proxy-request/
-
   - title: cloud-file-storage
     details: 云端存储
     icon: blog
@@ -186,6 +181,11 @@ features:
     details: websocket插件
     icon: blog
     link: /hyperlane-plugin-websocket/
+
+  - title: hot-restart
+    details: 热重启
+    icon: blog
+    link: /hot-restart/
 ---
 
 <div class="center">
