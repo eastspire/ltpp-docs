@@ -15,7 +15,7 @@ order: 6
 
 > [!tip]
 >
-> `hyperlane` 框架推荐使用 `cargo-watch` 进行热重启， [`cargo-watch`](https://watchexec.github.io/) 是一个 `rust` 语言的命令行工具，它可以监控 `rust` 项目的文件变化，并在文件变化时自动重新编译和运行项目。其中 [快速开始](../quick-start/README.md) 已经内置了 `cargo-watch`，你可以直接使用。
+> `hyperlane` 框架推荐使用 `cargo-watch` 进行热重启， [`cargo-watch`](https://github.com/watchexec/cargo-watch) 是一个 `rust` 语言的命令行工具，它可以监控 `rust` 项目的文件变化，并在文件变化时自动重新编译和运行项目。其中 [快速开始](../quick-start/README.md) 已经内置了 `cargo-watch`，你可以直接使用。
 
 ### 安装
 
