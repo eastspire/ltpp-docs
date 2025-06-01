@@ -29,10 +29,16 @@ order: 9
 server.enable_inner_websocket_handle("/路由").await;
 ```
 
-### 动态路由
+### 朴素动态路由
 
 ```rust
-server.enable_inner_websocket_handle("/路由/:id").await;
+server.enable_inner_websocket_handle("/路由/{id}").await;
+```
+
+### 正则表达式动态路由
+
+```rust
+server.enable_inner_websocket_handle("/路由/{number:\\d+}").await;
 ```
 
 ## 禁用 `websocket` 内部处理
@@ -46,5 +52,11 @@ server.disable_inner_websocket_handle("/路由").await;
 ### 动态路由
 
 ```rust
-server.disable_inner_websocket_handle("/路由/:id").await;
+server.disable_inner_websocket_handle("/路由/{id}").await;
+```
+
+### 正则表达式动态路由
+
+```rust
+server.disable_inner_websocket_handle("/路由/{number:\\d+}").await;
 ```

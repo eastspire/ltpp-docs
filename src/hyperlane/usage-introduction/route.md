@@ -39,7 +39,7 @@ server.route("/test", |ctx: Context| {}).await;
 > - `{key}`内直接些字符串，则将匹配的 `value` 存入 `key` 对应的 `value` 中
 > - `{key:regex}` 则将正则表达式匹配的 `value` 存入 `key` 对应的 `value` 中
 
-### 经典动态路由
+### 朴素动态路由
 
 ```rust
 server.route("/test/{text}", |ctx: Context| {}).await;
