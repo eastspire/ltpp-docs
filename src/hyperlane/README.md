@@ -100,10 +100,19 @@ async fn main() {
     server.route("/", root_route).await;
     server.route("/websocket", websocket_route).await;
     server
-        .route("/test/:text", move |ctx: Context| async move {
+        .route("/dynamic/{routing}", move |ctx: Context| async move {
             let param: RouteParams = ctx.get_route_params().await;
             panic!("Test panic {:?}", param);
         })
+        .await;
+    server
+        .route(
+            "/dynamic/routing/{number:\\d+}",
+            move |ctx: Context| async move {
+                let param: RouteParams = ctx.get_route_params().await;
+                panic!("Test panic {:?}", param);
+            },
+        )
         .await;
     server.run().await.unwrap();
 }

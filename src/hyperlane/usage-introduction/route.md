@@ -34,10 +34,21 @@ server.route("/test", |ctx: Context| {}).await;
 ### 注册
 
 > [!tip]
-> 动态路由使用 `:`（英文冒号）开头，后面的字符串作为 `key` 存储在 `ctx` 中。
+> 动态路由使用 `{}` 包裹，有两种写法
+>
+> - `{key}`内直接些字符串，则将匹配的 `value` 存入 `key` 对应的 `value` 中
+> - `{key:regex}` 则将正则表达式匹配的 `value` 存入 `key` 对应的 `value` 中
+
+### 经典动态路由
 
 ```rust
-server.route("/test/:text", |ctx: Context| {}).await;
+server.route("/test/{text}", |ctx: Context| {}).await;
+```
+
+### 正则表达式动态路由
+
+```rust
+server.route("/test/{number:\\d+}", |ctx: Context| {}).await;
 ```
 
 ### 获取全部动态路由参数
