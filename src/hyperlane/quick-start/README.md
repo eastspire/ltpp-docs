@@ -15,6 +15,12 @@ dir:
 
 <Share colorful />
 
+## Hello World
+
+![](../markdown-images/hello_world.svg)
+
+## 快速开始
+
 > [!tip]
 > 这是基于 `hyperlane` 封装的项目（[hyperlane-quick-start](https://github.com/eastspire/hyperlane-quick-start)），旨在简化使用和规范项目代码结构。
 
