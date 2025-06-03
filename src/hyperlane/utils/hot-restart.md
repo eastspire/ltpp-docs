@@ -6,9 +6,9 @@ category:
   - hyperlane
   - web
   - rust
-  - help
+  - utils
   - hot-restart
-order: 6
+order: 3
 ---
 
 <Share colorful />

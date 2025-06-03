@@ -8,7 +8,7 @@ category:
   - rust
   - help
   - flamegraph
-order: 8
+order: 5
 ---
 
 <Share colorful />
