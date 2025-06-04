@@ -20,15 +20,6 @@ order: 1
 ### 跨域中间件
 
 ```rust
-use hyperlane::{
-    tokio::{
-        spawn,
-        time::{sleep, timeout},
-    },
-    *,
-};
-use std::time::Duration;
-
 pub async fn cross_middleware(ctx: Context) {
     ctx.set_response_header(ACCESS_CONTROL_ALLOW_ORIGIN, ANY)
         .await

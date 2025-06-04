@@ -20,15 +20,6 @@ order: 2
 ### 超时中间件
 
 ```rust
-use hyperlane::{
-    tokio::{
-        spawn,
-        time::{sleep, timeout},
-    },
-    *,
-};
-use std::time::Duration;
-
 async fn timeout_middleware(ctx: Context) {
     spawn(async move {
         timeout(Duration::from_millis(100), async move {
