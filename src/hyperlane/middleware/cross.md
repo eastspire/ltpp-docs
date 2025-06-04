@@ -1,5 +1,5 @@
 ---
-title: 超时中间件
+title: 跨域中间件
 index: true
 icon: book
 category:
@@ -7,17 +7,17 @@ category:
   - web
   - rust
   - middleware
-  - timeout
-order: 2
+  - multi-server
+order: 1
 ---
 
 <Share colorful />
 
 > [!tip]
 >
-> `hyperlane` 框架支持超时中间件，用于处理请求超时的情况。
+> `hyperlane` 框架支持跨域中间件，用于处理跨域请求的情况。
 
-### 超时中间件
+### 跨域中间件
 
 ```rust
 use hyperlane::{
@@ -29,19 +29,16 @@ use hyperlane::{
 };
 use std::time::Duration;
 
-async fn timeout_middleware(ctx: Context) {
-    spawn(async move {
-        timeout(Duration::from_millis(100), async move {
-            ctx.aborted().await;
-            ctx.send_response(200, "timeout").await.unwrap();
-        })
+pub async fn cross_middleware(ctx: Context) {
+    ctx.set_response_header(ACCESS_CONTROL_ALLOW_ORIGIN, ANY)
         .await
-        .unwrap();
-    });
+        .set_response_header(ACCESS_CONTROL_ALLOW_METHODS, ALL_METHODS)
+        .await
+        .set_response_header(ACCESS_CONTROL_ALLOW_HEADERS, ANY)
+        .await;
 }
 
 async fn index(ctx: Context) {
-    sleep(Duration::from_secs(1)).await;
     ctx.set_response_status_code(200)
         .await
         .set_response_body("Hello, world!")
@@ -55,7 +52,7 @@ async fn response_middleware(ctx: Context) {
 #[tokio::main]
 async fn main() {
     Server::new()
-        .request_middleware(timeout_middleware)
+        .request_middleware(cross_middleware)
         .await
         .response_middleware(response_middleware)
         .await
