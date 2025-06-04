@@ -1,5 +1,5 @@
 ---
-title: 官方项目
+title: 示例项目
 index: false
 icon: book
 category:
@@ -9,5 +9,5 @@ category:
   - project
 expanded: true
 dir:
-  order: 7
+  order: 8
 ---

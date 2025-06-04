@@ -1,13 +1,12 @@
 ---
-title: 帮助
+title: 中间件
 index: false
 icon: book
 category:
   - hyperlane
   - web
   - rust
-  - help
-expanded: true
+  - middleware
 dir:
-  order: 9
+  order: 6
 ---
