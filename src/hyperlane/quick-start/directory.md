@@ -41,11 +41,12 @@ order: 1
 ├── config                   # 配置目录
 │   ├── business             # 业务配置
 │   ├── infrastructure       # 基础设施配置
-│      ├── hyperlane         # Hyperlane配置
+│      ├── framework         # 框架配置
 │      ├── server_manager    # 服务管理配置
 ├── init                     # 初始化目录
+│   ├── business             # 业务初始化
 │   ├── infrastructure       # 基础设施初始化
-│      ├── hyperlane         # Hyperlane始化
+│      ├── framework         # 框架始化
 ├── plugin                   # 插件目录
 │   ├── log                  # 日志插件
 │   ├── server_manager       # 服务进程管理插件
