@@ -39,6 +39,10 @@ cargo add hyperlane-plugin-websocket
 ## 使用示例
 
 ```rust
+use hyperlane::*;
+use hyperlane_plugin_websocket::*;
+use hyperlane_utils::*;
+
 static BROADCAST_MAP: OnceLock<WebSocket> = OnceLock::new();
 
 fn get_broadcast_map() -> &'static WebSocket {
@@ -57,10 +61,6 @@ async fn callback(ws_ctx: Context) {
 
 async fn send_callback(_: Context) {}
 
-async fn client_closed_callback(ctx: Context) {
-    callback(ctx).await;
-}
-
 async fn private_chat(ctx: Context) {
     let my_name: String = ctx.get_route_param("my_name").await.unwrap();
     let your_name: String = ctx.get_route_param("your_name").await.unwrap();
@@ -71,7 +71,7 @@ async fn private_chat(ctx: Context) {
             BroadcastType::PointToPoint(&my_name, &your_name),
             callback,
             send_callback,
-            client_closed_callback,
+            callback,
         )
         .await;
 }
@@ -85,9 +85,27 @@ async fn group_chat(ctx: Context) {
             BroadcastType::PointToGroup(&your_name),
             callback,
             send_callback,
-            client_closed_callback,
+            callback,
         )
         .await;
+}
+
+#[tokio::main]
+async fn main() {
+    let server: Server = Server::new();
+    server.host("0.0.0.0").await;
+    server.port(60000).await;
+    server.enable_nodelay().await;
+    server.disable_linger().await;
+    server.http_line_buffer_size(4096).await;
+    server.websocket_buffer_size(4096).await;
+    server.disable_inner_websocket_handle("/{group_name}").await;
+    server.route("/{group_name}", group_chat).await;
+    server
+        .disable_inner_websocket_handle("/{my_name}/{your_name}")
+        .await;
+    server.route("/{my_name}/{your_name}", private_chat).await;
+    server.run().await.unwrap();
 }
 ```
 
