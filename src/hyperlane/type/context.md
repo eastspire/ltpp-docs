@@ -23,9 +23,10 @@ pub struct InnerContext {
     stream: OptionArcRwLockStream,
     request: Request,
     response: Response,
-    attribute: HashMapArcAnySendSync,
+    attributes: HashMapArcAnySendSync,
     route_params: ArcRwLockRouteParams,
     aborted: bool,
+    closed: bool,
 }
 
 #[derive(Clone, Default)]

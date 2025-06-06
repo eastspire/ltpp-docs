@@ -42,7 +42,7 @@ pub async fn root(ctx: Context) {
             .await;
         sleep(Duration::from_secs(1)).await;
     }
-    let _ = ctx.close().await;
+    let _ = ctx.closed().await;
 }
 ```
 

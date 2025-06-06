@@ -34,7 +34,7 @@ let socket_addr: String = ctx
     .get_stream()
     .await
     .unwrap()
-    .get_read_lock()
+    .read()
     .await
     .peer_addr()
     .and_then(|host| Ok(host.to_string()))
