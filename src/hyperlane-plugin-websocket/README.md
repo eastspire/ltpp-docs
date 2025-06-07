@@ -52,27 +52,42 @@ fn get_broadcast_map() -> &'static WebSocket {
 async fn on_ws_connected(ctx: Context) {
     tokio::spawn(async move {
         let group_name: String = ctx.get_route_param("group_name").await.unwrap();
+        let broadcast_type: BroadcastType<'_> = BroadcastType::PointToGroup(&group_name);
         let receiver_count: OptionReceiverCount =
-            get_broadcast_map().receiver_count(BroadcastType::PointToGroup(&group_name));
+            get_broadcast_map().receiver_count(broadcast_type);
         let body: String = format!("receiver_count => {:?}", receiver_count).into();
-        ctx.set_response_body(body).await;
-        println!("receiver_count => {:?}", receiver_count);
+        get_broadcast_map().send(broadcast_type, body).unwrap();
+        println!("[on_ws_connected]receiver_count => {:?}", receiver_count);
         let _ = std::io::Write::flush(&mut std::io::stderr());
     });
 }
 
-async fn callback(ws_ctx: Context) {
+async fn group_callback(ws_ctx: Context) {
     let group_name: String = ws_ctx.get_route_param("group_name").await.unwrap();
-    let mut receiver_count: OptionReceiverCount =
-        get_broadcast_map().receiver_count(BroadcastType::PointToGroup(&group_name));
+    let key: BroadcastType<'_> = BroadcastType::PointToGroup(&group_name);
+    let mut receiver_count: OptionReceiverCount = get_broadcast_map().receiver_count(key);
     let mut body: RequestBody = ws_ctx.get_request_body().await;
     if body.is_empty() {
-        receiver_count = get_broadcast_map()
-            .pre_decrement_receiver_count(BroadcastType::PointToGroup(&group_name));
+        receiver_count = get_broadcast_map().pre_decrement_receiver_count(key);
         body = format!("receiver_count => {:?}", receiver_count).into();
     }
     ws_ctx.set_response_body(body).await;
-    println!("receiver_count => {:?}", receiver_count);
+    println!("[group_callback]receiver_count => {:?}", receiver_count);
+    let _ = std::io::Write::flush(&mut std::io::stderr());
+}
+
+async fn private_callback(ws_ctx: Context) {
+    let my_name: String = ws_ctx.get_route_param("my_name").await.unwrap();
+    let your_name: String = ws_ctx.get_route_param("your_name").await.unwrap();
+    let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
+    let mut receiver_count: OptionReceiverCount = get_broadcast_map().receiver_count(key);
+    let mut body: RequestBody = ws_ctx.get_request_body().await;
+    if body.is_empty() {
+        receiver_count = get_broadcast_map().pre_decrement_receiver_count(key);
+        body = format!("receiver_count => {:?}", receiver_count).into();
+    }
+    ws_ctx.set_response_body(body).await;
+    println!("[private_callback]receiver_count => {:?}", receiver_count);
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
@@ -86,9 +101,9 @@ async fn private_chat(ctx: Context) {
             &ctx,
             DEFAULT_BUFFER_SIZE,
             BroadcastType::PointToPoint(&my_name, &your_name),
-            callback,
+            private_callback,
             on_sended,
-            callback,
+            private_callback,
         )
         .await;
 }
@@ -100,14 +115,13 @@ async fn group_chat(ctx: Context) {
             &ctx,
             DEFAULT_BUFFER_SIZE,
             BroadcastType::PointToGroup(&your_name),
-            callback,
+            group_callback,
             on_sended,
-            callback,
+            group_callback,
         )
         .await;
 }
 
-#[tokio::main]
 async fn main() {
     let server: Server = Server::new();
     server.host("0.0.0.0").await;
