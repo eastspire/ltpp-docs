@@ -1,12 +1,12 @@
 ---
-title: Methods
+title: Method
 index: true
 icon: book
 category:
   - hyperlane
   - web
   - rust
-  - methods
+  - method
   - type
 order: 3
 ---
@@ -15,14 +15,14 @@ order: 3
 
 > [!tip]
 >
-> `hyperlane` 框架的 `Methods` 内部具体类型定义如下
+> `hyperlane` 框架的 `Method` 内部具体类型定义如下
 
 ```rust
-/// Defines the `Methods` enum, representing HTTP request methods.
+/// Defines the `Method` enum, representing HTTP request methods.
 ///
-/// The `Methods` enum includes commonly used HTTP methods such as `GET` and `POST`.
+/// The `Method` enum includes commonly used HTTP methods such as `GET` and `POST`.
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum Methods {
+pub enum Method {
     /// Represents the HTTP `GET` method.
     GET,
     /// Represents the HTTP `POST` method.

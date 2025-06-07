@@ -20,7 +20,7 @@ order: 5
 ```rust
 
 /// Request method
-pub type RequestMethod = Methods;
+pub type RequestMethod = Method;
 /// Request host
 pub type RequestHost = String;
 /// Request version
