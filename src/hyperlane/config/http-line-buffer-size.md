@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - config
-  - log
+  - http-line-buffer-size
 order: 6
 ---
 
@@ -22,3 +22,5 @@ order: 6
 ```rust
 server.http_line_buffer_size(4096).await;
 ```
+
+<Bottom />

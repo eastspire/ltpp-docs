@@ -123,6 +123,9 @@ order: 2
 > [!tip]
 >
 > `hyperlane` 框架推荐使用 `hyperlane-plugin-websocket` 库（需额外安装和导入），
+> 需要注意 `on_ws_connected` 回调时请求还未得到插件处理，所以如果在 `on_ws_connected` 中广播信息，
+> 需要转成异步调用 `BroadcastType` 中的 `send` 方法（将 `send` 时机延后），其他 `hook` 则正常处理，需要 `set_response_body`，
+> 注意不要直接 `send_response_body`，插件会替开发者发送。
 > 使用参考 [官方文档](../../hyperlane-plugin-websocket/README.md)。
 
 ## urlencoding

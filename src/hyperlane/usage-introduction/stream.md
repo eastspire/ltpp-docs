@@ -15,7 +15,7 @@ order: 3
 
 > [!tip]
 >
-> `hyperlane` 框架接收请求和发送响应均依赖 `stream`，使用方式如下：
+> `hyperlane` 框架接收请求和发送响应均依赖 `stream`，类型是 [`ArcRwLockStream`](../type/stream.md) 需要注意框架提供的 `stream` 仅可读，使用方式如下：
 
 ### 获取 `stream`
 
@@ -39,6 +39,15 @@ let socket_addr: String = ctx
     .peer_addr()
     .and_then(|host| Ok(host.to_string()))
     .unwrap_or("Unknown".to_owned());
+```
+
+### 关闭连接
+
+> [!tip]
+> 此方法会关闭连接，并终止生命周期，当前请求之后的生命周期代码不会执行。
+
+```rust
+ctx.closed().await;
 ```
 
 <Bottom />

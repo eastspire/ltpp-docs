@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - config
-  - log
+  - websocket-buffer-size
 order: 7
 ---
 

@@ -7,8 +7,7 @@ category:
   - web
   - rust
   - config
-  - log
-  - http
+  - internal-http-handler
 order: 8
 ---
 
@@ -58,3 +57,5 @@ server.disable_internal_http_handler("/路由/:id").await;
 ```rust
 server.disable_internal_http_handler("/路由/:number:\\d+").await;
 ```
+
+<Bottom />

@@ -7,8 +7,7 @@ category:
   - web
   - rust
   - config
-  - log
-  - websocket
+  - internal-websocket-handler
 order: 9
 ---
 
@@ -60,3 +59,5 @@ server.disable_internal_ws_handler("/路由/{id}").await;
 ```rust
 server.disable_internal_ws_handler("/路由/{number:\\d+}").await;
 ```
+
+<Bottom />
