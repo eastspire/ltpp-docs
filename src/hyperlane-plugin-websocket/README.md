@@ -41,7 +41,6 @@ cargo add hyperlane-plugin-websocket
 ```rust
 use hyperlane::*;
 use hyperlane_plugin_websocket::*;
-use hyperlane_utils::*;
 
 static BROADCAST_MAP: OnceLock<WebSocket> = OnceLock::new();
 
@@ -76,22 +75,45 @@ async fn group_chat(ws_ctx: Context) {
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
-async fn private_chat(ws_ctx: Context) {
-    let my_name: String = ws_ctx.get_route_param("my_name").await.unwrap();
-    let your_name: String = ws_ctx.get_route_param("your_name").await.unwrap();
+async fn group_closed(ctx: Context) {
+    let group_name: String = ctx.get_route_param("group_name").await.unwrap();
+    let key: BroadcastType<'_> = BroadcastType::PointToGroup(&group_name);
+    let receiver_count: OptionReceiverCount =
+        get_broadcast_map().pre_decrement_receiver_count(key);
+    let body: String = format!("receiver_count => {:?}", receiver_count);
+    ctx.set_response_body(body).await;
+    println!("[group_closed]receiver_count => {:?}", receiver_count);
+    let _ = std::io::Write::flush(&mut std::io::stderr());
+}
+
+async fn private_chat(ctx: Context) {
+    let my_name: String = ctx.get_route_param("my_name").await.unwrap();
+    let your_name: String = ctx.get_route_param("your_name").await.unwrap();
     let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
     let mut receiver_count: OptionReceiverCount = get_broadcast_map().receiver_count(key);
-    let mut body: RequestBody = ws_ctx.get_request_body().await;
+    let mut body: RequestBody = ctx.get_request_body().await;
     if body.is_empty() {
         receiver_count = get_broadcast_map().pre_decrement_receiver_count(key);
         body = format!("receiver_count => {:?}", receiver_count).into();
     }
-    ws_ctx.set_response_body(body).await;
+    ctx.set_response_body(body).await;
     println!("[private_chat]receiver_count => {:?}", receiver_count);
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
-async fn on_sended(ctx: Context) {
+async fn private_closed(ctx: Context) {
+    let my_name: String = ctx.get_route_param("my_name").await.unwrap();
+    let your_name: String = ctx.get_route_param("your_name").await.unwrap();
+    let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
+    let receiver_count: OptionReceiverCount =
+        get_broadcast_map().pre_decrement_receiver_count(key);
+    let body: String = format!("receiver_count => {:?}", receiver_count);
+    ctx.set_response_body(body).await;
+    println!("[private_closed]receiver_count => {:?}", receiver_count);
+    let _ = std::io::Write::flush(&mut std::io::stderr());
+}
+
+async fn sended(ctx: Context) {
     let msg: String = ctx.get_response_body_string().await;
     println!("[on_sended]msg => {}", msg);
     let _ = std::io::Write::flush(&mut std::io::stderr());
@@ -102,7 +124,7 @@ async fn private_chat_route(ctx: Context) {
     let your_name: String = ctx.get_route_param("your_name").await.unwrap();
     let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
     get_broadcast_map()
-        .run(&ctx, 1024, key, private_chat, on_sended, private_chat)
+        .run(&ctx, 1024, key, private_chat, sended, private_closed)
         .await;
 }
 
@@ -110,7 +132,7 @@ async fn group_chat_route(ctx: Context) {
     let your_name: String = ctx.get_route_param("group_name").await.unwrap();
     let key: BroadcastType<'_> = BroadcastType::PointToGroup(&your_name);
     get_broadcast_map()
-        .run(&ctx, 1024, key, group_chat, on_sended, group_chat)
+        .run(&ctx, 1024, key, group_chat, sended, group_closed)
         .await;
 }
 
