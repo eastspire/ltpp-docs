@@ -18,7 +18,7 @@ order: 6
 > `hyperlane` 框架的 `HttpStatus` 内部具体类型定义如下
 
 ```rust
-/// Enumeration of HTTP status
+/// Represents common HTTP status codes.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum HttpStatus {
     /// 100 Continue

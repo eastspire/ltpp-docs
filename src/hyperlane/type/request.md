@@ -18,60 +18,57 @@ order: 5
 > `hyperlane` 框架的 `Request` 内部具体类型定义如下
 
 ```rust
-
-/// Request method
+/// HTTP request method.
 pub type RequestMethod = Method;
-/// Request host
+/// The host part of an HTTP request.
 pub type RequestHost = String;
-/// Request version
+/// The HTTP version (e.g., HTTP/1.1).
 pub type RequestVersion = HttpVersion;
-/// Request path
+/// The path portion of the request URL.
 pub type RequestPath = String;
-/// Request querys key
+/// Key type used in the request query parameters.
 pub type RequestQuerysKey = String;
-/// Request querys value
+/// Value type used in the request query parameters.
 pub type RequestQuerysValue = String;
-/// Request querys
+/// All query parameters parsed from the request URL.
 pub type RequestQuerys = HashMapXxHash3_64<RequestQuerysKey, RequestQuerysValue>;
-///  Request body
+/// The raw binary body of the request.
 pub type RequestBody = Vec<u8>;
-///  Request body string
+/// The request body as a UTF-8 string.
 pub type RequestBodyString = String;
-/// Request headers key
+/// Key type used in the request headers.
 pub type RequestHeadersKey = String;
-/// Request headers value
+/// Value type used in the request headers.
 pub type RequestHeadersValue = String;
-/// Request headers
+/// All headers sent with the HTTP request.
 pub type RequestHeaders = HashMapXxHash3_64<RequestHeadersKey, RequestHeadersValue>;
-/// Request new result
-pub type RequestNewResult = Result<Request, RequestError>;
-/// RwLockReadGuardRequest
+/// The result type returned from a request reader handler.
+pub type RequestReaderHandleResult = Result<Request, RequestError>;
+/// Read guard for a `Request` wrapped in a `RwLock`.
 pub type RwLockReadGuardRequest<'a> = RwLockReadGuard<'a, Request>;
-/// RwLockWriteGuardRequest
+/// Write guard for a `Request` wrapped in a `RwLock`.
 pub type RwLockWriteGuardRequest<'a> = RwLockWriteGuard<'a, Request>;
-/// OptionRequestQuerysValue
+/// Optional value for a query parameter.
 pub type OptionRequestQuerysValue = Option<RequestQuerysValue>;
-/// OptionRequestHeadersValue
+/// Optional value for a header.
 pub type OptionRequestHeadersValue = Option<RequestHeadersValue>;
 
-/// Represents an HTTP request.
-///
-/// # Fields
-/// - `method`: The HTTP method of the request.
-/// - `host`: The host of the request.
-/// - `version`: The version of the request.
-/// - `path`: The path of the request.
-/// - `querys`: The query string of the request.
-/// - `headers`: A collection of HTTP headers as key-value pairs.
-/// - `body`: The binary body of the request.
+/// Represents a parsed HTTP request.
 #[derive(Debug, Clone, Getter, DisplayDebug)]
 pub struct Request {
+    /// The HTTP method of the request.
     pub(super) method: RequestMethod,
+    /// The host of the request.
     pub(super) host: RequestHost,
+    /// The HTTP version used in the request.
     pub(super) version: RequestVersion,
+    /// The request path.
     pub(super) path: RequestPath,
+    /// The query string of the request.
     pub(super) querys: RequestQuerys,
+    /// A collection of HTTP headers as key-value pairs.
     pub(super) headers: RequestHeaders,
+    /// The binary body of the request.
     pub(super) body: RequestBody,
 }
 ```

@@ -18,57 +18,49 @@ order: 7
 > `hyperlane` 框架的 `Response` 内部具体类型定义如下
 
 ```rust
-/// Request method
-pub type RequestMethod = Method;
-/// Request host
-pub type RequestHost = String;
-/// Request version
-pub type RequestVersion = HttpVersion;
-/// Request path
-pub type RequestPath = String;
-/// Request querys key
-pub type RequestQuerysKey = String;
-/// Request querys value
-pub type RequestQuerysValue = String;
-/// Request querys
-pub type RequestQuerys = HashMapXxHash3_64<RequestQuerysKey, RequestQuerysValue>;
-///  Request body
-pub type RequestBody = Vec<u8>;
-///  Request body string
-pub type RequestBodyString = String;
-/// Request headers key
-pub type RequestHeadersKey = String;
-/// Request headers value
-pub type RequestHeadersValue = String;
-/// Request headers
-pub type RequestHeaders = HashMapXxHash3_64<RequestHeadersKey, RequestHeadersValue>;
-/// Request reader handle result
-pub type RequestReaderHandleResult = Result<Request, RequestError>;
-/// RwLockReadGuardRequest
-pub type RwLockReadGuardRequest<'a> = RwLockReadGuard<'a, Request>;
-/// RwLockWriteGuardRequest
-pub type RwLockWriteGuardRequest<'a> = RwLockWriteGuard<'a, Request>;
-/// OptionRequestQuerysValue
-pub type OptionRequestQuerysValue = Option<RequestQuerysValue>;
-/// OptionRequestHeadersValue
-pub type OptionRequestHeadersValue = Option<RequestHeadersValue>;
+/// The binary body of the HTTP response.
+pub type ResponseBody = Vec<u8>;
+/// The body of the HTTP response represented as a UTF-8 string.
+pub type ResponseBodyString = String;
+/// The key type used in HTTP response headers.
+pub type ResponseHeadersKey = String;
+/// The value type used in HTTP response headers.
+pub type ResponseHeadersValue = String;
+/// A map of HTTP response headers.
+pub type ResponseHeaders = HashMapXxHash3_64<ResponseHeadersKey, ResponseHeadersValue>;
+/// The HTTP version of the response (e.g., "HTTP/1.1").
+pub type ResponseVersion = String;
+/// The numeric status code of the HTTP response (e.g., 200, 404).
+pub type ResponseStatusCode = usize;
+/// The reason phrase associated with the HTTP status code (e.g., "OK", "Not Found").
+pub type ResponseReasonPhrase = String;
+/// The result type returned after writing an HTTP response.
+pub type ResponseResult = Result<(), ResponseError>;
+/// The full serialized binary content of the HTTP response.
+pub type ResponseData = Vec<u8>;
+/// The full serialized content of the HTTP response as a UTF-8 string.
+pub type ResponseDataString = String;
+/// A read guard to a shared `Response` value protected by `RwLock`.
+pub type RwLockReadGuardResponse<'a> = RwLockReadGuard<'a, Response>;
+/// A write guard to a shared `Response` value protected by `RwLock`.
+pub type RwLockWriteGuardResponse<'a> = RwLockWriteGuard<'a, Response>;
+/// An optional value of a response header.
+pub type OptionResponseHeadersValue = Option<ResponseHeadersValue>;
 
-/// Represents an HTTP response.
-///
-/// # Fields
-/// - `version`: The HTTP version of the response.
-/// - `status_code`: The status code of the response.
-/// - `reason_phrase`: The reason phrase corresponding to the status code.
-/// - `headers`: A collection of HTTP headers as key-value pairs.
-/// - `body`: The binary body of the response.
+/// Represents a parsed HTTP response.
 #[derive(Debug, Clone, Data, DisplayDebug)]
 pub struct Response {
+    /// The HTTP version used in the response.
     #[set(skip)]
     pub(super) version: ResponseVersion,
+    /// The HTTP status code (e.g., 200, 404).
     pub(super) status_code: ResponseStatusCode,
+    /// The reason phrase associated with the status code (e.g., "OK", "Not Found").
     #[set(skip)]
     pub(super) reason_phrase: ResponseReasonPhrase,
+    /// The response headers as key-value pairs.
     pub(super) headers: ResponseHeaders,
+    /// The binary body content of the response.
     #[set(skip)]
     pub(super) body: ResponseBody,
 }
