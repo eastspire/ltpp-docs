@@ -62,7 +62,7 @@ async fn on_ws_connected(ctx: Context) {
     });
 }
 
-async fn group_callback(ws_ctx: Context) {
+async fn group_chat(ws_ctx: Context) {
     let group_name: String = ws_ctx.get_route_param("group_name").await.unwrap();
     let key: BroadcastType<'_> = BroadcastType::PointToGroup(&group_name);
     let mut receiver_count: OptionReceiverCount = get_broadcast_map().receiver_count(key);
@@ -72,11 +72,11 @@ async fn group_callback(ws_ctx: Context) {
         body = format!("receiver_count => {:?}", receiver_count).into();
     }
     ws_ctx.set_response_body(body).await;
-    println!("[group_callback]receiver_count => {:?}", receiver_count);
+    println!("[group_chat]receiver_count => {:?}", receiver_count);
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
-async fn private_callback(ws_ctx: Context) {
+async fn private_chat(ws_ctx: Context) {
     let my_name: String = ws_ctx.get_route_param("my_name").await.unwrap();
     let your_name: String = ws_ctx.get_route_param("your_name").await.unwrap();
     let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
@@ -87,41 +87,34 @@ async fn private_callback(ws_ctx: Context) {
         body = format!("receiver_count => {:?}", receiver_count).into();
     }
     ws_ctx.set_response_body(body).await;
-    println!("[private_callback]receiver_count => {:?}", receiver_count);
+    println!("[private_chat]receiver_count => {:?}", receiver_count);
     let _ = std::io::Write::flush(&mut std::io::stderr());
 }
 
-async fn on_sended(_: Context) {}
+async fn on_sended(ctx: Context) {
+    let msg: String = ctx.get_response_body_string().await;
+    println!("[on_sended]msg => {}", msg);
+    let _ = std::io::Write::flush(&mut std::io::stderr());
+}
 
-async fn private_chat(ctx: Context) {
+async fn private_chat_route(ctx: Context) {
     let my_name: String = ctx.get_route_param("my_name").await.unwrap();
     let your_name: String = ctx.get_route_param("your_name").await.unwrap();
+    let key: BroadcastType<'_> = BroadcastType::PointToPoint(&my_name, &your_name);
     get_broadcast_map()
-        .run(
-            &ctx,
-            DEFAULT_BUFFER_SIZE,
-            BroadcastType::PointToPoint(&my_name, &your_name),
-            private_callback,
-            on_sended,
-            private_callback,
-        )
+        .run(&ctx, 1024, key, private_chat, on_sended, private_chat)
         .await;
 }
 
-async fn group_chat(ctx: Context) {
+async fn group_chat_route(ctx: Context) {
     let your_name: String = ctx.get_route_param("group_name").await.unwrap();
+    let key: BroadcastType<'_> = BroadcastType::PointToGroup(&your_name);
     get_broadcast_map()
-        .run(
-            &ctx,
-            DEFAULT_BUFFER_SIZE,
-            BroadcastType::PointToGroup(&your_name),
-            group_callback,
-            on_sended,
-            group_callback,
-        )
+        .run(&ctx, 1024, key, group_chat, on_sended, group_chat)
         .await;
 }
 
+#[tokio::main]
 async fn main() {
     let server: Server = Server::new();
     server.host("0.0.0.0").await;
@@ -131,11 +124,13 @@ async fn main() {
     server.http_line_buffer_size(4096).await;
     server.ws_buffer_size(4096).await;
     server.disable_internal_ws_handler("/{group_name}").await;
-    server.route("/{group_name}", group_chat).await;
+    server.route("/{group_name}", group_chat_route).await;
     server
         .disable_internal_ws_handler("/{my_name}/{your_name}")
         .await;
-    server.route("/{my_name}/{your_name}", private_chat).await;
+    server
+        .route("/{my_name}/{your_name}", private_chat_route)
+        .await;
     server.on_ws_connected(on_ws_connected).await;
     server.run().await.unwrap();
 }
