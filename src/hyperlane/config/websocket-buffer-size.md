@@ -21,5 +21,5 @@ order: 7
 > 不设置或者设置为 `0` 则默认是 `4096` 字节。
 
 ```rust
-server.websocket_buffer_size(4096).await;
+server.ws_buffer_size(4096).await;
 ```

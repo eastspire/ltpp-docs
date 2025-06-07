@@ -24,19 +24,19 @@ order: 8
 ### 静态路由
 
 ```rust
-server.enable_inner_http_handle("/路由").await;
+server.enable_internal_http_handler("/路由").await;
 ```
 
 ### 朴素动态路由
 
 ```rust
-server.enable_inner_http_handle("/路由/{id}").await;
+server.enable_internal_http_handler("/路由/{id}").await;
 ```
 
 ### 正则表达式动态路由
 
 ```rust
-server.enable_inner_http_handle("/路由/{number:\\d+}").await;
+server.enable_internal_http_handler("/路由/{number:\\d+}").await;
 ```
 
 ## 禁用 `http` 内部处理
@@ -44,17 +44,17 @@ server.enable_inner_http_handle("/路由/{number:\\d+}").await;
 ### 静态路由
 
 ```rust
-server.disable_inner_http_handle("/路由").await;
+server.disable_internal_http_handler("/路由").await;
 ```
 
 ### 朴素动态路由
 
 ```rust
-server.disable_inner_http_handle("/路由/:id").await;
+server.disable_internal_http_handler("/路由/:id").await;
 ```
 
 ### 正则表达式动态路由
 
 ```rust
-server.disable_inner_http_handle("/路由/:number:\\d+").await;
+server.disable_internal_http_handler("/路由/:number:\\d+").await;
 ```

@@ -7,7 +7,7 @@ category:
   - web
   - rust
   - utils
-  - inner-utils
+  - internal-utils
 order: 1
 ---
 
